@@ -1,15 +1,15 @@
-#include"Node_Options.h"
-#include"Random.h"
 #pragma once
+#include"BigInteger.h"
 
-struct Node_DD {
-    int64_t val;
-    int64_t priority;
-    Node_Options param;
-    Node_DD* left;
-    Node_DD* right;
-    explicit Node_DD(const int64_t& _val) : val(_val), priority(get_random()),
-                                            left(nullptr), right(nullptr),
-                                            param() {}
-    ~Node_DD() = default;
+struct Node_Options {
+    int32_t height;
+    int32_t size;
+    int64_t posX;
+    int64_t sdv;
+    int64_t L;
+    int64_t R;
+    sf::Color COLOR;
+    Node_Options() : height(0), posX(0), sdv(0), L(0), R(0),
+                     COLOR(sf::Color::Red), size(0) {}
+    ~Node_Options() = default;
 };
