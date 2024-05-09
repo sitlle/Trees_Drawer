@@ -1,0 +1,212 @@
+        -:    0:Source:/home/yeawer/tree/DD.h
+        -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcno
+        -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include<bits/stdc++.h>
+        -:    2:#include"Node_DD.h"
+        -:    3:#include"Random.h"
+        -:    4:#pragma once
+        -:    5:class DD {
+        -:    6:public:
+        -:    7:    Node_DD* root;
+        -:    8:
+        -:    9:    explicit DD() {
+        -:   10:        root = nullptr;
+        -:   11:    }
+        -:   12:
+        -:   13:    ~DD() {
+        -:   14:        clear(root);
+        -:   15:    }
+        -:   16:
+function _ZN2DD4FindEl called 60 returned 100% blocks executed 100%
+       60:   17:    bool Find(int64_t val) {
+       60:   18:        return Find(root, val);
+       60:   18-block  0
+call    0 returned 60
+        -:   19:    }
+        -:   20:
+function _ZN2DD3AddEl called 60 returned 100% blocks executed 87%
+       60:   21:    void Add(int64_t val) {
+       60:   22:        if (Find(val)) {
+       60:   22-block  0
+call    0 returned 60
+branch  1 taken 60 (fallthrough)
+branch  2 taken 0 (throw)
+       60:   22-block  1
+branch  3 taken 16 (fallthrough)
+branch  4 taken 44
+       16:   23:            return;
+       16:   23-block  0
+        -:   24:        }
+       44:   25:        auto* vertex = new Node_DD(val);
+       44:   25-block  0
+call    0 returned 44
+branch  1 taken 44 (fallthrough)
+branch  2 taken 0 (throw)
+       44:   25-block  1
+call    3 returned 44
+branch  4 taken 44 (fallthrough)
+branch  5 taken 0 (throw)
+    $$$$$:   25-block  2
+call    6 never executed
+       44:   26:        auto[T_First, T_Second] = Split(root, vertex->val);
+       44:   26-block  0
+call    0 returned 44
+branch  1 taken 44 (fallthrough)
+branch  2 taken 0 (throw)
+       44:   26-block  1
+call    3 returned 44
+call    4 returned 44
+       44:   27:        T_First = Merge(T_First, vertex);
+call    0 returned 44
+branch  1 taken 44 (fallthrough)
+branch  2 taken 0 (throw)
+       44:   28:        root = Merge(T_First, T_Second);
+       44:   28-block  0
+call    0 returned 44
+branch  1 taken 44 (fallthrough)
+branch  2 taken 0 (throw)
+       44:   28-block  1
+        -:   29:    }
+        -:   30:
+function _ZN2DD7Add_RndEi called 2 returned 100% blocks executed 100%
+        2:   31:    void Add_Rnd(int32_t x) {
+       62:   32:        for (int i = 0; i < x; ++i) {
+        2:   32-block  0
+       62:   32-block  1
+branch  0 taken 60
+branch  1 taken 2 (fallthrough)
+       60:   33:            int rnd_num = static_cast<int>(get_random() % 100); // rand nums
+       60:   33-block  0
+call    0 returned 60
+       60:   34:            Add(rnd_num);
+call    0 returned 60
+        -:   35:        }
+        2:   36:    }
+        -:   37:
+        -:   38:    void Print() {
+        -:   39:        Print(root);
+        -:   40:    }
+        -:   41:
+        -:   42:private:
+        -:   43:
+        -:   44:    void clear(Node_DD* vertex) {
+        -:   45:        if (vertex == nullptr) {
+        -:   46:            return;
+        -:   47:        }
+        -:   48:        clear(vertex->left);
+        -:   49:        clear(vertex->right);
+        -:   50:        delete[] vertex;
+        -:   51:    }
+        -:   52:
+        -:   53:    void Print(Node_DD* vertex) {
+        -:   54:        if (vertex == nullptr) {
+        -:   55:            return;
+        -:   56:        }
+        -:   57:        Print(vertex->left);
+        -:   58:        std::cout << vertex->val << ' ';
+        -:   59:        Print(vertex->right);
+        -:   60:    }
+        -:   61:
+function _ZN2DD4FindEP7Node_DDl called 335 returned 100% blocks executed 100%
+      335:   62:    bool Find(Node_DD* vertex, int64_t key) {
+      335:   63:        if (vertex == nullptr) {
+      335:   63-block  0
+branch  0 taken 44 (fallthrough)
+branch  1 taken 291
+       44:   64:            return false;
+       44:   64-block  0
+        -:   65:        }
+      291:   66:        if (vertex->val == key) {
+      291:   66-block  0
+branch  0 taken 16 (fallthrough)
+branch  1 taken 275
+       16:   67:            return true;
+       16:   67-block  0
+        -:   68:        }
+      275:   69:        if (key < vertex->val) {
+      275:   69-block  0
+branch  0 taken 162 (fallthrough)
+branch  1 taken 113
+      162:   70:            return Find(vertex->left, key);
+      162:   70-block  0
+call    0 returned 162
+        -:   71:        } else {
+      113:   72:            return Find(vertex->right, key);
+      113:   72-block  0
+call    0 returned 113
+        -:   73:        }
+        -:   74:    }
+        -:   75:
+function _ZN2DD5MergeEP7Node_DDS1_ called 306 returned 100% blocks executed 100%
+      306:   76:    Node_DD* Merge(Node_DD* T_First, Node_DD* T_Second) {
+      306:   77:        if (T_First == nullptr) {
+      306:   77-block  0
+branch  0 taken 45 (fallthrough)
+branch  1 taken 261
+       45:   78:            return T_Second;
+       45:   78-block  0
+        -:   79:        }
+      261:   80:        if (T_Second == nullptr) {
+      261:   80-block  0
+branch  0 taken 43 (fallthrough)
+branch  1 taken 218
+       43:   81:            return T_First;
+       43:   81-block  0
+        -:   82:        }
+      218:   83:        if (T_First->priority > T_Second->priority) {
+      218:   83-block  0
+branch  0 taken 114 (fallthrough)
+branch  1 taken 104
+      114:   84:            T_First->right = Merge(T_First->right, T_Second);
+      114:   84-block  0
+call    0 returned 114
+      114:   85:            return T_First;
+        -:   86:        } else {
+      104:   87:            T_Second->left = Merge(T_First, T_Second->left);
+      104:   87-block  0
+call    0 returned 104
+      104:   88:            return T_Second;
+        -:   89:        }
+        -:   90:    }
+        -:   91:
+function _ZN2DD5SplitEP7Node_DDl called 249 returned 100% blocks executed 94%
+      249:   92:    std::pair<Node_DD*, Node_DD*> Split(Node_DD* T, int64_t key) {
+      249:   93:        if (T == nullptr) {
+      249:   93-block  0
+branch  0 taken 44 (fallthrough)
+branch  1 taken 205
+       44:   94:            return {nullptr, nullptr};
+       44:   94-block  0
+call    0 returned 44
+        -:   95:        }
+      205:   96:        if (key <= T->val) {
+      205:   96-block  0
+branch  0 taken 119 (fallthrough)
+branch  1 taken 86
+      119:   97:            auto[T_First, T_Second] = Split(T->left, key);
+      119:   97-block  0
+call    0 returned 119
+branch  1 taken 119 (fallthrough)
+branch  2 taken 0 (throw)
+      119:   97-block  1
+call    3 returned 119
+call    4 returned 119
+      119:   98:            T->left = T_Second;
+      119:   99:            return {T_First, T};
+call    0 returned 119
+        -:  100:        } else {
+       86:  101:            auto[T_First, T_Second] = Split(T->right, key);
+       86:  101-block  0
+call    0 returned 86
+branch  1 taken 86 (fallthrough)
+branch  2 taken 0 (throw)
+       86:  101-block  1
+call    3 returned 86
+call    4 returned 86
+       86:  102:            T->right = T_First;
+       86:  103:            return {T, T_Second};
+call    0 returned 86
+        -:  104:        }
+        -:  105:    }
+        -:  106:};

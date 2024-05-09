@@ -1,0 +1,18 @@
+# ninja log v5
+5	3742	1715280867875262567	CMakeFiles/tree.dir/Info_Extra_Window.cpp.o	124bcc6d6bb2a5e9
+6	3717	1715280867851263432	CMakeFiles/tree.dir/Control.cpp.o	3624f03e3fecb3d
+4	4383	1715185219471623650	CMakeFiles/tree.dir/Second_Extra_Window.cpp.o	7dbb2e4bb5463d71
+3424	3595	1715279339261363867	tree	6a25103ddd3f12d1
+5	3479	1715280867615271934	CMakeFiles/tree.dir/Drawer.cpp.o	5f294d5db836ce17
+4	1468	1715185216555672728	CMakeFiles/tree.dir/First_Extra_Window.cpp.o	f5bda04b7db69af7
+11	3707	1715279312241706688	CMakeFiles/tree.dir/BigInteger.cpp.o	9328c6a267788509
+4	3402	1715280867539274673	CMakeFiles/tree.dir/Main_File.cpp.o	f54c7d66c694d289
+3	3057	1715185218143645981	CMakeFiles/tree.dir/ErrorWindow.cpp.o	1a8d39339deba5cc
+4	4264	1715280868399243697	CMakeFiles/tree.dir/FrontEnd.cpp.o	289038ef71a4666a
+11	2215	1715280988519045358	CMakeFiles/tree.dir/BigInteger.cpp.o	9328c6a267788509
+9	3479	1715280989783002432	CMakeFiles/tree.dir/Drawer.cpp.o	5f294d5db836ce17
+10	3538	1715280989843000394	CMakeFiles/tree.dir/Info_Extra_Window.cpp.o	124bcc6d6bb2a5e9
+10	3920	1715280990222987495	CMakeFiles/tree.dir/Control.cpp.o	3624f03e3fecb3d
+7	4056	1715280990358982879	CMakeFiles/tree.dir/Main_File.cpp.o	f54c7d66c694d289
+8	4158	1715280990462979349	CMakeFiles/tree.dir/FrontEnd.cpp.o	289038ef71a4666a
+4158	4390	1715280990694971475	tree	6a25103ddd3f12d1

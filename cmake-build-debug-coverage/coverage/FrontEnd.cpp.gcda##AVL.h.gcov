@@ -1,0 +1,169 @@
+        -:    0:Source:/home/yeawer/tree/AVL.h
+        -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/FrontEnd.cpp.gcno
+        -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/FrontEnd.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include<bits/stdc++.h>
+        -:    2:#include"Random.h"
+        -:    3:#include"Node_AVL.h"
+        -:    4:#pragma once
+        -:    5:class AVL {
+        -:    6:public:
+        -:    7:    Node_AVL* root;
+function _ZN3AVLC2Ev called 1 returned 100% blocks executed 100%
+        1:    8:    AVL() {
+        1:    9:        root = nullptr;
+        1:   10:    }
+        -:   11:
+function _ZN3AVLD2Ev called 1 returned 100% blocks executed 100%
+        1:   12:    ~AVL() {
+        1:   13:        clear(root);
+        1:   13-block  0
+call    0 returned 1
+        1:   14:    }
+        -:   15:
+        -:   16:    void Add_X(int32_t counter) {
+        -:   17:        for (int32_t i = 0; i < counter; ++i) {
+        -:   18:            int64_t num = get_random() % 100;
+        -:   19:            Add(num);
+        -:   20:        }
+        -:   21:    }
+        -:   22:
+        -:   23:    void Add(int64_t val) {
+        -:   24:        if (root == nullptr) {
+        -:   25:            root = new Node_AVL(val);
+        -:   26:            return;
+        -:   27:        }
+        -:   28:        root = Global_Balanced(root, val);
+        -:   29:    }
+        -:   30:
+        -:   31:    bool Find(int32_t val) {
+        -:   32:        return Find(root, val);
+        -:   33:    }
+        -:   34:
+        -:   35:    void Print() {
+        -:   36:        Print(root);
+        -:   37:    }
+        -:   38:
+        -:   39:private:
+function _ZN3AVL5clearEP8Node_AVL called 121 returned 100% blocks executed 100%
+      121:   40:    void clear(Node_AVL* vertex) {
+      121:   41:        if (vertex == nullptr) {
+      121:   41-block  0
+branch  0 taken 61 (fallthrough)
+branch  1 taken 60
+       61:   42:            return;
+       61:   42-block  0
+        -:   43:        }
+       60:   44:        clear(vertex->left);
+       60:   44-block  0
+call    0 returned 60
+       60:   45:        clear(vertex->right);
+call    0 returned 60
+       60:   46:        delete[] vertex;
+branch  0 taken 60 (fallthrough)
+branch  1 taken 0
+       60:   46-block  0
+call    2 returned 60
+        -:   47:    }
+        -:   48:
+        -:   49:    void Print(Node_AVL* vertex) {
+        -:   50:        if (vertex == nullptr) {
+        -:   51:            return;
+        -:   52:        }
+        -:   53:        Print(vertex->left);
+        -:   54:        std::cout << vertex->val << ' ';
+        -:   55:        Print(vertex->right);
+        -:   56:    }
+        -:   57:
+        -:   58:    bool Find(Node_AVL* vertex, int64_t val) {
+        -:   59:        if (vertex == nullptr) {
+        -:   60:            return false;
+        -:   61:        }
+        -:   62:        if (vertex->val == val) {
+        -:   63:            return true;
+        -:   64:        }
+        -:   65:        if (val < vertex->val) {
+        -:   66:            return Find(vertex->left, val);
+        -:   67:        } else {
+        -:   68:            return Find(vertex->right, val);
+        -:   69:        }
+        -:   70:    }
+        -:   71:
+        -:   72:    int32_t get_height(const Node_AVL* vertex) {
+        -:   73:        if (vertex == nullptr) {
+        -:   74:            return 0;
+        -:   75:        }
+        -:   76:        return vertex->height;
+        -:   77:    }
+        -:   78:
+        -:   79:    int32_t get_balance(const Node_AVL* vertex) {
+        -:   80:        if (vertex == nullptr) {
+        -:   81:            return 0;
+        -:   82:        }
+        -:   83:        return get_height(vertex->right) - get_height(vertex->left);
+        -:   84:    }
+        -:   85:
+        -:   86:    void Update(Node_AVL* vertex) {
+        -:   87:        vertex->height = std::max(get_height(vertex->left),
+        -:   88:                                  get_height(vertex->right)) + 1;
+        -:   89:        vertex->balance = get_balance(vertex);
+        -:   90:    }
+        -:   91:
+        -:   92:    Node_AVL* L_Rotate(Node_AVL* vertex) {
+        -:   93:        Node_AVL* right_child = vertex->right;
+        -:   94:        vertex->right = right_child->left;
+        -:   95:        right_child->left = vertex;
+        -:   96:        Update(vertex);
+        -:   97:        Update(right_child);
+        -:   98:        return right_child;
+        -:   99:    }
+        -:  100:
+        -:  101:    Node_AVL* R_Rotate(Node_AVL* vertex) {
+        -:  102:        Node_AVL* left_child = vertex->left;
+        -:  103:        vertex->left = left_child->right;
+        -:  104:        left_child->right = vertex;
+        -:  105:        Update(vertex);
+        -:  106:        Update(left_child);
+        -:  107:        return left_child;
+        -:  108:    }
+        -:  109:
+        -:  110:    Node_AVL* Local_Balanced(Node_AVL* vertex) {
+        -:  111:        Update(vertex);
+        -:  112:        if (get_balance(vertex) == 2) {
+        -:  113:            if (get_balance(vertex->right) < 0) {
+        -:  114:                vertex->right = R_Rotate(vertex->right);
+        -:  115:            }
+        -:  116:            return L_Rotate(vertex);
+        -:  117:        }
+        -:  118:        if (get_balance(vertex) == -2) {
+        -:  119:            if (get_balance(vertex->left) > 0) {
+        -:  120:                vertex->left = L_Rotate(vertex->left);
+        -:  121:            }
+        -:  122:            return R_Rotate(vertex);
+        -:  123:        }
+        -:  124:        return vertex;
+        -:  125:    }
+        -:  126:
+        -:  127:    Node_AVL* Global_Balanced(Node_AVL* vertex, int64_t& val) {
+        -:  128:        if (val <= vertex->val) {
+        -:  129:            if (vertex->left != nullptr) {
+        -:  130:                vertex->left = Global_Balanced(vertex->left, val);
+        -:  131:            } else {
+        -:  132:                auto new_node = new Node_AVL(val, 0);
+        -:  133:                vertex->left = new_node;
+        -:  134:                Update(vertex);
+        -:  135:                return vertex;
+        -:  136:            }
+        -:  137:        } else {
+        -:  138:            if (vertex->right != nullptr) {
+        -:  139:                vertex->right = Global_Balanced(vertex->right, val);
+        -:  140:            } else {
+        -:  141:                auto new_node = new Node_AVL(val, 0);
+        -:  142:                vertex->right = new_node;
+        -:  143:                Update(vertex);
+        -:  144:                return vertex;
+        -:  145:            }
+        -:  146:        }
+        -:  147:        return Local_Balanced(vertex);
+        -:  148:    }
+        -:  149:};

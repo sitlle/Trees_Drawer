@@ -1,0 +1,13 @@
+        -:    0:Source:/home/yeawer/tree/TREE_OPTIONS.h
+        -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/FrontEnd.cpp.gcno
+        -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/FrontEnd.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:
+        -:    3:struct TREE_OPTIONS {
+        -:    4:    float TREE_H;
+        -:    5:    float TREE_W;
+function _ZN12TREE_OPTIONSC2Ev called 2 returned 100% blocks executed 100%
+        2:    6:    TREE_OPTIONS() : TREE_H(2.f), TREE_W(1.5f) {}
+        -:    7:    ~TREE_OPTIONS() = default;
+        -:    8:};

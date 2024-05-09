@@ -1,0 +1,178 @@
+        -:    0:Source:/home/yeawer/tree/Boxed.h
+        -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Second_Extra_Window.cpp.gcno
+        -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Second_Extra_Window.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include<SFML/Graphics.hpp>
+        -:    2:#pragma once
+        -:    3:
+function _ZL7DrawBoxRN2sf12RenderWindowERNS_7Vector2IfEES4_NS_5ColorE called 0 returned 0% blocks executed 0%
+    #####:    4:static void DrawBox(sf::RenderWindow& Main_Window, sf::Vector2f& position,
+        -:    5:             sf::Vector2f& size, sf::Color COLOR = sf::Color::White) {
+        -:    6:    sf::Vertex line1[] = {
+    #####:    7:            sf::Vertex(sf::Vector2f(position.x, position.y), COLOR),
+    $$$$$:    7-block  0
+    #####:    8:            sf::Vertex(sf::Vector2f(position.x + size.x, position.y),COLOR)
+    $$$$$:    8-block  0
+    #####:    9:    };
+    %%%%%:    9-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:    9-block  1
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+        -:   10:    sf::Vertex line2[] = {
+    #####:   11:            sf::Vertex(sf::Vector2f(position.x, position.y), COLOR),
+    $$$$$:   11-block  0
+    #####:   12:            sf::Vertex(sf::Vector2f(position.x, position.y + size.y), COLOR)
+    $$$$$:   12-block  0
+    #####:   13:    };
+    %%%%%:   13-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   13-block  1
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+        -:   14:    sf::Vertex line3[] = {
+    #####:   15:            sf::Vertex(sf::Vector2f(position.x + size.x, position.y), COLOR),
+    $$$$$:   15-block  0
+    #####:   16:            sf::Vertex(sf::Vector2f(position.x + size.x, position.y + size.y), COLOR)
+    $$$$$:   16-block  0
+    #####:   17:    };
+    %%%%%:   17-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   17-block  1
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+        -:   18:    sf::Vertex line4[] = {
+    #####:   19:            sf::Vertex(sf::Vector2f(position.x, position.y + size.y), COLOR),
+    $$$$$:   19-block  0
+    #####:   20:            sf::Vertex(sf::Vector2f(position.x + size.x, position.y + size.y), COLOR)
+    $$$$$:   20-block  0
+    #####:   21:    };
+    %%%%%:   21-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   21-block  1
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    #####:   22:    Main_Window.draw(line1, 2, sf::Lines);
+    %%%%%:   22-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   23:    Main_Window.draw(line2, 2, sf::Lines);
+    %%%%%:   23-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   24:    Main_Window.draw(line3, 2, sf::Lines);
+    %%%%%:   24-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   25:    Main_Window.draw(line4, 2, sf::Lines);
+    %%%%%:   25-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   26:}
+    %%%%%:   26-block  0
+        -:   27:
+function _ZL13DrawTextInBoxRN2sf12RenderWindowERNS_7Vector2IfEES4_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4TextEii called 0 returned 0% blocks executed 0%
+    #####:   28:static void DrawTextInBox(sf::RenderWindow& Main_Window, sf::Vector2f& position,
+        -:   29:                   sf::Vector2f& size, std::string& Output_String, sf::Text Output_Text, int start_pos = 0,
+        -:   30:                   int Text_Size = 110) {
+    #####:   31:    Output_Text.setCharacterSize(Text_Size);
+    %%%%%:   31-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   32:    std::string res;
+    %%%%%:   32-block  0
+call    0 never executed
+    #####:   33:    for (int i = start_pos; i < Output_String.size(); ++i) {
+    %%%%%:   33-block  0
+    %%%%%:   33-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   34:        res += Output_String[i];
+    %%%%%:   34-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   34-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   35:        Output_Text.setString(res);
+    %%%%%:   35-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   35-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:   35-block  2
+call    7 never executed
+call    8 never executed
+    $$$$$:   35-block  3
+call    9 never executed
+    $$$$$:   35-block  4
+    $$$$$:   35-block  5
+call   10 never executed
+    $$$$$:   35-block  6
+    #####:   36:        if (Output_Text.getLocalBounds().width > size.x - static_cast<float>(Text_Size) / 2) {
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   36-block  0
+branch  3 never executed
+branch  4 never executed
+    #####:   37:            break;
+    %%%%%:   37-block  0
+        -:   38:        }
+        -:   39:    }
+    #####:   40:    double x_position = position.x;
+    #####:   41:    double y_position = position.y + (size.y - Output_Text.getLocalBounds().height) / 2;
+    %%%%%:   41-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   42:    Output_Text.setPosition(sf::Vector2f(static_cast<float>(x_position),
+    %%%%%:   42-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:   42-block  1
+        -:   43:                                         static_cast<float>(y_position)));
+    #####:   44:    Main_Window.draw(Output_Text);
+    %%%%%:   44-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   45:}
+    %%%%%:   45-block  0
+call    0 never executed
+    $$$$$:   45-block  1
+call    1 never executed

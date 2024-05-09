@@ -1,5 +1,42 @@
+/*
+    bigint.h
+
+    bigint Library for C++
+
+    MIT License
+
+    Created by Roshan Gupta on 16-10-2020
+    Copyright (c) 2020 Roshan Gupta
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+*/
+
+
 #pragma once
-#include<bits/stdc++.h>
+
+#include <string>
+#include <sstream>
+#include <vector>
+#include <cmath>
+#include <limits>
+
+// Macros for Programmer(User) use cases.
 
 #define big_abs bigint::_big_abs
 #define big_max bigint::_big_max
@@ -24,7 +61,8 @@
 
 class bigint {
 private:
-    std::string str;
+    std::string str; // only data memeber for strong Big Integer as String. [For signed int, str[0] = '-']
+
     // Function Definitions for Internal Uses
 
     static std::string trim(std::string);
@@ -63,14 +101,7 @@ private:
 
 
 public:
-    ~bigint() = default;
-
-    static std::string bigint_to_string(const bigint& other) {
-        return other.str;
-    }
-
     static int64_t to_int(bigint ans) {
-        std::cout << ans.str << '\n';
         int64_t res = 0;
         int64_t power = 1;
         if (ans.str[0] == '-') {
@@ -84,6 +115,10 @@ public:
             power *= 10;
         }
         return res;
+    }
+
+    static std::string to_string(bigint& res) {
+        return res.str;
     }
 
     // Constructors for big int.
@@ -165,6 +200,7 @@ public:
         (*this).str = add((*this).str, n.str);
         return (*this);
     }
+
 
 
     /* Operator {-} Overloadings, for different kind of
@@ -558,7 +594,7 @@ public:
         ans.str = abs(a.str);
         return ans;
     }
-    static bigint _big_pow(bigint a, bigint b) {      // returns the power value between two Big Integers i.e., a^b, ^ -> power
+    static bigint _big_pow(bigint &a, bigint &b) {      // returns the power value between two Big Integers i.e., a^b, ^ -> power
         bigint ans;
         ans.str = pow(a.str, b.str);
         return ans;

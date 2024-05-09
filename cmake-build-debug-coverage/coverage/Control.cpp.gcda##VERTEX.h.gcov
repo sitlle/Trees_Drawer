@@ -1,0 +1,54 @@
+        -:    0:Source:/home/yeawer/tree/VERTEX.h
+        -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcno
+        -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include<SFML/Graphics.hpp>
+        -:    2:#include"Node_Options.h"
+        -:    3:#pragma once
+        -:    4:
+        -:    5:template<typename vertex_type> struct VERTEX {
+        -:    6:    std::pair<float, float> coords;
+        -:    7:    sf::Color COLOR = sf::Color::Red;
+        -:    8:    float radius{};
+        -:    9:    VERTEX* left{};
+        -:   10:    VERTEX* right{};
+        -:   11:    int val{};
+        -:   12:    vertex_type* real_vertex;
+        -:   13:    VERTEX() = default;
+      160:   14:    explicit VERTEX<vertex_type>(vertex_type* input_vertex) {
+      160:   15:        real_vertex = input_vertex;
+      160:   16:        coords = {0, 0};
+      160:   17:        radius = 0;
+      160:   18:    }
+------------------
+_ZN6VERTEXI8Node_AVLEC2EPS0_:
+function _ZN6VERTEXI8Node_AVLEC2EPS0_ called 90 returned 100% blocks executed 100%
+       90:   14:    explicit VERTEX<vertex_type>(vertex_type* input_vertex) {
+       90:   14-block  0
+call    0 returned 90
+       90:   15:        real_vertex = input_vertex;
+       90:   16:        coords = {0, 0};
+call    0 returned 90
+call    1 returned 90
+       90:   17:        radius = 0;
+       90:   18:    }
+------------------
+_ZN6VERTEXI7Node_DDEC2EPS0_:
+function _ZN6VERTEXI7Node_DDEC2EPS0_ called 70 returned 100% blocks executed 100%
+       70:   14:    explicit VERTEX<vertex_type>(vertex_type* input_vertex) {
+       70:   14-block  0
+call    0 returned 70
+       70:   15:        real_vertex = input_vertex;
+       70:   16:        coords = {0, 0};
+call    0 returned 70
+call    1 returned 70
+       70:   17:        radius = 0;
+       70:   18:    }
+------------------
+        -:   19:    ~VERTEX() {
+        -:   20:        delete[] left;
+        -:   21:        delete[] right;
+        -:   22:        left = nullptr;
+        -:   23:        right = nullptr;
+        -:   24:    }
+        -:   25:};

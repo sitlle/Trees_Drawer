@@ -2,6 +2,7 @@
 #include"Node_DD.h"
 #include"VERTEX.h"
 #include"TREE_OPTIONS.h"
+#include"BigInteger.h"
 #pragma once
 
 class Trees_Building {
@@ -66,17 +67,15 @@ void Trees_Building::ReCalcPosX(vertex_type* vertex, int64_t x) noexcept {
         return;
     }
     if (vertex->left != nullptr) {
-        vertex->left->param.posX = vertex->param.posX - big_pow(to_bigint("2"),
-                                                                to_bigint(
-                                                                        std::to_string(
-                                                                                std::max(static_cast<int64_t>(0), x - 1))));
+        bigint two = bigint("2");
+        bigint X = bigint(std::to_string(std::max(static_cast<int64_t>(0), x - 1)));
+        vertex->left->param.posX = vertex->param.posX - big_pow(two, X);
         ReCalcPosX<vertex_type>(vertex->left, x - 1);
     }
     if (vertex->right != nullptr) {
-        vertex->right->param.posX = vertex->param.posX + big_pow(to_bigint("2"),
-                                                                 to_bigint(
-                                                                         std::to_string(
-                                                                                 std::max(static_cast<int64_t>(0), x - 1))));
+        bigint two = bigint("2");
+        bigint X = bigint(std::to_string(std::max(static_cast<int64_t>(0), x - 1)));
+        vertex->right->param.posX = vertex->param.posX + big_pow(two, X);
         ReCalcPosX<vertex_type>(vertex->right, x - 1);
     }
 }
@@ -157,26 +156,19 @@ void Trees_Building::Compression(vertex_type* vertex, int64_t H,
     if (vertex == nullptr) {
         return;
     }
-    Compression<vertex_type>(vertex->left, H - 1,
-                             path_sum -
-                             big_pow(to_bigint("2"),
-                                     to_bigint(std::to_string(
-                                             std::max(static_cast<int64_t>(0), H - 1)))),
-                             0);
-    Compression<vertex_type>(vertex->right, H - 1,
-                             path_sum +
-                                     big_pow(to_bigint("2"),
-                                             to_bigint(std::to_string(
-                                                     std::max(static_cast<int64_t>(0), H - 1)))), 1);
+    bigint two = bigint("2");
+    bigint first = bigint(std::to_string(std::max(static_cast<int64_t>(0), H - 1)));
+    bigint second = bigint(std::to_string(std::max(static_cast<int64_t>(0), H - 1)));
+    Compression<vertex_type>(vertex->left, H - 1, path_sum - big_pow(two, first), 0);
+    Compression<vertex_type>(vertex->right, H - 1,path_sum + big_pow(two, second), 1);
     vertex->param.sdv = to_bigint("0");
     // update X
     Update_LR<vertex_type>(vertex);
-    bigint Max = big_pow(to_bigint("2"), to_bigint(std::to_string(H))) -
-                 to_bigint("1") + path_sum;
-    std::cout << vertex->val << ' ' << path_sum << '\n';
-    std::cout << "Max " << H << ' ' << Max << '\n';
-    bigint Min = (big_pow(to_bigint("2"), to_bigint(std::to_string(H))) -
-                  to_bigint("1")) * to_bigint("-1") + path_sum;
+    bigint BIG_H = bigint(std::to_string(H));
+    bigint Max = big_pow(two, BIG_H) - to_bigint("1") + path_sum;
+    //std::cout << vertex->val << ' ' << path_sum << '\n';
+    //std::cout << "Max " << H << ' ' << Max << '\n';
+    bigint Min = (big_pow(two, BIG_H) - to_bigint("1")) * to_bigint("-1") + path_sum;
     std::cout << "Min " << H << ' ' << Min << '\n';
     if (LorR == 0) {
         bigint vertex_r = vertex->param.R;

@@ -1,0 +1,672 @@
+        -:    0:Source:/home/yeawer/tree/Trees_Building.h
+        -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcno
+        -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include"DD.h"
+        -:    2:#include"Node_DD.h"
+        -:    3:#include"VERTEX.h"
+        -:    4:#include"TREE_OPTIONS.h"
+        -:    5:#pragma once
+        -:    6:
+        -:    7:template<typename vertex_type>
+      324:    8:int32_t ReCalcHeight(vertex_type* vertex) {
+      324:    9:    if (vertex == nullptr) {
+      164:   10:        return 0;
+        -:   11:    }
+      160:   12:    return (vertex->param.height = std::max(ReCalcHeight<vertex_type>(vertex->left),
+      320:   13:                                            ReCalcHeight<vertex_type>(vertex->right)) + 1);
+        -:   14:}
+------------------
+_Z12ReCalcHeightI8Node_AVLEiPT_:
+function _Z12ReCalcHeightI8Node_AVLEiPT_ called 182 returned 100% blocks executed 100%
+      182:    8:int32_t ReCalcHeight(vertex_type* vertex) {
+      182:    9:    if (vertex == nullptr) {
+      182:    9-block  0
+branch  0 taken 92 (fallthrough)
+branch  1 taken 90
+       92:   10:        return 0;
+       92:   10-block  0
+        -:   11:    }
+       90:   12:    return (vertex->param.height = std::max(ReCalcHeight<vertex_type>(vertex->left),
+       90:   12-block  0
+call    0 returned 90
+      180:   13:                                            ReCalcHeight<vertex_type>(vertex->right)) + 1);
+       90:   13-block  0
+call    0 returned 90
+call    1 returned 90
+branch  2 taken 90 (fallthrough)
+branch  3 taken 0 (throw)
+        -:   14:}
+------------------
+_Z12ReCalcHeightI7Node_DDEiPT_:
+function _Z12ReCalcHeightI7Node_DDEiPT_ called 142 returned 100% blocks executed 100%
+      142:    8:int32_t ReCalcHeight(vertex_type* vertex) {
+      142:    9:    if (vertex == nullptr) {
+      142:    9-block  0
+branch  0 taken 72 (fallthrough)
+branch  1 taken 70
+       72:   10:        return 0;
+       72:   10-block  0
+        -:   11:    }
+       70:   12:    return (vertex->param.height = std::max(ReCalcHeight<vertex_type>(vertex->left),
+       70:   12-block  0
+call    0 returned 70
+      140:   13:                                            ReCalcHeight<vertex_type>(vertex->right)) + 1);
+       70:   13-block  0
+call    0 returned 70
+call    1 returned 70
+branch  2 taken 70 (fallthrough)
+branch  3 taken 0 (throw)
+        -:   14:}
+------------------
+        -:   15:
+        -:   16:template<typename vertex_type>
+      324:   17:int32_t ReCalcSize(vertex_type* vertex) {
+      324:   18:    if (vertex == nullptr) {
+      164:   19:        return 0;
+        -:   20:    }
+      160:   21:    return (vertex->param.size = ReCalcSize(vertex->left) + ReCalcSize(vertex->right) + 1);
+        -:   22:}
+------------------
+_Z10ReCalcSizeI8Node_AVLEiPT_:
+function _Z10ReCalcSizeI8Node_AVLEiPT_ called 182 returned 100% blocks executed 100%
+      182:   17:int32_t ReCalcSize(vertex_type* vertex) {
+      182:   18:    if (vertex == nullptr) {
+      182:   18-block  0
+branch  0 taken 92 (fallthrough)
+branch  1 taken 90
+       92:   19:        return 0;
+       92:   19-block  0
+        -:   20:    }
+       90:   21:    return (vertex->param.size = ReCalcSize(vertex->left) + ReCalcSize(vertex->right) + 1);
+       90:   21-block  0
+call    0 returned 90
+call    1 returned 90
+        -:   22:}
+------------------
+_Z10ReCalcSizeI7Node_DDEiPT_:
+function _Z10ReCalcSizeI7Node_DDEiPT_ called 142 returned 100% blocks executed 100%
+      142:   17:int32_t ReCalcSize(vertex_type* vertex) {
+      142:   18:    if (vertex == nullptr) {
+      142:   18-block  0
+branch  0 taken 72 (fallthrough)
+branch  1 taken 70
+       72:   19:        return 0;
+       72:   19-block  0
+        -:   20:    }
+       70:   21:    return (vertex->param.size = ReCalcSize(vertex->left) + ReCalcSize(vertex->right) + 1);
+       70:   21-block  0
+call    0 returned 70
+call    1 returned 70
+        -:   22:}
+------------------
+        -:   23:
+        -:   24:template<typename vertex_type>
+      160:   25:void ReCalcPosX(vertex_type* vertex, int64_t x) {
+      160:   26:    if (vertex == nullptr) {
+    #####:   27:        return;
+        -:   28:    }
+      160:   29:    if (vertex->left != nullptr) {
+       80:   30:        vertex->left->param.posX = vertex->param.posX - (1ll << (x - 1));
+       80:   31:        ReCalcPosX<vertex_type>(vertex->left, x - 1);
+        -:   32:    }
+      160:   33:    if (vertex->right != nullptr) {
+       76:   34:        vertex->right->param.posX = vertex->param.posX + (1ll << (x - 1));
+       76:   35:        ReCalcPosX<vertex_type>(vertex->right, x - 1);
+        -:   36:    }
+        -:   37:}
+------------------
+_Z10ReCalcPosXI8Node_AVLEvPT_l:
+function _Z10ReCalcPosXI8Node_AVLEvPT_l called 90 returned 100% blocks executed 86%
+       90:   25:void ReCalcPosX(vertex_type* vertex, int64_t x) {
+       90:   26:    if (vertex == nullptr) {
+       90:   26-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 90
+    #####:   27:        return;
+    %%%%%:   27-block  0
+        -:   28:    }
+       90:   29:    if (vertex->left != nullptr) {
+       90:   29-block  0
+branch  0 taken 43 (fallthrough)
+branch  1 taken 47
+       43:   30:        vertex->left->param.posX = vertex->param.posX - (1ll << (x - 1));
+       43:   31:        ReCalcPosX<vertex_type>(vertex->left, x - 1);
+       43:   31-block  0
+call    0 returned 43
+        -:   32:    }
+       90:   33:    if (vertex->right != nullptr) {
+       90:   33-block  0
+branch  0 taken 45 (fallthrough)
+branch  1 taken 45
+       45:   34:        vertex->right->param.posX = vertex->param.posX + (1ll << (x - 1));
+       45:   35:        ReCalcPosX<vertex_type>(vertex->right, x - 1);
+       45:   35-block  0
+call    0 returned 45
+        -:   36:    }
+        -:   37:}
+------------------
+_Z10ReCalcPosXI7Node_DDEvPT_l:
+function _Z10ReCalcPosXI7Node_DDEvPT_l called 70 returned 100% blocks executed 86%
+       70:   25:void ReCalcPosX(vertex_type* vertex, int64_t x) {
+       70:   26:    if (vertex == nullptr) {
+       70:   26-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 70
+    #####:   27:        return;
+    %%%%%:   27-block  0
+        -:   28:    }
+       70:   29:    if (vertex->left != nullptr) {
+       70:   29-block  0
+branch  0 taken 37 (fallthrough)
+branch  1 taken 33
+       37:   30:        vertex->left->param.posX = vertex->param.posX - (1ll << (x - 1));
+       37:   31:        ReCalcPosX<vertex_type>(vertex->left, x - 1);
+       37:   31-block  0
+call    0 returned 37
+        -:   32:    }
+       70:   33:    if (vertex->right != nullptr) {
+       70:   33-block  0
+branch  0 taken 31 (fallthrough)
+branch  1 taken 39
+       31:   34:        vertex->right->param.posX = vertex->param.posX + (1ll << (x - 1));
+       31:   35:        ReCalcPosX<vertex_type>(vertex->right, x - 1);
+       31:   35-block  0
+call    0 returned 31
+        -:   36:    }
+        -:   37:}
+------------------
+        -:   38:
+        -:   39:template<typename vertex_type>
+      324:   40:void ReBuildTree(vertex_type* vertex) {
+      324:   41:    if (vertex == nullptr) {
+      164:   42:        return;
+        -:   43:    }
+      160:   44:    ReBuildTree<vertex_type>(vertex->left);
+      160:   45:    ReBuildTree<vertex_type>(vertex->right);
+      160:   46:    int64_t left = ((vertex->left == nullptr) ? vertex->param.posX : vertex->left->param.L);
+      160:   47:    int64_t right = ((vertex->right == nullptr) ? vertex->param.posX : vertex->right->param.R);
+      160:   48:    vertex->param.L = left;
+      160:   49:    vertex->param.R = right;
+        -:   50:}
+------------------
+_Z11ReBuildTreeI8Node_AVLEvPT_:
+function _Z11ReBuildTreeI8Node_AVLEvPT_ called 182 returned 100% blocks executed 100%
+      182:   40:void ReBuildTree(vertex_type* vertex) {
+      182:   41:    if (vertex == nullptr) {
+      182:   41-block  0
+branch  0 taken 92 (fallthrough)
+branch  1 taken 90
+       92:   42:        return;
+       92:   42-block  0
+        -:   43:    }
+       90:   44:    ReBuildTree<vertex_type>(vertex->left);
+       90:   44-block  0
+call    0 returned 90
+       90:   45:    ReBuildTree<vertex_type>(vertex->right);
+call    0 returned 90
+       90:   46:    int64_t left = ((vertex->left == nullptr) ? vertex->param.posX : vertex->left->param.L);
+branch  0 taken 47 (fallthrough)
+branch  1 taken 43
+       47:   46-block  0
+       43:   46-block  1
+       90:   47:    int64_t right = ((vertex->right == nullptr) ? vertex->param.posX : vertex->right->param.R);
+       90:   47-block  0
+branch  0 taken 45 (fallthrough)
+branch  1 taken 45
+       45:   47-block  1
+       45:   47-block  2
+       90:   48:    vertex->param.L = left;
+       90:   49:    vertex->param.R = right;
+       90:   49-block  0
+        -:   50:}
+------------------
+_Z11ReBuildTreeI7Node_DDEvPT_:
+function _Z11ReBuildTreeI7Node_DDEvPT_ called 142 returned 100% blocks executed 100%
+      142:   40:void ReBuildTree(vertex_type* vertex) {
+      142:   41:    if (vertex == nullptr) {
+      142:   41-block  0
+branch  0 taken 72 (fallthrough)
+branch  1 taken 70
+       72:   42:        return;
+       72:   42-block  0
+        -:   43:    }
+       70:   44:    ReBuildTree<vertex_type>(vertex->left);
+       70:   44-block  0
+call    0 returned 70
+       70:   45:    ReBuildTree<vertex_type>(vertex->right);
+call    0 returned 70
+       70:   46:    int64_t left = ((vertex->left == nullptr) ? vertex->param.posX : vertex->left->param.L);
+branch  0 taken 33 (fallthrough)
+branch  1 taken 37
+       33:   46-block  0
+       37:   46-block  1
+       70:   47:    int64_t right = ((vertex->right == nullptr) ? vertex->param.posX : vertex->right->param.R);
+       70:   47-block  0
+branch  0 taken 39 (fallthrough)
+branch  1 taken 31
+       39:   47-block  1
+       31:   47-block  2
+       70:   48:    vertex->param.L = left;
+       70:   49:    vertex->param.R = right;
+       70:   49-block  0
+        -:   50:}
+------------------
+        -:   51:
+        -:   52:template<typename vertex_type>
+        -:   53:void ReCalcRadius(VERTEX<vertex_type>* node, float& RAD) {
+        -:   54:    if (node == nullptr) {
+        -:   55:        return;
+        -:   56:    }
+        -:   57:    ReCalcRadius<vertex_type>(node->left, RAD);
+        -:   58:    node->radius = RAD;
+        -:   59:    ReCalcRadius<vertex_type>(node->right, RAD);
+        -:   60:}
+        -:   61:
+        -:   62:template<typename vertex_type>
+      324:   63:VERTEX<vertex_type>* Tree_Building_InOrder(vertex_type *vertex, VERTEX<vertex_type> *node,
+        -:   64:                                           std::pair<float, float> last_coords, int64_t x,
+        -:   65:                                           TREE_OPTIONS& TREE_OPT) {
+      324:   66:    if (vertex == nullptr) {
+      164:   67:        return nullptr;
+        -:   68:    }
+        -:   69:    // node copy
+      160:   70:    node = new VERTEX<vertex_type>(vertex);
+      160:   71:    if (last_coords.first == 1250 && last_coords.second == 0) { // root
+        4:   72:        node->coords = {1250 + TREE_OPT.TREE_W * (vertex->param.posX + vertex->param.sdv) * 30,
+        8:   73:                        last_coords.second + 30};
+        -:   74:    } else {
+      156:   75:        node->coords = {1250 + TREE_OPT.TREE_W * (vertex->param.posX + vertex->param.sdv) * 30,
+      468:   76:                        last_coords.second + 2 * (std::max(TREE_OPT.TREE_H,
+      312:   77:                                                           float(vertex->param.size) / 20.f)) * 30};
+        -:   78:    }
+      160:   79:    node->val = vertex->val;
+      160:   80:    node->radius = 30;
+      160:   81:    node->COLOR = vertex->param.COLOR;
+        -:   82:    // node copy
+      160:   83:    node->left = Tree_Building_InOrder<vertex_type>(vertex->left, node->left,
+        -:   84:                                                    node->coords, x - 1, TREE_OPT);
+      160:   85:    node->right = Tree_Building_InOrder<vertex_type>(vertex->right, node->right,
+        -:   86:                                                     node->coords, x - 1, TREE_OPT);
+      160:   87:    return node;
+        -:   88:}
+------------------
+_Z21Tree_Building_InOrderI8Node_AVLEP6VERTEXIT_EPS2_S4_St4pairIffElR12TREE_OPTIONS:
+function _Z21Tree_Building_InOrderI8Node_AVLEP6VERTEXIT_EPS2_S4_St4pairIffElR12TREE_OPTIONS called 182 returned 100% blocks executed 95%
+      182:   63:VERTEX<vertex_type>* Tree_Building_InOrder(vertex_type *vertex, VERTEX<vertex_type> *node,
+        -:   64:                                           std::pair<float, float> last_coords, int64_t x,
+        -:   65:                                           TREE_OPTIONS& TREE_OPT) {
+      182:   66:    if (vertex == nullptr) {
+      182:   66-block  0
+branch  0 taken 92 (fallthrough)
+branch  1 taken 90
+       92:   67:        return nullptr;
+       92:   67-block  0
+        -:   68:    }
+        -:   69:    // node copy
+       90:   70:    node = new VERTEX<vertex_type>(vertex);
+       90:   70-block  0
+call    0 returned 90
+call    1 returned 90
+branch  2 taken 90 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:   70-block  1
+call    4 never executed
+       90:   71:    if (last_coords.first == 1250 && last_coords.second == 0) { // root
+       90:   71-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 86
+        4:   71-block  1
+branch  2 taken 2 (fallthrough)
+branch  3 taken 2
+        2:   72:        node->coords = {1250 + TREE_OPT.TREE_W * (vertex->param.posX + vertex->param.sdv) * 30,
+call    0 returned 2
+        4:   73:                        last_coords.second + 30};
+        2:   73-block  0
+call    0 returned 2
+        -:   74:    } else {
+       88:   75:        node->coords = {1250 + TREE_OPT.TREE_W * (vertex->param.posX + vertex->param.sdv) * 30,
+call    0 returned 88
+      264:   76:                        last_coords.second + 2 * (std::max(TREE_OPT.TREE_H,
+      176:   77:                                                           float(vertex->param.size) / 20.f)) * 30};
+       88:   77-block  0
+call    0 returned 88
+call    1 returned 88
+        -:   78:    }
+       90:   79:    node->val = vertex->val;
+       90:   80:    node->radius = 30;
+       90:   81:    node->COLOR = vertex->param.COLOR;
+        -:   82:    // node copy
+       90:   83:    node->left = Tree_Building_InOrder<vertex_type>(vertex->left, node->left,
+       90:   83-block  0
+call    0 returned 90
+        -:   84:                                                    node->coords, x - 1, TREE_OPT);
+       90:   85:    node->right = Tree_Building_InOrder<vertex_type>(vertex->right, node->right,
+call    0 returned 90
+        -:   86:                                                     node->coords, x - 1, TREE_OPT);
+       90:   87:    return node;
+        -:   88:}
+------------------
+_Z21Tree_Building_InOrderI7Node_DDEP6VERTEXIT_EPS2_S4_St4pairIffElR12TREE_OPTIONS:
+function _Z21Tree_Building_InOrderI7Node_DDEP6VERTEXIT_EPS2_S4_St4pairIffElR12TREE_OPTIONS called 142 returned 100% blocks executed 95%
+      142:   63:VERTEX<vertex_type>* Tree_Building_InOrder(vertex_type *vertex, VERTEX<vertex_type> *node,
+        -:   64:                                           std::pair<float, float> last_coords, int64_t x,
+        -:   65:                                           TREE_OPTIONS& TREE_OPT) {
+      142:   66:    if (vertex == nullptr) {
+      142:   66-block  0
+branch  0 taken 72 (fallthrough)
+branch  1 taken 70
+       72:   67:        return nullptr;
+       72:   67-block  0
+        -:   68:    }
+        -:   69:    // node copy
+       70:   70:    node = new VERTEX<vertex_type>(vertex);
+       70:   70-block  0
+call    0 returned 70
+call    1 returned 70
+branch  2 taken 70 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:   70-block  1
+call    4 never executed
+       70:   71:    if (last_coords.first == 1250 && last_coords.second == 0) { // root
+       70:   71-block  0
+branch  0 taken 6 (fallthrough)
+branch  1 taken 64
+        6:   71-block  1
+branch  2 taken 2 (fallthrough)
+branch  3 taken 4
+        2:   72:        node->coords = {1250 + TREE_OPT.TREE_W * (vertex->param.posX + vertex->param.sdv) * 30,
+call    0 returned 2
+        4:   73:                        last_coords.second + 30};
+        2:   73-block  0
+call    0 returned 2
+        -:   74:    } else {
+       68:   75:        node->coords = {1250 + TREE_OPT.TREE_W * (vertex->param.posX + vertex->param.sdv) * 30,
+call    0 returned 68
+      204:   76:                        last_coords.second + 2 * (std::max(TREE_OPT.TREE_H,
+      136:   77:                                                           float(vertex->param.size) / 20.f)) * 30};
+       68:   77-block  0
+call    0 returned 68
+call    1 returned 68
+        -:   78:    }
+       70:   79:    node->val = vertex->val;
+       70:   80:    node->radius = 30;
+       70:   81:    node->COLOR = vertex->param.COLOR;
+        -:   82:    // node copy
+       70:   83:    node->left = Tree_Building_InOrder<vertex_type>(vertex->left, node->left,
+       70:   83-block  0
+call    0 returned 70
+        -:   84:                                                    node->coords, x - 1, TREE_OPT);
+       70:   85:    node->right = Tree_Building_InOrder<vertex_type>(vertex->right, node->right,
+call    0 returned 70
+        -:   86:                                                     node->coords, x - 1, TREE_OPT);
+       70:   87:    return node;
+        -:   88:}
+------------------
+        -:   89:
+      320:   90:template<typename vertex_type> void Update_LR(vertex_type* vertex, int sdv = 0) {
+      320:   91:    if (vertex == nullptr) {
+    #####:   92:        return;
+        -:   93:    }
+      320:   94:    if (vertex->left != nullptr) {
+      160:   95:        vertex->param.L = vertex->left->param.L + sdv;
+        -:   96:    } else {
+      160:   97:        vertex->param.L = vertex->param.posX + vertex->param.sdv;
+        -:   98:    }
+      320:   99:    if (vertex->right != nullptr) {
+      152:  100:        vertex->param.R = vertex->right->param.R + sdv;
+        -:  101:    } else {
+      168:  102:        vertex->param.R = vertex->param.posX + vertex->param.sdv;
+        -:  103:    }
+        -:  104:}
+------------------
+_Z9Update_LRI8Node_AVLEvPT_i:
+function _Z9Update_LRI8Node_AVLEvPT_i called 180 returned 100% blocks executed 89%
+      180:   90:template<typename vertex_type> void Update_LR(vertex_type* vertex, int sdv = 0) {
+      180:   91:    if (vertex == nullptr) {
+      180:   91-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 180
+    #####:   92:        return;
+    %%%%%:   92-block  0
+        -:   93:    }
+      180:   94:    if (vertex->left != nullptr) {
+      180:   94-block  0
+branch  0 taken 86 (fallthrough)
+branch  1 taken 94
+       86:   95:        vertex->param.L = vertex->left->param.L + sdv;
+       86:   95-block  0
+        -:   96:    } else {
+       94:   97:        vertex->param.L = vertex->param.posX + vertex->param.sdv;
+       94:   97-block  0
+        -:   98:    }
+      180:   99:    if (vertex->right != nullptr) {
+      180:   99-block  0
+branch  0 taken 90 (fallthrough)
+branch  1 taken 90
+       90:  100:        vertex->param.R = vertex->right->param.R + sdv;
+       90:  100-block  0
+        -:  101:    } else {
+       90:  102:        vertex->param.R = vertex->param.posX + vertex->param.sdv;
+       90:  102-block  0
+        -:  103:    }
+        -:  104:}
+------------------
+_Z9Update_LRI7Node_DDEvPT_i:
+function _Z9Update_LRI7Node_DDEvPT_i called 140 returned 100% blocks executed 89%
+      140:   90:template<typename vertex_type> void Update_LR(vertex_type* vertex, int sdv = 0) {
+      140:   91:    if (vertex == nullptr) {
+      140:   91-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 140
+    #####:   92:        return;
+    %%%%%:   92-block  0
+        -:   93:    }
+      140:   94:    if (vertex->left != nullptr) {
+      140:   94-block  0
+branch  0 taken 74 (fallthrough)
+branch  1 taken 66
+       74:   95:        vertex->param.L = vertex->left->param.L + sdv;
+       74:   95-block  0
+        -:   96:    } else {
+       66:   97:        vertex->param.L = vertex->param.posX + vertex->param.sdv;
+       66:   97-block  0
+        -:   98:    }
+      140:   99:    if (vertex->right != nullptr) {
+      140:   99-block  0
+branch  0 taken 62 (fallthrough)
+branch  1 taken 78
+       62:  100:        vertex->param.R = vertex->right->param.R + sdv;
+       62:  100-block  0
+        -:  101:    } else {
+       78:  102:        vertex->param.R = vertex->param.posX + vertex->param.sdv;
+       78:  102-block  0
+        -:  103:    }
+        -:  104:}
+------------------
+        -:  105:
+      324:  106:template<typename vertex_type> void Compression(vertex_type* vertex, int64_t H,
+        -:  107:                                                int64_t path_sum = 0, int LorR = -1) {
+      324:  108:    if (vertex == nullptr) {
+      164:  109:        return;
+        -:  110:    }
+      160:  111:    Compression<vertex_type>(vertex->left, H - 1,
+      160:  112:                             path_sum - (1ll << (H - 1)), 0);
+      160:  113:    Compression<vertex_type>(vertex->right, H - 1,
+      160:  114:                             path_sum + (1ll << (H - 1)), 1);
+      160:  115:    vertex->param.sdv = 0;
+        -:  116:    // update X
+      160:  117:    Update_LR<vertex_type>(vertex);
+      160:  118:    int64_t Max = (1ll << H) - 1 + path_sum;
+      160:  119:    int64_t Min = -((1ll << H) - 1) + path_sum;
+      160:  120:    if (LorR == 0) {
+       80:  121:        auto vertex_r = vertex->param.R;
+       80:  122:        auto rz = Max - vertex_r;
+       80:  123:        vertex->param.sdv += rz;
+       80:  124:    } else if (LorR == 1) {
+       76:  125:        auto vertex_l = vertex->param.L;
+       76:  126:        auto rz = vertex_l - Min;
+       76:  127:        vertex->param.sdv -= rz;
+        -:  128:    }
+      160:  129:    Update_LR<vertex_type>(vertex, vertex->param.sdv);
+        -:  130:}
+------------------
+_Z11CompressionI8Node_AVLEvPT_lli:
+function _Z11CompressionI8Node_AVLEvPT_lli called 182 returned 100% blocks executed 100%
+      182:  106:template<typename vertex_type> void Compression(vertex_type* vertex, int64_t H,
+        -:  107:                                                int64_t path_sum = 0, int LorR = -1) {
+      182:  108:    if (vertex == nullptr) {
+      182:  108-block  0
+branch  0 taken 92 (fallthrough)
+branch  1 taken 90
+       92:  109:        return;
+       92:  109-block  0
+        -:  110:    }
+       90:  111:    Compression<vertex_type>(vertex->left, H - 1,
+       90:  112:                             path_sum - (1ll << (H - 1)), 0);
+       90:  112-block  0
+call    0 returned 90
+       90:  113:    Compression<vertex_type>(vertex->right, H - 1,
+       90:  114:                             path_sum + (1ll << (H - 1)), 1);
+call    0 returned 90
+       90:  115:    vertex->param.sdv = 0;
+        -:  116:    // update X
+       90:  117:    Update_LR<vertex_type>(vertex);
+call    0 returned 90
+       90:  118:    int64_t Max = (1ll << H) - 1 + path_sum;
+       90:  119:    int64_t Min = -((1ll << H) - 1) + path_sum;
+       90:  120:    if (LorR == 0) {
+branch  0 taken 43 (fallthrough)
+branch  1 taken 47
+       43:  121:        auto vertex_r = vertex->param.R;
+       43:  122:        auto rz = Max - vertex_r;
+       43:  123:        vertex->param.sdv += rz;
+       43:  123-block  0
+       47:  124:    } else if (LorR == 1) {
+       47:  124-block  0
+branch  0 taken 45 (fallthrough)
+branch  1 taken 2
+       45:  125:        auto vertex_l = vertex->param.L;
+       45:  126:        auto rz = vertex_l - Min;
+       45:  127:        vertex->param.sdv -= rz;
+       45:  127-block  0
+        -:  128:    }
+       90:  129:    Update_LR<vertex_type>(vertex, vertex->param.sdv);
+       90:  129-block  0
+call    0 returned 90
+        -:  130:}
+------------------
+_Z11CompressionI7Node_DDEvPT_lli:
+function _Z11CompressionI7Node_DDEvPT_lli called 142 returned 100% blocks executed 100%
+      142:  106:template<typename vertex_type> void Compression(vertex_type* vertex, int64_t H,
+        -:  107:                                                int64_t path_sum = 0, int LorR = -1) {
+      142:  108:    if (vertex == nullptr) {
+      142:  108-block  0
+branch  0 taken 72 (fallthrough)
+branch  1 taken 70
+       72:  109:        return;
+       72:  109-block  0
+        -:  110:    }
+       70:  111:    Compression<vertex_type>(vertex->left, H - 1,
+       70:  112:                             path_sum - (1ll << (H - 1)), 0);
+       70:  112-block  0
+call    0 returned 70
+       70:  113:    Compression<vertex_type>(vertex->right, H - 1,
+       70:  114:                             path_sum + (1ll << (H - 1)), 1);
+call    0 returned 70
+       70:  115:    vertex->param.sdv = 0;
+        -:  116:    // update X
+       70:  117:    Update_LR<vertex_type>(vertex);
+call    0 returned 70
+       70:  118:    int64_t Max = (1ll << H) - 1 + path_sum;
+       70:  119:    int64_t Min = -((1ll << H) - 1) + path_sum;
+       70:  120:    if (LorR == 0) {
+branch  0 taken 37 (fallthrough)
+branch  1 taken 33
+       37:  121:        auto vertex_r = vertex->param.R;
+       37:  122:        auto rz = Max - vertex_r;
+       37:  123:        vertex->param.sdv += rz;
+       37:  123-block  0
+       33:  124:    } else if (LorR == 1) {
+       33:  124-block  0
+branch  0 taken 31 (fallthrough)
+branch  1 taken 2
+       31:  125:        auto vertex_l = vertex->param.L;
+       31:  126:        auto rz = vertex_l - Min;
+       31:  127:        vertex->param.sdv -= rz;
+       31:  127-block  0
+        -:  128:    }
+       70:  129:    Update_LR<vertex_type>(vertex, vertex->param.sdv);
+       70:  129-block  0
+call    0 returned 70
+        -:  130:}
+------------------
+        -:  131:
+      324:  132:template<typename vertex_type> void LazyUpdates(vertex_type* vertex, int64_t push) {
+      324:  133:    if (vertex == nullptr) {
+      164:  134:        return;
+        -:  135:    }
+      160:  136:    int last_sdv = vertex->param.sdv;
+      160:  137:    vertex->param.sdv += push;
+      160:  138:    push += last_sdv;
+      160:  139:    LazyUpdates<vertex_type>(vertex->left, push);
+      160:  140:    LazyUpdates<vertex_type>(vertex->right, push);
+        -:  141:}
+------------------
+_Z11LazyUpdatesI8Node_AVLEvPT_l:
+function _Z11LazyUpdatesI8Node_AVLEvPT_l called 182 returned 100% blocks executed 100%
+      182:  132:template<typename vertex_type> void LazyUpdates(vertex_type* vertex, int64_t push) {
+      182:  133:    if (vertex == nullptr) {
+      182:  133-block  0
+branch  0 taken 92 (fallthrough)
+branch  1 taken 90
+       92:  134:        return;
+       92:  134-block  0
+        -:  135:    }
+       90:  136:    int last_sdv = vertex->param.sdv;
+       90:  137:    vertex->param.sdv += push;
+       90:  138:    push += last_sdv;
+       90:  139:    LazyUpdates<vertex_type>(vertex->left, push);
+       90:  139-block  0
+call    0 returned 90
+       90:  140:    LazyUpdates<vertex_type>(vertex->right, push);
+call    0 returned 90
+        -:  141:}
+------------------
+_Z11LazyUpdatesI7Node_DDEvPT_l:
+function _Z11LazyUpdatesI7Node_DDEvPT_l called 142 returned 100% blocks executed 100%
+      142:  132:template<typename vertex_type> void LazyUpdates(vertex_type* vertex, int64_t push) {
+      142:  133:    if (vertex == nullptr) {
+      142:  133-block  0
+branch  0 taken 72 (fallthrough)
+branch  1 taken 70
+       72:  134:        return;
+       72:  134-block  0
+        -:  135:    }
+       70:  136:    int last_sdv = vertex->param.sdv;
+       70:  137:    vertex->param.sdv += push;
+       70:  138:    push += last_sdv;
+       70:  139:    LazyUpdates<vertex_type>(vertex->left, push);
+       70:  139-block  0
+call    0 returned 70
+       70:  140:    LazyUpdates<vertex_type>(vertex->right, push);
+call    0 returned 70
+        -:  141:}
+------------------
+        -:  142:
+        -:  143:template<typename vertex_type, typename tree_type> VERTEX<vertex_type>*
+        4:  144:Build_Tree(tree_type& TREE, TREE_OPTIONS& TREE_OPT) {
+        4:  145:    VERTEX<vertex_type>* root = nullptr;
+        -:  146:    // ReCalc
+        4:  147:    ReCalcHeight<vertex_type>(TREE.root);
+        4:  148:    ReCalcPosX<vertex_type>(TREE.root, (TREE.root->param.height - 1));
+        4:  149:    ReBuildTree<vertex_type>(TREE.root);
+        4:  150:    ReCalcSize(TREE.root);
+        -:  151:    // ReCalc
+        4:  152:    Compression<vertex_type>(TREE.root, (TREE.root->param.height - 1));
+        4:  153:    LazyUpdates<vertex_type>(TREE.root, 0);
+        4:  154:    root = Tree_Building_InOrder<vertex_type>(TREE.root, root, {1250, 0},
+        4:  155:                                              (TREE.root->param.height - 1), TREE_OPT);
+        -:  156:    // 1250 - center of WINDOW_W
+        4:  157:    return root;
+        -:  158:}

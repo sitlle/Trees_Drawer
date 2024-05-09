@@ -1,0 +1,23 @@
+        -:    0:Source:/home/yeawer/tree/Node_DD.h
+        -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcno
+        -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include"Node_Options.h"
+        -:    2:#include"Random.h"
+        -:    3:#pragma once
+        -:    4:
+        -:    5:struct Node_DD {
+        -:    6:    int64_t val;
+        -:    7:    int64_t priority;
+        -:    8:    Node_Options param;
+        -:    9:    Node_DD* left;
+        -:   10:    Node_DD* right;
+function _ZN7Node_DDC2ERKl called 44 returned 100% blocks executed 100%
+       44:   11:    explicit Node_DD(const int64_t& _val) : val(_val), priority(get_random()),
+       44:   11-block  0
+call    0 returned 44
+       44:   12:                                            left(nullptr), right(nullptr),
+       44:   13:                                            param() {}
+call    0 returned 44
+        -:   14:    ~Node_DD() = default;
+        -:   15:};

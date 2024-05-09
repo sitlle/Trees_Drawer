@@ -1,0 +1,372 @@
+        -:    0:Source:/home/yeawer/tree/Info_Extra_Window.h
+        -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/FrontEnd.cpp.gcno
+        -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/FrontEnd.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include<bits/stdc++.h>
+        -:    2:#include"Boxed.h"
+        -:    3:#include"KeyBoard.h"
+        -:    4:#include"VERTEX.h"
+        -:    5:#include"Node_DD.h"
+        -:    6:#include"Node_AVL.h"
+        -:    7://splay node
+        -:    8:#include"Node_Options.h"
+        -:    9:#pragma once
+        -:   10:
+        -:   11:class Info_Extra_Window {
+        -:   12:public:
+        -:   13:    Info_Extra_Window() = default;
+function _ZN17Info_Extra_WindowD2Ev called 1 returned 100% blocks executed 100%
+        1:   14:    ~Info_Extra_Window() = default;
+        1:   14-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+        -:   15:    template<typename vertex_type>
+        -:   16:    explicit Info_Extra_Window(VERTEX<vertex_type>* Input_Vertex);
+        -:   17:    void Events();
+        -:   18:    void Draw();
+        -:   19:    void Process();
+        -:   20:private:
+        -:   21:    Font User_Font;
+        -:   22:    Text User_Text;
+        -:   23:    struct WINDOW {
+        -:   24:        Color COLOR = Color::White;
+        -:   25:        Vector2f position = {0, 0};
+        -:   26:        Vector2f size = {0, 0};
+function _ZN17Info_Extra_Window6WINDOWC2Ev called 6 returned 100% blocks executed 100%
+        6:   27:        WINDOW() = default;
+        6:   27-block  0
+call    0 returned 6
+call    1 returned 6
+        -:   28:        ~WINDOW() = default;
+        -:   29:    };
+        -:   30:    static constexpr int32_t WINDOW_W_ = 1500;
+        -:   31:    static const int32_t WINDOW_H_ = 599;
+        -:   32:    RenderWindow Main_Window_;
+        -:   33:    Event Main_Event_{};
+        -:   34:    std::vector<WINDOW> Boxes_;
+        -:   35:    std::vector<std::string> Info_;
+        -:   36:    int cnt = 0;
+        -:   37:};
+        -:   38:
+        -:   39:template<typename vertex_type>
+       1*:   40:Info_Extra_Window::Info_Extra_Window(VERTEX<vertex_type> *Input_Vertex) :
+       1*:   41:        Main_Window_(VideoMode(WINDOW_W_, WINDOW_H_), "meow") {
+       1*:   42:    Boxes_.resize(6);
+       1*:   43:    Info_.resize(6);
+       7*:   44:    for (int i = 0; i < 6; ++i) {
+       6*:   45:        Boxes_[i].COLOR = Color::White;
+       6*:   46:        Boxes_[i].size = Vector2f(static_cast<float>(WINDOW_W_) + 100, 100);
+       6*:   47:        Boxes_[i].position = Vector2f(0.f, float(i) * 100.f);
+        -:   48:    }
+       1*:   49:    Info_[0] = "value: " + std::to_string(Input_Vertex->val);
+       1*:   50:    Info_[1] = "height: " + Input_Vertex->real_vertex->param.height;
+       1*:   51:    Info_[2] = "posX: " + Input_Vertex->real_vertex->param.posX;
+       1*:   52:    Info_[3] = "shift: " + Input_Vertex->real_vertex->param.sdv;
+       1*:   53:    Info_[4] = "left posX: " + Input_Vertex->real_vertex->param.L;
+       1*:   54:    Info_[5] = "right posX: " + Input_Vertex->real_vertex->param.R;
+       1*:   55:    Main_Window_.setPosition(Vector2i(500, 500));
+       1*:   56:    User_Font.loadFromFile("/home/yeawer/tree/Hack-Bold.ttf");
+       1*:   57:    User_Text.setFont(User_Font);
+       1*:   58:}
+------------------
+_ZN17Info_Extra_WindowC2I8Node_AVLEEP6VERTEXIT_E:
+function _ZN17Info_Extra_WindowC2I8Node_AVLEEP6VERTEXIT_E called 1 returned 100% blocks executed 64%
+        1:   40:Info_Extra_Window::Info_Extra_Window(VERTEX<vertex_type> *Input_Vertex) :
+        1:   41:        Main_Window_(VideoMode(WINDOW_W_, WINDOW_H_), "meow") {
+        1:   41-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   41-block  1
+call    4 returned 1
+call    5 returned 1
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   41-block  2
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:   41-block  3
+call   12 returned 1
+branch 13 taken 1 (fallthrough)
+branch 14 taken 0 (throw)
+        1:   41-block  4
+call   15 returned 1
+call   16 returned 1
+call   17 returned 1
+call   18 returned 1
+    $$$$$:   41-block  5
+    $$$$$:   41-block  6
+call   19 never executed
+    $$$$$:   41-block  7
+    $$$$$:   41-block  8
+call   20 never executed
+    $$$$$:   41-block  9
+    $$$$$:   41-block 10
+        1:   42:    Boxes_.resize(6);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   43:    Info_.resize(6);
+        1:   43-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        7:   44:    for (int i = 0; i < 6; ++i) {
+        1:   44-block  0
+        7:   44-block  1
+branch  0 taken 6
+branch  1 taken 1 (fallthrough)
+        6:   45:        Boxes_[i].COLOR = Color::White;
+        6:   45-block  0
+call    0 returned 6
+        6:   46:        Boxes_[i].size = Vector2f(static_cast<float>(WINDOW_W_) + 100, 100);
+call    0 returned 6
+call    1 returned 6
+        6:   47:        Boxes_[i].position = Vector2f(0.f, float(i) * 100.f);
+call    0 returned 6
+call    1 returned 6
+        -:   48:    }
+        1:   49:    Info_[0] = "value: " + std::to_string(Input_Vertex->val);
+        1:   49-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   49-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   49-block  2
+call    6 returned 1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+    $$$$$:   49-block  3
+call   10 never executed
+    $$$$$:   49-block  4
+        1:   50:    Info_[1] = "height: " + Input_Vertex->real_vertex->param.height;
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   51:    Info_[2] = "posX: " + Input_Vertex->real_vertex->param.posX;
+        1:   51-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   52:    Info_[3] = "shift: " + Input_Vertex->real_vertex->param.sdv;
+        1:   52-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   53:    Info_[4] = "left posX: " + Input_Vertex->real_vertex->param.L;
+        1:   53-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   54:    Info_[5] = "right posX: " + Input_Vertex->real_vertex->param.R;
+        1:   54-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   55:    Main_Window_.setPosition(Vector2i(500, 500));
+        1:   55-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:   55-block  1
+        1:   56:    User_Font.loadFromFile("/home/yeawer/tree/Hack-Bold.ttf");
+        1:   56-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   56-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:   56-block  2
+call    7 returned 1
+call    8 returned 1
+    $$$$$:   56-block  3
+call    9 never executed
+    $$$$$:   56-block  4
+    $$$$$:   56-block  5
+call   10 never executed
+    $$$$$:   56-block  6
+        1:   57:    User_Text.setFont(User_Font);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   58:}
+        1:   58-block  0
+    $$$$$:   58-block  1
+call    0 never executed
+    $$$$$:   58-block  2
+call    1 never executed
+    $$$$$:   58-block  3
+call    2 never executed
+    $$$$$:   58-block  4
+call    3 never executed
+    $$$$$:   58-block  5
+call    4 never executed
+------------------
+_ZN17Info_Extra_WindowC2I7Node_DDEEP6VERTEXIT_E:
+function _ZN17Info_Extra_WindowC2I7Node_DDEEP6VERTEXIT_E called 0 returned 0% blocks executed 0%
+    #####:   40:Info_Extra_Window::Info_Extra_Window(VERTEX<vertex_type> *Input_Vertex) :
+    #####:   41:        Main_Window_(VideoMode(WINDOW_W_, WINDOW_H_), "meow") {
+    %%%%%:   41-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   41-block  1
+call    4 never executed
+call    5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   41-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   41-block  3
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:   41-block  4
+call   15 never executed
+call   16 never executed
+call   17 never executed
+call   18 never executed
+    $$$$$:   41-block  5
+    $$$$$:   41-block  6
+call   19 never executed
+    $$$$$:   41-block  7
+    $$$$$:   41-block  8
+call   20 never executed
+    $$$$$:   41-block  9
+    $$$$$:   41-block 10
+    #####:   42:    Boxes_.resize(6);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   43:    Info_.resize(6);
+    %%%%%:   43-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   44:    for (int i = 0; i < 6; ++i) {
+    %%%%%:   44-block  0
+    %%%%%:   44-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:   45:        Boxes_[i].COLOR = Color::White;
+    %%%%%:   45-block  0
+call    0 never executed
+    #####:   46:        Boxes_[i].size = Vector2f(static_cast<float>(WINDOW_W_) + 100, 100);
+call    0 never executed
+call    1 never executed
+    #####:   47:        Boxes_[i].position = Vector2f(0.f, float(i) * 100.f);
+call    0 never executed
+call    1 never executed
+        -:   48:    }
+    #####:   49:    Info_[0] = "value: " + std::to_string(Input_Vertex->val);
+    %%%%%:   49-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   49-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   49-block  2
+call    6 never executed
+call    7 never executed
+call    8 never executed
+call    9 never executed
+    $$$$$:   49-block  3
+call   10 never executed
+    $$$$$:   49-block  4
+    #####:   50:    Info_[1] = "height: " + Input_Vertex->real_vertex->param.height;
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   51:    Info_[2] = "posX: " + Input_Vertex->real_vertex->param.posX;
+    %%%%%:   51-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   52:    Info_[3] = "shift: " + Input_Vertex->real_vertex->param.sdv;
+    %%%%%:   52-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   53:    Info_[4] = "left posX: " + Input_Vertex->real_vertex->param.L;
+    %%%%%:   53-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   54:    Info_[5] = "right posX: " + Input_Vertex->real_vertex->param.R;
+    %%%%%:   54-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   55:    Main_Window_.setPosition(Vector2i(500, 500));
+    %%%%%:   55-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:   55-block  1
+    #####:   56:    User_Font.loadFromFile("/home/yeawer/tree/Hack-Bold.ttf");
+    %%%%%:   56-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   56-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:   56-block  2
+call    7 never executed
+call    8 never executed
+    $$$$$:   56-block  3
+call    9 never executed
+    $$$$$:   56-block  4
+    $$$$$:   56-block  5
+call   10 never executed
+    $$$$$:   56-block  6
+    #####:   57:    User_Text.setFont(User_Font);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   58:}
+    %%%%%:   58-block  0
+    $$$$$:   58-block  1
+call    0 never executed
+    $$$$$:   58-block  2
+call    1 never executed
+    $$$$$:   58-block  3
+call    2 never executed
+    $$$$$:   58-block  4
+call    3 never executed
+    $$$$$:   58-block  5
+call    4 never executed
+------------------

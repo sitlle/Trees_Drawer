@@ -1,0 +1,126 @@
+        -:    0:Source:/home/yeawer/tree/DD.h
+        -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/FrontEnd.cpp.gcno
+        -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/FrontEnd.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include<bits/stdc++.h>
+        -:    2:#include"Node_DD.h"
+        -:    3:#include"Random.h"
+        -:    4:#pragma once
+        -:    5:class DD {
+        -:    6:public:
+        -:    7:    Node_DD* root;
+        -:    8:
+function _ZN2DDC2Ev called 1 returned 100% blocks executed 100%
+        1:    9:    explicit DD() {
+        1:   10:        root = nullptr;
+        1:   11:    }
+        -:   12:
+function _ZN2DDD2Ev called 1 returned 100% blocks executed 100%
+        1:   13:    ~DD() {
+        1:   14:        clear(root);
+        1:   14-block  0
+call    0 returned 1
+        1:   15:    }
+        -:   16:
+        -:   17:    bool Find(int64_t val) {
+        -:   18:        return Find(root, val);
+        -:   19:    }
+        -:   20:
+        -:   21:    void Add(int64_t val) {
+        -:   22:        if (Find(val)) {
+        -:   23:            return;
+        -:   24:        }
+        -:   25:        auto* vertex = new Node_DD(val);
+        -:   26:        auto[T_First, T_Second] = Split(root, vertex->val);
+        -:   27:        T_First = Merge(T_First, vertex);
+        -:   28:        root = Merge(T_First, T_Second);
+        -:   29:    }
+        -:   30:
+        -:   31:    void Add_Rnd(int32_t x) {
+        -:   32:        for (int i = 0; i < x; ++i) {
+        -:   33:            int rnd_num = static_cast<int>(get_random() % 100); // rand nums
+        -:   34:            Add(rnd_num);
+        -:   35:        }
+        -:   36:    }
+        -:   37:
+        -:   38:    void Print() {
+        -:   39:        Print(root);
+        -:   40:    }
+        -:   41:
+        -:   42:private:
+        -:   43:
+function _ZN2DD5clearEP7Node_DD called 89 returned 100% blocks executed 100%
+       89:   44:    void clear(Node_DD* vertex) {
+       89:   45:        if (vertex == nullptr) {
+       89:   45-block  0
+branch  0 taken 45 (fallthrough)
+branch  1 taken 44
+       45:   46:            return;
+       45:   46-block  0
+        -:   47:        }
+       44:   48:        clear(vertex->left);
+       44:   48-block  0
+call    0 returned 44
+       44:   49:        clear(vertex->right);
+call    0 returned 44
+       44:   50:        delete[] vertex;
+branch  0 taken 44 (fallthrough)
+branch  1 taken 0
+       44:   50-block  0
+call    2 returned 44
+        -:   51:    }
+        -:   52:
+        -:   53:    void Print(Node_DD* vertex) {
+        -:   54:        if (vertex == nullptr) {
+        -:   55:            return;
+        -:   56:        }
+        -:   57:        Print(vertex->left);
+        -:   58:        std::cout << vertex->val << ' ';
+        -:   59:        Print(vertex->right);
+        -:   60:    }
+        -:   61:
+        -:   62:    bool Find(Node_DD* vertex, int64_t key) {
+        -:   63:        if (vertex == nullptr) {
+        -:   64:            return false;
+        -:   65:        }
+        -:   66:        if (vertex->val == key) {
+        -:   67:            return true;
+        -:   68:        }
+        -:   69:        if (key < vertex->val) {
+        -:   70:            return Find(vertex->left, key);
+        -:   71:        } else {
+        -:   72:            return Find(vertex->right, key);
+        -:   73:        }
+        -:   74:    }
+        -:   75:
+        -:   76:    Node_DD* Merge(Node_DD* T_First, Node_DD* T_Second) {
+        -:   77:        if (T_First == nullptr) {
+        -:   78:            return T_Second;
+        -:   79:        }
+        -:   80:        if (T_Second == nullptr) {
+        -:   81:            return T_First;
+        -:   82:        }
+        -:   83:        if (T_First->priority > T_Second->priority) {
+        -:   84:            T_First->right = Merge(T_First->right, T_Second);
+        -:   85:            return T_First;
+        -:   86:        } else {
+        -:   87:            T_Second->left = Merge(T_First, T_Second->left);
+        -:   88:            return T_Second;
+        -:   89:        }
+        -:   90:    }
+        -:   91:
+        -:   92:    std::pair<Node_DD*, Node_DD*> Split(Node_DD* T, int64_t key) {
+        -:   93:        if (T == nullptr) {
+        -:   94:            return {nullptr, nullptr};
+        -:   95:        }
+        -:   96:        if (key <= T->val) {
+        -:   97:            auto[T_First, T_Second] = Split(T->left, key);
+        -:   98:            T->left = T_Second;
+        -:   99:            return {T_First, T};
+        -:  100:        } else {
+        -:  101:            auto[T_First, T_Second] = Split(T->right, key);
+        -:  102:            T->right = T_First;
+        -:  103:            return {T, T_Second};
+        -:  104:        }
+        -:  105:    }
+        -:  106:};

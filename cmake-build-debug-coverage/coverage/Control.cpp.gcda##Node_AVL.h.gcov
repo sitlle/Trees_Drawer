@@ -1,0 +1,23 @@
+        -:    0:Source:/home/yeawer/tree/Node_AVL.h
+        -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcno
+        -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include"Node_Options.h"
+        -:    2:#pragma once
+        -:    3:
+        -:    4:struct Node_AVL {
+        -:    5:    // Node options
+        -:    6:    Node_Options param;
+        -:    7:    int64_t val;
+        -:    8:    Node_AVL* left;
+        -:    9:    Node_AVL* right;
+        -:   10:    int32_t height = 0;
+        -:   11:    int64_t balance;
+function _ZN8Node_AVLC2Eli called 60 returned 100% blocks executed 100%
+      120:   12:    explicit Node_AVL(int64_t _val = 0, int32_t _height = -1) : val(_val),
+       60:   13:                                                            height(_height + 1),
+       60:   14:                                                            left(nullptr), right(nullptr),
+       60:   15:                                                            balance(0) {}
+       60:   15-block  0
+call    0 returned 60
+        -:   16:};

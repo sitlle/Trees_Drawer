@@ -1,0 +1,329 @@
+        -:    0:Source:/home/yeawer/tree/Control.cpp
+        -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcno
+        -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include"FrontEnd.h"
+        -:    2:#include "Control.h"
+        -:    3:
+function _ZN7Control12WASD_Control7MOVE_UPEv called 3 returned 100% blocks executed 80%
+        3:    4:void Control::WASD_Control::MOVE_UP() noexcept {
+        3:    5:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+        3:    5-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 3
+    #####:    6:        MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_y += 75;
+    %%%%%:    6-block  0
+        3:    7:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+        3:    7-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 0
+        3:    8:        MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_y += 75;
+        3:    8-block  0
+        -:    9:    }
+        3:   10:}
+        -:   11:
+function _ZN7Control12WASD_Control9MOVE_DOWNEv called 0 returned 0% blocks executed 0%
+    #####:   12:void Control::WASD_Control::MOVE_DOWN() noexcept {
+    #####:   13:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+    %%%%%:   13-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   14:        MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_y -= 75;
+    %%%%%:   14-block  0
+    #####:   15:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+    %%%%%:   15-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   16:        MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_y -= 75;
+    %%%%%:   16-block  0
+        -:   17:    }
+    #####:   18:}
+        -:   19:
+function _ZN7Control12WASD_Control9MOVE_LEFTEv called 43 returned 100% blocks executed 80%
+       43:   20:void Control::WASD_Control::MOVE_LEFT() noexcept {
+       43:   21:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+       43:   21-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 43
+    #####:   22:        MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_x += 75;
+    %%%%%:   22-block  0
+       43:   23:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+       43:   23-block  0
+branch  0 taken 43 (fallthrough)
+branch  1 taken 0
+       43:   24:        MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_x += 75;
+       43:   24-block  0
+        -:   25:    }
+       43:   26:}
+        -:   27:
+function _ZN7Control12WASD_Control10MOVE_RIGHTEv called 33 returned 100% blocks executed 80%
+       33:   28:void Control::WASD_Control::MOVE_RIGHT() noexcept {
+       33:   29:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+       33:   29-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 33
+    #####:   30:        MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_x -= 75;
+    %%%%%:   30-block  0
+       33:   31:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+       33:   31-block  0
+branch  0 taken 33 (fallthrough)
+branch  1 taken 0
+       33:   32:        MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_x -= 75;
+       33:   32-block  0
+        -:   33:    }
+       33:   34:}
+        -:   35:
+function _ZN7Control13Mouse_Control7MOVE_UPEv called 0 returned 0% blocks executed 0%
+    #####:   36:void Control::Mouse_Control::MOVE_UP() noexcept {
+    #####:   37:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+    %%%%%:   37-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   38:        MAIN_WINDOW::PRINT_DD_OPTIONS_.zoom -= 0.03f;
+    %%%%%:   38-block  0
+    #####:   39:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+    %%%%%:   39-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   40:        MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom -= 0.03f;
+    %%%%%:   40-block  0
+        -:   41:    }
+    #####:   42:}
+        -:   43:
+function _ZN7Control13Mouse_Control9MOVE_DOWNEv called 0 returned 0% blocks executed 0%
+    #####:   44:void Control::Mouse_Control::MOVE_DOWN() noexcept {
+    #####:   45:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+    %%%%%:   45-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   46:        MAIN_WINDOW::PRINT_DD_OPTIONS_.zoom += 0.03f;
+    %%%%%:   46-block  0
+    #####:   47:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+    %%%%%:   47-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   48:        MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom += 0.03f;
+    %%%%%:   48-block  0
+        -:   49:    }
+    #####:   50:}
+        -:   51:
+function _ZN7Control13Arrow_Control9MOVE_LEFTEv called 0 returned 0% blocks executed 0%
+    #####:   52:void Control::Arrow_Control::MOVE_LEFT() noexcept {
+    #####:   53:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+    %%%%%:   53-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   54:        MAIN_WINDOW::DD_OPTIONS_.TREE_W -= 0.03f;
+    #####:   55:        MAIN_WINDOW::DD_OPTIONS_.TREE_W = std::max(1.f, MAIN_WINDOW::DD_OPTIONS_.TREE_W);
+    %%%%%:   55-block  0
+call    0 never executed
+    #####:   56:        MAIN_WINDOW::DD_DRAW_TREE_ = Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
+call    0 never executed
+        -:   57:                                                             MAIN_WINDOW::DD_OPTIONS_);
+    #####:   58:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+    %%%%%:   58-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   59:        MAIN_WINDOW::AVL_OPTIONS_.TREE_W -= 0.03f;
+    #####:   60:        MAIN_WINDOW::AVL_OPTIONS_.TREE_W = std::max(1.f, MAIN_WINDOW::AVL_OPTIONS_.TREE_W);
+    %%%%%:   60-block  0
+call    0 never executed
+    #####:   61:        MAIN_WINDOW::AVL_DRAW_TREE_ = Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
+call    0 never executed
+        -:   62:                                                                MAIN_WINDOW::AVL_OPTIONS_);
+    #####:   63:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
+    %%%%%:   63-block  0
+        -:   64:
+        -:   65:    }
+    #####:   66:}
+        -:   67:
+function _ZN7Control13Arrow_Control10MOVE_RIGHTEv called 0 returned 0% blocks executed 0%
+    #####:   68:void Control::Arrow_Control::MOVE_RIGHT() noexcept {
+    #####:   69:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+    %%%%%:   69-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   70:        MAIN_WINDOW::DD_OPTIONS_.TREE_W += 0.03f;
+    #####:   71:        MAIN_WINDOW::DD_DRAW_TREE_ = Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
+    %%%%%:   71-block  0
+call    0 never executed
+        -:   72:                                                             MAIN_WINDOW::DD_OPTIONS_);
+    #####:   73:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+    %%%%%:   73-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   74:        MAIN_WINDOW::AVL_OPTIONS_.TREE_W += 0.03f;
+    #####:   75:        MAIN_WINDOW::AVL_DRAW_TREE_ = Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
+    %%%%%:   75-block  0
+call    0 never executed
+        -:   76:                                                                MAIN_WINDOW::AVL_OPTIONS_);
+    #####:   77:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
+    %%%%%:   77-block  0
+        -:   78:
+        -:   79:    }
+    #####:   80:}
+        -:   81:
+function _ZN7Control13Arrow_Control9MOVE_DOWNEv called 0 returned 0% blocks executed 0%
+    #####:   82:void Control::Arrow_Control::MOVE_DOWN() noexcept {
+    #####:   83:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+    %%%%%:   83-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   84:        MAIN_WINDOW::DD_OPTIONS_.TREE_H += 0.03f;
+    #####:   85:        MAIN_WINDOW::DD_OPTIONS_.TREE_H = std::max(1.f, MAIN_WINDOW::DD_OPTIONS_.TREE_H);
+    %%%%%:   85-block  0
+call    0 never executed
+    #####:   86:        MAIN_WINDOW::DD_DRAW_TREE_ = Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
+call    0 never executed
+        -:   87:                                                             MAIN_WINDOW::DD_OPTIONS_);
+    #####:   88:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+    %%%%%:   88-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   89:        MAIN_WINDOW::AVL_OPTIONS_.TREE_H += 0.03f;
+    #####:   90:        MAIN_WINDOW::AVL_OPTIONS_.TREE_H = std::max(1.f, MAIN_WINDOW::AVL_OPTIONS_.TREE_H);
+    %%%%%:   90-block  0
+call    0 never executed
+    #####:   91:        MAIN_WINDOW::AVL_DRAW_TREE_ = Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
+call    0 never executed
+        -:   92:                                                                MAIN_WINDOW::AVL_OPTIONS_);
+    #####:   93:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
+    %%%%%:   93-block  0
+        -:   94:
+        -:   95:    }
+    #####:   96:}
+        -:   97:
+function _ZN7Control13Arrow_Control7MOVE_UPEv called 0 returned 0% blocks executed 0%
+    #####:   98:void Control::Arrow_Control::MOVE_UP() noexcept {
+    #####:   99:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+    %%%%%:   99-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  100:        MAIN_WINDOW::DD_OPTIONS_.TREE_H -= 0.1f;
+    #####:  101:        MAIN_WINDOW::DD_OPTIONS_.TREE_H = std::max(1.f, MAIN_WINDOW::DD_OPTIONS_.TREE_H);
+    %%%%%:  101-block  0
+call    0 never executed
+    #####:  102:        MAIN_WINDOW::DD_DRAW_TREE_ = Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
+call    0 never executed
+        -:  103:                                                             MAIN_WINDOW::DD_OPTIONS_);
+    #####:  104:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+    %%%%%:  104-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  105:        MAIN_WINDOW::AVL_OPTIONS_.TREE_H -= 0.1f;
+    #####:  106:        MAIN_WINDOW::AVL_OPTIONS_.TREE_H = std::max(1.f, MAIN_WINDOW::AVL_OPTIONS_.TREE_H);
+    %%%%%:  106-block  0
+call    0 never executed
+    #####:  107:        MAIN_WINDOW::AVL_DRAW_TREE_ = Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
+call    0 never executed
+        -:  108:                                                                MAIN_WINDOW::AVL_OPTIONS_);
+    #####:  109:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
+    %%%%%:  109-block  0
+        -:  110:
+        -:  111:    }
+    #####:  112:}
+        -:  113:
+function _ZN7Control12Nums_Control4NUM1Ev called 0 returned 0% blocks executed 0%
+    #####:  114:void Control::Nums_Control::NUM1() noexcept {
+    #####:  115:    First_Extra_Window Extra_Window;
+    %%%%%:  115-block  0
+call    0 never executed
+    #####:  116:    std::string res = Extra_Window.Process();
+call    0 never executed
+    #####:  117:    if (!res.empty()) {
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  118:        int64_t add_num = stoi(res);
+    %%%%%:  118-block  0
+call    0 never executed
+        -:  119:        /// more...
+        -:  120:        // add DD
+    #####:  121:        MAIN_WINDOW::DD_TREE_.Add(add_num);
+call    0 never executed
+    #####:  122:        MAIN_WINDOW::AVL_TREE_.Add(add_num);
+call    0 never executed
+        -:  123:        // re-build DD
+    #####:  124:        MAIN_WINDOW::DD_DRAW_TREE_ = Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
+call    0 never executed
+        -:  125:                                                             MAIN_WINDOW::DD_OPTIONS_);
+        -:  126:        // add AVL
+    #####:  127:        MAIN_WINDOW::AVL_DRAW_TREE_ = Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
+call    0 never executed
+        -:  128:                                                                MAIN_WINDOW::AVL_OPTIONS_);
+        -:  129:        // add Splay
+        -:  130:    }
+    #####:  131:}
+    %%%%%:  131-block  0
+call    0 never executed
+call    1 never executed
+        -:  132:
+function _ZN7Control12Nums_Control4NUM2Ev called 2 returned 100% blocks executed 100%
+        2:  133:void Control::Nums_Control::NUM2() noexcept {
+        2:  134:    First_Extra_Window Extra_Window;
+        2:  134-block  0
+call    0 returned 2
+        2:  135:    std::string res = Extra_Window.Process();
+call    0 returned 2
+        2:  136:    if (!res.empty()) {
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0
+        2:  137:        int32_t add_num = stoi(res);
+        2:  137-block  0
+call    0 returned 2
+        -:  138:        /// more...
+        -:  139:        // add DD
+        2:  140:        MAIN_WINDOW::DD_TREE_.Add_Rnd(add_num);
+call    0 returned 2
+        2:  141:        MAIN_WINDOW::AVL_TREE_.Add_X(add_num);
+call    0 returned 2
+        -:  142:        // re-build DD
+        2:  143:        MAIN_WINDOW::DD_DRAW_TREE_ = Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
+call    0 returned 2
+        -:  144:                                                             MAIN_WINDOW::DD_OPTIONS_);
+        -:  145:        // add AVL
+        2:  146:        MAIN_WINDOW::AVL_DRAW_TREE_ = Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
+call    0 returned 2
+        -:  147:                                                                MAIN_WINDOW::AVL_OPTIONS_);
+        -:  148:        // add Splay
+        -:  149:
+        -:  150:    }
+        2:  151:}
+        2:  151-block  0
+call    0 returned 2
+call    1 returned 2
+        -:  152:
+function _ZN7Control12Nums_Control4NUM3Ev called 0 returned 0% blocks executed 0%
+    #####:  153:void Control::Nums_Control::NUM3() noexcept {
+    #####:  154:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+    %%%%%:  154-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  155:        MAIN_WINDOW::type_ = MAIN_WINDOW::which_window_::DD_TREE;
+    %%%%%:  155-block  0
+    #####:  156:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
+    %%%%%:  156-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  157:        MAIN_WINDOW::type_ = MAIN_WINDOW::which_window_::AVL_TREE;
+    %%%%%:  157-block  0
+        -:  158:    }
+    #####:  159:}
+        -:  160:
+function _ZN7Control12Nums_Control4NUM4Ev called 1 returned 100% blocks executed 60%
+        1:  161:void Control::Nums_Control::NUM4() noexcept {
+        1:  162:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+        1:  162-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  163:        MAIN_WINDOW::type_ = MAIN_WINDOW::which_window_::AVL_TREE;
+        1:  163-block  0
+    #####:  164:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+    %%%%%:  164-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  165:        MAIN_WINDOW::type_ = MAIN_WINDOW::which_window_::SPLAY_TREE;
+    %%%%%:  165-block  0
+        -:  166:    }
+        1:  167:}

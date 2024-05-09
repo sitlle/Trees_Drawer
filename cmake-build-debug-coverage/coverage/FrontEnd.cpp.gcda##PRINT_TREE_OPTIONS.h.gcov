@@ -1,0 +1,14 @@
+        -:    0:Source:/home/yeawer/tree/PRINT_TREE_OPTIONS.h
+        -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/FrontEnd.cpp.gcno
+        -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/FrontEnd.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:
+        -:    3:struct PRINT_TREE_OPTIONS {
+        -:    4:    float cnt_x;
+        -:    5:    float cnt_y;
+        -:    6:    float zoom;
+function _ZN18PRINT_TREE_OPTIONSC2Ev called 3 returned 100% blocks executed 100%
+        3:    7:    PRINT_TREE_OPTIONS() : cnt_x(0.f), cnt_y(0.f), zoom(1.f) {}
+        -:    8:    ~PRINT_TREE_OPTIONS() = default;
+        -:    9:};

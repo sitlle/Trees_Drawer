@@ -1,0 +1,201 @@
+        -:    0:Source:/home/yeawer/tree/ErrorWindow.cpp
+        -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/ErrorWindow.cpp.gcno
+        -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/ErrorWindow.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "ErrorWindow.h"
+        -:    2:#include<bits/stdc++.h>
+        -:    3:#include<SFML/Graphics.hpp>
+        -:    4:#pragma once
+        -:    5:
+function _ZN11ErrorWindowC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:    6:ErrorWindow::ErrorWindow(const std::string& error)
+    #####:    7:        : Error_Window_(sf::VideoMode(1400, 400), "Error") {
+    %%%%%:    7-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:    7-block  1
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:    7-block  2
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+    %%%%%:    7-block  3
+call   11 never executed
+call   12 never executed
+call   13 never executed
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:    7-block  4
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    $$$$$:    7-block  5
+    $$$$$:    7-block  6
+call   20 never executed
+    $$$$$:    7-block  7
+    $$$$$:    7-block  8
+call   21 never executed
+    $$$$$:    7-block  9
+    $$$$$:    7-block 10
+call   22 never executed
+    #####:    8:    Error_Window_.setPosition(sf::Vector2i(560, 550));
+    %%%%%:    8-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:    8-block  1
+    #####:    9:    message_ = error;
+    %%%%%:    9-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   10:    Main_Font_.loadFromFile("/home/yeawer/tree/Hack-Bold.ttf");
+    %%%%%:   10-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   10-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:   10-block  2
+call    7 never executed
+call    8 never executed
+    $$$$$:   10-block  3
+call    9 never executed
+    $$$$$:   10-block  4
+    $$$$$:   10-block  5
+call   10 never executed
+    $$$$$:   10-block  6
+    #####:   11:    Main_Text_.setFont(Main_Font_);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   12:    Main_Text_.setString(error);
+    %%%%%:   12-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   12-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:   12-block  2
+call    7 never executed
+call    8 never executed
+    $$$$$:   12-block  3
+call    9 never executed
+    $$$$$:   12-block  4
+    $$$$$:   12-block  5
+call   10 never executed
+    $$$$$:   12-block  6
+    #####:   13:    Main_Text_.setCharacterSize(140);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   14:    float position_x = (static_cast<float>(Error_Window_.getSize().x) -
+    %%%%%:   14-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   15:                        Main_Text_.getLocalBounds().width) / 2;
+    %%%%%:   15-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   16:    float position_y = (static_cast<float>(Error_Window_.getSize().y) - Main_Text_.getLocalBounds().height) / 2;
+    %%%%%:   16-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   16-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   17:    Main_Text_.setPosition(sf::Vector2f(position_x, position_y));
+    %%%%%:   17-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:   17-block  1
+    #####:   18:}
+    %%%%%:   18-block  0
+    $$$$$:   18-block  1
+call    0 never executed
+    $$$$$:   18-block  2
+call    1 never executed
+    $$$$$:   18-block  3
+call    2 never executed
+    $$$$$:   18-block  4
+call    3 never executed
+        -:   19:
+function _ZN11ErrorWindow7ProcessEv called 0 returned 0% blocks executed 0%
+    #####:   20:void ErrorWindow::Process() {
+    #####:   21:    int cnt = 0;
+    #####:   22:    while (Error_Window_.isOpen()) {
+    %%%%%:   22-block  0
+    %%%%%:   22-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   23:        while (Error_Window_.pollEvent(Error_Event_)) {
+    %%%%%:   23-block  0
+    %%%%%:   23-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   24:            if (Error_Event_.type == sf::Event::Closed ||
+    %%%%%:   24-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   24-block  1
+    %%%%%:   24-block  2
+    %%%%%:   24-block  3
+branch  2 never executed
+branch  3 never executed
+    #####:   25:                Error_Event_.type == sf::Event::KeyPressed &&
+    %%%%%:   25-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   26:                (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) ||
+    %%%%%:   26-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   27:                 sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))) { // close
+    %%%%%:   27-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   28:                Error_Window_.close();
+    %%%%%:   28-block  0
+call    0 never executed
+        -:   29:            } else {
+    #####:   30:                cnt = 1;
+    %%%%%:   30-block  0
+        -:   31:            }
+        -:   32:        }
+    #####:   33:        Error_Window_.clear();
+    %%%%%:   33-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   34:        Error_Window_.draw(Main_Text_);
+    %%%%%:   34-block  0
+call    0 never executed
+    #####:   35:        Error_Window_.display();
+call    0 never executed
+        -:   36:    }
+    #####:   37:}
+    %%%%%:   37-block  0
