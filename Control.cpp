@@ -1,5 +1,6 @@
 #include"FrontEnd.h"
 #include "Control.h"
+#include"Trees_Building.h"
 
 void Control::WASD_Control::MOVE_UP() noexcept {
     if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
@@ -53,12 +54,12 @@ void Control::Arrow_Control::MOVE_LEFT() noexcept {
     if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
         MAIN_WINDOW::DD_OPTIONS_.TREE_W -= 0.03f;
         MAIN_WINDOW::DD_OPTIONS_.TREE_W = std::max(1.f, MAIN_WINDOW::DD_OPTIONS_.TREE_W);
-        MAIN_WINDOW::DD_DRAW_TREE_ = Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
+        MAIN_WINDOW::DD_DRAW_TREE_ = Trees_Building::Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
                                                              MAIN_WINDOW::DD_OPTIONS_);
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
         MAIN_WINDOW::AVL_OPTIONS_.TREE_W -= 0.03f;
         MAIN_WINDOW::AVL_OPTIONS_.TREE_W = std::max(1.f, MAIN_WINDOW::AVL_OPTIONS_.TREE_W);
-        MAIN_WINDOW::AVL_DRAW_TREE_ = Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
+        MAIN_WINDOW::AVL_DRAW_TREE_ = Trees_Building::Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
                                                                 MAIN_WINDOW::AVL_OPTIONS_);
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
 
@@ -68,11 +69,11 @@ void Control::Arrow_Control::MOVE_LEFT() noexcept {
 void Control::Arrow_Control::MOVE_RIGHT() noexcept {
     if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
         MAIN_WINDOW::DD_OPTIONS_.TREE_W += 0.03f;
-        MAIN_WINDOW::DD_DRAW_TREE_ = Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
+        MAIN_WINDOW::DD_DRAW_TREE_ = Trees_Building::Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
                                                              MAIN_WINDOW::DD_OPTIONS_);
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
         MAIN_WINDOW::AVL_OPTIONS_.TREE_W += 0.03f;
-        MAIN_WINDOW::AVL_DRAW_TREE_ = Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
+        MAIN_WINDOW::AVL_DRAW_TREE_ = Trees_Building::Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
                                                                 MAIN_WINDOW::AVL_OPTIONS_);
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
 
@@ -83,12 +84,12 @@ void Control::Arrow_Control::MOVE_DOWN() noexcept {
     if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
         MAIN_WINDOW::DD_OPTIONS_.TREE_H += 0.03f;
         MAIN_WINDOW::DD_OPTIONS_.TREE_H = std::max(1.f, MAIN_WINDOW::DD_OPTIONS_.TREE_H);
-        MAIN_WINDOW::DD_DRAW_TREE_ = Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
+        MAIN_WINDOW::DD_DRAW_TREE_ = Trees_Building::Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
                                                              MAIN_WINDOW::DD_OPTIONS_);
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
         MAIN_WINDOW::AVL_OPTIONS_.TREE_H += 0.03f;
         MAIN_WINDOW::AVL_OPTIONS_.TREE_H = std::max(1.f, MAIN_WINDOW::AVL_OPTIONS_.TREE_H);
-        MAIN_WINDOW::AVL_DRAW_TREE_ = Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
+        MAIN_WINDOW::AVL_DRAW_TREE_ = Trees_Building::Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
                                                                 MAIN_WINDOW::AVL_OPTIONS_);
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
 
@@ -97,14 +98,14 @@ void Control::Arrow_Control::MOVE_DOWN() noexcept {
 
 void Control::Arrow_Control::MOVE_UP() noexcept {
     if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
-        MAIN_WINDOW::DD_OPTIONS_.TREE_H -= 0.1f;
+        MAIN_WINDOW::DD_OPTIONS_.TREE_H -= 0.03f;
         MAIN_WINDOW::DD_OPTIONS_.TREE_H = std::max(1.f, MAIN_WINDOW::DD_OPTIONS_.TREE_H);
-        MAIN_WINDOW::DD_DRAW_TREE_ = Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
+        MAIN_WINDOW::DD_DRAW_TREE_ = Trees_Building::Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
                                                              MAIN_WINDOW::DD_OPTIONS_);
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
-        MAIN_WINDOW::AVL_OPTIONS_.TREE_H -= 0.1f;
+        MAIN_WINDOW::AVL_OPTIONS_.TREE_H -= 0.03f;
         MAIN_WINDOW::AVL_OPTIONS_.TREE_H = std::max(1.f, MAIN_WINDOW::AVL_OPTIONS_.TREE_H);
-        MAIN_WINDOW::AVL_DRAW_TREE_ = Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
+        MAIN_WINDOW::AVL_DRAW_TREE_ = Trees_Building::Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
                                                                 MAIN_WINDOW::AVL_OPTIONS_);
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
 
@@ -121,10 +122,10 @@ void Control::Nums_Control::NUM1() noexcept {
         MAIN_WINDOW::DD_TREE_.Add(add_num);
         MAIN_WINDOW::AVL_TREE_.Add(add_num);
         // re-build DD
-        MAIN_WINDOW::DD_DRAW_TREE_ = Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
+        MAIN_WINDOW::DD_DRAW_TREE_ = Trees_Building::Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
                                                              MAIN_WINDOW::DD_OPTIONS_);
         // add AVL
-        MAIN_WINDOW::AVL_DRAW_TREE_ = Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
+        MAIN_WINDOW::AVL_DRAW_TREE_ = Trees_Building::Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
                                                                 MAIN_WINDOW::AVL_OPTIONS_);
         // add Splay
     }
@@ -140,10 +141,10 @@ void Control::Nums_Control::NUM2() noexcept {
         MAIN_WINDOW::DD_TREE_.Add_Rnd(add_num);
         MAIN_WINDOW::AVL_TREE_.Add_X(add_num);
         // re-build DD
-        MAIN_WINDOW::DD_DRAW_TREE_ = Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
+        MAIN_WINDOW::DD_DRAW_TREE_ = Trees_Building::Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
                                                              MAIN_WINDOW::DD_OPTIONS_);
         // add AVL
-        MAIN_WINDOW::AVL_DRAW_TREE_ = Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
+        MAIN_WINDOW::AVL_DRAW_TREE_ = Trees_Building::Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
                                                                 MAIN_WINDOW::AVL_OPTIONS_);
         // add Splay
 
