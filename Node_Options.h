@@ -4,12 +4,12 @@
 struct Node_Options {
     int32_t height;
     int32_t size;
-    int64_t posX;
-    int64_t sdv;
-    int64_t L;
-    int64_t R;
+    bigint posX;
+    bigint sdv;
+    bigint L;
+    bigint R;
     sf::Color COLOR;
-    Node_Options() : height(0), posX(0), sdv(0), L(0), R(0),
+    Node_Options() : height(0), posX(to_bigint("0")), sdv(to_bigint("0")), L(to_bigint("0")), R(to_bigint("0")),
                      COLOR(sf::Color::Red), size(0) {}
     ~Node_Options() = default;
 };

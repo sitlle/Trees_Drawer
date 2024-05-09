@@ -52,6 +52,9 @@ template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::FindVertex
     float FIRST = 0;
     float SECOND = 0;
     float zoom = 1.f;
+    if (vertex == nullptr) {
+        return nullptr;
+    }
     if (type_ == which_window_::DD_TREE) {
         FIRST = (vertex->coords.first + PRINT_DD_OPTIONS_.cnt_x  + vertex->radius) /
                 PRINT_DD_OPTIONS_.zoom;
@@ -93,12 +96,12 @@ template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::Which_Vertex(VE
     VERTEX<vertex_type>* res = FindVertex(TREE); // res maybe nullptr
     if (res != nullptr) {
         cout << "------------------------------------------\n";
-        cout << "value: " << res->real_vertex->val << '\n';
-        cout << "height: " << res->real_vertex->param.height << '\n';
-        cout << "posX: " << res->real_vertex->param.posX << '\n';
-        cout << "sdv: " << res->real_vertex->param.sdv << '\n';
-        cout << "left posX: " << res->real_vertex->param.L << '\n';
-        cout << "right posX: " << res->real_vertex->param.R << '\n';
+        cout << "value: " << std::to_string(res->real_vertex->val) << '\n';
+        cout << "height: " << std::to_string(res->real_vertex->param.height) << '\n';
+        // cout << "posX: " << bigint::bigint_to_string(res->real_vertex->param.posX) << '\n';
+        // cout << "sdv: " << bigint::bigint_to_string(res->real_vertex->param.sdv) << '\n';
+        // cout << "left posX: " << bigint::bigint_to_string(res->real_vertex->param.L) << '\n';
+        // cout << "right posX: " << bigint::bigint_to_string(res->real_vertex->param.R) << '\n';
         cout << "------------------------------------------\n";
     }
     return res;

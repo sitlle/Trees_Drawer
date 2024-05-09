@@ -64,6 +64,11 @@ private:
 
 public:
     ~bigint() = default;
+
+    static std::string bigint_to_string(const bigint& other) {
+        return other.str;
+    }
+
     static int64_t to_int(bigint ans) {
         std::cout << ans.str << '\n';
         int64_t res = 0;
@@ -78,9 +83,9 @@ public:
             res += int(ans.str[i] - '0') * power;
             power *= 10;
         }
-        std::cout << res << '\n';
         return res;
     }
+
     // Constructors for big int.
     bigint() {
         str = '0';  //default value
@@ -160,7 +165,6 @@ public:
         (*this).str = add((*this).str, n.str);
         return (*this);
     }
-
 
 
     /* Operator {-} Overloadings, for different kind of

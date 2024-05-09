@@ -47,11 +47,11 @@ Info_Extra_Window::Info_Extra_Window(VERTEX<vertex_type> *Input_Vertex) :
         Boxes_[i].position = Vector2f(0.f, float(i) * 100.f);
     }
     Info_[0] = "value: " + std::to_string(Input_Vertex->val);
-    Info_[1] = "height: " + Input_Vertex->real_vertex->param.height;
-    Info_[2] = "posX: " + Input_Vertex->real_vertex->param.posX;
-    Info_[3] = "shift: " + Input_Vertex->real_vertex->param.sdv;
-    Info_[4] = "left posX: " + Input_Vertex->real_vertex->param.L;
-    Info_[5] = "right posX: " + Input_Vertex->real_vertex->param.R;
+    Info_[1] = "height: " + std::to_string(Input_Vertex->real_vertex->param.height);
+    Info_[2] = "posX: " + bigint::bigint_to_string(Input_Vertex->real_vertex->param.posX);
+    Info_[3] = "shift: " + bigint::bigint_to_string(Input_Vertex->real_vertex->param.sdv);
+    Info_[4] = "left posX: " + bigint::bigint_to_string(Input_Vertex->real_vertex->param.L);
+    Info_[5] = "right posX: " + bigint::bigint_to_string(Input_Vertex->real_vertex->param.R);
     Main_Window_.setPosition(Vector2i(500, 500));
     User_Font.loadFromFile("/home/yeawer/tree/Hack-Bold.ttf");
     User_Text.setFont(User_Font);
