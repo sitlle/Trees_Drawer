@@ -31,8 +31,8 @@ add_executable(tree Main_File.cpp
         PRINT_TREE_OPTIONS.h
         Control.cpp
         Control.h
-        BigInteger.cpp
         BigInteger.h
+        BigInteger.cpp
 )
 
 target_link_libraries(tree sfml-graphics sfml-audio)

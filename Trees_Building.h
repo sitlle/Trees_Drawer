@@ -4,17 +4,56 @@
 #include"TREE_OPTIONS.h"
 #pragma once
 
+class Trees_Building {
+public:
+    Trees_Building() = default;
+    ~Trees_Building() = default;
+
+    template<typename vertex_type, typename tree_type>
+    static VERTEX<vertex_type>* Build_Tree(tree_type& TREE, TREE_OPTIONS& TREE_OPT) noexcept;
+private:
+    template<typename vertex_type>
+    static int32_t ReCalcHeight(vertex_type* vertex) noexcept;
+
+    template<typename vertex_type>
+    static int32_t ReCalcSize(vertex_type* vertex) noexcept;
+
+    template<typename vertex_type>
+    static void ReCalcPosX(vertex_type* vertex, int64_t x) noexcept;
+
+    template<typename vertex_type>
+    static void ReBuildTree(vertex_type* vertex) noexcept;
+
+    template<typename vertex_type>
+    static void ReCalcRadius(VERTEX<vertex_type>* node, float& RAD) noexcept;
+
+    template<typename vertex_type>
+    static VERTEX<vertex_type>* Tree_Building_InOrder(vertex_type *vertex, VERTEX<vertex_type> *node,
+                                               std::pair<float, float> last_coords, int64_t x,
+                                               TREE_OPTIONS& TREE_OPT) noexcept;
+
+    template<typename vertex_type>
+    static void Update_LR(vertex_type* vertex, int SDV = 0) noexcept;
+
+    template<typename vertex_type>
+    static void Compression(vertex_type* vertex, int64_t H,
+                     int64_t path_sum = 0, int LorR = -1) noexcept;
+
+    template<typename vertex_type>
+    static void LazyUpdates(vertex_type* vertex, int64_t push) noexcept;
+};
+
 template<typename vertex_type>
-int32_t ReCalcHeight(vertex_type* vertex) {
+int32_t Trees_Building::ReCalcHeight(vertex_type* vertex) noexcept {
     if (vertex == nullptr) {
         return 0;
     }
     return (vertex->param.height = std::max(ReCalcHeight<vertex_type>(vertex->left),
-            ReCalcHeight<vertex_type>(vertex->right)) + 1);
+                                            ReCalcHeight<vertex_type>(vertex->right)) + 1);
 }
 
 template<typename vertex_type>
-int32_t ReCalcSize(vertex_type* vertex) {
+int32_t Trees_Building::ReCalcSize(vertex_type* vertex) noexcept {
     if (vertex == nullptr) {
         return 0;
     }
@@ -22,7 +61,7 @@ int32_t ReCalcSize(vertex_type* vertex) {
 }
 
 template<typename vertex_type>
-void ReCalcPosX(vertex_type* vertex, int64_t x) {
+void Trees_Building::ReCalcPosX(vertex_type* vertex, int64_t x) noexcept {
     if (vertex == nullptr) {
         return;
     }
@@ -37,19 +76,20 @@ void ReCalcPosX(vertex_type* vertex, int64_t x) {
 }
 
 template<typename vertex_type>
-void ReBuildTree(vertex_type* vertex) {
+void Trees_Building::ReBuildTree(vertex_type* vertex) noexcept {
     if (vertex == nullptr) {
         return;
     }
     ReBuildTree<vertex_type>(vertex->left);
     ReBuildTree<vertex_type>(vertex->right);
-    int64_t left = ((vertex->left == nullptr) ? vertex->param.posX : vertex->left->param.LR.first);
-    int64_t right = ((vertex->right == nullptr) ? vertex->param.posX : vertex->right->param.LR.second);
-    vertex->param.LR = {left, right};
+    int64_t left = ((vertex->left == nullptr) ? vertex->param.posX : vertex->left->param.L);
+    int64_t right = ((vertex->right == nullptr) ? vertex->param.posX : vertex->right->param.R);
+    vertex->param.L = left;
+    vertex->param.R = right;
 }
 
 template<typename vertex_type>
-void ReCalcRadius(VERTEX<vertex_type>* node, float& RAD) {
+void Trees_Building::ReCalcRadius(VERTEX<vertex_type>* node, float& RAD) noexcept {
     if (node == nullptr) {
         return;
     }
@@ -59,9 +99,9 @@ void ReCalcRadius(VERTEX<vertex_type>* node, float& RAD) {
 }
 
 template<typename vertex_type>
-VERTEX<vertex_type>* Tree_Building_InOrder(vertex_type *vertex, VERTEX<vertex_type> *node,
+VERTEX<vertex_type>* Trees_Building::Tree_Building_InOrder(vertex_type *vertex, VERTEX<vertex_type> *node,
                                            std::pair<float, float> last_coords, int64_t x,
-                                           TREE_OPTIONS& TREE_OPT) {
+                                           TREE_OPTIONS& TREE_OPT) noexcept {
     if (vertex == nullptr) {
         return nullptr;
     }
@@ -86,49 +126,52 @@ VERTEX<vertex_type>* Tree_Building_InOrder(vertex_type *vertex, VERTEX<vertex_ty
     return node;
 }
 
-template<typename vertex_type> void Update_LR(vertex_type* vertex, int sdv = 0) {
+template<typename vertex_type> void Trees_Building::Update_LR
+(vertex_type* vertex, int SDV) noexcept {
     if (vertex == nullptr) {
         return;
     }
     if (vertex->left != nullptr) {
-        vertex->param.LR.first = vertex->left->param.LR.first + sdv;
+        vertex->param.L = vertex->left->param.L + SDV;
     } else {
-        vertex->param.LR.first = vertex->param.posX + vertex->param.sdv;
+        vertex->param.L = vertex->param.posX + vertex->param.sdv;
     }
     if (vertex->right != nullptr) {
-        vertex->param.LR.second = vertex->right->param.LR.second + sdv;
+        vertex->param.R = vertex->right->param.R + SDV;
     } else {
-        vertex->param.LR.second = vertex->param.posX + vertex->param.sdv;
+        vertex->param.R = vertex->param.posX + vertex->param.sdv;
     }
 }
 
-template<typename vertex_type> void Compression(vertex_type* vertex, int64_t H,
-        int64_t path_sum = 0, int LorR = -1) {
+template<typename vertex_type>
+void Trees_Building::Compression(vertex_type* vertex, int64_t H,
+                 int64_t path_sum, int LorR) noexcept {
     if (vertex == nullptr) {
         return;
     }
     Compression<vertex_type>(vertex->left, H - 1,
-                             path_sum - (1ll << (H - 1)), 0);
+                             path_sum - (1ll << std::max(static_cast<int64_t>(0), (H - 1))), 0);
     Compression<vertex_type>(vertex->right, H - 1,
-                             path_sum + (1ll << (H - 1)), 1);
+                             path_sum + (1ll << std::max(static_cast<int64_t>(0), (H - 1))), 1);
     vertex->param.sdv = 0;
     // update X
     Update_LR<vertex_type>(vertex);
     int64_t Max = (1ll << H) - 1 + path_sum;
     int64_t Min = -((1ll << H) - 1) + path_sum;
     if (LorR == 0) {
-        auto vertex_r = vertex->param.LR.second;
+        auto vertex_r = vertex->param.R;
         auto rz = Max - vertex_r;
         vertex->param.sdv += rz;
     } else if (LorR == 1) {
-        auto vertex_l = vertex->param.LR.first;
+        auto vertex_l = vertex->param.L;
         auto rz = vertex_l - Min;
         vertex->param.sdv -= rz;
     }
     Update_LR<vertex_type>(vertex, vertex->param.sdv);
 }
 
-template<typename vertex_type> void LazyUpdates(vertex_type* vertex, int64_t push) {
+template<typename vertex_type>
+void Trees_Building::LazyUpdates(vertex_type* vertex, int64_t push) noexcept {
     if (vertex == nullptr) {
         return;
     }
@@ -139,11 +182,12 @@ template<typename vertex_type> void LazyUpdates(vertex_type* vertex, int64_t pus
     LazyUpdates<vertex_type>(vertex->right, push);
 }
 
-template<typename vertex_type, typename tree_type> VERTEX<vertex_type>*
-        Build_Tree(tree_type& TREE, TREE_OPTIONS& TREE_OPT) {
+template<typename vertex_type, typename tree_type>
+VERTEX<vertex_type>* Trees_Building::Build_Tree(tree_type& TREE, TREE_OPTIONS& TREE_OPT) noexcept {
     VERTEX<vertex_type>* root = nullptr;
     // ReCalc
     ReCalcHeight<vertex_type>(TREE.root);
+    TREE.root->param.posX = 0;
     ReCalcPosX<vertex_type>(TREE.root, (TREE.root->param.height - 1));
     ReBuildTree<vertex_type>(TREE.root);
     ReCalcSize(TREE.root);

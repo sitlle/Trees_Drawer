@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 #include<SFML/Graphics.hpp>
 #include"FrontEnd.h"
 
@@ -6,4 +7,5 @@ int main() {
     settings.antialiasingLevel = 8;
     MAIN_WINDOW Pr{};
     Pr.Process();
+    return 0;
 }

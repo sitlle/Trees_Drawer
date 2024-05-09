@@ -97,8 +97,8 @@ template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::Which_Vertex(VE
         cout << "height: " << res->real_vertex->param.height << '\n';
         cout << "posX: " << res->real_vertex->param.posX << '\n';
         cout << "sdv: " << res->real_vertex->param.sdv << '\n';
-        cout << "left posX: " << res->real_vertex->param.LR.first << '\n';
-        cout << "right posX: " << res->real_vertex->param.LR.second << '\n';
+        cout << "left posX: " << res->real_vertex->param.L << '\n';
+        cout << "right posX: " << res->real_vertex->param.R << '\n';
         cout << "------------------------------------------\n";
     }
     return res;
