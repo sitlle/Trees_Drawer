@@ -10,7 +10,7 @@ int32_t ReCalcHeight(vertex_type* vertex) {
         return 0;
     }
     return (vertex->param.height = std::max(ReCalcHeight<vertex_type>(vertex->left),
-            ReCalcHeight<vertex_type>(vertex->right)) + 1);
+                                            ReCalcHeight<vertex_type>(vertex->right)) + 1);
 }
 
 template<typename vertex_type>
@@ -43,9 +43,10 @@ void ReBuildTree(vertex_type* vertex) {
     }
     ReBuildTree<vertex_type>(vertex->left);
     ReBuildTree<vertex_type>(vertex->right);
-    int64_t left = ((vertex->left == nullptr) ? vertex->param.posX : vertex->left->param.LR.first);
-    int64_t right = ((vertex->right == nullptr) ? vertex->param.posX : vertex->right->param.LR.second);
-    vertex->param.LR = {left, right};
+    int64_t left = ((vertex->left == nullptr) ? vertex->param.posX : vertex->left->param.L);
+    int64_t right = ((vertex->right == nullptr) ? vertex->param.posX : vertex->right->param.R);
+    vertex->param.L = left;
+    vertex->param.R = right;
 }
 
 template<typename vertex_type>
@@ -91,19 +92,19 @@ template<typename vertex_type> void Update_LR(vertex_type* vertex, int sdv = 0) 
         return;
     }
     if (vertex->left != nullptr) {
-        vertex->param.LR.first = vertex->left->param.LR.first + sdv;
+        vertex->param.L = vertex->left->param.L + sdv;
     } else {
-        vertex->param.LR.first = vertex->param.posX + vertex->param.sdv;
+        vertex->param.L = vertex->param.posX + vertex->param.sdv;
     }
     if (vertex->right != nullptr) {
-        vertex->param.LR.second = vertex->right->param.LR.second + sdv;
+        vertex->param.R = vertex->right->param.R + sdv;
     } else {
-        vertex->param.LR.second = vertex->param.posX + vertex->param.sdv;
+        vertex->param.R = vertex->param.posX + vertex->param.sdv;
     }
 }
 
 template<typename vertex_type> void Compression(vertex_type* vertex, int64_t H,
-        int64_t path_sum = 0, int LorR = -1) {
+                                                int64_t path_sum = 0, int LorR = -1) {
     if (vertex == nullptr) {
         return;
     }
@@ -117,11 +118,11 @@ template<typename vertex_type> void Compression(vertex_type* vertex, int64_t H,
     int64_t Max = (1ll << H) - 1 + path_sum;
     int64_t Min = -((1ll << H) - 1) + path_sum;
     if (LorR == 0) {
-        auto vertex_r = vertex->param.LR.second;
+        auto vertex_r = vertex->param.R;
         auto rz = Max - vertex_r;
         vertex->param.sdv += rz;
     } else if (LorR == 1) {
-        auto vertex_l = vertex->param.LR.first;
+        auto vertex_l = vertex->param.L;
         auto rz = vertex_l - Min;
         vertex->param.sdv -= rz;
     }
@@ -140,7 +141,7 @@ template<typename vertex_type> void LazyUpdates(vertex_type* vertex, int64_t pus
 }
 
 template<typename vertex_type, typename tree_type> VERTEX<vertex_type>*
-        Build_Tree(tree_type& TREE, TREE_OPTIONS& TREE_OPT) {
+Build_Tree(tree_type& TREE, TREE_OPTIONS& TREE_OPT) {
     VERTEX<vertex_type>* root = nullptr;
     // ReCalc
     ReCalcHeight<vertex_type>(TREE.root);
