@@ -40,21 +40,21 @@ function _ZN2sf7Vector2IiEC2Ev called 1 returned 100% blocks executed 100%
         -:   35:
         -:   36:////////////////////////////////////////////////////////////
         -:   37:template <typename T>
-       3*:   38:inline Vector2<T>::Vector2(T X, T Y) :
-       3*:   39:x(X),
-       3*:   40:y(Y)
+       2*:   38:inline Vector2<T>::Vector2(T X, T Y) :
+       2*:   39:x(X),
+       2*:   40:y(Y)
         -:   41:{
         -:   42:
-       3*:   43:}
+       2*:   43:}
 ------------------
 _ZN2sf7Vector2IiEC2Eii:
-function _ZN2sf7Vector2IiEC2Eii called 3 returned 100% blocks executed 100%
-        3:   38:inline Vector2<T>::Vector2(T X, T Y) :
-        3:   39:x(X),
-        3:   40:y(Y)
+function _ZN2sf7Vector2IiEC2Eii called 2 returned 100% blocks executed 100%
+        2:   38:inline Vector2<T>::Vector2(T X, T Y) :
+        2:   39:x(X),
+        2:   40:y(Y)
         -:   41:{
         -:   42:
-        3:   43:}
+        2:   43:}
 ------------------
 _ZN2sf7Vector2IfEC2Eff:
 function _ZN2sf7Vector2IfEC2Eff called 0 returned 0% blocks executed 0%

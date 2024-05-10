@@ -9,5 +9,11 @@
         -:    5:    float TREE_W;
 function _ZN12TREE_OPTIONSC2Ev called 2 returned 100% blocks executed 100%
         2:    6:    TREE_OPTIONS() : TREE_H(2.f), TREE_W(1.5f) {}
-        -:    7:    ~TREE_OPTIONS() = default;
-        -:    8:};
+        -:    7:
+        -:    8:    ~TREE_OPTIONS() = default;
+        -:    9:
+        -:   10:    TREE_OPTIONS(TREE_OPTIONS const& other) {
+        -:   11:        TREE_H = other.TREE_H;
+        -:   12:        TREE_W = other.TREE_W;
+        -:   13:    }
+        -:   14:};

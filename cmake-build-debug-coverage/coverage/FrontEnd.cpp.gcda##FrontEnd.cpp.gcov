@@ -70,126 +70,136 @@ call    0 returned 1
         -:   47:    InOrder_Add_Y<vertex_type>(vertex->right, add);
         -:   48:}
         -:   49:
-       2*:   50:template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::FindVertex
+      66*:   50:template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::FindVertex
         -:   51:(VERTEX<vertex_type>* vertex) noexcept {
-       2*:   52:    float FIRST = 0;
-       2*:   53:    float SECOND = 0;
-       2*:   54:    float zoom = 1.f;
-       2*:   55:    if (type_ == which_window_::DD_TREE) {
-    #####:   56:        FIRST = (vertex->coords.first + PRINT_DD_OPTIONS_.cnt_x  + vertex->radius) /
-    #####:   57:                PRINT_DD_OPTIONS_.zoom;
-    #####:   58:        SECOND = (vertex->coords.second + PRINT_DD_OPTIONS_.cnt_y + vertex->radius) /
-    #####:   59:                PRINT_DD_OPTIONS_.zoom;
-    #####:   60:        zoom = PRINT_DD_OPTIONS_.zoom;
-       2*:   61:    } else if (type_ == which_window_::AVL_TREE) {
-       2*:   62:        FIRST = (vertex->coords.first + PRINT_AVL_OPTIONS.cnt_x + vertex->radius) /
-       2*:   63:                PRINT_AVL_OPTIONS.zoom;
-       2*:   64:        SECOND = (vertex->coords.second + PRINT_AVL_OPTIONS.cnt_y  + vertex->radius) /
-       2*:   65:                PRINT_AVL_OPTIONS.zoom;
-       2*:   66:        zoom = PRINT_AVL_OPTIONS.zoom;
-        -:   67:    }
-       2*:   68:    float dist = sqrt((float(mouse_pos_.x) - FIRST) *
-       2*:   69:                      (float(mouse_pos_.x) - FIRST) +
-       2*:   70:                      (float(mouse_pos_.y) - SECOND) *
-       2*:   71:                      (float(mouse_pos_.y) - SECOND));
-       2*:   72:    if (dist <= vertex->radius / zoom) {
-       2*:   73:        return vertex;
-        -:   74:    }
-    #####:   75:    VERTEX<vertex_type>* ans1 = nullptr;
-    #####:   76:    VERTEX<vertex_type>* ans2 = nullptr;
-    #####:   77:    if (vertex->left != nullptr) {
-    #####:   78:        ans1 = FindVertex(vertex->left);
-        -:   79:    }
-    #####:   80:    if (vertex->right != nullptr) {
-    #####:   81:        ans2 = FindVertex(vertex->right);
+      66*:   52:    float FIRST = 0;
+      66*:   53:    float SECOND = 0;
+      66*:   54:    float zoom = 1.f;
+      66*:   55:    if (vertex == nullptr) {
+    #####:   56:        return nullptr;
+        -:   57:    }
+      66*:   58:    if (type_ == which_window_::DD_TREE) {
+    #####:   59:        FIRST = (vertex->coords.first + PRINT_DD_OPTIONS_.cnt_x  + vertex->radius) /
+    #####:   60:                PRINT_DD_OPTIONS_.zoom;
+    #####:   61:        SECOND = (vertex->coords.second + PRINT_DD_OPTIONS_.cnt_y + vertex->radius) /
+    #####:   62:                PRINT_DD_OPTIONS_.zoom;
+    #####:   63:        zoom = PRINT_DD_OPTIONS_.zoom;
+      66*:   64:    } else if (type_ == which_window_::AVL_TREE) {
+      66*:   65:        FIRST = (vertex->coords.first + PRINT_AVL_OPTIONS.cnt_x + vertex->radius) /
+      66*:   66:                PRINT_AVL_OPTIONS.zoom;
+      66*:   67:        SECOND = (vertex->coords.second + PRINT_AVL_OPTIONS.cnt_y  + vertex->radius) /
+      66*:   68:                PRINT_AVL_OPTIONS.zoom;
+      66*:   69:        zoom = PRINT_AVL_OPTIONS.zoom;
+        -:   70:    }
+      66*:   71:    float dist = sqrt((float(mouse_pos_.x) - FIRST) *
+      66*:   72:                      (float(mouse_pos_.x) - FIRST) +
+      66*:   73:                      (float(mouse_pos_.y) - SECOND) *
+      66*:   74:                      (float(mouse_pos_.y) - SECOND));
+      66*:   75:    if (dist <= vertex->radius / zoom) {
+       1*:   76:        return vertex;
+        -:   77:    }
+      65*:   78:    VERTEX<vertex_type>* ans1 = nullptr;
+      65*:   79:    VERTEX<vertex_type>* ans2 = nullptr;
+      65*:   80:    if (vertex->left != nullptr) {
+      30*:   81:        ans1 = FindVertex(vertex->left);
         -:   82:    }
-    #####:   83:    if (ans1 == nullptr && ans2 == nullptr) {
-    #####:   84:        return nullptr;
+      65*:   83:    if (vertex->right != nullptr) {
+      34*:   84:        ans2 = FindVertex(vertex->right);
         -:   85:    }
-    #####:   86:    if (ans1 != nullptr) {
-    #####:   87:        return ans1;
+      65*:   86:    if (ans1 == nullptr && ans2 == nullptr) {
+      61*:   87:        return nullptr;
         -:   88:    }
-    #####:   89:    return ans2;
-        -:   90:}
+       4*:   89:    if (ans1 != nullptr) {
+       2*:   90:        return ans1;
+        -:   91:    }
+       2*:   92:    return ans2;
+        -:   93:}
 ------------------
 _ZN11MAIN_WINDOW10FindVertexI8Node_AVLEEP6VERTEXIT_ES5_:
-function _ZN11MAIN_WINDOW10FindVertexI8Node_AVLEEP6VERTEXIT_ES5_ called 2 returned 100% blocks executed 39%
-        2:   50:template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::FindVertex
+function _ZN11MAIN_WINDOW10FindVertexI8Node_AVLEEP6VERTEXIT_ES5_ called 66 returned 100% blocks executed 90%
+       66:   50:template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::FindVertex
         -:   51:(VERTEX<vertex_type>* vertex) noexcept {
-        2:   52:    float FIRST = 0;
-        2:   53:    float SECOND = 0;
-        2:   54:    float zoom = 1.f;
-        2:   55:    if (type_ == which_window_::DD_TREE) {
-        2:   55-block  0
+       66:   52:    float FIRST = 0;
+       66:   53:    float SECOND = 0;
+       66:   54:    float zoom = 1.f;
+       66:   55:    if (vertex == nullptr) {
+       66:   55-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 2
-    #####:   56:        FIRST = (vertex->coords.first + PRINT_DD_OPTIONS_.cnt_x  + vertex->radius) /
-    #####:   57:                PRINT_DD_OPTIONS_.zoom;
-    #####:   58:        SECOND = (vertex->coords.second + PRINT_DD_OPTIONS_.cnt_y + vertex->radius) /
-    #####:   59:                PRINT_DD_OPTIONS_.zoom;
-    #####:   60:        zoom = PRINT_DD_OPTIONS_.zoom;
-    %%%%%:   60-block  0
-        2:   61:    } else if (type_ == which_window_::AVL_TREE) {
-        2:   61-block  0
-branch  0 taken 2 (fallthrough)
+branch  1 taken 66
+    #####:   56:        return nullptr;
+    %%%%%:   56-block  0
+        -:   57:    }
+       66:   58:    if (type_ == which_window_::DD_TREE) {
+       66:   58-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 66
+    #####:   59:        FIRST = (vertex->coords.first + PRINT_DD_OPTIONS_.cnt_x  + vertex->radius) /
+    #####:   60:                PRINT_DD_OPTIONS_.zoom;
+    #####:   61:        SECOND = (vertex->coords.second + PRINT_DD_OPTIONS_.cnt_y + vertex->radius) /
+    #####:   62:                PRINT_DD_OPTIONS_.zoom;
+    #####:   63:        zoom = PRINT_DD_OPTIONS_.zoom;
+    %%%%%:   63-block  0
+       66:   64:    } else if (type_ == which_window_::AVL_TREE) {
+       66:   64-block  0
+branch  0 taken 66 (fallthrough)
 branch  1 taken 0
-        2:   62:        FIRST = (vertex->coords.first + PRINT_AVL_OPTIONS.cnt_x + vertex->radius) /
-        2:   63:                PRINT_AVL_OPTIONS.zoom;
-        2:   64:        SECOND = (vertex->coords.second + PRINT_AVL_OPTIONS.cnt_y  + vertex->radius) /
-        2:   65:                PRINT_AVL_OPTIONS.zoom;
-        2:   66:        zoom = PRINT_AVL_OPTIONS.zoom;
-        2:   66-block  0
-        -:   67:    }
-        2:   68:    float dist = sqrt((float(mouse_pos_.x) - FIRST) *
-        2:   69:                      (float(mouse_pos_.x) - FIRST) +
-        2:   70:                      (float(mouse_pos_.y) - SECOND) *
-        2:   71:                      (float(mouse_pos_.y) - SECOND));
-        2:   71-block  0
-call    0 returned 2
-        2:   72:    if (dist <= vertex->radius / zoom) {
-branch  0 taken 2 (fallthrough)
-branch  1 taken 0
-        2:   73:        return vertex;
-        2:   73-block  0
-        -:   74:    }
-    #####:   75:    VERTEX<vertex_type>* ans1 = nullptr;
-    #####:   76:    VERTEX<vertex_type>* ans2 = nullptr;
-    #####:   77:    if (vertex->left != nullptr) {
-    %%%%%:   77-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:   78:        ans1 = FindVertex(vertex->left);
-    %%%%%:   78-block  0
-call    0 never executed
-        -:   79:    }
-    #####:   80:    if (vertex->right != nullptr) {
-    %%%%%:   80-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:   81:        ans2 = FindVertex(vertex->right);
-    %%%%%:   81-block  0
-call    0 never executed
+       66:   65:        FIRST = (vertex->coords.first + PRINT_AVL_OPTIONS.cnt_x + vertex->radius) /
+       66:   66:                PRINT_AVL_OPTIONS.zoom;
+       66:   67:        SECOND = (vertex->coords.second + PRINT_AVL_OPTIONS.cnt_y  + vertex->radius) /
+       66:   68:                PRINT_AVL_OPTIONS.zoom;
+       66:   69:        zoom = PRINT_AVL_OPTIONS.zoom;
+       66:   69-block  0
+        -:   70:    }
+       66:   71:    float dist = sqrt((float(mouse_pos_.x) - FIRST) *
+       66:   72:                      (float(mouse_pos_.x) - FIRST) +
+       66:   73:                      (float(mouse_pos_.y) - SECOND) *
+       66:   74:                      (float(mouse_pos_.y) - SECOND));
+       66:   74-block  0
+call    0 returned 66
+       66:   75:    if (dist <= vertex->radius / zoom) {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 65
+        1:   76:        return vertex;
+        1:   76-block  0
+        -:   77:    }
+       65:   78:    VERTEX<vertex_type>* ans1 = nullptr;
+       65:   79:    VERTEX<vertex_type>* ans2 = nullptr;
+       65:   80:    if (vertex->left != nullptr) {
+       65:   80-block  0
+branch  0 taken 30 (fallthrough)
+branch  1 taken 35
+       30:   81:        ans1 = FindVertex(vertex->left);
+       30:   81-block  0
+call    0 returned 30
         -:   82:    }
-    #####:   83:    if (ans1 == nullptr && ans2 == nullptr) {
-    %%%%%:   83-block  0
-branch  0 never executed
-branch  1 never executed
-    %%%%%:   83-block  1
-branch  2 never executed
-branch  3 never executed
-    #####:   84:        return nullptr;
-    %%%%%:   84-block  0
+       65:   83:    if (vertex->right != nullptr) {
+       65:   83-block  0
+branch  0 taken 34 (fallthrough)
+branch  1 taken 31
+       34:   84:        ans2 = FindVertex(vertex->right);
+       34:   84-block  0
+call    0 returned 34
         -:   85:    }
-    #####:   86:    if (ans1 != nullptr) {
-    %%%%%:   86-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:   87:        return ans1;
-    %%%%%:   87-block  0
+       65:   86:    if (ans1 == nullptr && ans2 == nullptr) {
+       65:   86-block  0
+branch  0 taken 63 (fallthrough)
+branch  1 taken 2
+       63:   86-block  1
+branch  2 taken 61 (fallthrough)
+branch  3 taken 2
+       61:   87:        return nullptr;
+       61:   87-block  0
         -:   88:    }
-    #####:   89:    return ans2;
-    %%%%%:   89-block  0
-        -:   90:}
+        4:   89:    if (ans1 != nullptr) {
+        4:   89-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 2
+        2:   90:        return ans1;
+        2:   90-block  0
+        -:   91:    }
+        2:   92:    return ans2;
+        2:   92-block  0
+        -:   93:}
 ------------------
 _ZN11MAIN_WINDOW10FindVertexI7Node_DDEEP6VERTEXIT_ES5_:
 function _ZN11MAIN_WINDOW10FindVertexI7Node_DDEEP6VERTEXIT_ES5_ called 0 returned 0% blocks executed 0%
@@ -198,534 +208,525 @@ function _ZN11MAIN_WINDOW10FindVertexI7Node_DDEEP6VERTEXIT_ES5_ called 0 returne
     #####:   52:    float FIRST = 0;
     #####:   53:    float SECOND = 0;
     #####:   54:    float zoom = 1.f;
-    #####:   55:    if (type_ == which_window_::DD_TREE) {
+    #####:   55:    if (vertex == nullptr) {
     %%%%%:   55-block  0
 branch  0 never executed
 branch  1 never executed
-    #####:   56:        FIRST = (vertex->coords.first + PRINT_DD_OPTIONS_.cnt_x  + vertex->radius) /
-    #####:   57:                PRINT_DD_OPTIONS_.zoom;
-    #####:   58:        SECOND = (vertex->coords.second + PRINT_DD_OPTIONS_.cnt_y + vertex->radius) /
-    #####:   59:                PRINT_DD_OPTIONS_.zoom;
-    #####:   60:        zoom = PRINT_DD_OPTIONS_.zoom;
-    %%%%%:   60-block  0
-    #####:   61:    } else if (type_ == which_window_::AVL_TREE) {
-    %%%%%:   61-block  0
+    #####:   56:        return nullptr;
+    %%%%%:   56-block  0
+        -:   57:    }
+    #####:   58:    if (type_ == which_window_::DD_TREE) {
+    %%%%%:   58-block  0
 branch  0 never executed
 branch  1 never executed
-    #####:   62:        FIRST = (vertex->coords.first + PRINT_AVL_OPTIONS.cnt_x + vertex->radius) /
-    #####:   63:                PRINT_AVL_OPTIONS.zoom;
-    #####:   64:        SECOND = (vertex->coords.second + PRINT_AVL_OPTIONS.cnt_y  + vertex->radius) /
-    #####:   65:                PRINT_AVL_OPTIONS.zoom;
-    #####:   66:        zoom = PRINT_AVL_OPTIONS.zoom;
-    %%%%%:   66-block  0
-        -:   67:    }
-    #####:   68:    float dist = sqrt((float(mouse_pos_.x) - FIRST) *
-    #####:   69:                      (float(mouse_pos_.x) - FIRST) +
-    #####:   70:                      (float(mouse_pos_.y) - SECOND) *
-    #####:   71:                      (float(mouse_pos_.y) - SECOND));
-    %%%%%:   71-block  0
+    #####:   59:        FIRST = (vertex->coords.first + PRINT_DD_OPTIONS_.cnt_x  + vertex->radius) /
+    #####:   60:                PRINT_DD_OPTIONS_.zoom;
+    #####:   61:        SECOND = (vertex->coords.second + PRINT_DD_OPTIONS_.cnt_y + vertex->radius) /
+    #####:   62:                PRINT_DD_OPTIONS_.zoom;
+    #####:   63:        zoom = PRINT_DD_OPTIONS_.zoom;
+    %%%%%:   63-block  0
+    #####:   64:    } else if (type_ == which_window_::AVL_TREE) {
+    %%%%%:   64-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   65:        FIRST = (vertex->coords.first + PRINT_AVL_OPTIONS.cnt_x + vertex->radius) /
+    #####:   66:                PRINT_AVL_OPTIONS.zoom;
+    #####:   67:        SECOND = (vertex->coords.second + PRINT_AVL_OPTIONS.cnt_y  + vertex->radius) /
+    #####:   68:                PRINT_AVL_OPTIONS.zoom;
+    #####:   69:        zoom = PRINT_AVL_OPTIONS.zoom;
+    %%%%%:   69-block  0
+        -:   70:    }
+    #####:   71:    float dist = sqrt((float(mouse_pos_.x) - FIRST) *
+    #####:   72:                      (float(mouse_pos_.x) - FIRST) +
+    #####:   73:                      (float(mouse_pos_.y) - SECOND) *
+    #####:   74:                      (float(mouse_pos_.y) - SECOND));
+    %%%%%:   74-block  0
 call    0 never executed
-    #####:   72:    if (dist <= vertex->radius / zoom) {
+    #####:   75:    if (dist <= vertex->radius / zoom) {
 branch  0 never executed
 branch  1 never executed
-    #####:   73:        return vertex;
-    %%%%%:   73-block  0
-        -:   74:    }
-    #####:   75:    VERTEX<vertex_type>* ans1 = nullptr;
-    #####:   76:    VERTEX<vertex_type>* ans2 = nullptr;
-    #####:   77:    if (vertex->left != nullptr) {
-    %%%%%:   77-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:   78:        ans1 = FindVertex(vertex->left);
-    %%%%%:   78-block  0
-call    0 never executed
-        -:   79:    }
-    #####:   80:    if (vertex->right != nullptr) {
+    #####:   76:        return vertex;
+    %%%%%:   76-block  0
+        -:   77:    }
+    #####:   78:    VERTEX<vertex_type>* ans1 = nullptr;
+    #####:   79:    VERTEX<vertex_type>* ans2 = nullptr;
+    #####:   80:    if (vertex->left != nullptr) {
     %%%%%:   80-block  0
 branch  0 never executed
 branch  1 never executed
-    #####:   81:        ans2 = FindVertex(vertex->right);
+    #####:   81:        ans1 = FindVertex(vertex->left);
     %%%%%:   81-block  0
 call    0 never executed
         -:   82:    }
-    #####:   83:    if (ans1 == nullptr && ans2 == nullptr) {
+    #####:   83:    if (vertex->right != nullptr) {
     %%%%%:   83-block  0
 branch  0 never executed
 branch  1 never executed
-    %%%%%:   83-block  1
-branch  2 never executed
-branch  3 never executed
-    #####:   84:        return nullptr;
+    #####:   84:        ans2 = FindVertex(vertex->right);
     %%%%%:   84-block  0
+call    0 never executed
         -:   85:    }
-    #####:   86:    if (ans1 != nullptr) {
+    #####:   86:    if (ans1 == nullptr && ans2 == nullptr) {
     %%%%%:   86-block  0
 branch  0 never executed
 branch  1 never executed
-    #####:   87:        return ans1;
+    %%%%%:   86-block  1
+branch  2 never executed
+branch  3 never executed
+    #####:   87:        return nullptr;
     %%%%%:   87-block  0
         -:   88:    }
-    #####:   89:    return ans2;
+    #####:   89:    if (ans1 != nullptr) {
     %%%%%:   89-block  0
-        -:   90:}
+branch  0 never executed
+branch  1 never executed
+    #####:   90:        return ans1;
+    %%%%%:   90-block  0
+        -:   91:    }
+    #####:   92:    return ans2;
+    %%%%%:   92-block  0
+        -:   93:}
 ------------------
-        -:   91:
-       2*:   92:template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::Which_Vertex(VERTEX<vertex_type>* TREE) noexcept {
-       2*:   93:    VERTEX<vertex_type>* res = FindVertex(TREE); // res maybe nullptr
-       2*:   94:    if (res != nullptr) {
-       2*:   95:        cout << "------------------------------------------\n";
-       2*:   96:        cout << "value: " << res->real_vertex->val << '\n';
-       2*:   97:        cout << "height: " << res->real_vertex->param.height << '\n';
-       2*:   98:        cout << "posX: " << res->real_vertex->param.posX << '\n';
-       2*:   99:        cout << "sdv: " << res->real_vertex->param.sdv << '\n';
-       2*:  100:        cout << "left posX: " << res->real_vertex->param.L << '\n';
-       2*:  101:        cout << "right posX: " << res->real_vertex->param.R << '\n';
-       2*:  102:        cout << "------------------------------------------\n";
-        -:  103:    }
-       2*:  104:    return res;
-        -:  105:}
+        -:   94:
+       2*:   95:template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::Which_Vertex(VERTEX<vertex_type>* TREE) noexcept {
+       2*:   96:    VERTEX<vertex_type>* res = FindVertex(TREE); // res maybe nullptr
+       2*:   97:    if (res != nullptr) {
+       1*:   98:        cout << "------------------------------------------\n";
+       1*:   99:        cout << "value: " << std::to_string(res->real_vertex->val) << '\n';
+       1*:  100:        cout << "height: " << std::to_string(res->real_vertex->param.height) << '\n';
+        -:  101:        // cout << "posX: " << bigint::bigint_to_string(res->real_vertex->param.posX) << '\n';
+        -:  102:        // cout << "sdv: " << bigint::bigint_to_string(res->real_vertex->param.sdv) << '\n';
+        -:  103:        // cout << "left posX: " << bigint::bigint_to_string(res->real_vertex->param.L) << '\n';
+        -:  104:        // cout << "right posX: " << bigint::bigint_to_string(res->real_vertex->param.R) << '\n';
+       1*:  105:        cout << "------------------------------------------\n";
+        -:  106:    }
+       2*:  107:    return res;
+        -:  108:}
 ------------------
 _ZN11MAIN_WINDOW12Which_VertexI8Node_AVLEEP6VERTEXIT_ES5_:
 function _ZN11MAIN_WINDOW12Which_VertexI8Node_AVLEEP6VERTEXIT_ES5_ called 2 returned 100% blocks executed 100%
-        2:   92:template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::Which_Vertex(VERTEX<vertex_type>* TREE) noexcept {
-        2:   93:    VERTEX<vertex_type>* res = FindVertex(TREE); // res maybe nullptr
-        2:   93-block  0
+        2:   95:template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::Which_Vertex(VERTEX<vertex_type>* TREE) noexcept {
+        2:   96:    VERTEX<vertex_type>* res = FindVertex(TREE); // res maybe nullptr
+        2:   96-block  0
 call    0 returned 2
-        2:   94:    if (res != nullptr) {
-branch  0 taken 2 (fallthrough)
-branch  1 taken 0
-        2:   95:        cout << "------------------------------------------\n";
-        2:   95-block  0
-call    0 returned 2
-        2:   96:        cout << "value: " << res->real_vertex->val << '\n';
-call    0 returned 2
-call    1 returned 2
-call    2 returned 2
-        2:   97:        cout << "height: " << res->real_vertex->param.height << '\n';
-call    0 returned 2
-call    1 returned 2
-call    2 returned 2
-        2:   98:        cout << "posX: " << res->real_vertex->param.posX << '\n';
-call    0 returned 2
-call    1 returned 2
-call    2 returned 2
-        2:   99:        cout << "sdv: " << res->real_vertex->param.sdv << '\n';
-call    0 returned 2
-call    1 returned 2
-call    2 returned 2
-        2:  100:        cout << "left posX: " << res->real_vertex->param.L << '\n';
-call    0 returned 2
-call    1 returned 2
-call    2 returned 2
-        2:  101:        cout << "right posX: " << res->real_vertex->param.R << '\n';
-call    0 returned 2
-call    1 returned 2
-call    2 returned 2
-        2:  102:        cout << "------------------------------------------\n";
-call    0 returned 2
-        -:  103:    }
-        2:  104:    return res;
-        2:  104-block  0
-        -:  105:}
+        2:   97:    if (res != nullptr) {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        1:   98:        cout << "------------------------------------------\n";
+        1:   98-block  0
+call    0 returned 1
+        1:   99:        cout << "value: " << std::to_string(res->real_vertex->val) << '\n';
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+        1:  100:        cout << "height: " << std::to_string(res->real_vertex->param.height) << '\n';
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+        -:  101:        // cout << "posX: " << bigint::bigint_to_string(res->real_vertex->param.posX) << '\n';
+        -:  102:        // cout << "sdv: " << bigint::bigint_to_string(res->real_vertex->param.sdv) << '\n';
+        -:  103:        // cout << "left posX: " << bigint::bigint_to_string(res->real_vertex->param.L) << '\n';
+        -:  104:        // cout << "right posX: " << bigint::bigint_to_string(res->real_vertex->param.R) << '\n';
+        1:  105:        cout << "------------------------------------------\n";
+call    0 returned 1
+        -:  106:    }
+        2:  107:    return res;
+        2:  107-block  0
+        -:  108:}
 ------------------
 _ZN11MAIN_WINDOW12Which_VertexI7Node_DDEEP6VERTEXIT_ES5_:
 function _ZN11MAIN_WINDOW12Which_VertexI7Node_DDEEP6VERTEXIT_ES5_ called 0 returned 0% blocks executed 0%
-    #####:   92:template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::Which_Vertex(VERTEX<vertex_type>* TREE) noexcept {
-    #####:   93:    VERTEX<vertex_type>* res = FindVertex(TREE); // res maybe nullptr
-    %%%%%:   93-block  0
+    #####:   95:template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::Which_Vertex(VERTEX<vertex_type>* TREE) noexcept {
+    #####:   96:    VERTEX<vertex_type>* res = FindVertex(TREE); // res maybe nullptr
+    %%%%%:   96-block  0
 call    0 never executed
-    #####:   94:    if (res != nullptr) {
+    #####:   97:    if (res != nullptr) {
 branch  0 never executed
 branch  1 never executed
-    #####:   95:        cout << "------------------------------------------\n";
-    %%%%%:   95-block  0
+    #####:   98:        cout << "------------------------------------------\n";
+    %%%%%:   98-block  0
 call    0 never executed
-    #####:   96:        cout << "value: " << res->real_vertex->val << '\n';
-call    0 never executed
-call    1 never executed
-call    2 never executed
-    #####:   97:        cout << "height: " << res->real_vertex->param.height << '\n';
+    #####:   99:        cout << "value: " << std::to_string(res->real_vertex->val) << '\n';
 call    0 never executed
 call    1 never executed
 call    2 never executed
-    #####:   98:        cout << "posX: " << res->real_vertex->param.posX << '\n';
+call    3 never executed
+call    4 never executed
+    #####:  100:        cout << "height: " << std::to_string(res->real_vertex->param.height) << '\n';
 call    0 never executed
 call    1 never executed
 call    2 never executed
-    #####:   99:        cout << "sdv: " << res->real_vertex->param.sdv << '\n';
+call    3 never executed
+call    4 never executed
+        -:  101:        // cout << "posX: " << bigint::bigint_to_string(res->real_vertex->param.posX) << '\n';
+        -:  102:        // cout << "sdv: " << bigint::bigint_to_string(res->real_vertex->param.sdv) << '\n';
+        -:  103:        // cout << "left posX: " << bigint::bigint_to_string(res->real_vertex->param.L) << '\n';
+        -:  104:        // cout << "right posX: " << bigint::bigint_to_string(res->real_vertex->param.R) << '\n';
+    #####:  105:        cout << "------------------------------------------\n";
 call    0 never executed
-call    1 never executed
-call    2 never executed
-    #####:  100:        cout << "left posX: " << res->real_vertex->param.L << '\n';
-call    0 never executed
-call    1 never executed
-call    2 never executed
-    #####:  101:        cout << "right posX: " << res->real_vertex->param.R << '\n';
-call    0 never executed
-call    1 never executed
-call    2 never executed
-    #####:  102:        cout << "------------------------------------------\n";
-call    0 never executed
-        -:  103:    }
-    #####:  104:    return res;
-    %%%%%:  104-block  0
-        -:  105:}
+        -:  106:    }
+    #####:  107:    return res;
+    %%%%%:  107-block  0
+        -:  108:}
 ------------------
-        -:  106:
-function _ZN11MAIN_WINDOW6EventsEv called 24129 returned 100% blocks executed 83%
-    24129:  107:void MAIN_WINDOW::Events() {
-    24661:  108:    while (Main_Window_.pollEvent(Main_Event_)) {
-    24129:  108-block  0
-    24661:  108-block  1
-call    0 returned 24661
-branch  1 taken 532
-branch  2 taken 24129 (fallthrough)
-     1064:  109:        if (Main_Event_.type == Event::Closed ||
-      532:  109-block  0
-branch  0 taken 532 (fallthrough)
+        -:  109:
+function _ZN11MAIN_WINDOW6EventsEv called 48102 returned 100% blocks executed 79%
+    48102:  110:void MAIN_WINDOW::Events() {
+    48416:  111:    while (Main_Window_.pollEvent(Main_Event_)) {
+    48102:  111-block  0
+    48416:  111-block  1
+call    0 returned 48416
+branch  1 taken 314
+branch  2 taken 48102 (fallthrough)
+      628:  112:        if (Main_Event_.type == Event::Closed ||
+      314:  112-block  0
+branch  0 taken 314 (fallthrough)
 branch  1 taken 0
-        1:  109-block  1
-      531:  109-block  2
-      532:  109-block  3
+        1:  112-block  1
+      313:  112-block  2
+      314:  112-block  3
 branch  2 taken 1 (fallthrough)
-branch  3 taken 531
-      532:  110:            Main_Event_.type == Event::KeyPressed &&
-      532:  110-block  0
-branch  0 taken 86 (fallthrough)
-branch  1 taken 446
-       86:  111:            Keyboard::isKeyPressed(Keyboard::Escape)) {
-       86:  111-block  0
-call    0 returned 86
+branch  3 taken 313
+      314:  113:            Main_Event_.type == Event::KeyPressed &&
+      314:  113-block  0
+branch  0 taken 115 (fallthrough)
+branch  1 taken 199
+      115:  114:            Keyboard::isKeyPressed(Keyboard::Escape)) {
+      115:  114-block  0
+call    0 returned 115
 branch  1 taken 1 (fallthrough)
-branch  2 taken 85
-        1:  112:            Main_Window_.close();
-        1:  112-block  0
+branch  2 taken 114
+        1:  115:            Main_Window_.close();
+        1:  115-block  0
 call    0 returned 1
-      531:  113:        } else if (Main_Event_.type == Event::MouseButtonPressed) { // click
-      531:  113-block  0
+      313:  116:        } else if (Main_Event_.type == Event::MouseButtonPressed) { // click
+      313:  116-block  0
 branch  0 taken 2 (fallthrough)
-branch  1 taken 529
-        2:  114:            if (Mouse::isButtonPressed(Mouse::Left)) {
-        2:  114-block  0
+branch  1 taken 311
+        2:  117:            if (Mouse::isButtonPressed(Mouse::Left)) {
+        2:  117-block  0
 call    0 returned 2
-branch  1 taken 1 (fallthrough)
-branch  2 taken 1
-        1:  115:                click_ = click_type_::LEFT;
-        1:  116:                mouse_pos_ = Mouse::getPosition(Main_Window_);
-        1:  116-block  0
-call    0 returned 1
-        1:  117:            } else if (Mouse::isButtonPressed(Mouse::Right)) {
-        1:  117-block  0
-call    0 returned 1
-branch  1 taken 1 (fallthrough)
-branch  2 taken 0
-        1:  118:                click_ = click_type_::RIGHT;
-        1:  119:                mouse_pos_ = Mouse::getPosition(Main_Window_);
-        1:  119-block  0
-call    0 returned 1
-        -:  120:            }
-      529:  121:        } else if (Main_Event_.type == Event::KeyPressed) {
-      529:  121-block  0
-branch  0 taken 85 (fallthrough)
-branch  1 taken 444
-       85:  122:            if (Keyboard::isKeyPressed(Keyboard::Num1)) { // add one num
-       85:  122-block  0
-call    0 returned 85
 branch  1 taken 0 (fallthrough)
-branch  2 taken 85
-    #####:  123:                Control::Nums_Control::NUM1();
-    %%%%%:  123-block  0
+branch  2 taken 2
+    #####:  118:                click_ = click_type_::LEFT;
+    #####:  119:                mouse_pos_ = Mouse::getPosition(Main_Window_);
+    %%%%%:  119-block  0
 call    0 never executed
-       85:  124:            } else if (Keyboard::isKeyPressed(sf::Keyboard::Num2)) { // add x nums
-       85:  124-block  0
-call    0 returned 85
+        2:  120:            } else if (Mouse::isButtonPressed(Mouse::Right)) {
+        2:  120-block  0
+call    0 returned 2
 branch  1 taken 2 (fallthrough)
-branch  2 taken 83
-        2:  125:                Control::Nums_Control::NUM2();
-        2:  125-block  0
+branch  2 taken 0
+        2:  121:                click_ = click_type_::RIGHT;
+        2:  122:                mouse_pos_ = Mouse::getPosition(Main_Window_);
+        2:  122-block  0
 call    0 returned 2
-       83:  126:            }  else if (Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
-       83:  126-block  0
-call    0 returned 83
+        -:  123:            }
+      311:  124:        } else if (Main_Event_.type == Event::KeyPressed) {
+      311:  124-block  0
+branch  0 taken 114 (fallthrough)
+branch  1 taken 197
+      114:  125:            if (Keyboard::isKeyPressed(Keyboard::Num1)) { // add one num
+      114:  125-block  0
+call    0 returned 114
 branch  1 taken 0 (fallthrough)
-branch  2 taken 83
-    #####:  127:                Control::Nums_Control::NUM3();
-    %%%%%:  127-block  0
+branch  2 taken 114
+    #####:  126:                Control::Nums_Control::NUM1();
+    %%%%%:  126-block  0
 call    0 never executed
-       83:  128:            } else if (Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
-       83:  128-block  0
-call    0 returned 83
+      114:  127:            } else if (Keyboard::isKeyPressed(sf::Keyboard::Num2)) { // add x nums
+      114:  127-block  0
+call    0 returned 114
 branch  1 taken 1 (fallthrough)
-branch  2 taken 82
-        1:  129:                Control::Nums_Control::NUM4();
-        1:  129-block  0
+branch  2 taken 113
+        1:  128:                Control::Nums_Control::NUM2();
+        1:  128-block  0
 call    0 returned 1
-       82:  130:            } else if (Keyboard::isKeyPressed(Keyboard::W)) {
-       82:  130-block  0
-call    0 returned 82
-branch  1 taken 3 (fallthrough)
-branch  2 taken 79
-        3:  131:                Control::WASD_Control::MOVE_UP();
-        3:  131-block  0
-call    0 returned 3
-       79:  132:            } else if (Keyboard::isKeyPressed(Keyboard::S)) {
-       79:  132-block  0
-call    0 returned 79
+      113:  129:            }  else if (Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+      113:  129-block  0
+call    0 returned 113
+branch  1 taken 5 (fallthrough)
+branch  2 taken 108
+        5:  130:                Control::Nums_Control::NUM3();
+        5:  130-block  0
+call    0 returned 5
+      108:  131:            } else if (Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
+      108:  131-block  0
+call    0 returned 108
+branch  1 taken 4 (fallthrough)
+branch  2 taken 104
+        4:  132:                Control::Nums_Control::NUM4();
+        4:  132-block  0
+call    0 returned 4
+      104:  133:            } else if (Keyboard::isKeyPressed(Keyboard::W)) {
+      104:  133-block  0
+call    0 returned 104
+branch  1 taken 1 (fallthrough)
+branch  2 taken 103
+        1:  134:                Control::WASD_Control::MOVE_UP();
+        1:  134-block  0
+call    0 returned 1
+      103:  135:            } else if (Keyboard::isKeyPressed(Keyboard::S)) {
+      103:  135-block  0
+call    0 returned 103
 branch  1 taken 0 (fallthrough)
-branch  2 taken 79
-    #####:  133:                Control::WASD_Control::MOVE_DOWN();
-    %%%%%:  133-block  0
+branch  2 taken 103
+    #####:  136:                Control::WASD_Control::MOVE_DOWN();
+    %%%%%:  136-block  0
 call    0 never executed
-       79:  134:            } else if (Keyboard::isKeyPressed(Keyboard::A)) {
-       79:  134-block  0
-call    0 returned 79
-branch  1 taken 43 (fallthrough)
-branch  2 taken 36
-       43:  135:                Control::WASD_Control::MOVE_LEFT();
-       43:  135-block  0
-call    0 returned 43
-       36:  136:            } else if (Keyboard::isKeyPressed(Keyboard::D)) {
-       36:  136-block  0
-call    0 returned 36
-branch  1 taken 33 (fallthrough)
-branch  2 taken 3
-       33:  137:                Control::WASD_Control::MOVE_RIGHT();
-       33:  137-block  0
-call    0 returned 33
-        3:  138:            } else if (Keyboard::isKeyPressed(Keyboard::Left)) {
-        3:  138-block  0
-call    0 returned 3
+      103:  137:            } else if (Keyboard::isKeyPressed(Keyboard::A)) {
+      103:  137-block  0
+call    0 returned 103
 branch  1 taken 0 (fallthrough)
-branch  2 taken 3
-    #####:  139:                Control::Arrow_Control::MOVE_LEFT();
-    %%%%%:  139-block  0
+branch  2 taken 103
+    #####:  138:                Control::WASD_Control::MOVE_LEFT();
+    %%%%%:  138-block  0
 call    0 never executed
-        3:  140:            } else if (Keyboard::isKeyPressed(Keyboard::Right)) {
-        3:  140-block  0
-call    0 returned 3
+      103:  139:            } else if (Keyboard::isKeyPressed(Keyboard::D)) {
+      103:  139-block  0
+call    0 returned 103
 branch  1 taken 0 (fallthrough)
-branch  2 taken 3
-    #####:  141:                Control::Arrow_Control::MOVE_RIGHT();
-    %%%%%:  141-block  0
+branch  2 taken 103
+    #####:  140:                Control::WASD_Control::MOVE_RIGHT();
+    %%%%%:  140-block  0
 call    0 never executed
-        3:  142:            } else if (Keyboard::isKeyPressed(Keyboard::Down)) {
-        3:  142-block  0
-call    0 returned 3
-branch  1 taken 0 (fallthrough)
-branch  2 taken 3
-    #####:  143:                Control::Arrow_Control::MOVE_DOWN();
-    %%%%%:  143-block  0
-call    0 never executed
-        3:  144:            } else if (Keyboard::isKeyPressed(Keyboard::Up)) {
-        3:  144-block  0
-call    0 returned 3
-branch  1 taken 0 (fallthrough)
-branch  2 taken 3
-    #####:  145:                Control::Arrow_Control::MOVE_UP();
+      103:  141:            } else if (Keyboard::isKeyPressed(Keyboard::Left)) {
+      103:  141-block  0
+call    0 returned 103
+branch  1 taken 59 (fallthrough)
+branch  2 taken 44
+       59:  142:                Control::Arrow_Control::MOVE_LEFT();
+       59:  142-block  0
+call    0 returned 59
+       44:  143:            } else if (Keyboard::isKeyPressed(Keyboard::Right)) {
+       44:  143-block  0
+call    0 returned 44
+branch  1 taken 44 (fallthrough)
+branch  2 taken 0
+       44:  144:                Control::Arrow_Control::MOVE_RIGHT();
+       44:  144-block  0
+call    0 returned 44
+    #####:  145:            } else if (Keyboard::isKeyPressed(Keyboard::Down)) {
     %%%%%:  145-block  0
-call    0 never executed
-        3:  146:            } else if (Keyboard::isKeyPressed(Keyboard::Delete)) {
-        3:  146-block  0
-call    0 returned 3
-        -:  147:                // get all blue
-        -:  148:            }
-      444:  149:        } else if (Main_Event_.type == sf::Event::MouseWheelMoved) {
-      444:  149-block  0
-branch  0 taken 0 (fallthrough)
-branch  1 taken 444
-    #####:  150:            if (Main_Event_.mouseWheel.delta == -1) {
-    %%%%%:  150-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:  151:                Control::Mouse_Control::MOVE_DOWN();
-    %%%%%:  151-block  0
-call    0 never executed
-    #####:  152:            } else if (Main_Event_.mouseWheel.delta == 1) {
-    %%%%%:  152-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:  153:                Control::Mouse_Control::MOVE_UP();
-    %%%%%:  153-block  0
-call    0 never executed
-        -:  154:            }
-        -:  155:        }
-        -:  156:    }
-    24129:  157:}
-        -:  158:
-function _ZN11MAIN_WINDOW7ProcessEv called 1 returned 100% blocks executed 80%
-        1:  159:void MAIN_WINDOW::Process() {
-    24130:  160:    while (Main_Window_.isOpen()) {
-        1:  160-block  0
-    24130:  160-block  1
-call    0 returned 24130
-branch  1 taken 24129
-branch  2 taken 1 (fallthrough)
-    24129:  161:        Events();
-    24129:  161-block  0
-call    0 returned 24129
-    24129:  162:        if (click_ == click_type_::LEFT) {
-branch  0 taken 1 (fallthrough)
-branch  1 taken 24128
-        1:  163:            if (type_ == which_window_::DD_TREE) {
-        1:  163-block  0
-branch  0 taken 0 (fallthrough)
-branch  1 taken 1
-    #####:  164:                LEFT_CLICK<Node_DD>(DD_DRAW_TREE_);
-    %%%%%:  164-block  0
-call    0 never executed
-        1:  165:            } else if (type_ == which_window_::AVL_TREE) {
-        1:  165-block  0
-branch  0 taken 1 (fallthrough)
-branch  1 taken 0
-        1:  166:                LEFT_CLICK<Node_AVL>(AVL_DRAW_TREE_);
-        1:  166-block  0
-call    0 returned 1
-    #####:  167:            } else if (type_ == which_window_::SPLAY_TREE) {
-    %%%%%:  167-block  0
-        -:  168:
-        -:  169:            }
-        1:  170:            click_ = click_type_::EMPTY;
-        1:  170-block  0
-    24128:  171:        } else if (click_ == click_type_::RIGHT) {
-    24128:  171-block  0
-branch  0 taken 1 (fallthrough)
-branch  1 taken 24127
-        1:  172:            if (type_ == which_window_::DD_TREE) {
-        1:  172-block  0
-branch  0 taken 0 (fallthrough)
-branch  1 taken 1
-    #####:  173:                RIGHT_CLICK<Node_DD>(DD_DRAW_TREE_);
-    %%%%%:  173-block  0
-call    0 never executed
-        1:  174:            } else if (type_ == which_window_::AVL_TREE) {
-        1:  174-block  0
-branch  0 taken 1 (fallthrough)
-branch  1 taken 0
-        1:  175:                RIGHT_CLICK<Node_AVL>(AVL_DRAW_TREE_);
-        1:  175-block  0
-call    0 returned 1
-    #####:  176:            } else if (type_ == which_window_::SPLAY_TREE) {
-    %%%%%:  176-block  0
-        -:  177:                //
-        -:  178:            }
-        1:  179:            click_ = click_type_::EMPTY;
-        1:  179-block  0
-        -:  180:        }
-    24129:  181:        Drawer::Draw();
-    24129:  181-block  0
-call    0 returned 24129
-        -:  182:    }
-        1:  183:}
-        -:  184:
-        -:  185:template<typename vertex_type>
-       1*:  186:void MAIN_WINDOW::LEFT_CLICK(VERTEX<vertex_type>* TREE) noexcept {
-       1*:  187:    VERTEX<vertex_type>* res = MAIN_WINDOW::Which_Vertex<vertex_type>(TREE);
-       1*:  188:    if (res != nullptr) {
-       1*:  189:        if (res->COLOR == Color::Blue) {
-    #####:  190:            res->COLOR = Color::Red;
-    #####:  191:            res->real_vertex->param.COLOR = Color::Red;
-        -:  192:        } else {
-       1*:  193:            res->COLOR = Color::Blue;
-       1*:  194:            res->real_vertex->param.COLOR = Color::Blue;
-        -:  195:        }
-        -:  196:    }
-       1*:  197:}
-------------------
-_ZN11MAIN_WINDOW10LEFT_CLICKI8Node_AVLEEvP6VERTEXIT_E:
-function _ZN11MAIN_WINDOW10LEFT_CLICKI8Node_AVLEEvP6VERTEXIT_E called 1 returned 100% blocks executed 86%
-        1:  186:void MAIN_WINDOW::LEFT_CLICK(VERTEX<vertex_type>* TREE) noexcept {
-        1:  187:    VERTEX<vertex_type>* res = MAIN_WINDOW::Which_Vertex<vertex_type>(TREE);
-        1:  187-block  0
-call    0 returned 1
-        1:  188:    if (res != nullptr) {
-branch  0 taken 1 (fallthrough)
-branch  1 taken 0
-        1:  189:        if (res->COLOR == Color::Blue) {
-        1:  189-block  0
-call    0 returned 1
-branch  1 taken 0 (fallthrough)
-branch  2 taken 1
-    #####:  190:            res->COLOR = Color::Red;
-    #####:  191:            res->real_vertex->param.COLOR = Color::Red;
-    %%%%%:  191-block  0
-        -:  192:        } else {
-        1:  193:            res->COLOR = Color::Blue;
-        1:  194:            res->real_vertex->param.COLOR = Color::Blue;
-        1:  194-block  0
-        -:  195:        }
-        -:  196:    }
-        1:  197:}
-------------------
-_ZN11MAIN_WINDOW10LEFT_CLICKI7Node_DDEEvP6VERTEXIT_E:
-function _ZN11MAIN_WINDOW10LEFT_CLICKI7Node_DDEEvP6VERTEXIT_E called 0 returned 0% blocks executed 0%
-    #####:  186:void MAIN_WINDOW::LEFT_CLICK(VERTEX<vertex_type>* TREE) noexcept {
-    #####:  187:    VERTEX<vertex_type>* res = MAIN_WINDOW::Which_Vertex<vertex_type>(TREE);
-    %%%%%:  187-block  0
-call    0 never executed
-    #####:  188:    if (res != nullptr) {
-branch  0 never executed
-branch  1 never executed
-    #####:  189:        if (res->COLOR == Color::Blue) {
-    %%%%%:  189-block  0
 call    0 never executed
 branch  1 never executed
 branch  2 never executed
-    #####:  190:            res->COLOR = Color::Red;
-    #####:  191:            res->real_vertex->param.COLOR = Color::Red;
-    %%%%%:  191-block  0
-        -:  192:        } else {
-    #####:  193:            res->COLOR = Color::Blue;
-    #####:  194:            res->real_vertex->param.COLOR = Color::Blue;
-    %%%%%:  194-block  0
-        -:  195:        }
-        -:  196:    }
-    #####:  197:}
+    #####:  146:                Control::Arrow_Control::MOVE_DOWN();
+    %%%%%:  146-block  0
+call    0 never executed
+    #####:  147:            } else if (Keyboard::isKeyPressed(Keyboard::Up)) {
+    %%%%%:  147-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  148:                Control::Arrow_Control::MOVE_UP();
+    %%%%%:  148-block  0
+call    0 never executed
+    #####:  149:            } else if (Keyboard::isKeyPressed(Keyboard::Delete)) {
+    %%%%%:  149-block  0
+call    0 never executed
+        -:  150:                // get all blue
+        -:  151:            }
+      197:  152:        } else if (Main_Event_.type == sf::Event::MouseWheelMoved) {
+      197:  152-block  0
+branch  0 taken 30 (fallthrough)
+branch  1 taken 167
+       30:  153:            if (Main_Event_.mouseWheel.delta == -1) {
+       30:  153-block  0
+branch  0 taken 17 (fallthrough)
+branch  1 taken 13
+       17:  154:                Control::Mouse_Control::MOVE_DOWN();
+       17:  154-block  0
+call    0 returned 17
+       13:  155:            } else if (Main_Event_.mouseWheel.delta == 1) {
+       13:  155-block  0
+branch  0 taken 13 (fallthrough)
+branch  1 taken 0
+       13:  156:                Control::Mouse_Control::MOVE_UP();
+       13:  156-block  0
+call    0 returned 13
+        -:  157:            }
+        -:  158:        }
+        -:  159:    }
+    48102:  160:}
+        -:  161:
+function _ZN11MAIN_WINDOW7ProcessEv called 1 returned 100% blocks executed 60%
+        1:  162:void MAIN_WINDOW::Process() {
+    48103:  163:    while (Main_Window_.isOpen()) {
+        1:  163-block  0
+    48103:  163-block  1
+call    0 returned 48103
+branch  1 taken 48102
+branch  2 taken 1 (fallthrough)
+    48102:  164:        Events();
+    48102:  164-block  0
+call    0 returned 48102
+    48102:  165:        if (click_ == click_type_::LEFT) {
+branch  0 taken 0 (fallthrough)
+branch  1 taken 48102
+    #####:  166:            if (type_ == which_window_::DD_TREE) {
+    %%%%%:  166-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  167:                LEFT_CLICK<Node_DD>(DD_DRAW_TREE_);
+    %%%%%:  167-block  0
+call    0 never executed
+    #####:  168:            } else if (type_ == which_window_::AVL_TREE) {
+    %%%%%:  168-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  169:                LEFT_CLICK<Node_AVL>(AVL_DRAW_TREE_);
+    %%%%%:  169-block  0
+call    0 never executed
+    #####:  170:            } else if (type_ == which_window_::SPLAY_TREE) {
+    %%%%%:  170-block  0
+        -:  171:
+        -:  172:            }
+    #####:  173:            click_ = click_type_::EMPTY;
+    %%%%%:  173-block  0
+    48102:  174:        } else if (click_ == click_type_::RIGHT) {
+    48102:  174-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 48100
+        2:  175:            if (type_ == which_window_::DD_TREE) {
+        2:  175-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+    #####:  176:                RIGHT_CLICK<Node_DD>(DD_DRAW_TREE_);
+    %%%%%:  176-block  0
+call    0 never executed
+        2:  177:            } else if (type_ == which_window_::AVL_TREE) {
+        2:  177-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 0
+        2:  178:                RIGHT_CLICK<Node_AVL>(AVL_DRAW_TREE_);
+        2:  178-block  0
+call    0 returned 2
+    #####:  179:            } else if (type_ == which_window_::SPLAY_TREE) {
+    %%%%%:  179-block  0
+        -:  180:                //
+        -:  181:            }
+        2:  182:            click_ = click_type_::EMPTY;
+        2:  182-block  0
+        -:  183:        }
+    48102:  184:        Drawer::Draw();
+    48102:  184-block  0
+call    0 returned 48102
+        -:  185:    }
+        1:  186:}
+        -:  187:
+        -:  188:template<typename vertex_type>
+    #####:  189:void MAIN_WINDOW::LEFT_CLICK(VERTEX<vertex_type>* TREE) noexcept {
+    #####:  190:    VERTEX<vertex_type>* res = MAIN_WINDOW::Which_Vertex<vertex_type>(TREE);
+    #####:  191:    if (res != nullptr) {
+    #####:  192:        if (res->COLOR == Color::Blue) {
+    #####:  193:            res->COLOR = Color::Red;
+    #####:  194:            res->real_vertex->param.COLOR = Color::Red;
+        -:  195:        } else {
+    #####:  196:            res->COLOR = Color::Blue;
+    #####:  197:            res->real_vertex->param.COLOR = Color::Blue;
+        -:  198:        }
+        -:  199:    }
+    #####:  200:}
 ------------------
-        -:  198:
-        -:  199:template<typename vertex_type>
-       1*:  200:void MAIN_WINDOW::RIGHT_CLICK(VERTEX<vertex_type> *TREE) noexcept {
-       1*:  201:    VERTEX<vertex_type>* res = Which_Vertex<vertex_type>(TREE);
-       1*:  202:    if (res != nullptr) {
-       1*:  203:        Info_Extra_Window e(res);
-       1*:  204:        e.Process();
-       1*:  205:    }
-       1*:  206:}
+_ZN11MAIN_WINDOW10LEFT_CLICKI8Node_AVLEEvP6VERTEXIT_E:
+function _ZN11MAIN_WINDOW10LEFT_CLICKI8Node_AVLEEvP6VERTEXIT_E called 0 returned 0% blocks executed 0%
+    #####:  189:void MAIN_WINDOW::LEFT_CLICK(VERTEX<vertex_type>* TREE) noexcept {
+    #####:  190:    VERTEX<vertex_type>* res = MAIN_WINDOW::Which_Vertex<vertex_type>(TREE);
+    %%%%%:  190-block  0
+call    0 never executed
+    #####:  191:    if (res != nullptr) {
+branch  0 never executed
+branch  1 never executed
+    #####:  192:        if (res->COLOR == Color::Blue) {
+    %%%%%:  192-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  193:            res->COLOR = Color::Red;
+    #####:  194:            res->real_vertex->param.COLOR = Color::Red;
+    %%%%%:  194-block  0
+        -:  195:        } else {
+    #####:  196:            res->COLOR = Color::Blue;
+    #####:  197:            res->real_vertex->param.COLOR = Color::Blue;
+    %%%%%:  197-block  0
+        -:  198:        }
+        -:  199:    }
+    #####:  200:}
+------------------
+_ZN11MAIN_WINDOW10LEFT_CLICKI7Node_DDEEvP6VERTEXIT_E:
+function _ZN11MAIN_WINDOW10LEFT_CLICKI7Node_DDEEvP6VERTEXIT_E called 0 returned 0% blocks executed 0%
+    #####:  189:void MAIN_WINDOW::LEFT_CLICK(VERTEX<vertex_type>* TREE) noexcept {
+    #####:  190:    VERTEX<vertex_type>* res = MAIN_WINDOW::Which_Vertex<vertex_type>(TREE);
+    %%%%%:  190-block  0
+call    0 never executed
+    #####:  191:    if (res != nullptr) {
+branch  0 never executed
+branch  1 never executed
+    #####:  192:        if (res->COLOR == Color::Blue) {
+    %%%%%:  192-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  193:            res->COLOR = Color::Red;
+    #####:  194:            res->real_vertex->param.COLOR = Color::Red;
+    %%%%%:  194-block  0
+        -:  195:        } else {
+    #####:  196:            res->COLOR = Color::Blue;
+    #####:  197:            res->real_vertex->param.COLOR = Color::Blue;
+    %%%%%:  197-block  0
+        -:  198:        }
+        -:  199:    }
+    #####:  200:}
+------------------
+        -:  201:
+        -:  202:template<typename vertex_type>
+       2*:  203:void MAIN_WINDOW::RIGHT_CLICK(VERTEX<vertex_type> *TREE) noexcept {
+       2*:  204:    VERTEX<vertex_type>* res = Which_Vertex<vertex_type>(TREE);
+       2*:  205:    if (res != nullptr) {
+       1*:  206:        Info_Extra_Window e(res);
+       1*:  207:        e.Process();
+       1*:  208:    }
+       2*:  209:}
 ------------------
 _ZN11MAIN_WINDOW11RIGHT_CLICKI8Node_AVLEEvP6VERTEXIT_E:
-function _ZN11MAIN_WINDOW11RIGHT_CLICKI8Node_AVLEEvP6VERTEXIT_E called 1 returned 100% blocks executed 100%
-        1:  200:void MAIN_WINDOW::RIGHT_CLICK(VERTEX<vertex_type> *TREE) noexcept {
-        1:  201:    VERTEX<vertex_type>* res = Which_Vertex<vertex_type>(TREE);
-        1:  201-block  0
-call    0 returned 1
-        1:  202:    if (res != nullptr) {
+function _ZN11MAIN_WINDOW11RIGHT_CLICKI8Node_AVLEEvP6VERTEXIT_E called 2 returned 100% blocks executed 100%
+        2:  203:void MAIN_WINDOW::RIGHT_CLICK(VERTEX<vertex_type> *TREE) noexcept {
+        2:  204:    VERTEX<vertex_type>* res = Which_Vertex<vertex_type>(TREE);
+        2:  204-block  0
+call    0 returned 2
+        2:  205:    if (res != nullptr) {
 branch  0 taken 1 (fallthrough)
-branch  1 taken 0
-        1:  203:        Info_Extra_Window e(res);
-        1:  203-block  0
+branch  1 taken 1
+        1:  206:        Info_Extra_Window e(res);
+        1:  206-block  0
 call    0 returned 1
-        1:  204:        e.Process();
+        1:  207:        e.Process();
 call    0 returned 1
-        1:  205:    }
+        1:  208:    }
 call    0 returned 1
-        1:  206:}
+        2:  209:}
 ------------------
 _ZN11MAIN_WINDOW11RIGHT_CLICKI7Node_DDEEvP6VERTEXIT_E:
 function _ZN11MAIN_WINDOW11RIGHT_CLICKI7Node_DDEEvP6VERTEXIT_E called 0 returned 0% blocks executed 0%
-    #####:  200:void MAIN_WINDOW::RIGHT_CLICK(VERTEX<vertex_type> *TREE) noexcept {
-    #####:  201:    VERTEX<vertex_type>* res = Which_Vertex<vertex_type>(TREE);
-    %%%%%:  201-block  0
+    #####:  203:void MAIN_WINDOW::RIGHT_CLICK(VERTEX<vertex_type> *TREE) noexcept {
+    #####:  204:    VERTEX<vertex_type>* res = Which_Vertex<vertex_type>(TREE);
+    %%%%%:  204-block  0
 call    0 never executed
-    #####:  202:    if (res != nullptr) {
+    #####:  205:    if (res != nullptr) {
 branch  0 never executed
 branch  1 never executed
-    #####:  203:        Info_Extra_Window e(res);
-    %%%%%:  203-block  0
+    #####:  206:        Info_Extra_Window e(res);
+    %%%%%:  206-block  0
 call    0 never executed
-    #####:  204:        e.Process();
+    #####:  207:        e.Process();
 call    0 never executed
-    #####:  205:    }
+    #####:  208:    }
 call    0 never executed
-    #####:  206:}
+    #####:  209:}
 ------------------
-        -:  207:
+        -:  210:

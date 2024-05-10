@@ -10,16 +10,29 @@ template<typename vertex_type> struct VERTEX {
     VERTEX* right{};
     int val{};
     vertex_type* real_vertex;
+
     VERTEX() = default;
+
     explicit VERTEX<vertex_type>(vertex_type* input_vertex) {
         real_vertex = input_vertex;
         coords = {0, 0};
         radius = 0;
     }
+
     ~VERTEX() {
         delete[] left;
         delete[] right;
         left = nullptr;
         right = nullptr;
+    }
+
+    VERTEX(VERTEX const& other) {
+        coords = other.coords;
+        COLOR = other.COLOR;
+        radius = other.radius;
+        left = other.left;
+        right = other.right;
+        val = other.val;
+        real_vertex = other.real_vertex;
     }
 };

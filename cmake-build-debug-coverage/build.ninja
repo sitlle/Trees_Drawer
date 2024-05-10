@@ -51,55 +51,55 @@ build cmake_object_order_depends_target_tree: phony || CMakeFiles/tree.dir
 
 build CMakeFiles/tree.dir/Main_File.cpp.o: CXX_COMPILER__tree_unscanned_Debug /home/yeawer/tree/Main_File.cpp || cmake_object_order_depends_target_tree
   DEP_FILE = CMakeFiles/tree.dir/Main_File.cpp.o.d
-  FLAGS = --coverage -g -fdiagnostics-color=always
+  FLAGS = --coverage -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/tree.dir
   OBJECT_FILE_DIR = CMakeFiles/tree.dir
 
 build CMakeFiles/tree.dir/FrontEnd.cpp.o: CXX_COMPILER__tree_unscanned_Debug /home/yeawer/tree/FrontEnd.cpp || cmake_object_order_depends_target_tree
   DEP_FILE = CMakeFiles/tree.dir/FrontEnd.cpp.o.d
-  FLAGS = --coverage -g -fdiagnostics-color=always
+  FLAGS = --coverage -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/tree.dir
   OBJECT_FILE_DIR = CMakeFiles/tree.dir
 
 build CMakeFiles/tree.dir/Drawer.cpp.o: CXX_COMPILER__tree_unscanned_Debug /home/yeawer/tree/Drawer.cpp || cmake_object_order_depends_target_tree
   DEP_FILE = CMakeFiles/tree.dir/Drawer.cpp.o.d
-  FLAGS = --coverage -g -fdiagnostics-color=always
+  FLAGS = --coverage -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/tree.dir
   OBJECT_FILE_DIR = CMakeFiles/tree.dir
 
 build CMakeFiles/tree.dir/ErrorWindow.cpp.o: CXX_COMPILER__tree_unscanned_Debug /home/yeawer/tree/ErrorWindow.cpp || cmake_object_order_depends_target_tree
   DEP_FILE = CMakeFiles/tree.dir/ErrorWindow.cpp.o.d
-  FLAGS = --coverage -g -fdiagnostics-color=always
+  FLAGS = --coverage -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/tree.dir
   OBJECT_FILE_DIR = CMakeFiles/tree.dir
 
 build CMakeFiles/tree.dir/First_Extra_Window.cpp.o: CXX_COMPILER__tree_unscanned_Debug /home/yeawer/tree/First_Extra_Window.cpp || cmake_object_order_depends_target_tree
   DEP_FILE = CMakeFiles/tree.dir/First_Extra_Window.cpp.o.d
-  FLAGS = --coverage -g -fdiagnostics-color=always
+  FLAGS = --coverage -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/tree.dir
   OBJECT_FILE_DIR = CMakeFiles/tree.dir
 
 build CMakeFiles/tree.dir/Second_Extra_Window.cpp.o: CXX_COMPILER__tree_unscanned_Debug /home/yeawer/tree/Second_Extra_Window.cpp || cmake_object_order_depends_target_tree
   DEP_FILE = CMakeFiles/tree.dir/Second_Extra_Window.cpp.o.d
-  FLAGS = --coverage -g -fdiagnostics-color=always
+  FLAGS = --coverage -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/tree.dir
   OBJECT_FILE_DIR = CMakeFiles/tree.dir
 
 build CMakeFiles/tree.dir/Info_Extra_Window.cpp.o: CXX_COMPILER__tree_unscanned_Debug /home/yeawer/tree/Info_Extra_Window.cpp || cmake_object_order_depends_target_tree
   DEP_FILE = CMakeFiles/tree.dir/Info_Extra_Window.cpp.o.d
-  FLAGS = --coverage -g -fdiagnostics-color=always
+  FLAGS = --coverage -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/tree.dir
   OBJECT_FILE_DIR = CMakeFiles/tree.dir
 
 build CMakeFiles/tree.dir/Control.cpp.o: CXX_COMPILER__tree_unscanned_Debug /home/yeawer/tree/Control.cpp || cmake_object_order_depends_target_tree
   DEP_FILE = CMakeFiles/tree.dir/Control.cpp.o.d
-  FLAGS = --coverage -g -fdiagnostics-color=always
+  FLAGS = --coverage -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/tree.dir
   OBJECT_FILE_DIR = CMakeFiles/tree.dir
 
 build CMakeFiles/tree.dir/BigInteger.cpp.o: CXX_COMPILER__tree_unscanned_Debug /home/yeawer/tree/BigInteger.cpp || cmake_object_order_depends_target_tree
   DEP_FILE = CMakeFiles/tree.dir/BigInteger.cpp.o.d
-  FLAGS = --coverage -g -fdiagnostics-color=always
+  FLAGS = --coverage -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/tree.dir
   OBJECT_FILE_DIR = CMakeFiles/tree.dir
 
@@ -111,9 +111,9 @@ build CMakeFiles/tree.dir/BigInteger.cpp.o: CXX_COMPILER__tree_unscanned_Debug /
 #############################################
 # Link the executable tree
 
-build tree: CXX_EXECUTABLE_LINKER__tree_Debug CMakeFiles/tree.dir/Main_File.cpp.o CMakeFiles/tree.dir/FrontEnd.cpp.o CMakeFiles/tree.dir/Drawer.cpp.o CMakeFiles/tree.dir/ErrorWindow.cpp.o CMakeFiles/tree.dir/First_Extra_Window.cpp.o CMakeFiles/tree.dir/Second_Extra_Window.cpp.o CMakeFiles/tree.dir/Info_Extra_Window.cpp.o CMakeFiles/tree.dir/Control.cpp.o CMakeFiles/tree.dir/BigInteger.cpp.o | /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
+build tree: CXX_EXECUTABLE_LINKER__tree_Debug CMakeFiles/tree.dir/Main_File.cpp.o CMakeFiles/tree.dir/FrontEnd.cpp.o CMakeFiles/tree.dir/Drawer.cpp.o CMakeFiles/tree.dir/ErrorWindow.cpp.o CMakeFiles/tree.dir/First_Extra_Window.cpp.o CMakeFiles/tree.dir/Second_Extra_Window.cpp.o CMakeFiles/tree.dir/Info_Extra_Window.cpp.o CMakeFiles/tree.dir/Control.cpp.o CMakeFiles/tree.dir/BigInteger.cpp.o | /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
   FLAGS = --coverage -g
-  LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1  /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.5.1  /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1  /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
+  LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1  /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1  /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
   OBJECT_DIR = CMakeFiles/tree.dir
   POST_BUILD = :
   PRE_LINK = :

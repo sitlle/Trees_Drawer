@@ -53,7 +53,7 @@
         -:   49:    /// \brief Virtual destructor
         -:   50:    ///
         -:   51:    ////////////////////////////////////////////////////////////
-  170577*:   52:    virtual ~Drawable() {}
+  184389*:   52:    virtual ~Drawable() {}
 ------------------
 _ZN2sf8DrawableD0Ev:
 function _ZN2sf8DrawableD0Ev called 0 returned 0% blocks executed 0%
@@ -63,8 +63,8 @@ call    0 never executed
 call    1 never executed
 ------------------
 _ZN2sf8DrawableD2Ev:
-function _ZN2sf8DrawableD2Ev called 170577 returned 100% blocks executed 100%
-   170577:   52:    virtual ~Drawable() {}
+function _ZN2sf8DrawableD2Ev called 184389 returned 100% blocks executed 100%
+   184389:   52:    virtual ~Drawable() {}
 ------------------
         -:   53:
         -:   54:protected:

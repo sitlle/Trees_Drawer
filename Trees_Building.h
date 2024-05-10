@@ -111,7 +111,12 @@ VERTEX<vertex_type>* Trees_Building::Tree_Building_InOrder(vertex_type *vertex, 
         return nullptr;
     }
     // node copy
-    node = new VERTEX<vertex_type>(vertex);
+    node = new VERTEX<vertex_type>;
+    node->real_vertex = vertex;
+    node->coords = {0, 0};
+    node->val = vertex->val;
+    node->radius = 30;
+    node->COLOR = vertex->param.COLOR;
     if (last_coords.first == 1250 && last_coords.second == 0) { // root
         node->coords = {1250 + TREE_OPT.TREE_W *
                                bigint::to_int(vertex->param.posX + vertex->param.sdv) * 30,
@@ -122,9 +127,6 @@ VERTEX<vertex_type>* Trees_Building::Tree_Building_InOrder(vertex_type *vertex, 
                         last_coords.second + 2 * (std::max(TREE_OPT.TREE_H,
                                                            float(vertex->param.size) / 20.f)) * 30};
     }
-    node->val = vertex->val;
-    node->radius = 30;
-    node->COLOR = vertex->param.COLOR;
     // node copy
     node->left = Tree_Building_InOrder<vertex_type>(vertex->left, node->left,
                                                     node->coords, TREE_OPT);
@@ -165,11 +167,8 @@ void Trees_Building::Compression(vertex_type* vertex, int64_t H,
     // update X
     Update_LR<vertex_type>(vertex);
     bigint BIG_H = bigint(std::to_string(H));
-    bigint Max = big_pow(two, BIG_H) - to_bigint("1") + path_sum;
-    //std::cout << vertex->val << ' ' << path_sum << '\n';
-    //std::cout << "Max " << H << ' ' << Max << '\n';
-    bigint Min = (big_pow(two, BIG_H) - to_bigint("1")) * to_bigint("-1") + path_sum;
-    std::cout << "Min " << H << ' ' << Min << '\n';
+    bigint Max = big_pow(two, BIG_H) - bigint("1") + path_sum;
+    bigint Min = (big_pow(two, BIG_H) - bigint("1")) * bigint("-1") + path_sum;
     if (LorR == 0) {
         bigint vertex_r = vertex->param.R;
         bigint rz = Max - vertex_r;
@@ -199,13 +198,13 @@ VERTEX<vertex_type>* Trees_Building::Build_Tree(tree_type& TREE, TREE_OPTIONS& T
     VERTEX<vertex_type>* root = nullptr;
     // ReCalc
     ReCalcHeight<vertex_type>(TREE.root);
-    TREE.root->param.posX = to_bigint("0");
+    TREE.root->param.posX = bigint("0");
     ReCalcPosX<vertex_type>(TREE.root, (TREE.root->param.height - 1));
     ReBuildTree<vertex_type>(TREE.root);
     ReCalcSize(TREE.root);
     // ReCalc
-    Compression<vertex_type>(TREE.root, (TREE.root->param.height - 1), to_bigint("0"));
-    LazyUpdates<vertex_type>(TREE.root, to_bigint("0"));
+    Compression<vertex_type>(TREE.root, (TREE.root->param.height - 1), bigint("0"));
+    LazyUpdates<vertex_type>(TREE.root, bigint("0"));
     root = Tree_Building_InOrder<vertex_type>(TREE.root, root, {1250, 0},
                                               TREE_OPT);
     // 1250 - center of WINDOW_W

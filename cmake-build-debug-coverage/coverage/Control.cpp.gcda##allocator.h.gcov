@@ -180,14 +180,10 @@
 _ZNSaIN2sf6VertexEED2Ev:
 function _ZNSaIN2sf6VertexEED2Ev called 0 returned 0% blocks executed 0%
     #####:  174:      ~allocator() _GLIBCXX_NOTHROW { }
-    %%%%%:  174-block  0
-call    0 never executed
 ------------------
 _ZNSaIjED2Ev:
 function _ZNSaIjED2Ev called 0 returned 0% blocks executed 0%
     #####:  174:      ~allocator() _GLIBCXX_NOTHROW { }
-    %%%%%:  174-block  0
-call    0 never executed
 ------------------
         -:  175:
         -:  176:#if __cplusplus > 201703L
@@ -196,10 +192,18 @@ call    0 never executed
         -:  179:      allocate(size_t __n)
         -:  180:      {
         -:  181:#ifdef __cpp_lib_is_constant_evaluated
-        -:  182:	if (std::is_constant_evaluated())
-        -:  183:	  return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+    #####:  182:	if (std::is_constant_evaluated())
+    %%%%%:  182-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  183:	  return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+    %%%%%:  183-block  0
+call    0 never executed
         -:  184:#endif
-        -:  185:	return __allocator_base<_Tp>::allocate(__n, 0);
+    #####:  185:	return __allocator_base<_Tp>::allocate(__n, 0);
+    %%%%%:  185-block  0
+call    0 never executed
         -:  186:      }
         -:  187:
         -:  188:      [[__gnu__::__always_inline__]]
@@ -207,19 +211,45 @@ call    0 never executed
         -:  190:      deallocate(_Tp* __p, size_t __n)
         -:  191:      {
         -:  192:#ifdef __cpp_lib_is_constant_evaluated
-        -:  193:	if (std::is_constant_evaluated())
+    #####:  193:	if (std::is_constant_evaluated())
+    %%%%%:  193-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  193-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  193-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
         -:  194:	  {
-        -:  195:	    ::operator delete(__p);
-        -:  196:	    return;
+    #####:  195:	    ::operator delete(__p);
+    %%%%%:  195-block  0
+call    0 never executed
+    %%%%%:  195-block  1
+call    1 never executed
+    %%%%%:  195-block  2
+call    2 never executed
+    #####:  196:	    return;
         -:  197:	  }
         -:  198:#endif
-        -:  199:	__allocator_base<_Tp>::deallocate(__p, __n);
+    #####:  199:	__allocator_base<_Tp>::deallocate(__p, __n);
+    %%%%%:  199-block  0
+call    0 never executed
+    %%%%%:  199-block  1
+call    1 never executed
+    %%%%%:  199-block  2
+call    2 never executed
         -:  200:      }
         -:  201:#endif // C++20
         -:  202:
         -:  203:      friend _GLIBCXX20_CONSTEXPR bool
-        -:  204:      operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
-        -:  205:      { return true; }
+function _ZSteqRKSaIcES1_ called 0 returned 0% blocks executed 0%
+    #####:  204:      operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+    #####:  205:      { return true; }
+    %%%%%:  205-block  0
         -:  206:
         -:  207:#if __cpp_impl_three_way_comparison < 201907L
         -:  208:      friend _GLIBCXX20_CONSTEXPR bool

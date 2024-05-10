@@ -255,15 +255,67 @@
         -:  251:  template<typename _Tp>
         -:  252:    _GLIBCXX14_CONSTEXPR
         -:  253:    inline const _Tp&
-      676:  254:    max(const _Tp& __a, const _Tp& __b)
+    13712:  254:    max(const _Tp& __a, const _Tp& __b)
         -:  255:    {
         -:  256:      // concept requirements
         -:  257:      __glibcxx_function_requires(_LessThanComparableConcept<_Tp>)
         -:  258:      //return  __a < __b ? __b : __a;
-      676:  259:      if (__a < __b)
-     129*:  260:	return __b;
-      547:  261:      return __a;
+    13712:  259:      if (__a < __b)
+     8375:  260:	return __b;
+     5337:  261:      return __a;
         -:  262:    }
+------------------
+_ZSt3maxIlERKT_S2_S2_:
+function _ZSt3maxIlERKT_S2_S2_ called 8106 returned 100% blocks executed 100%
+     8106:  254:    max(const _Tp& __a, const _Tp& __b)
+        -:  255:    {
+        -:  256:      // concept requirements
+        -:  257:      __glibcxx_function_requires(_LessThanComparableConcept<_Tp>)
+        -:  258:      //return  __a < __b ? __b : __a;
+     8106:  259:      if (__a < __b)
+     8106:  259-block  0
+branch  0 taken 7130 (fallthrough)
+branch  1 taken 976
+     7130:  260:	return __b;
+     7130:  260-block  0
+      976:  261:      return __a;
+      976:  261-block  0
+        -:  262:    }
+------------------
+_ZSt3maxIfERKT_S2_S2_:
+function _ZSt3maxIfERKT_S2_S2_ called 2691 returned 100% blocks executed 100%
+     2691:  254:    max(const _Tp& __a, const _Tp& __b)
+        -:  255:    {
+        -:  256:      // concept requirements
+        -:  257:      __glibcxx_function_requires(_LessThanComparableConcept<_Tp>)
+        -:  258:      //return  __a < __b ? __b : __a;
+     2691:  259:      if (__a < __b)
+     2691:  259-block  0
+branch  0 taken 43 (fallthrough)
+branch  1 taken 2648
+       43:  260:	return __b;
+       43:  260-block  0
+     2648:  261:      return __a;
+     2648:  261-block  0
+        -:  262:    }
+------------------
+_ZSt3maxIiERKT_S2_S2_:
+function _ZSt3maxIiERKT_S2_S2_ called 2915 returned 100% blocks executed 100%
+     2915:  254:    max(const _Tp& __a, const _Tp& __b)
+        -:  255:    {
+        -:  256:      // concept requirements
+        -:  257:      __glibcxx_function_requires(_LessThanComparableConcept<_Tp>)
+        -:  258:      //return  __a < __b ? __b : __a;
+     2915:  259:      if (__a < __b)
+     2915:  259-block  0
+branch  0 taken 1202 (fallthrough)
+branch  1 taken 1713
+     1202:  260:	return __b;
+     1202:  260-block  0
+     1713:  261:      return __a;
+     1713:  261-block  0
+        -:  262:    }
+------------------
         -:  263:
         -:  264:  /**
         -:  265:   *  @brief This does what you think it does.
@@ -314,9 +366,24 @@
         -:  310:  template<typename _Iterator>
         -:  311:    _GLIBCXX20_CONSTEXPR
         -:  312:    inline _Iterator
-        -:  313:    __niter_base(_Iterator __it)
+    #####:  313:    __niter_base(_Iterator __it)
         -:  314:    _GLIBCXX_NOEXCEPT_IF(std::is_nothrow_copy_constructible<_Iterator>::value)
-        -:  315:    { return __it; }
+    #####:  315:    { return __it; }
+------------------
+_ZSt12__niter_baseIPcET_S1_:
+function _ZSt12__niter_baseIPcET_S1_ called 0 returned 0% blocks executed 0%
+    #####:  313:    __niter_base(_Iterator __it)
+        -:  314:    _GLIBCXX_NOEXCEPT_IF(std::is_nothrow_copy_constructible<_Iterator>::value)
+    #####:  315:    { return __it; }
+    %%%%%:  315-block  0
+------------------
+_ZSt12__niter_baseIPKcET_S2_:
+function _ZSt12__niter_baseIPKcET_S2_ called 0 returned 0% blocks executed 0%
+    #####:  313:    __niter_base(_Iterator __it)
+        -:  314:    _GLIBCXX_NOEXCEPT_IF(std::is_nothrow_copy_constructible<_Iterator>::value)
+    #####:  315:    { return __it; }
+    %%%%%:  315-block  0
+------------------
         -:  316:
         -:  317:  template<typename _Ite, typename _Seq>
         -:  318:    _Ite
@@ -336,8 +403,10 @@
         -:  332:  template<typename _Iterator>
         -:  333:    _GLIBCXX20_CONSTEXPR
         -:  334:    inline _Iterator
-        -:  335:    __niter_wrap(const _Iterator&, _Iterator __res)
-        -:  336:    { return __res; }
+function _ZSt12__niter_wrapIPcET_RKS1_S1_ called 0 returned 0% blocks executed 0%
+    #####:  335:    __niter_wrap(const _Iterator&, _Iterator __res)
+    #####:  336:    { return __res; }
+    %%%%%:  336-block  0
         -:  337:
         -:  338:  // All of these auxiliary structs serve two purposes.  (1) Replace
         -:  339:  // calls to copy with memmove whenever possible.  (Memmove, not memcpy,
@@ -381,16 +450,23 @@
         -:  377:      template<typename _II, typename _OI>
         -:  378:	_GLIBCXX20_CONSTEXPR
         -:  379:	static _OI
-        -:  380:	__copy_m(_II __first, _II __last, _OI __result)
+function _ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKcPcEET0_T_S7_S6_ called 0 returned 0% blocks executed 0%
+    #####:  380:	__copy_m(_II __first, _II __last, _OI __result)
         -:  381:	{
         -:  382:	  typedef typename iterator_traits<_II>::difference_type _Distance;
-        -:  383:	  for(_Distance __n = __last - __first; __n > 0; --__n)
+    #####:  383:	  for(_Distance __n = __last - __first; __n > 0; --__n)
+    %%%%%:  383-block  0
+    %%%%%:  383-block  1
+branch  0 never executed
+branch  1 never executed
         -:  384:	    {
-        -:  385:	      *__result = *__first;
-        -:  386:	      ++__first;
-        -:  387:	      ++__result;
+    #####:  385:	      *__result = *__first;
+    #####:  386:	      ++__first;
+    #####:  387:	      ++__result;
+    %%%%%:  387-block  0
         -:  388:	    }
-        -:  389:	  return __result;
+    #####:  389:	  return __result;
+    %%%%%:  389-block  0
         -:  390:	}
         -:  391:    };
         -:  392:
@@ -421,7 +497,8 @@
         -:  417:      template<typename _Tp>
         -:  418:	_GLIBCXX20_CONSTEXPR
         -:  419:	static _Tp*
-        -:  420:	__copy_m(const _Tp* __first, const _Tp* __last, _Tp* __result)
+function _ZNSt11__copy_moveILb0ELb1ESt26random_access_iterator_tagE8__copy_mIcEEPT_PKS3_S6_S4_ called 0 returned 0% blocks executed 0%
+    #####:  420:	__copy_m(const _Tp* __first, const _Tp* __last, _Tp* __result)
         -:  421:	{
         -:  422:#if __cplusplus >= 201103L
         -:  423:	  using __assignable = conditional<_IsMove,
@@ -430,10 +507,15 @@
         -:  426:	  // trivial types can have deleted assignment
         -:  427:	  static_assert( __assignable::type::value, "type is not assignable" );
         -:  428:#endif
-        -:  429:	  const ptrdiff_t _Num = __last - __first;
-        -:  430:	  if (_Num)
-        -:  431:	    __builtin_memmove(__result, __first, sizeof(_Tp) * _Num);
-        -:  432:	  return __result + _Num;
+    #####:  429:	  const ptrdiff_t _Num = __last - __first;
+    #####:  430:	  if (_Num)
+    %%%%%:  430-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  431:	    __builtin_memmove(__result, __first, sizeof(_Tp) * _Num);
+    %%%%%:  431-block  0
+    #####:  432:	  return __result + _Num;
+    %%%%%:  432-block  0
         -:  433:	}
         -:  434:    };
         -:  435:
@@ -487,16 +569,25 @@
         -:  483:  template<bool _IsMove, typename _II, typename _OI>
         -:  484:    _GLIBCXX20_CONSTEXPR
         -:  485:    inline _OI
-        -:  486:    __copy_move_a2(_II __first, _II __last, _OI __result)
+function _ZSt14__copy_move_a2ILb0EPKcPcET1_T0_S4_S3_ called 0 returned 0% blocks executed 0%
+    #####:  486:    __copy_move_a2(_II __first, _II __last, _OI __result)
         -:  487:    {
         -:  488:      typedef typename iterator_traits<_II>::iterator_category _Category;
         -:  489:#ifdef __cpp_lib_is_constant_evaluated
-        -:  490:      if (std::is_constant_evaluated())
+    #####:  490:      if (std::is_constant_evaluated())
+    %%%%%:  490-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
         -:  491:	return std::__copy_move<_IsMove, false, _Category>::
-        -:  492:	  __copy_m(__first, __last, __result);
+    #####:  492:	  __copy_m(__first, __last, __result);
+    %%%%%:  492-block  0
+call    0 never executed
         -:  493:#endif
         -:  494:      return std::__copy_move<_IsMove, __memcpyable<_OI, _II>::__value,
-        -:  495:			      _Category>::__copy_m(__first, __last, __result);
+    #####:  495:			      _Category>::__copy_m(__first, __last, __result);
+    %%%%%:  495-block  0
+call    0 never executed
         -:  496:    }
         -:  497:
         -:  498:  template<bool _IsMove,
@@ -522,18 +613,28 @@
         -:  518:  template<bool _IsMove, typename _II, typename _OI>
         -:  519:    _GLIBCXX20_CONSTEXPR
         -:  520:    inline _OI
-        -:  521:    __copy_move_a1(_II __first, _II __last, _OI __result)
-        -:  522:    { return std::__copy_move_a2<_IsMove>(__first, __last, __result); }
+function _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_ called 0 returned 0% blocks executed 0%
+    #####:  521:    __copy_move_a1(_II __first, _II __last, _OI __result)
+    #####:  522:    { return std::__copy_move_a2<_IsMove>(__first, __last, __result); }
+    %%%%%:  522-block  0
+call    0 never executed
         -:  523:
         -:  524:  template<bool _IsMove, typename _II, typename _OI>
         -:  525:    _GLIBCXX20_CONSTEXPR
         -:  526:    inline _OI
-        -:  527:    __copy_move_a(_II __first, _II __last, _OI __result)
+function _ZSt13__copy_move_aILb0EPKcPcET1_T0_S4_S3_ called 0 returned 0% blocks executed 0%
+    #####:  527:    __copy_move_a(_II __first, _II __last, _OI __result)
         -:  528:    {
-        -:  529:      return std::__niter_wrap(__result,
+    #####:  529:      return std::__niter_wrap(__result,
+    %%%%%:  529-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
         -:  530:		std::__copy_move_a1<_IsMove>(std::__niter_base(__first),
         -:  531:					     std::__niter_base(__last),
-        -:  532:					     std::__niter_base(__result)));
+    #####:  532:					     std::__niter_base(__result)));
         -:  533:    }
         -:  534:
         -:  535:  template<bool _IsMove,
@@ -612,7 +713,8 @@
         -:  608:  template<typename _II, typename _OI>
         -:  609:    _GLIBCXX20_CONSTEXPR
         -:  610:    inline _OI
-        -:  611:    copy(_II __first, _II __last, _OI __result)
+function _ZSt4copyIPKcPcET0_T_S4_S3_ called 0 returned 0% blocks executed 0%
+    #####:  611:    copy(_II __first, _II __last, _OI __result)
         -:  612:    {
         -:  613:      // concept requirements
         -:  614:      __glibcxx_function_requires(_InputIteratorConcept<_II>)
@@ -621,7 +723,11 @@
         -:  617:      __glibcxx_requires_can_increment_range(__first, __last, __result);
         -:  618:
         -:  619:      return std::__copy_move_a<__is_move_iterator<_II>::__value>
-        -:  620:	     (std::__miter_base(__first), std::__miter_base(__last), __result);
+    #####:  620:	     (std::__miter_base(__first), std::__miter_base(__last), __result);
+    %%%%%:  620-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
         -:  621:    }
         -:  622:
         -:  623:#if __cplusplus >= 201103L
@@ -933,19 +1039,34 @@
         -:  929:    _GLIBCXX20_CONSTEXPR
         -:  930:    inline typename
         -:  931:    __gnu_cxx::__enable_if<__is_byte<_Tp>::__value, void>::__type
-        -:  932:    __fill_a1(_Tp* __first, _Tp* __last, const _Tp& __c)
+function _ZSt9__fill_a1IcEN9__gnu_cxx11__enable_ifIXsrSt9__is_byteIT_E7__valueEvE6__typeEPS3_S7_RKS3_ called 0 returned 0% blocks executed 0%
+    #####:  932:    __fill_a1(_Tp* __first, _Tp* __last, const _Tp& __c)
         -:  933:    {
-        -:  934:      const _Tp __tmp = __c;
+    #####:  934:      const _Tp __tmp = __c;
         -:  935:#if __cpp_lib_is_constant_evaluated
-        -:  936:      if (std::is_constant_evaluated())
+    #####:  936:      if (std::is_constant_evaluated())
+    %%%%%:  936-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
         -:  937:	{
-        -:  938:	  for (; __first != __last; ++__first)
-        -:  939:	    *__first = __tmp;
-        -:  940:	  return;
+    #####:  938:	  for (; __first != __last; ++__first)
+    %%%%%:  938-block  0
+    %%%%%:  938-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:  939:	    *__first = __tmp;
+    %%%%%:  939-block  0
+    #####:  940:	  return;
+    %%%%%:  940-block  0
         -:  941:	}
         -:  942:#endif
-        -:  943:      if (const size_t __len = __last - __first)
-        -:  944:	__builtin_memset(__first, static_cast<unsigned char>(__tmp), __len);
+    #####:  943:      if (const size_t __len = __last - __first)
+    %%%%%:  943-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  944:	__builtin_memset(__first, static_cast<unsigned char>(__tmp), __len);
+    %%%%%:  944-block  0
         -:  945:    }
         -:  946:
         -:  947:  template<typename _Ite, typename _Cont, typename _Tp>
@@ -969,8 +1090,11 @@
         -:  965:  template<typename _FIte, typename _Tp>
         -:  966:    _GLIBCXX20_CONSTEXPR
         -:  967:    inline void
-        -:  968:    __fill_a(_FIte __first, _FIte __last, const _Tp& __value)
-        -:  969:    { std::__fill_a1(__first, __last, __value); }
+function _ZSt8__fill_aIPccEvT_S1_RKT0_ called 0 returned 0% blocks executed 0%
+    #####:  968:    __fill_a(_FIte __first, _FIte __last, const _Tp& __value)
+    #####:  969:    { std::__fill_a1(__first, __last, __value); }
+    %%%%%:  969-block  0
+call    0 never executed
         -:  970:
         -:  971:  template<typename _Ite, typename _Seq, typename _Cat, typename _Tp>
         -:  972:    void
@@ -1011,7 +1135,9 @@
         -: 1007:  inline _GLIBCXX_CONSTEXPR long
         -: 1008:  __size_to_integer(long __n) { return __n; }
         -: 1009:  inline _GLIBCXX_CONSTEXPR unsigned long
-        -: 1010:  __size_to_integer(unsigned long __n) { return __n; }
+function _ZSt17__size_to_integerm called 0 returned 0% blocks executed 0%
+    #####: 1010:  __size_to_integer(unsigned long __n) { return __n; }
+    %%%%%: 1010-block  0
         -: 1011:  inline _GLIBCXX_CONSTEXPR long long
         -: 1012:  __size_to_integer(long long __n) { return __n; }
         -: 1013:  inline _GLIBCXX_CONSTEXPR unsigned long long
@@ -1110,19 +1236,26 @@
         -: 1106:  template<typename _OutputIterator, typename _Size, typename _Tp>
         -: 1107:    _GLIBCXX20_CONSTEXPR
         -: 1108:    inline _OutputIterator
-        -: 1109:    __fill_n_a(_OutputIterator __first, _Size __n, const _Tp& __value,
+function _ZSt10__fill_n_aIPcmcET_S1_T0_RKT1_St26random_access_iterator_tag called 0 returned 0% blocks executed 0%
+    #####: 1109:    __fill_n_a(_OutputIterator __first, _Size __n, const _Tp& __value,
         -: 1110:	       std::random_access_iterator_tag)
         -: 1111:    {
         -: 1112:#if __cplusplus >= 201103L
         -: 1113:      static_assert(is_integral<_Size>{}, "fill_n must pass integral size");
         -: 1114:#endif
-        -: 1115:      if (__n <= 0)
-        -: 1116:	return __first;
+    #####: 1115:      if (__n <= 0)
+    %%%%%: 1115-block  0
+branch  0 never executed
+branch  1 never executed
+    #####: 1116:	return __first;
+    %%%%%: 1116-block  0
         -: 1117:
         -: 1118:      __glibcxx_requires_can_increment(__first, __n);
         -: 1119:
-        -: 1120:      std::__fill_a(__first, __first + __n, __value);
-        -: 1121:      return __first + __n;
+    #####: 1120:      std::__fill_a(__first, __first + __n, __value);
+    %%%%%: 1120-block  0
+call    0 never executed
+    #####: 1121:      return __first + __n;
         -: 1122:    }
         -: 1123:
         -: 1124:  /**
@@ -1145,13 +1278,18 @@
         -: 1141:  template<typename _OI, typename _Size, typename _Tp>
         -: 1142:    _GLIBCXX20_CONSTEXPR
         -: 1143:    inline _OI
-        -: 1144:    fill_n(_OI __first, _Size __n, const _Tp& __value)
+function _ZSt6fill_nIPcmcET_S1_T0_RKT1_ called 0 returned 0% blocks executed 0%
+    #####: 1144:    fill_n(_OI __first, _Size __n, const _Tp& __value)
         -: 1145:    {
         -: 1146:      // concept requirements
         -: 1147:      __glibcxx_function_requires(_OutputIteratorConcept<_OI, _Tp>)
         -: 1148:
-        -: 1149:      return std::__fill_n_a(__first, std::__size_to_integer(__n), __value,
-        -: 1150:			       std::__iterator_category(__first));
+    #####: 1149:      return std::__fill_n_a(__first, std::__size_to_integer(__n), __value,
+call    0 never executed
+call    1 never executed
+    #####: 1150:			       std::__iterator_category(__first));
+    %%%%%: 1150-block  0
+call    0 never executed
         -: 1151:    }
         -: 1152:
         -: 1153:  template<bool _BoolType>

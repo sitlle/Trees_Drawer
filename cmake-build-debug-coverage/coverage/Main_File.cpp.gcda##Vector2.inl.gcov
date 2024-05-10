@@ -39,13 +39,13 @@
         -:   35:
         -:   36:////////////////////////////////////////////////////////////
         -:   37:template <typename T>
-function _ZN2sf7Vector2IfEC2Eff called 5249997 returned 100% blocks executed 100%
-  5249997:   38:inline Vector2<T>::Vector2(T X, T Y) :
-  5249997:   39:x(X),
-  5249997:   40:y(Y)
+function _ZN2sf7Vector2IfEC2Eff called 5599616 returned 100% blocks executed 100%
+  5599616:   38:inline Vector2<T>::Vector2(T X, T Y) :
+  5599616:   39:x(X),
+  5599616:   40:y(Y)
         -:   41:{
         -:   42:
-  5249997:   43:}
+  5599616:   43:}
         -:   44:
         -:   45:
         -:   46:////////////////////////////////////////////////////////////

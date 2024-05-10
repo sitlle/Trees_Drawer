@@ -3,176 +3,177 @@
         -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Info_Extra_Window.cpp.gcda
         -:    0:Runs:1
         -:    1:#include<SFML/Graphics.hpp>
-        -:    2:#pragma once
-        -:    3:
-function _ZL7DrawBoxRN2sf12RenderWindowERNS_7Vector2IfEES4_NS_5ColorE called 42606 returned 100% blocks executed 73%
-    42606:    4:static void DrawBox(sf::RenderWindow& Main_Window, sf::Vector2f& position,
-        -:    5:             sf::Vector2f& size, sf::Color COLOR = sf::Color::White) {
-        -:    6:    sf::Vertex line1[] = {
-    #####:    7:            sf::Vertex(sf::Vector2f(position.x, position.y), COLOR),
-    $$$$$:    7-block  0
-    #####:    8:            sf::Vertex(sf::Vector2f(position.x + size.x, position.y),COLOR)
+        -:    2:using namespace sf;
+        -:    3:#pragma once
+        -:    4:
+function _ZL7DrawBoxRN2sf12RenderWindowERNS_7Vector2IfEES4_NS_5ColorE called 56154 returned 100% blocks executed 73%
+    56154:    5:static void DrawBox(sf::RenderWindow& Main_Window, sf::Vector2f& position,
+        -:    6:             sf::Vector2f& size, sf::Color COLOR = sf::Color::White) {
+        -:    7:    sf::Vertex line1[] = {
+    #####:    8:            Vertex(sf::Vector2f(position.x, position.y), COLOR),
     $$$$$:    8-block  0
-    42606:    9:    };
-    42606:    9-block  0
-call    0 returned 42606
-call    1 returned 42606
-branch  2 taken 42606 (fallthrough)
+    #####:    9:            Vertex(sf::Vector2f(position.x + size.x, position.y),COLOR)
+    $$$$$:    9-block  0
+    56154:   10:    };
+    56154:   10-block  0
+call    0 returned 56154
+call    1 returned 56154
+branch  2 taken 56154 (fallthrough)
 branch  3 taken 0 (throw)
-    42606:    9-block  1
-call    4 returned 42606
-call    5 returned 42606
-branch  6 taken 42606 (fallthrough)
+    56154:   10-block  1
+call    4 returned 56154
+call    5 returned 56154
+branch  6 taken 56154 (fallthrough)
 branch  7 taken 0 (throw)
-        -:   10:    sf::Vertex line2[] = {
-    #####:   11:            sf::Vertex(sf::Vector2f(position.x, position.y), COLOR),
-    $$$$$:   11-block  0
-    #####:   12:            sf::Vertex(sf::Vector2f(position.x, position.y + size.y), COLOR)
+        -:   11:    sf::Vertex line2[] = {
+    #####:   12:            Vertex(sf::Vector2f(position.x, position.y), COLOR),
     $$$$$:   12-block  0
-    42606:   13:    };
-    42606:   13-block  0
-call    0 returned 42606
-call    1 returned 42606
-branch  2 taken 42606 (fallthrough)
+    #####:   13:            Vertex(sf::Vector2f(position.x, position.y + size.y), COLOR)
+    $$$$$:   13-block  0
+    56154:   14:    };
+    56154:   14-block  0
+call    0 returned 56154
+call    1 returned 56154
+branch  2 taken 56154 (fallthrough)
 branch  3 taken 0 (throw)
-    42606:   13-block  1
-call    4 returned 42606
-call    5 returned 42606
-branch  6 taken 42606 (fallthrough)
+    56154:   14-block  1
+call    4 returned 56154
+call    5 returned 56154
+branch  6 taken 56154 (fallthrough)
 branch  7 taken 0 (throw)
-        -:   14:    sf::Vertex line3[] = {
-    #####:   15:            sf::Vertex(sf::Vector2f(position.x + size.x, position.y), COLOR),
-    $$$$$:   15-block  0
-    #####:   16:            sf::Vertex(sf::Vector2f(position.x + size.x, position.y + size.y), COLOR)
+        -:   15:    sf::Vertex line3[] = {
+    #####:   16:            Vertex(sf::Vector2f(position.x + size.x, position.y), COLOR),
     $$$$$:   16-block  0
-    42606:   17:    };
-    42606:   17-block  0
-call    0 returned 42606
-call    1 returned 42606
-branch  2 taken 42606 (fallthrough)
+    #####:   17:            Vertex(sf::Vector2f(position.x + size.x, position.y + size.y), COLOR)
+    $$$$$:   17-block  0
+    56154:   18:    };
+    56154:   18-block  0
+call    0 returned 56154
+call    1 returned 56154
+branch  2 taken 56154 (fallthrough)
 branch  3 taken 0 (throw)
-    42606:   17-block  1
-call    4 returned 42606
-call    5 returned 42606
-branch  6 taken 42606 (fallthrough)
+    56154:   18-block  1
+call    4 returned 56154
+call    5 returned 56154
+branch  6 taken 56154 (fallthrough)
 branch  7 taken 0 (throw)
-        -:   18:    sf::Vertex line4[] = {
-    #####:   19:            sf::Vertex(sf::Vector2f(position.x, position.y + size.y), COLOR),
-    $$$$$:   19-block  0
-    #####:   20:            sf::Vertex(sf::Vector2f(position.x + size.x, position.y + size.y), COLOR)
+        -:   19:    sf::Vertex line4[] = {
+    #####:   20:            Vertex(sf::Vector2f(position.x, position.y + size.y), COLOR),
     $$$$$:   20-block  0
-    42606:   21:    };
-    42606:   21-block  0
-call    0 returned 42606
-call    1 returned 42606
-branch  2 taken 42606 (fallthrough)
+    #####:   21:            Vertex(sf::Vector2f(position.x + size.x, position.y + size.y), COLOR)
+    $$$$$:   21-block  0
+    56154:   22:    };
+    56154:   22-block  0
+call    0 returned 56154
+call    1 returned 56154
+branch  2 taken 56154 (fallthrough)
 branch  3 taken 0 (throw)
-    42606:   21-block  1
-call    4 returned 42606
-call    5 returned 42606
-branch  6 taken 42606 (fallthrough)
+    56154:   22-block  1
+call    4 returned 56154
+call    5 returned 56154
+branch  6 taken 56154 (fallthrough)
 branch  7 taken 0 (throw)
-    42606:   22:    Main_Window.draw(line1, 2, sf::Lines);
-    42606:   22-block  0
-call    0 returned 42606
-branch  1 taken 42606 (fallthrough)
+    56154:   23:    Main_Window.draw(line1, 2, sf::Lines);
+    56154:   23-block  0
+call    0 returned 56154
+branch  1 taken 56154 (fallthrough)
 branch  2 taken 0 (throw)
-    42606:   23:    Main_Window.draw(line2, 2, sf::Lines);
-    42606:   23-block  0
-call    0 returned 42606
-branch  1 taken 42606 (fallthrough)
+    56154:   24:    Main_Window.draw(line2, 2, sf::Lines);
+    56154:   24-block  0
+call    0 returned 56154
+branch  1 taken 56154 (fallthrough)
 branch  2 taken 0 (throw)
-    42606:   24:    Main_Window.draw(line3, 2, sf::Lines);
-    42606:   24-block  0
-call    0 returned 42606
-branch  1 taken 42606 (fallthrough)
+    56154:   25:    Main_Window.draw(line3, 2, sf::Lines);
+    56154:   25-block  0
+call    0 returned 56154
+branch  1 taken 56154 (fallthrough)
 branch  2 taken 0 (throw)
-    42606:   25:    Main_Window.draw(line4, 2, sf::Lines);
-    42606:   25-block  0
-call    0 returned 42606
-branch  1 taken 42606 (fallthrough)
+    56154:   26:    Main_Window.draw(line4, 2, sf::Lines);
+    56154:   26-block  0
+call    0 returned 56154
+branch  1 taken 56154 (fallthrough)
 branch  2 taken 0 (throw)
-    42606:   26:}
-    42606:   26-block  0
-        -:   27:
-function _ZL13DrawTextInBoxRN2sf12RenderWindowERNS_7Vector2IfEES4_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4TextEii called 42606 returned 100% blocks executed 72%
-    42606:   28:static void DrawTextInBox(sf::RenderWindow& Main_Window, sf::Vector2f& position,
-        -:   29:                   sf::Vector2f& size, std::string& Output_String, sf::Text Output_Text, int start_pos = 0,
-        -:   30:                   int Text_Size = 110) {
-    42606:   31:    Output_Text.setCharacterSize(Text_Size);
-    42606:   31-block  0
-call    0 returned 42606
-branch  1 taken 42606 (fallthrough)
+    56154:   27:}
+    56154:   27-block  0
+        -:   28:
+function _ZL13DrawTextInBoxRN2sf12RenderWindowERNS_7Vector2IfEES4_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4TextEii called 56154 returned 100% blocks executed 69%
+    56154:   29:static void DrawTextInBox(sf::RenderWindow& Main_Window, sf::Vector2f& position,
+        -:   30:                   sf::Vector2f& size, std::string& Output_String, sf::Text Output_Text, int start_pos = 0,
+        -:   31:                   int Text_Size = 110) {
+    56154:   32:    Output_Text.setCharacterSize(Text_Size);
+    56154:   32-block  0
+call    0 returned 56154
+branch  1 taken 56154 (fallthrough)
 branch  2 taken 0 (throw)
-    42606:   32:    std::string res;
-    42606:   32-block  0
-call    0 returned 42606
-   589383:   33:    for (int i = start_pos; i < Output_String.size(); ++i) {
-   546777:   33-block  0
-   589383:   33-block  1
-call    0 returned 589383
-branch  1 taken 553878
-branch  2 taken 35505 (fallthrough)
-   553878:   34:        res += Output_String[i];
-   553878:   34-block  0
-call    0 returned 553878
-branch  1 taken 553878 (fallthrough)
+    56154:   33:    std::string res;
+    56154:   33-block  0
+call    0 returned 56154
+   608335:   34:    for (int i = start_pos; i < Output_String.size(); ++i) {
+   552181:   34-block  0
+   608335:   34-block  1
+call    0 returned 608335
+branch  1 taken 552181
+branch  2 taken 56154 (fallthrough)
+   552181:   35:        res += Output_String[i];
+   552181:   35-block  0
+call    0 returned 552181
+branch  1 taken 552181 (fallthrough)
 branch  2 taken 0 (throw)
-   553878:   34-block  1
-call    3 returned 553878
-branch  4 taken 553878 (fallthrough)
+   552181:   35-block  1
+call    3 returned 552181
+branch  4 taken 552181 (fallthrough)
 branch  5 taken 0 (throw)
-   553878:   35:        Output_Text.setString(res);
-   553878:   35-block  0
-call    0 returned 553878
-call    1 returned 553878
-branch  2 taken 553878 (fallthrough)
+   552181:   36:        Output_Text.setString(res);
+   552181:   36-block  0
+call    0 returned 552181
+call    1 returned 552181
+branch  2 taken 552181 (fallthrough)
 branch  3 taken 0 (throw)
-   553878:   35-block  1
-call    4 returned 553878
-branch  5 taken 553878 (fallthrough)
+   552181:   36-block  1
+call    4 returned 552181
+branch  5 taken 552181 (fallthrough)
 branch  6 taken 0 (throw)
-   553878:   35-block  2
-call    7 returned 553878
-call    8 returned 553878
-    $$$$$:   35-block  3
+   552181:   36-block  2
+call    7 returned 552181
+call    8 returned 552181
+    $$$$$:   36-block  3
 call    9 never executed
-    $$$$$:   35-block  4
-    $$$$$:   35-block  5
+    $$$$$:   36-block  4
+    $$$$$:   36-block  5
 call   10 never executed
-    $$$$$:   35-block  6
-   553878:   36:        if (Output_Text.getLocalBounds().width > size.x - static_cast<float>(Text_Size) / 2) {
-call    0 returned 553878
-branch  1 taken 553878 (fallthrough)
+    $$$$$:   36-block  6
+   552181:   37:        if (Output_Text.getLocalBounds().width > size.x - static_cast<float>(Text_Size) / 2) {
+call    0 returned 552181
+branch  1 taken 552181 (fallthrough)
 branch  2 taken 0 (throw)
-   553878:   36-block  0
-branch  3 taken 7101 (fallthrough)
-branch  4 taken 546777
-     7101:   37:            break;
-     7101:   37-block  0
-        -:   38:        }
-        -:   39:    }
-    42606:   40:    double x_position = position.x;
-    42606:   41:    double y_position = position.y + (size.y - Output_Text.getLocalBounds().height) / 2;
-    42606:   41-block  0
-call    0 returned 42606
-branch  1 taken 42606 (fallthrough)
+   552181:   37-block  0
+branch  3 taken 0 (fallthrough)
+branch  4 taken 552181
+    #####:   38:            break;
+    %%%%%:   38-block  0
+        -:   39:        }
+        -:   40:    }
+    56154:   41:    double x_position = position.x;
+    56154:   42:    double y_position = position.y + (size.y - Output_Text.getLocalBounds().height) / 2;
+    56154:   42-block  0
+call    0 returned 56154
+branch  1 taken 56154 (fallthrough)
 branch  2 taken 0 (throw)
-    42606:   42:    Output_Text.setPosition(sf::Vector2f(static_cast<float>(x_position),
-    42606:   42-block  0
-call    0 returned 42606
-call    1 returned 42606
-branch  2 taken 42606 (fallthrough)
+    56154:   43:    Output_Text.setPosition(sf::Vector2f(static_cast<float>(x_position),
+    56154:   43-block  0
+call    0 returned 56154
+call    1 returned 56154
+branch  2 taken 56154 (fallthrough)
 branch  3 taken 0 (throw)
-    $$$$$:   42-block  1
-        -:   43:                                         static_cast<float>(y_position)));
-    42606:   44:    Main_Window.draw(Output_Text);
-    42606:   44-block  0
-call    0 returned 42606
-branch  1 taken 42606 (fallthrough)
+    $$$$$:   43-block  1
+        -:   44:                                         static_cast<float>(y_position)));
+    56154:   45:    Main_Window.draw(Output_Text);
+    56154:   45-block  0
+call    0 returned 56154
+branch  1 taken 56154 (fallthrough)
 branch  2 taken 0 (throw)
-    42606:   45:}
-    42606:   45-block  0
-call    0 returned 42606
-    $$$$$:   45-block  1
+    56154:   46:}
+    56154:   46-block  0
+call    0 returned 56154
+    $$$$$:   46-block  1
 call    1 never executed

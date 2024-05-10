@@ -2,24 +2,25 @@
         -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Main_File.cpp.gcno
         -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Main_File.cpp.gcda
         -:    0:Runs:1
-        -:    1:#include<SFML/Graphics.hpp>
-        -:    2:#include"FrontEnd.h"
-        -:    3:
+        -:    1:#include<bits/stdc++.h>
+        -:    2:#include<SFML/Graphics.hpp>
+        -:    3:#include"FrontEnd.h"
+        -:    4:
 function main called 1 returned 100% blocks executed 100%
-        1:    4:int main() {
-        1:    5:    sf::ContextSettings settings;
-        1:    5-block  0
+        1:    5:int main() {
+        1:    6:    sf::ContextSettings settings;
+        1:    6-block  0
 call    0 returned 1
-        1:    6:    settings.antialiasingLevel = 8;
-        1:    7:    MAIN_WINDOW Pr{};
-call    0 returned 1
-branch  1 taken 1 (fallthrough)
-branch  2 taken 0 (throw)
-        1:    8:    Pr.Process();
-        1:    8-block  0
+        1:    7:    settings.antialiasingLevel = 8;
+        1:    8:    MAIN_WINDOW Pr{};
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:    9:}
+        1:    9:    Pr.Process();
         1:    9-block  0
-        1:    9-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   10:    return 0;
+        1:   10-block  0
+        -:   11:}

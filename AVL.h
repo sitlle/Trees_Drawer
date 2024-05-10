@@ -9,8 +9,10 @@ public:
         root = nullptr;
     }
 
-    ~AVL() {
-        clear(root);
+    ~AVL() = default;
+
+    AVL(AVL const& other) {
+        root = other.root;
     }
 
     void Add_X(int32_t counter) {

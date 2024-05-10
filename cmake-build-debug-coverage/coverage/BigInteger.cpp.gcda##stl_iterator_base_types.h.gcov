@@ -239,23 +239,23 @@
         -:  235:  template<typename _Iter>
         -:  236:    inline _GLIBCXX_CONSTEXPR
         -:  237:    typename iterator_traits<_Iter>::iterator_category
-       2*:  238:    __iterator_category(const _Iter&)
-       2*:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
+   39649*:  238:    __iterator_category(const _Iter&)
+   39649*:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
 ------------------
 _ZSt19__iterator_categoryIPiENSt15iterator_traitsIT_E17iterator_categoryERKS2_:
-function _ZSt19__iterator_categoryIPiENSt15iterator_traitsIT_E17iterator_categoryERKS2_ called 0 returned 0% blocks executed 0%
+function _ZSt19__iterator_categoryIPiENSt15iterator_traitsIT_E17iterator_categoryERKS2_ called 39649 returned 100% blocks executed 100%
+    39649:  238:    __iterator_category(const _Iter&)
+    39649:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
+    39649:  239-block  0
+------------------
+_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_:
+function _ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ called 0 returned 0% blocks executed 0%
     #####:  238:    __iterator_category(const _Iter&)
     #####:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
     %%%%%:  239-block  0
 ------------------
 _ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_:
-function _ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_ called 2 returned 100% blocks executed 100%
-        2:  238:    __iterator_category(const _Iter&)
-        2:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
-        2:  239-block  0
-------------------
-_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_:
-function _ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ called 0 returned 0% blocks executed 0%
+function _ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_ called 0 returned 0% blocks executed 0%
     #####:  238:    __iterator_category(const _Iter&)
     #####:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
     %%%%%:  239-block  0

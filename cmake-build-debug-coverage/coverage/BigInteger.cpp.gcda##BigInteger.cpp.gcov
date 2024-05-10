@@ -4,42 +4,42 @@
         -:    0:Runs:1
         -:    1:#include"BigInteger.h"
         -:    2:
-function _ZN6bigint9is_bigintENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
-    #####:    3:bool bigint::is_bigint(std::string s) {                              // Checks if the feeded integer is valid Number or not.
-    #####:    4:    if(s[0] == '-')
-    %%%%%:    4-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:    5:        s.erase(0, 1);
-    %%%%%:    5-block  0
-call    0 never executed
-    #####:    6:    for(unsigned long long int i = 0; i < s.length(); ++i) {
-    %%%%%:    6-block  0
-    %%%%%:    6-block  1
-    %%%%%:    6-block  2
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:    7:        if(!((int)s[i] > 47 && (int)s[i] < 58))
-    %%%%%:    7-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:    7-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
+function _ZN6bigint9is_bigintENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 203153 returned 100% blocks executed 88%
+   203153:    3:bool bigint::is_bigint(std::string s) {                              // Checks if the feeded integer is valid Number or not.
+   203153:    4:    if(s[0] == '-')
+   203153:    4-block  0
+call    0 returned 203153
+branch  1 taken 2737 (fallthrough)
+branch  2 taken 200416
+     2737:    5:        s.erase(0, 1);
+     2737:    5-block  0
+call    0 returned 2737
+   474988:    6:    for(unsigned long long int i = 0; i < s.length(); ++i) {
+   203153:    6-block  0
+   271835:    6-block  1
+   474988:    6-block  2
+call    0 returned 474988
+branch  1 taken 271835
+branch  2 taken 203153 (fallthrough)
+  271835*:    7:        if(!((int)s[i] > 47 && (int)s[i] < 58))
+   271835:    7-block  0
+call    0 returned 271835
+branch  1 taken 271835 (fallthrough)
+branch  2 taken 0
+   271835:    7-block  1
+call    3 returned 271835
+branch  4 taken 0 (fallthrough)
+branch  5 taken 271835
     %%%%%:    7-block  2
-    %%%%%:    7-block  3
-    %%%%%:    7-block  4
-branch  6 never executed
-branch  7 never executed
+   271835:    7-block  3
+   271835:    7-block  4
+branch  6 taken 0 (fallthrough)
+branch  7 taken 271835
     #####:    8:            return false;
     %%%%%:    8-block  0
         -:    9:    }
-    #####:   10:    return true;
-    %%%%%:   10-block  0
+   203153:   10:    return true;
+   203153:   10-block  0
         -:   11:}
         -:   12:
         -:   13:
@@ -63,23 +63,23 @@ branch  7 never executed
         -:   31:        where n ans m are the lengths of respective strings(Integers) provided.
         -:   32:*/
         -:   33:
-function _ZN6bigint3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ called 0 returned 0% blocks executed 0%
-    #####:   34:std::string bigint::add(std::string str1, std::string str2) {          // returns arithmetic addition of str1+str2
-    #####:   35:    int str1_len = str1.length();
-    %%%%%:   35-block  0
-call    0 never executed
-    #####:   36:    int str2_len = str2.length();
-call    0 never executed
-    #####:   37:    std::string sum = "";
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
+function _ZN6bigint3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ called 35261 returned 100% blocks executed 67%
+    35261:   34:std::string bigint::add(std::string str1, std::string str2) {          // returns arithmetic addition of str1+str2
+    35261:   35:    int str1_len = str1.length();
+    35261:   35-block  0
+call    0 returned 35261
+    35261:   36:    int str2_len = str2.length();
+call    0 returned 35261
+    35261:   37:    std::string sum = "";
+call    0 returned 35261
+call    1 returned 35261
+branch  2 taken 35261 (fallthrough)
+branch  3 taken 0 (throw)
     $$$$$:   37-block  0
         -:   38:
-    #####:   39:    if(str1_len == 0 && str2_len == 0) {
-branch  0 never executed
-branch  1 never executed
+   35261*:   39:    if(str1_len == 0 && str2_len == 0) {
+branch  0 taken 0 (fallthrough)
+branch  1 taken 35261
     %%%%%:   39-block  0
 branch  2 never executed
 branch  3 never executed
@@ -89,30 +89,30 @@ call    0 never executed
 branch  1 never executed
 branch  2 never executed
     %%%%%:   40-block  1
-    #####:   41:    } else if(str1[0] == '-' && str2[0] == '-') {
-    %%%%%:   41-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:   41-block  1
-branch  3 never executed
-branch  4 never executed
-    %%%%%:   41-block  2
-call    5 never executed
-branch  6 never executed
-branch  7 never executed
-    %%%%%:   41-block  3
-branch  8 never executed
-branch  9 never executed
-    %%%%%:   41-block  4
-    %%%%%:   41-block  5
-    %%%%%:   41-block  6
-branch 10 never executed
-branch 11 never executed
-    #####:   42:        if(str1_len == 1 && str2_len == 1) {
-    %%%%%:   42-block  0
-branch  0 never executed
-branch  1 never executed
+    35261:   41:    } else if(str1[0] == '-' && str2[0] == '-') {
+    35261:   41-block  0
+call    0 returned 35261
+branch  1 taken 35261 (fallthrough)
+branch  2 taken 0 (throw)
+    35261:   41-block  1
+branch  3 taken 12633 (fallthrough)
+branch  4 taken 22628
+    12633:   41-block  2
+call    5 returned 12633
+branch  6 taken 12633 (fallthrough)
+branch  7 taken 0 (throw)
+    12633:   41-block  3
+branch  8 taken 3783 (fallthrough)
+branch  9 taken 8850
+     3783:   41-block  4
+    31478:   41-block  5
+    35261:   41-block  6
+branch 10 taken 3783 (fallthrough)
+branch 11 taken 31478
+    3783*:   42:        if(str1_len == 1 && str2_len == 1) {
+     3783:   42-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 3783
     %%%%%:   42-block  1
 branch  2 never executed
 branch  3 never executed
@@ -123,37 +123,37 @@ branch  1 never executed
 branch  2 never executed
     %%%%%:   43-block  1
         -:   44:        } else {
-    #####:   45:            sum = "-" + add(str1.erase(0, 1), str2.erase(0, 1));
-    %%%%%:   45-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:   45-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:   45-block  2
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
-    %%%%%:   45-block  3
-call    9 never executed
-branch 10 never executed
-branch 11 never executed
-    %%%%%:   45-block  4
-call   12 never executed
-branch 13 never executed
-branch 14 never executed
-    %%%%%:   45-block  5
-call   15 never executed
-branch 16 never executed
-branch 17 never executed
-    %%%%%:   45-block  6
-call   18 never executed
-call   19 never executed
-call   20 never executed
-call   21 never executed
-call   22 never executed
+     3783:   45:            sum = "-" + add(str1.erase(0, 1), str2.erase(0, 1));
+     3783:   45-block  0
+call    0 returned 3783
+branch  1 taken 3783 (fallthrough)
+branch  2 taken 0 (throw)
+     3783:   45-block  1
+call    3 returned 3783
+branch  4 taken 3783 (fallthrough)
+branch  5 taken 0 (throw)
+     3783:   45-block  2
+call    6 returned 3783
+branch  7 taken 3783 (fallthrough)
+branch  8 taken 0 (throw)
+     3783:   45-block  3
+call    9 returned 3783
+branch 10 taken 3783 (fallthrough)
+branch 11 taken 0 (throw)
+     3783:   45-block  4
+call   12 returned 3783
+branch 13 taken 3783 (fallthrough)
+branch 14 taken 0 (throw)
+     3783:   45-block  5
+call   15 returned 3783
+branch 16 taken 3783 (fallthrough)
+branch 17 taken 0 (throw)
+     3783:   45-block  6
+call   18 returned 3783
+call   19 returned 3783
+call   20 returned 3783
+call   21 returned 3783
+call   22 returned 3783
     $$$$$:   45-block  7
 call   23 never executed
     $$$$$:   45-block  8
@@ -164,72 +164,72 @@ call   24 never executed
 call   25 never executed
     $$$$$:   45-block 12
         -:   46:        }
-    #####:   47:    } else if(str1[0] == '-') {
-    %%%%%:   47-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:   47-block  1
-branch  3 never executed
-branch  4 never executed
-    #####:   48:        sum = subtract(str2, str1.erase(0, 1));
-    %%%%%:   48-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:   48-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:   48-block  2
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
-    %%%%%:   48-block  3
-call    9 never executed
-branch 10 never executed
-branch 11 never executed
-    %%%%%:   48-block  4
-call   12 never executed
-call   13 never executed
-call   14 never executed
-call   15 never executed
+    31478:   47:    } else if(str1[0] == '-') {
+    31478:   47-block  0
+call    0 returned 31478
+branch  1 taken 31478 (fallthrough)
+branch  2 taken 0 (throw)
+    31478:   47-block  1
+branch  3 taken 8850 (fallthrough)
+branch  4 taken 22628
+     8850:   48:        sum = subtract(str2, str1.erase(0, 1));
+     8850:   48-block  0
+call    0 returned 8850
+branch  1 taken 8850 (fallthrough)
+branch  2 taken 0 (throw)
+     8850:   48-block  1
+call    3 returned 8850
+branch  4 taken 8850 (fallthrough)
+branch  5 taken 0 (throw)
+     8850:   48-block  2
+call    6 returned 8850
+branch  7 taken 8850 (fallthrough)
+branch  8 taken 0 (throw)
+     8850:   48-block  3
+call    9 returned 8850
+branch 10 taken 8850 (fallthrough)
+branch 11 taken 0 (throw)
+     8850:   48-block  4
+call   12 returned 8850
+call   13 returned 8850
+call   14 returned 8850
+call   15 returned 8850
     $$$$$:   48-block  5
 call   16 never executed
     $$$$$:   48-block  6
     $$$$$:   48-block  7
 call   17 never executed
     $$$$$:   48-block  8
-    #####:   49:    } else if(str2[0] == '-') {
-    %%%%%:   49-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:   49-block  1
-branch  3 never executed
-branch  4 never executed
-    #####:   50:        sum = subtract(str1, str2.erase(0, 1));
-    %%%%%:   50-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:   50-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:   50-block  2
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
-    %%%%%:   50-block  3
-call    9 never executed
-branch 10 never executed
-branch 11 never executed
-    %%%%%:   50-block  4
-call   12 never executed
-call   13 never executed
-call   14 never executed
-call   15 never executed
+    22628:   49:    } else if(str2[0] == '-') {
+    22628:   49-block  0
+call    0 returned 22628
+branch  1 taken 22628 (fallthrough)
+branch  2 taken 0 (throw)
+    22628:   49-block  1
+branch  3 taken 5786 (fallthrough)
+branch  4 taken 16842
+     5786:   50:        sum = subtract(str1, str2.erase(0, 1));
+     5786:   50-block  0
+call    0 returned 5786
+branch  1 taken 5786 (fallthrough)
+branch  2 taken 0 (throw)
+     5786:   50-block  1
+call    3 returned 5786
+branch  4 taken 5786 (fallthrough)
+branch  5 taken 0 (throw)
+     5786:   50-block  2
+call    6 returned 5786
+branch  7 taken 5786 (fallthrough)
+branch  8 taken 0 (throw)
+     5786:   50-block  3
+call    9 returned 5786
+branch 10 taken 5786 (fallthrough)
+branch 11 taken 0 (throw)
+     5786:   50-block  4
+call   12 returned 5786
+call   13 returned 5786
+call   14 returned 5786
+call   15 returned 5786
     $$$$$:   50-block  5
 call   16 never executed
     $$$$$:   50-block  6
@@ -237,152 +237,152 @@ call   16 never executed
 call   17 never executed
     $$$$$:   50-block  8
         -:   51:    } else {
-    #####:   52:        int i, j, track_sum, carry = 0;
-    #####:   53:        for(i = str1_len-1, j = str2_len-1; i >= 0 && j >= 0; --i, --j) {
-    %%%%%:   53-block  0
-    %%%%%:   53-block  1
-branch  0 never executed
-branch  1 never executed
-    %%%%%:   53-block  2
-branch  2 never executed
-branch  3 never executed
-    #####:   54:            track_sum =  ((int)str1[i])-48 + ((int)str2[j])-48 + carry;
-    %%%%%:   54-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:   54-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    #####:   55:            carry = track_sum/10;
-    #####:   56:            sum = std::to_string(track_sum%10) + sum;
-    %%%%%:   56-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:   56-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:   56-block  2
-call    6 never executed
-call    7 never executed
-call    8 never executed
+    16842:   52:        int i, j, track_sum, carry = 0;
+    40446:   53:        for(i = str1_len-1, j = str2_len-1; i >= 0 && j >= 0; --i, --j) {
+    16842:   53-block  0
+    40446:   53-block  1
+branch  0 taken 31922 (fallthrough)
+branch  1 taken 8524
+    31922:   53-block  2
+branch  2 taken 23604
+branch  3 taken 8318 (fallthrough)
+    23604:   54:            track_sum =  ((int)str1[i])-48 + ((int)str2[j])-48 + carry;
+    23604:   54-block  0
+call    0 returned 23604
+branch  1 taken 23604 (fallthrough)
+branch  2 taken 0 (throw)
+    23604:   54-block  1
+call    3 returned 23604
+branch  4 taken 23604 (fallthrough)
+branch  5 taken 0 (throw)
+    23604:   55:            carry = track_sum/10;
+    23604:   56:            sum = std::to_string(track_sum%10) + sum;
+    23604:   56-block  0
+call    0 returned 23604
+branch  1 taken 23604 (fallthrough)
+branch  2 taken 0 (throw)
+    23604:   56-block  1
+call    3 returned 23604
+branch  4 taken 23604 (fallthrough)
+branch  5 taken 0 (throw)
+    23604:   56-block  2
+call    6 returned 23604
+call    7 returned 23604
+call    8 returned 23604
     $$$$$:   56-block  3
 call    9 never executed
     $$$$$:   56-block  4
         -:   57:        }
-    #####:   58:        if(i >= 0 && j < 0) {
-    %%%%%:   58-block  0
-branch  0 never executed
-branch  1 never executed
-    %%%%%:   58-block  1
-branch  2 never executed
-branch  3 never executed
-    #####:   59:            for(; i >= 0; --i) {
-    %%%%%:   59-block  0
-    %%%%%:   59-block  1
-branch  0 never executed
-branch  1 never executed
-    #####:   60:                track_sum = ((int)str1[i])-48 + carry;
-    %%%%%:   60-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:   61:                carry = track_sum/10;
-    #####:   62:                sum = std::to_string(track_sum%10) + sum;
-    %%%%%:   62-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:   62-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:   62-block  2
-call    6 never executed
-call    7 never executed
-call    8 never executed
+    16842:   58:        if(i >= 0 && j < 0) {
+    16842:   58-block  0
+branch  0 taken 8318 (fallthrough)
+branch  1 taken 8524
+     8318:   58-block  1
+branch  2 taken 8318 (fallthrough)
+branch  3 taken 0
+    21004:   59:            for(; i >= 0; --i) {
+     8318:   59-block  0
+    21004:   59-block  1
+branch  0 taken 12686
+branch  1 taken 8318 (fallthrough)
+    12686:   60:                track_sum = ((int)str1[i])-48 + carry;
+    12686:   60-block  0
+call    0 returned 12686
+branch  1 taken 12686 (fallthrough)
+branch  2 taken 0 (throw)
+    12686:   61:                carry = track_sum/10;
+    12686:   62:                sum = std::to_string(track_sum%10) + sum;
+    12686:   62-block  0
+call    0 returned 12686
+branch  1 taken 12686 (fallthrough)
+branch  2 taken 0 (throw)
+    12686:   62-block  1
+call    3 returned 12686
+branch  4 taken 12686 (fallthrough)
+branch  5 taken 0 (throw)
+    12686:   62-block  2
+call    6 returned 12686
+call    7 returned 12686
+call    8 returned 12686
     $$$$$:   62-block  3
 call    9 never executed
     $$$$$:   62-block  4
         -:   63:            }
-    #####:   64:        } else if(j >= 0 && i < 0) {
-    %%%%%:   64-block  0
-branch  0 never executed
-branch  1 never executed
-    %%%%%:   64-block  1
-branch  2 never executed
-branch  3 never executed
-    #####:   65:            for(; j >= 0; --j) {
-    %%%%%:   65-block  0
-    %%%%%:   65-block  1
-branch  0 never executed
-branch  1 never executed
-    #####:   66:                track_sum = ((int)str2[j])-48 + carry;
-    %%%%%:   66-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:   67:                carry = track_sum/10;
-    #####:   68:                sum = std::to_string(track_sum%10) + sum;
-    %%%%%:   68-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:   68-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:   68-block  2
-call    6 never executed
-call    7 never executed
-call    8 never executed
+     8524:   64:        } else if(j >= 0 && i < 0) {
+     8524:   64-block  0
+branch  0 taken 3468 (fallthrough)
+branch  1 taken 5056
+     3468:   64-block  1
+branch  2 taken 3468 (fallthrough)
+branch  3 taken 0
+     8392:   65:            for(; j >= 0; --j) {
+     3468:   65-block  0
+     8392:   65-block  1
+branch  0 taken 4924
+branch  1 taken 3468 (fallthrough)
+     4924:   66:                track_sum = ((int)str2[j])-48 + carry;
+     4924:   66-block  0
+call    0 returned 4924
+branch  1 taken 4924 (fallthrough)
+branch  2 taken 0 (throw)
+     4924:   67:                carry = track_sum/10;
+     4924:   68:                sum = std::to_string(track_sum%10) + sum;
+     4924:   68-block  0
+call    0 returned 4924
+branch  1 taken 4924 (fallthrough)
+branch  2 taken 0 (throw)
+     4924:   68-block  1
+call    3 returned 4924
+branch  4 taken 4924 (fallthrough)
+branch  5 taken 0 (throw)
+     4924:   68-block  2
+call    6 returned 4924
+call    7 returned 4924
+call    8 returned 4924
     $$$$$:   68-block  3
 call    9 never executed
     $$$$$:   68-block  4
         -:   69:            }
         -:   70:        }
-    #####:   71:        if(carry) {
-    %%%%%:   71-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:   72:            sum = std::to_string(carry) + sum;
-    %%%%%:   72-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:   72-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:   72-block  2
-call    6 never executed
-call    7 never executed
-call    8 never executed
+    16842:   71:        if(carry) {
+    16842:   71-block  0
+branch  0 taken 1361 (fallthrough)
+branch  1 taken 15481
+     1361:   72:            sum = std::to_string(carry) + sum;
+     1361:   72-block  0
+call    0 returned 1361
+branch  1 taken 1361 (fallthrough)
+branch  2 taken 0 (throw)
+     1361:   72-block  1
+call    3 returned 1361
+branch  4 taken 1361 (fallthrough)
+branch  5 taken 0 (throw)
+     1361:   72-block  2
+call    6 returned 1361
+call    7 returned 1361
+call    8 returned 1361
     $$$$$:   72-block  3
 call    9 never executed
     $$$$$:   72-block  4
         -:   73:        }
         -:   74:    }
-    #####:   75:    return trim(sum);
-    %%%%%:   75-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:   75-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:   75-block  2
-call    6 never executed
-    %%%%%:   75-block  3
+    70522:   75:    return trim(sum);
+    35261:   75-block  0
+call    0 returned 35261
+branch  1 taken 35261 (fallthrough)
+branch  2 taken 0 (throw)
+    35261:   75-block  1
+call    3 returned 35261
+branch  4 taken 35261 (fallthrough)
+branch  5 taken 0 (throw)
+    35261:   75-block  2
+call    6 returned 35261
+    35261:   75-block  3
     $$$$$:   75-block  4
 call    7 never executed
     $$$$$:   75-block  5
-    #####:   76:}
-call    0 never executed
+    35261:   76:}
+call    0 returned 35261
     $$$$$:   76-block  0
 call    1 never executed
         -:   77:
@@ -402,58 +402,58 @@ call    1 never executed
         -:   91:        where n ans m are the lengths of respective strings(Integers) provided.
         -:   92:*/
         -:   93:
-function _ZN6bigint8subtractENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ called 0 returned 0% blocks executed 0%
-    #####:   94:std::string bigint::subtract(std::string str1, std::string str2) {                 // returns arithmetic subtraction of str1-str2
-    #####:   95:    int str1_len = str1.length();
-    %%%%%:   95-block  0
-call    0 never executed
-    #####:   96:    int str2_len = str2.length();
-call    0 never executed
-    #####:   97:    std::string sum = "";
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
+function _ZN6bigint8subtractENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ called 79887 returned 100% blocks executed 54%
+    79887:   94:std::string bigint::subtract(std::string str1, std::string str2) {                 // returns arithmetic subtraction of str1-str2
+    79887:   95:    int str1_len = str1.length();
+    79887:   95-block  0
+call    0 returned 79887
+    79887:   96:    int str2_len = str2.length();
+call    0 returned 79887
+    79887:   97:    std::string sum = "";
+call    0 returned 79887
+call    1 returned 79887
+branch  2 taken 79887 (fallthrough)
+branch  3 taken 0 (throw)
     $$$$$:   97-block  0
-    #####:   98:    if(str1 == str2) {
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:   99:        return "0";
-    %%%%%:   99-block  0
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
-    %%%%%:   99-block  1
-call    4 never executed
+    79887:   98:    if(str1 == str2) {
+call    0 returned 79887
+branch  1 taken 329 (fallthrough)
+branch  2 taken 79558
+      329:   99:        return "0";
+      329:   99-block  0
+call    0 returned 329
+call    1 returned 329
+branch  2 taken 329 (fallthrough)
+branch  3 taken 0 (throw)
+      329:   99-block  1
+call    4 returned 329
     $$$$$:   99-block  2
 call    5 never executed
     $$$$$:   99-block  3
-    #####:  100:    } else if(str1[0] == '-' && str2[0] == '-') {
-    %%%%%:  100-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  100-block  1
-branch  3 never executed
-branch  4 never executed
-    %%%%%:  100-block  2
-call    5 never executed
-branch  6 never executed
-branch  7 never executed
-    %%%%%:  100-block  3
-branch  8 never executed
-branch  9 never executed
-    %%%%%:  100-block  4
-    %%%%%:  100-block  5
-    %%%%%:  100-block  6
-branch 10 never executed
-branch 11 never executed
-    #####:  101:        if(str2_len == 1 && str1_len == 1) {
-    %%%%%:  101-block  0
-branch  0 never executed
-branch  1 never executed
+    79558:  100:    } else if(str1[0] == '-' && str2[0] == '-') {
+    79558:  100-block  0
+call    0 returned 79558
+branch  1 taken 79558 (fallthrough)
+branch  2 taken 0 (throw)
+    79558:  100-block  1
+branch  3 taken 2529 (fallthrough)
+branch  4 taken 77029
+     2529:  100-block  2
+call    5 returned 2529
+branch  6 taken 2529 (fallthrough)
+branch  7 taken 0 (throw)
+     2529:  100-block  3
+branch  8 taken 1053 (fallthrough)
+branch  9 taken 1476
+     1053:  100-block  4
+    78505:  100-block  5
+    79558:  100-block  6
+branch 10 taken 1053 (fallthrough)
+branch 11 taken 78505
+    1053*:  101:        if(str2_len == 1 && str1_len == 1) {
+     1053:  101-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1053
     %%%%%:  101-block  1
 branch  2 never executed
 branch  3 never executed
@@ -464,85 +464,85 @@ branch  1 never executed
 branch  2 never executed
     %%%%%:  102-block  1
         -:  103:        } else {
-    #####:  104:            bigint t1(str1.erase(0, 1));
-    %%%%%:  104-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  104-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  104-block  2
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
+     1053:  104:            bigint t1(str1.erase(0, 1));
+     1053:  104-block  0
+call    0 returned 1053
+branch  1 taken 1053 (fallthrough)
+branch  2 taken 0 (throw)
+     1053:  104-block  1
+call    3 returned 1053
+branch  4 taken 1053 (fallthrough)
+branch  5 taken 0 (throw)
+     1053:  104-block  2
+call    6 returned 1053
+branch  7 taken 1053 (fallthrough)
+branch  8 taken 0 (throw)
     $$$$$:  104-block  3
-    #####:  105:            bigint t2(str2.erase(0, 1));
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  105-block  0
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  105-block  1
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
+     1053:  105:            bigint t2(str2.erase(0, 1));
+call    0 returned 1053
+branch  1 taken 1053 (fallthrough)
+branch  2 taken 0 (throw)
+     1053:  105-block  0
+call    3 returned 1053
+branch  4 taken 1053 (fallthrough)
+branch  5 taken 0 (throw)
+     1053:  105-block  1
+call    6 returned 1053
+branch  7 taken 1053 (fallthrough)
+branch  8 taken 0 (throw)
     $$$$$:  105-block  2
-    #####:  106:            std::string temp = subtract(t2.str, t1.str);
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  106-block  0
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  106-block  1
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
-call    9 never executed
+     2106:  106:            std::string temp = subtract(t2.str, t1.str);
+call    0 returned 1053
+branch  1 taken 1053 (fallthrough)
+branch  2 taken 0 (throw)
+     1053:  106-block  0
+call    3 returned 1053
+branch  4 taken 1053 (fallthrough)
+branch  5 taken 0 (throw)
+     1053:  106-block  1
+call    6 returned 1053
+branch  7 taken 1053 (fallthrough)
+branch  8 taken 0 (throw)
+call    9 returned 1053
     $$$$$:  106-block  2
     $$$$$:  106-block  3
-    #####:  107:            bigint mx = maximum(t2.str, t1.str);
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  107-block  0
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  107-block  1
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
-    %%%%%:  107-block  2
-call    9 never executed
-branch 10 never executed
-branch 11 never executed
-call   12 never executed
-call   13 never executed
+     2106:  107:            bigint mx = maximum(t2.str, t1.str);
+call    0 returned 1053
+branch  1 taken 1053 (fallthrough)
+branch  2 taken 0 (throw)
+     1053:  107-block  0
+call    3 returned 1053
+branch  4 taken 1053 (fallthrough)
+branch  5 taken 0 (throw)
+     1053:  107-block  1
+call    6 returned 1053
+branch  7 taken 1053 (fallthrough)
+branch  8 taken 0 (throw)
+     1053:  107-block  2
+call    9 returned 1053
+branch 10 taken 1053 (fallthrough)
+branch 11 taken 0 (throw)
+call   12 returned 1053
+call   13 returned 1053
     $$$$$:  107-block  3
     $$$$$:  107-block  4
     $$$$$:  107-block  5
-    #####:  108:            if(temp[0] != '-' && mx.str == t1.str)
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  108-block  0
-branch  3 never executed
-branch  4 never executed
-    %%%%%:  108-block  1
-call    5 never executed
-branch  6 never executed
-branch  7 never executed
+    1053*:  108:            if(temp[0] != '-' && mx.str == t1.str)
+call    0 returned 1053
+branch  1 taken 1053 (fallthrough)
+branch  2 taken 0 (throw)
+     1053:  108-block  0
+branch  3 taken 1053 (fallthrough)
+branch  4 taken 0
+     1053:  108-block  1
+call    5 returned 1053
+branch  6 taken 0 (fallthrough)
+branch  7 taken 1053
     %%%%%:  108-block  2
-    %%%%%:  108-block  3
-    %%%%%:  108-block  4
-branch  8 never executed
-branch  9 never executed
+     1053:  108-block  3
+     1053:  108-block  4
+branch  8 taken 0 (fallthrough)
+branch  9 taken 1053
     #####:  109:                sum = "-" + temp;
     %%%%%:  109-block  0
 call    0 never executed
@@ -552,17 +552,17 @@ branch  2 never executed
 call    3 never executed
 call    4 never executed
         -:  110:            else
-    #####:  111:                sum = temp;
-    %%%%%:  111-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  112:        }
-    %%%%%:  112-block  0
-call    0 never executed
-call    1 never executed
-call    2 never executed
-call    3 never executed
+     1053:  111:                sum = temp;
+     1053:  111-block  0
+call    0 returned 1053
+branch  1 taken 1053 (fallthrough)
+branch  2 taken 0 (throw)
+     1053:  112:        }
+     1053:  112-block  0
+call    0 returned 1053
+call    1 returned 1053
+call    2 returned 1053
+call    3 returned 1053
     $$$$$:  112-block  1
 call    4 never executed
     $$$$$:  112-block  2
@@ -571,41 +571,41 @@ call    5 never executed
 call    6 never executed
     $$$$$:  112-block  4
 call    7 never executed
-    #####:  113:    } else if(str1[0] == '-') {
-    %%%%%:  113-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  113-block  1
-branch  3 never executed
-branch  4 never executed
-    #####:  114:        sum = "-" + add(str1.erase(0, 1), str2);
-    %%%%%:  114-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  114-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  114-block  2
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
-    %%%%%:  114-block  3
-call    9 never executed
-branch 10 never executed
-branch 11 never executed
-    %%%%%:  114-block  4
-call   12 never executed
-branch 13 never executed
-branch 14 never executed
-    %%%%%:  114-block  5
-call   15 never executed
-call   16 never executed
-call   17 never executed
-call   18 never executed
-call   19 never executed
+    78505:  113:    } else if(str1[0] == '-') {
+    78505:  113-block  0
+call    0 returned 78505
+branch  1 taken 78505 (fallthrough)
+branch  2 taken 0 (throw)
+    78505:  113-block  1
+branch  3 taken 1476 (fallthrough)
+branch  4 taken 77029
+     1476:  114:        sum = "-" + add(str1.erase(0, 1), str2);
+     1476:  114-block  0
+call    0 returned 1476
+branch  1 taken 1476 (fallthrough)
+branch  2 taken 0 (throw)
+     1476:  114-block  1
+call    3 returned 1476
+branch  4 taken 1476 (fallthrough)
+branch  5 taken 0 (throw)
+     1476:  114-block  2
+call    6 returned 1476
+branch  7 taken 1476 (fallthrough)
+branch  8 taken 0 (throw)
+     1476:  114-block  3
+call    9 returned 1476
+branch 10 taken 1476 (fallthrough)
+branch 11 taken 0 (throw)
+     1476:  114-block  4
+call   12 returned 1476
+branch 13 taken 1476 (fallthrough)
+branch 14 taken 0 (throw)
+     1476:  114-block  5
+call   15 returned 1476
+call   16 returned 1476
+call   17 returned 1476
+call   18 returned 1476
+call   19 returned 1476
     $$$$$:  114-block  6
 call   20 never executed
     $$$$$:  114-block  7
@@ -615,14 +615,14 @@ call   21 never executed
     $$$$$:  114-block 10
 call   22 never executed
     $$$$$:  114-block 11
-    #####:  115:    } else if(str2[0] == '-') {
-    %%%%%:  115-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  115-block  1
-branch  3 never executed
-branch  4 never executed
+    77029:  115:    } else if(str2[0] == '-') {
+    77029:  115-block  0
+call    0 returned 77029
+branch  1 taken 77029 (fallthrough)
+branch  2 taken 0 (throw)
+    77029:  115-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 77029
     #####:  116:        sum = add(str1, str2.erase(0, 1));
     %%%%%:  116-block  0
 call    0 never executed
@@ -654,49 +654,49 @@ call   17 never executed
         -:  117:    } else {
         -:  118:        //? Implement Subtract
         -:  119:
-    #####:  120:        int i, j, track_sum, carry = 0;
-    #####:  121:        if(str1_len < str2_len) {
-    %%%%%:  121-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:  122:            std::string tp = str1;
-    %%%%%:  122-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  123:            str1 = str2;
-    %%%%%:  123-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  124:            str2 = tp;
-    %%%%%:  124-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  125:            sum = "-" + subtract(str1, str2);
-    %%%%%:  125-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  125-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  125-block  2
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
-    %%%%%:  125-block  3
-call    9 never executed
-branch 10 never executed
-branch 11 never executed
-    %%%%%:  125-block  4
-call   12 never executed
-call   13 never executed
-call   14 never executed
-call   15 never executed
-call   16 never executed
+    77029:  120:        int i, j, track_sum, carry = 0;
+    77029:  121:        if(str1_len < str2_len) {
+    77029:  121-block  0
+branch  0 taken 6843 (fallthrough)
+branch  1 taken 70186
+     6843:  122:            std::string tp = str1;
+     6843:  122-block  0
+call    0 returned 6843
+branch  1 taken 6843 (fallthrough)
+branch  2 taken 0 (throw)
+     6843:  123:            str1 = str2;
+     6843:  123-block  0
+call    0 returned 6843
+branch  1 taken 6843 (fallthrough)
+branch  2 taken 0 (throw)
+     6843:  124:            str2 = tp;
+     6843:  124-block  0
+call    0 returned 6843
+branch  1 taken 6843 (fallthrough)
+branch  2 taken 0 (throw)
+     6843:  125:            sum = "-" + subtract(str1, str2);
+     6843:  125-block  0
+call    0 returned 6843
+branch  1 taken 6843 (fallthrough)
+branch  2 taken 0 (throw)
+     6843:  125-block  1
+call    3 returned 6843
+branch  4 taken 6843 (fallthrough)
+branch  5 taken 0 (throw)
+     6843:  125-block  2
+call    6 returned 6843
+branch  7 taken 6843 (fallthrough)
+branch  8 taken 0 (throw)
+     6843:  125-block  3
+call    9 returned 6843
+branch 10 taken 6843 (fallthrough)
+branch 11 taken 0 (throw)
+     6843:  125-block  4
+call   12 returned 6843
+call   13 returned 6843
+call   14 returned 6843
+call   15 returned 6843
+call   16 returned 6843
     $$$$$:  125-block  5
 call   17 never executed
     $$$$$:  125-block  6
@@ -706,147 +706,147 @@ call   18 never executed
     $$$$$:  125-block  9
 call   19 never executed
     $$$$$:  125-block 10
-    #####:  126:            return trim(sum);
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  126-block  0
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  126-block  1
-call    6 never executed
+     6843:  126:            return trim(sum);
+call    0 returned 6843
+branch  1 taken 6843 (fallthrough)
+branch  2 taken 0 (throw)
+     6843:  126-block  0
+call    3 returned 6843
+branch  4 taken 6843 (fallthrough)
+branch  5 taken 0 (throw)
+     6843:  126-block  1
+call    6 returned 6843
     $$$$$:  126-block  2
 call    7 never executed
     $$$$$:  126-block  3
-    #####:  127:        } else if(str1_len == str2_len) {
-call    0 never executed
-    %%%%%:  127-block  0
-branch  1 never executed
-branch  2 never executed
+    77029:  127:        } else if(str1_len == str2_len) {
+call    0 returned 6843
+    70186:  127-block  0
+branch  1 taken 54856 (fallthrough)
+branch  2 taken 15330
     $$$$$:  127-block  1
 call    3 never executed
-    #####:  128:            bigint a(str1);
-    %%%%%:  128-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  128-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
+    54856:  128:            bigint a(str1);
+    54856:  128-block  0
+call    0 returned 54856
+branch  1 taken 54856 (fallthrough)
+branch  2 taken 0 (throw)
+    54856:  128-block  1
+call    3 returned 54856
+branch  4 taken 54856 (fallthrough)
+branch  5 taken 0 (throw)
     $$$$$:  128-block  2
-    #####:  129:            bigint b(str2);
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  129-block  0
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
+    54856:  129:            bigint b(str2);
+call    0 returned 54856
+branch  1 taken 54856 (fallthrough)
+branch  2 taken 0 (throw)
+    54856:  129-block  0
+call    3 returned 54856
+branch  4 taken 54856 (fallthrough)
+branch  5 taken 0 (throw)
     $$$$$:  129-block  1
-    #####:  130:            bigint mx = maximum(a.str, b.str);
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  130-block  0
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  130-block  1
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
-    %%%%%:  130-block  2
-call    9 never executed
-branch 10 never executed
-branch 11 never executed
-call   12 never executed
-call   13 never executed
+   109712:  130:            bigint mx = maximum(a.str, b.str);
+call    0 returned 54856
+branch  1 taken 54856 (fallthrough)
+branch  2 taken 0 (throw)
+    54856:  130-block  0
+call    3 returned 54856
+branch  4 taken 54856 (fallthrough)
+branch  5 taken 0 (throw)
+    54856:  130-block  1
+call    6 returned 54856
+branch  7 taken 54856 (fallthrough)
+branch  8 taken 0 (throw)
+    54856:  130-block  2
+call    9 returned 54856
+branch 10 taken 54856 (fallthrough)
+branch 11 taken 0 (throw)
+call   12 returned 54856
+call   13 returned 54856
     $$$$$:  130-block  3
     $$$$$:  130-block  4
     $$$$$:  130-block  5
-    #####:  131:            if(mx.str == str2) {
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  132:                std::string tp = str1;
-    %%%%%:  132-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  133:                str1 = str2;
-    %%%%%:  133-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  134:                str2 = tp;
-    %%%%%:  134-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  135:                bigint t1(str1);
-    %%%%%:  135-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  135-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
+    54856:  131:            if(mx.str == str2) {
+call    0 returned 54856
+branch  1 taken 3484 (fallthrough)
+branch  2 taken 51372
+     3484:  132:                std::string tp = str1;
+     3484:  132-block  0
+call    0 returned 3484
+branch  1 taken 3484 (fallthrough)
+branch  2 taken 0 (throw)
+     3484:  133:                str1 = str2;
+     3484:  133-block  0
+call    0 returned 3484
+branch  1 taken 3484 (fallthrough)
+branch  2 taken 0 (throw)
+     3484:  134:                str2 = tp;
+     3484:  134-block  0
+call    0 returned 3484
+branch  1 taken 3484 (fallthrough)
+branch  2 taken 0 (throw)
+     3484:  135:                bigint t1(str1);
+     3484:  135-block  0
+call    0 returned 3484
+branch  1 taken 3484 (fallthrough)
+branch  2 taken 0 (throw)
+     3484:  135-block  1
+call    3 returned 3484
+branch  4 taken 3484 (fallthrough)
+branch  5 taken 0 (throw)
     $$$$$:  135-block  2
-    #####:  136:                bigint t2(str2);
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  136-block  0
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
+     3484:  136:                bigint t2(str2);
+call    0 returned 3484
+branch  1 taken 3484 (fallthrough)
+branch  2 taken 0 (throw)
+     3484:  136-block  0
+call    3 returned 3484
+branch  4 taken 3484 (fallthrough)
+branch  5 taken 0 (throw)
     $$$$$:  136-block  1
-    #####:  137:                bigint temp = subtract(str1, str2);
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  137-block  0
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  137-block  1
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
-    %%%%%:  137-block  2
-call    9 never executed
-branch 10 never executed
-branch 11 never executed
-call   12 never executed
-call   13 never executed
+     6968:  137:                bigint temp = subtract(str1, str2);
+call    0 returned 3484
+branch  1 taken 3484 (fallthrough)
+branch  2 taken 0 (throw)
+     3484:  137-block  0
+call    3 returned 3484
+branch  4 taken 3484 (fallthrough)
+branch  5 taken 0 (throw)
+     3484:  137-block  1
+call    6 returned 3484
+branch  7 taken 3484 (fallthrough)
+branch  8 taken 0 (throw)
+     3484:  137-block  2
+call    9 returned 3484
+branch 10 taken 3484 (fallthrough)
+branch 11 taken 0 (throw)
+call   12 returned 3484
+call   13 returned 3484
     $$$$$:  137-block  3
     $$$$$:  137-block  4
     $$$$$:  137-block  5
-    #####:  138:                sum = "-" + subtract(str1, str2);
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  138-block  0
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  138-block  1
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
-    %%%%%:  138-block  2
-call    9 never executed
-branch 10 never executed
-branch 11 never executed
-    %%%%%:  138-block  3
-call   12 never executed
-call   13 never executed
-call   14 never executed
-call   15 never executed
-call   16 never executed
+     3484:  138:                sum = "-" + subtract(str1, str2);
+call    0 returned 3484
+branch  1 taken 3484 (fallthrough)
+branch  2 taken 0 (throw)
+     3484:  138-block  0
+call    3 returned 3484
+branch  4 taken 3484 (fallthrough)
+branch  5 taken 0 (throw)
+     3484:  138-block  1
+call    6 returned 3484
+branch  7 taken 3484 (fallthrough)
+branch  8 taken 0 (throw)
+     3484:  138-block  2
+call    9 returned 3484
+branch 10 taken 3484 (fallthrough)
+branch 11 taken 0 (throw)
+     3484:  138-block  3
+call   12 returned 3484
+call   13 returned 3484
+call   14 returned 3484
+call   15 returned 3484
+call   16 returned 3484
     $$$$$:  138-block  4
 call   17 never executed
     $$$$$:  138-block  5
@@ -856,24 +856,24 @@ call   18 never executed
     $$$$$:  138-block  8
 call   19 never executed
     $$$$$:  138-block  9
-    #####:  139:                return trim(sum);
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  139-block  0
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  139-block  1
-call    6 never executed
+     3484:  139:                return trim(sum);
+call    0 returned 3484
+branch  1 taken 3484 (fallthrough)
+branch  2 taken 0 (throw)
+     3484:  139-block  0
+call    3 returned 3484
+branch  4 taken 3484 (fallthrough)
+branch  5 taken 0 (throw)
+     3484:  139-block  1
+call    6 returned 3484
     $$$$$:  139-block  2
 call    7 never executed
     $$$$$:  139-block  3
-    #####:  140:            }
-call    0 never executed
-call    1 never executed
-call    2 never executed
-call    3 never executed
+     3484:  140:            }
+call    0 returned 3484
+call    1 returned 3484
+call    2 returned 3484
+call    3 returned 3484
     $$$$$:  140-block  0
 call    4 never executed
     $$$$$:  140-block  1
@@ -882,22 +882,22 @@ call    5 never executed
 call    6 never executed
     $$$$$:  140-block  3
 call    7 never executed
-    #####:  141:        }
-    %%%%%:  141-block  0
-    %%%%%:  141-block  1
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  141-block  2
-    %%%%%:  141-block  3
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  141-block  4
-    %%%%%:  141-block  5
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
+    61824:  141:        }
+    51372:  141-block  0
+    54856:  141-block  1
+call    0 returned 54856
+branch  1 taken 51372 (fallthrough)
+branch  2 taken 3484
+    51372:  141-block  2
+    54856:  141-block  3
+call    3 returned 54856
+branch  4 taken 51372 (fallthrough)
+branch  5 taken 3484
+    51372:  141-block  4
+    54856:  141-block  5
+call    6 returned 54856
+branch  7 taken 51372 (fallthrough)
+branch  8 taken 3484
     $$$$$:  141-block  6
 call    9 never executed
     $$$$$:  141-block  7
@@ -905,89 +905,89 @@ call   10 never executed
     $$$$$:  141-block  8
 call   11 never executed
         -:  142:        int val1, val2;
-    #####:  143:        for(i = str1_len-1, j = str2_len-1; i >= 0 || j >= 0; --i, --j) {
-    %%%%%:  143-block  0
-    %%%%%:  143-block  1
-branch  0 never executed
-branch  1 never executed
-    %%%%%:  143-block  2
-branch  2 never executed
-branch  3 never executed
-    #####:  144:            if(i >= 0) {
-    %%%%%:  144-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:  145:                val1 = (int) str1[i] - 48;
-    %%%%%:  145-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  145-block  1
+   171873:  143:        for(i = str1_len-1, j = str2_len-1; i >= 0 || j >= 0; --i, --j) {
+    66702:  143-block  0
+   171873:  143-block  1
+branch  0 taken 105171
+branch  1 taken 66702 (fallthrough)
+    66702:  143-block  2
+branch  2 taken 0
+branch  3 taken 66702 (fallthrough)
+   105171:  144:            if(i >= 0) {
+   105171:  144-block  0
+branch  0 taken 105171 (fallthrough)
+branch  1 taken 0
+   105171:  145:                val1 = (int) str1[i] - 48;
+   105171:  145-block  0
+call    0 returned 105171
+branch  1 taken 105171 (fallthrough)
+branch  2 taken 0 (throw)
+   105171:  145-block  1
         -:  146:            } else {
     #####:  147:                val1 = 0;
     %%%%%:  147-block  0
         -:  148:            }
-    #####:  149:            if(j >= 0) {
-    %%%%%:  149-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:  150:                val2 = (int) str2[j] - 48;
-    %%%%%:  150-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  150-block  1
+   105171:  149:            if(j >= 0) {
+   105171:  149-block  0
+branch  0 taken 84849 (fallthrough)
+branch  1 taken 20322
+    84849:  150:                val2 = (int) str2[j] - 48;
+    84849:  150-block  0
+call    0 returned 84849
+branch  1 taken 84849 (fallthrough)
+branch  2 taken 0 (throw)
+    84849:  150-block  1
         -:  151:            } else {
-    #####:  152:                val2 = 0;
-    %%%%%:  152-block  0
+    20322:  152:                val2 = 0;
+    20322:  152-block  0
         -:  153:            }
-    #####:  154:            track_sum = val1 - val2 - carry;
-    #####:  155:            if(track_sum < 0) {
-    %%%%%:  155-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:  156:                track_sum += 10;
-    #####:  157:                carry = 1;
-    %%%%%:  157-block  0
+   105171:  154:            track_sum = val1 - val2 - carry;
+   105171:  155:            if(track_sum < 0) {
+   105171:  155-block  0
+branch  0 taken 8168 (fallthrough)
+branch  1 taken 97003
+     8168:  156:                track_sum += 10;
+     8168:  157:                carry = 1;
+     8168:  157-block  0
         -:  158:            } else {
-    #####:  159:                carry = 0;
-    %%%%%:  159-block  0
+    97003:  159:                carry = 0;
+    97003:  159-block  0
         -:  160:            }
-    #####:  161:            sum = std::to_string(track_sum) + sum;
-    %%%%%:  161-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  161-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  161-block  2
-call    6 never executed
-call    7 never executed
-call    8 never executed
+   105171:  161:            sum = std::to_string(track_sum) + sum;
+   105171:  161-block  0
+call    0 returned 105171
+branch  1 taken 105171 (fallthrough)
+branch  2 taken 0 (throw)
+   105171:  161-block  1
+call    3 returned 105171
+branch  4 taken 105171 (fallthrough)
+branch  5 taken 0 (throw)
+   105171:  161-block  2
+call    6 returned 105171
+call    7 returned 105171
+call    8 returned 105171
     $$$$$:  161-block  3
 call    9 never executed
     $$$$$:  161-block  4
         -:  162:        }
         -:  163:    }
-    #####:  164:    return trim(sum);
-    %%%%%:  164-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  164-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  164-block  2
-call    6 never executed
+    69231:  164:    return trim(sum);
+    69231:  164-block  0
+call    0 returned 69231
+branch  1 taken 69231 (fallthrough)
+branch  2 taken 0 (throw)
+    69231:  164-block  1
+call    3 returned 69231
+branch  4 taken 69231 (fallthrough)
+branch  5 taken 0 (throw)
+    69231:  164-block  2
+call    6 returned 69231
     $$$$$:  164-block  3
 call    7 never executed
     $$$$$:  164-block  4
-    #####:  165:}
-    %%%%%:  165-block  0
-call    0 never executed
+    79887:  165:}
+    79887:  165-block  0
+call    0 returned 79887
     $$$$$:  165-block  1
 call    1 never executed
         -:  166:
@@ -1006,27 +1006,27 @@ call    1 never executed
         -:  179:        where n ans m are the lengths of respective strings(Integers) provided.
         -:  180:*/
         -:  181:
-function _ZN6bigint8multiplyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ called 0 returned 0% blocks executed 0%
-    #####:  182:std::string bigint::multiply(std::string str1, std::string str2) {             // return arithmetic multiplication of str1*str2
-    #####:  183:    bool toAddNeg = false;
-    #####:  184:    int str1_len = str1.length();
-    %%%%%:  184-block  0
-call    0 never executed
-    #####:  185:    int str2_len = str2.length();
-call    0 never executed
-    #####:  186:    std::string ans = "";
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
+function _ZN6bigint8multiplyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ called 42386 returned 100% blocks executed 55%
+    42386:  182:std::string bigint::multiply(std::string str1, std::string str2) {             // return arithmetic multiplication of str1*str2
+    42386:  183:    bool toAddNeg = false;
+    42386:  184:    int str1_len = str1.length();
+    42386:  184-block  0
+call    0 returned 42386
+    42386:  185:    int str2_len = str2.length();
+call    0 returned 42386
+    42386:  186:    std::string ans = "";
+call    0 returned 42386
+call    1 returned 42386
+branch  2 taken 42386 (fallthrough)
+branch  3 taken 0 (throw)
     $$$$$:  186-block  0
-    #####:  187:    if(str1[0] == '-' && str2[0] == '-') {
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  187-block  0
-branch  3 never executed
-branch  4 never executed
+   42386*:  187:    if(str1[0] == '-' && str2[0] == '-') {
+call    0 returned 42386
+branch  1 taken 42386 (fallthrough)
+branch  2 taken 0 (throw)
+    42386:  187-block  0
+branch  3 taken 0 (fallthrough)
+branch  4 taken 42386
     %%%%%:  187-block  1
 call    5 never executed
 branch  6 never executed
@@ -1035,10 +1035,10 @@ branch  7 never executed
 branch  8 never executed
 branch  9 never executed
     %%%%%:  187-block  3
-    %%%%%:  187-block  4
-    %%%%%:  187-block  5
-branch 10 never executed
-branch 11 never executed
+    42386:  187-block  4
+    42386:  187-block  5
+branch 10 taken 0 (fallthrough)
+branch 11 taken 42386
     #####:  188:        ans = multiply(str1.erase(0, 1), str2.erase(0, 1));
     %%%%%:  188-block  0
 call    0 never executed
@@ -1071,14 +1071,14 @@ call   19 never executed
     $$$$$:  188-block  8
 call   20 never executed
     $$$$$:  188-block  9
-    #####:  189:    } else if(str1[0] == '-') {
-    %%%%%:  189-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  189-block  1
-branch  3 never executed
-branch  4 never executed
+    42386:  189:    } else if(str1[0] == '-') {
+    42386:  189-block  0
+call    0 returned 42386
+branch  1 taken 42386 (fallthrough)
+branch  2 taken 0 (throw)
+    42386:  189-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 42386
     #####:  190:        toAddNeg = true;
     #####:  191:        ans = multiply(str1.erase(0, 1), str2);
     %%%%%:  191-block  0
@@ -1108,37 +1108,37 @@ call   16 never executed
     $$$$$:  191-block  7
 call   17 never executed
     $$$$$:  191-block  8
-    #####:  192:    } else if(str2[0] == '-') {
-    %%%%%:  192-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  192-block  1
-branch  3 never executed
-branch  4 never executed
-    #####:  193:        toAddNeg = true;
-    #####:  194:        ans = multiply(str1, str2.erase(0, 1));
-    %%%%%:  194-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  194-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  194-block  2
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
-    %%%%%:  194-block  3
-call    9 never executed
-branch 10 never executed
-branch 11 never executed
-    %%%%%:  194-block  4
-call   12 never executed
-call   13 never executed
-call   14 never executed
-call   15 never executed
+    42386:  192:    } else if(str2[0] == '-') {
+    42386:  192-block  0
+call    0 returned 42386
+branch  1 taken 42386 (fallthrough)
+branch  2 taken 0 (throw)
+    42386:  192-block  1
+branch  3 taken 2737 (fallthrough)
+branch  4 taken 39649
+     2737:  193:        toAddNeg = true;
+     2737:  194:        ans = multiply(str1, str2.erase(0, 1));
+     2737:  194-block  0
+call    0 returned 2737
+branch  1 taken 2737 (fallthrough)
+branch  2 taken 0 (throw)
+     2737:  194-block  1
+call    3 returned 2737
+branch  4 taken 2737 (fallthrough)
+branch  5 taken 0 (throw)
+     2737:  194-block  2
+call    6 returned 2737
+branch  7 taken 2737 (fallthrough)
+branch  8 taken 0 (throw)
+     2737:  194-block  3
+call    9 returned 2737
+branch 10 taken 2737 (fallthrough)
+branch 11 taken 0 (throw)
+     2737:  194-block  4
+call   12 returned 2737
+call   13 returned 2737
+call   14 returned 2737
+call   15 returned 2737
     $$$$$:  194-block  5
 call   16 never executed
     $$$$$:  194-block  6
@@ -1146,13 +1146,13 @@ call   16 never executed
 call   17 never executed
     $$$$$:  194-block  8
         -:  195:    } else {
-    #####:  196:        if (str1_len == 0 || str2_len == 0)
-    %%%%%:  196-block  0
-branch  0 never executed
-branch  1 never executed
-    %%%%%:  196-block  1
-branch  2 never executed
-branch  3 never executed
+    39649:  196:        if (str1_len == 0 || str2_len == 0)
+    39649:  196-block  0
+branch  0 taken 39649 (fallthrough)
+branch  1 taken 0
+    39649:  196-block  1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 39649
     #####:  197:            return "0";
     %%%%%:  197-block  0
 call    0 never executed
@@ -1164,149 +1164,149 @@ call    4 never executed
     $$$$$:  197-block  2
 call    5 never executed
     $$$$$:  197-block  3
-    #####:  198:        std::vector<int> result(str1_len + str2_len, 0);
-    %%%%%:  198-block  0
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
-    %%%%%:  198-block  1
-call    4 never executed
+    39649:  198:        std::vector<int> result(str1_len + str2_len, 0);
+    39649:  198-block  0
+call    0 returned 39649
+call    1 returned 39649
+branch  2 taken 39649 (fallthrough)
+branch  3 taken 0 (throw)
+    39649:  198-block  1
+call    4 returned 39649
     $$$$$:  198-block  2
     $$$$$:  198-block  3
-    #####:  199:        int i_n1 = 0;
-    #####:  200:        int i_n2 = 0;
-    #####:  201:        for (int i=str1_len-1; i>=0; i--) {
-    %%%%%:  201-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:  202:            int carry = 0;
-    #####:  203:            int n1 = str1[i] - '0';
-    %%%%%:  203-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  204:            i_n2 = 0;
-    #####:  205:            for (int j=str2_len-1; j>=0; j--) {
-    %%%%%:  205-block  0
-    %%%%%:  205-block  1
-branch  0 never executed
-branch  1 never executed
-    #####:  206:                int n2 = str2[j] - '0';
-    %%%%%:  206-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  207:                int sum = n1*n2 + result[i_n1 + i_n2] + carry;
-    %%%%%:  207-block  0
-call    0 never executed
-    #####:  208:                carry = sum/10;
-    #####:  209:                result[i_n1 + i_n2] = sum % 10;
-call    0 never executed
-    #####:  210:                i_n2++;
+    39649:  199:        int i_n1 = 0;
+    39649:  200:        int i_n2 = 0;
+    90639:  201:        for (int i=str1_len-1; i>=0; i--) {
+    90639:  201-block  0
+branch  0 taken 50990
+branch  1 taken 39649 (fallthrough)
+    50990:  202:            int carry = 0;
+    50990:  203:            int n1 = str1[i] - '0';
+    50990:  203-block  0
+call    0 returned 50990
+branch  1 taken 50990 (fallthrough)
+branch  2 taken 0 (throw)
+    50990:  204:            i_n2 = 0;
+   101980:  205:            for (int j=str2_len-1; j>=0; j--) {
+    50990:  205-block  0
+   101980:  205-block  1
+branch  0 taken 50990
+branch  1 taken 50990 (fallthrough)
+    50990:  206:                int n2 = str2[j] - '0';
+    50990:  206-block  0
+call    0 returned 50990
+branch  1 taken 50990 (fallthrough)
+branch  2 taken 0 (throw)
+    50990:  207:                int sum = n1*n2 + result[i_n1 + i_n2] + carry;
+    50990:  207-block  0
+call    0 returned 50990
+    50990:  208:                carry = sum/10;
+    50990:  209:                result[i_n1 + i_n2] = sum % 10;
+call    0 returned 50990
+    50990:  210:                i_n2++;
         -:  211:            }
-    #####:  212:            if (carry > 0)
-    %%%%%:  212-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:  213:                result[i_n1 + i_n2] += carry;
-    %%%%%:  213-block  0
-call    0 never executed
-    #####:  214:            i_n1++;
-    %%%%%:  214-block  0
+    50990:  212:            if (carry > 0)
+    50990:  212-block  0
+branch  0 taken 14052 (fallthrough)
+branch  1 taken 36938
+    14052:  213:                result[i_n1 + i_n2] += carry;
+    14052:  213-block  0
+call    0 returned 14052
+    50990:  214:            i_n1++;
+    50990:  214-block  0
         -:  215:        }
-    #####:  216:        int i = result.size() - 1;
-    %%%%%:  216-block  0
-call    0 never executed
-    #####:  217:        while (i>=0 && result[i] == 0)
-    %%%%%:  217-block  0
-branch  0 never executed
-branch  1 never executed
-    %%%%%:  217-block  1
-call    2 never executed
-branch  3 never executed
-branch  4 never executed
-    %%%%%:  217-block  2
-    %%%%%:  217-block  3
-    %%%%%:  217-block  4
-branch  5 never executed
-branch  6 never executed
-    #####:  218:            i--;
-    %%%%%:  218-block  0
-    #####:  219:        if (i == -1)
-    %%%%%:  219-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:  220:            return "0";
-    %%%%%:  220-block  0
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
-    %%%%%:  220-block  1
-call    4 never executed
+    39649:  216:        int i = result.size() - 1;
+    39649:  216-block  0
+call    0 returned 39649
+    70660:  217:        while (i>=0 && result[i] == 0)
+    70660:  217-block  0
+branch  0 taken 70552 (fallthrough)
+branch  1 taken 108
+    70552:  217-block  1
+call    2 returned 70552
+branch  3 taken 31011 (fallthrough)
+branch  4 taken 39541
+    31011:  217-block  2
+    39649:  217-block  3
+    70660:  217-block  4
+branch  5 taken 31011
+branch  6 taken 39649 (fallthrough)
+    31011:  218:            i--;
+    31011:  218-block  0
+    39649:  219:        if (i == -1)
+    39649:  219-block  0
+branch  0 taken 108 (fallthrough)
+branch  1 taken 39541
+      108:  220:            return "0";
+      108:  220-block  0
+call    0 returned 108
+call    1 returned 108
+branch  2 taken 108 (fallthrough)
+branch  3 taken 0 (throw)
+      108:  220-block  1
+call    4 returned 108
     $$$$$:  220-block  2
 call    5 never executed
     $$$$$:  220-block  3
-    #####:  221:        while (i >= 0)
-    %%%%%:  221-block  0
-    %%%%%:  221-block  1
-branch  0 never executed
-branch  1 never executed
-    #####:  222:            ans += std::to_string(result[i--]);
-    %%%%%:  222-block  0
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
-    %%%%%:  222-block  1
-call    4 never executed
-branch  5 never executed
-branch  6 never executed
-    %%%%%:  222-block  2
-call    7 never executed
+    99169:  221:        while (i >= 0)
+    39541:  221-block  0
+    99169:  221-block  1
+branch  0 taken 59628
+branch  1 taken 39541 (fallthrough)
+    59628:  222:            ans += std::to_string(result[i--]);
+    59628:  222-block  0
+call    0 returned 59628
+call    1 returned 59628
+branch  2 taken 59628 (fallthrough)
+branch  3 taken 0 (throw)
+    59628:  222-block  1
+call    4 returned 59628
+branch  5 taken 59628 (fallthrough)
+branch  6 taken 0 (throw)
+    59628:  222-block  2
+call    7 returned 59628
     $$$$$:  222-block  3
 call    8 never executed
     $$$$$:  222-block  4
-    #####:  223:    }
-    %%%%%:  223-block  0
-    %%%%%:  223-block  1
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
+    39649:  223:    }
+    39541:  223-block  0
+    39649:  223-block  1
+call    0 returned 39649
+branch  1 taken 39541 (fallthrough)
+branch  2 taken 108
     $$$$$:  223-block  2
 call    3 never executed
-    #####:  224:    if(toAddNeg && ans[0]!='0') {
-    %%%%%:  224-block  0
-branch  0 never executed
-branch  1 never executed
-    %%%%%:  224-block  1
-call    2 never executed
-branch  3 never executed
-branch  4 never executed
-    %%%%%:  224-block  2
-branch  5 never executed
-branch  6 never executed
-    %%%%%:  224-block  3
-    %%%%%:  224-block  4
-    %%%%%:  224-block  5
-branch  7 never executed
-branch  8 never executed
-    #####:  225:        ans = '-' + ans;
-    %%%%%:  225-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  225-block  1
-call    3 never executed
-call    4 never executed
+    42278:  224:    if(toAddNeg && ans[0]!='0') {
+    42278:  224-block  0
+branch  0 taken 2737 (fallthrough)
+branch  1 taken 39541
+     2737:  224-block  1
+call    2 returned 2737
+branch  3 taken 2737 (fallthrough)
+branch  4 taken 0 (throw)
+     2737:  224-block  2
+branch  5 taken 2629 (fallthrough)
+branch  6 taken 108
+     2629:  224-block  3
+    39649:  224-block  4
+    42278:  224-block  5
+branch  7 taken 2629 (fallthrough)
+branch  8 taken 39649
+     2629:  225:        ans = '-' + ans;
+     2629:  225-block  0
+call    0 returned 2629
+branch  1 taken 2629 (fallthrough)
+branch  2 taken 0 (throw)
+     2629:  225-block  1
+call    3 returned 2629
+call    4 returned 2629
         -:  226:    }
-    #####:  227:    return ans;
-    %%%%%:  227-block  0
-call    0 never executed
-    #####:  228:}
-    %%%%%:  228-block  0
-call    0 never executed
+    42278:  227:    return ans;
+    42278:  227-block  0
+call    0 returned 42278
+    42386:  228:}
+    42386:  228-block  0
+call    0 returned 42386
     $$$$$:  228-block  1
 call    1 never executed
         -:  229:
@@ -2082,25 +2082,25 @@ call   23 never executed
         -:  331:}
         -:  332:
         -:  333:
-function _ZN6bigint7maximumENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ called 0 returned 0% blocks executed 0%
-    #####:  334:std::string bigint::maximum(std::string str1, std::string str2) {              // return maximum of both strings.
-    #####:  335:    std::string max = "";
-    %%%%%:  335-block  0
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
+function _ZN6bigint7maximumENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ called 55909 returned 100% blocks executed 42%
+    55909:  334:std::string bigint::maximum(std::string str1, std::string str2) {              // return maximum of both strings.
+    55909:  335:    std::string max = "";
+    55909:  335-block  0
+call    0 returned 55909
+call    1 returned 55909
+branch  2 taken 55909 (fallthrough)
+branch  3 taken 0 (throw)
     $$$$$:  335-block  1
-    #####:  336:    bool bothNeg = false;
-    #####:  337:    bool isMax1 = false;
-    #####:  338:    bool isMax2 = false;
-    #####:  339:    if(str1[0] == '-' && str2[0] == '-') {
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  339-block  0
-branch  3 never executed
-branch  4 never executed
+    55909:  336:    bool bothNeg = false;
+    55909:  337:    bool isMax1 = false;
+    55909:  338:    bool isMax2 = false;
+   55909*:  339:    if(str1[0] == '-' && str2[0] == '-') {
+call    0 returned 55909
+branch  1 taken 55909 (fallthrough)
+branch  2 taken 0 (throw)
+    55909:  339-block  0
+branch  3 taken 0 (fallthrough)
+branch  4 taken 55909
     %%%%%:  339-block  1
 call    5 never executed
 branch  6 never executed
@@ -2109,10 +2109,10 @@ branch  7 never executed
 branch  8 never executed
 branch  9 never executed
     %%%%%:  339-block  3
-    %%%%%:  339-block  4
-    %%%%%:  339-block  5
-branch 10 never executed
-branch 11 never executed
+    55909:  339-block  4
+    55909:  339-block  5
+branch 10 taken 0 (fallthrough)
+branch 11 taken 55909
     #####:  340:        bothNeg = true;
     #####:  341:        str1.erase(0, 1);
     %%%%%:  341-block  0
@@ -2124,14 +2124,14 @@ branch  2 never executed
 call    0 never executed
 branch  1 never executed
 branch  2 never executed
-    #####:  343:    } else if(str1[0] == '-') {
-    %%%%%:  343-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  343-block  1
-branch  3 never executed
-branch  4 never executed
+    55909:  343:    } else if(str1[0] == '-') {
+    55909:  343-block  0
+call    0 returned 55909
+branch  1 taken 55909 (fallthrough)
+branch  2 taken 0 (throw)
+    55909:  343-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 55909
     #####:  344:        return trim(str2);
     %%%%%:  344-block  0
 call    0 never executed
@@ -2146,14 +2146,14 @@ call    6 never executed
     $$$$$:  344-block  3
 call    7 never executed
     $$$$$:  344-block  4
-    #####:  345:    } else if(str2[0] == '-') {
-    %%%%%:  345-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  345-block  1
-branch  3 never executed
-branch  4 never executed
+    55909:  345:    } else if(str2[0] == '-') {
+    55909:  345-block  0
+call    0 returned 55909
+branch  1 taken 55909 (fallthrough)
+branch  2 taken 0 (throw)
+    55909:  345-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 55909
     #####:  346:        return trim(str1);
     %%%%%:  346-block  0
 call    0 never executed
@@ -2169,74 +2169,74 @@ call    6 never executed
 call    7 never executed
     $$$$$:  346-block  4
         -:  347:    }
-    #####:  348:    int str1_len = str1.length(), str2_len = str2.length();
-    %%%%%:  348-block  0
-call    0 never executed
-call    1 never executed
-    #####:  349:    if(str1_len == str2_len) {
-branch  0 never executed
-branch  1 never executed
-    #####:  350:        for(int i = 0; i < str1_len; ++i) {
-    %%%%%:  350-block  0
-    %%%%%:  350-block  1
-    %%%%%:  350-block  2
-branch  0 never executed
-branch  1 never executed
-    #####:  351:            if(str1[i] != str2[i]) {
-    %%%%%:  351-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  351-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  351-block  2
-branch  6 never executed
-branch  7 never executed
-    #####:  352:                if(str1[i] > str2[i]) {
-    %%%%%:  352-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  352-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  352-block  2
-branch  6 never executed
-branch  7 never executed
-    #####:  353:                    isMax1 = true;
-    %%%%%:  353-block  0
+    55909:  348:    int str1_len = str1.length(), str2_len = str2.length();
+    55909:  348-block  0
+call    0 returned 55909
+call    1 returned 55909
+    55909:  349:    if(str1_len == str2_len) {
+branch  0 taken 55595 (fallthrough)
+branch  1 taken 314
+    63636:  350:        for(int i = 0; i < str1_len; ++i) {
+    55595:  350-block  0
+     8041:  350-block  1
+    63636:  350-block  2
+branch  0 taken 63636
+branch  1 taken 0 (fallthrough)
+    63636:  351:            if(str1[i] != str2[i]) {
+    63636:  351-block  0
+call    0 returned 63636
+branch  1 taken 63636 (fallthrough)
+branch  2 taken 0 (throw)
+    63636:  351-block  1
+call    3 returned 63636
+branch  4 taken 63636 (fallthrough)
+branch  5 taken 0 (throw)
+    63636:  351-block  2
+branch  6 taken 55595 (fallthrough)
+branch  7 taken 8041
+    55595:  352:                if(str1[i] > str2[i]) {
+    55595:  352-block  0
+call    0 returned 55595
+branch  1 taken 55595 (fallthrough)
+branch  2 taken 0 (throw)
+    55595:  352-block  1
+call    3 returned 55595
+branch  4 taken 55595 (fallthrough)
+branch  5 taken 0 (throw)
+    55595:  352-block  2
+branch  6 taken 52111 (fallthrough)
+branch  7 taken 3484
+    52111:  353:                    isMax1 = true;
+    52111:  353-block  0
         -:  354:                } else {
-    #####:  355:                    isMax2 = true;
-    %%%%%:  355-block  0
+     3484:  355:                    isMax2 = true;
+     3484:  355-block  0
         -:  356:                }
-    #####:  357:                break;
-    %%%%%:  357-block  0
+    55595:  357:                break;
+    55595:  357-block  0
         -:  358:            }
         -:  359:        }
-    #####:  360:        if(!(isMax2 ^ isMax1)) {
-    %%%%%:  360-block  0
-branch  0 never executed
-branch  1 never executed
+    55595:  360:        if(!(isMax2 ^ isMax1)) {
+    55595:  360-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 55595
     #####:  361:            isMax1 = true;
     %%%%%:  361-block  0
         -:  362:        }
-    #####:  363:    } else if(str1_len > str2_len) {
-    %%%%%:  363-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:  364:        isMax1 = true;
-    %%%%%:  364-block  0
+      314:  363:    } else if(str1_len > str2_len) {
+      314:  363-block  0
+branch  0 taken 314 (fallthrough)
+branch  1 taken 0
+      314:  364:        isMax1 = true;
+      314:  364-block  0
         -:  365:    } else {
     #####:  366:        isMax2 = true;
     %%%%%:  366-block  0
         -:  367:    }
-    #####:  368:    if(bothNeg) {
-    %%%%%:  368-block  0
-branch  0 never executed
-branch  1 never executed
+    55909:  368:    if(bothNeg) {
+    55909:  368-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 55909
     #####:  369:        if(isMax1)
     %%%%%:  369-block  0
 branch  0 never executed
@@ -2287,43 +2287,43 @@ call   11 never executed
 call   12 never executed
     $$$$$:  372-block  7
         -:  373:    } else {
-    #####:  374:        if(isMax1)
-    %%%%%:  374-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:  375:            return trim(str1);
-    %%%%%:  375-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  375-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  375-block  2
-call    6 never executed
+    55909:  374:        if(isMax1)
+    55909:  374-block  0
+branch  0 taken 52425 (fallthrough)
+branch  1 taken 3484
+    52425:  375:            return trim(str1);
+    52425:  375-block  0
+call    0 returned 52425
+branch  1 taken 52425 (fallthrough)
+branch  2 taken 0 (throw)
+    52425:  375-block  1
+call    3 returned 52425
+branch  4 taken 52425 (fallthrough)
+branch  5 taken 0 (throw)
+    52425:  375-block  2
+call    6 returned 52425
     $$$$$:  375-block  3
 call    7 never executed
     $$$$$:  375-block  4
         -:  376:        else
-    #####:  377:            return trim(str2);
-    %%%%%:  377-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  377-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  377-block  2
-call    6 never executed
+     3484:  377:            return trim(str2);
+     3484:  377-block  0
+call    0 returned 3484
+branch  1 taken 3484 (fallthrough)
+branch  2 taken 0 (throw)
+     3484:  377-block  1
+call    3 returned 3484
+branch  4 taken 3484 (fallthrough)
+branch  5 taken 0 (throw)
+     3484:  377-block  2
+call    6 returned 3484
     $$$$$:  377-block  3
 call    7 never executed
     $$$$$:  377-block  4
         -:  378:    }
-    #####:  379:}
-    %%%%%:  379-block  0
-call    0 never executed
+    55909:  379:}
+    55909:  379-block  0
+call    0 returned 55909
     $$$$$:  379-block  1
 call    1 never executed
         -:  380:
@@ -2493,58 +2493,58 @@ call   14 never executed
     %%%%%:  413-block  0
         -:  414:}
         -:  415:
-function _ZN6bigint4trimENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
-    #####:  416:std::string bigint::trim(std::string s) {                         // function to remove zeros
-    #####:  417:    if(s == "0")
-    %%%%%:  417-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  418:        return s;
-    %%%%%:  418-block  0
-call    0 never executed
-    #####:  419:    if(s[0] == '-') {
-    %%%%%:  419-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  420:        int i = 1;
-    #####:  421:        while(s[i] == '0') {
-    %%%%%:  421-block  0
-    %%%%%:  421-block  1
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
+function _ZN6bigint4trimENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 170728 returned 100% blocks executed 95%
+   170728:  416:std::string bigint::trim(std::string s) {                         // function to remove zeros
+   170728:  417:    if(s == "0")
+   170728:  417-block  0
+call    0 returned 170728
+branch  1 taken 422 (fallthrough)
+branch  2 taken 170306
+      422:  418:        return s;
+      422:  418-block  0
+call    0 returned 422
+   170306:  419:    if(s[0] == '-') {
+   170306:  419-block  0
+call    0 returned 170306
+branch  1 taken 24233 (fallthrough)
+branch  2 taken 146073
+    24233:  420:        int i = 1;
+    24233:  421:        while(s[i] == '0') {
+    24233:  421-block  0
+    24233:  421-block  1
+call    0 returned 24233
+branch  1 taken 0
+branch  2 taken 24233 (fallthrough)
     #####:  422:            s.erase(i, 1);
     %%%%%:  422-block  0
 call    0 never executed
         -:  423:        }
-    #####:  424:        return s;
-    %%%%%:  424-block  0
-call    0 never executed
-    #####:  425:    } else if(s[0] == '0') {
-    %%%%%:  425-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  426:        int i = 0;
-    #####:  427:        while(s[i] == '0') {
-    %%%%%:  427-block  0
-    %%%%%:  427-block  1
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  428:            s.erase(i, 1);
-    %%%%%:  428-block  0
-call    0 never executed
+    24233:  424:        return s;
+    24233:  424-block  0
+call    0 returned 24233
+   146073:  425:    } else if(s[0] == '0') {
+   146073:  425-block  0
+call    0 returned 146073
+branch  1 taken 7959 (fallthrough)
+branch  2 taken 138114
+     7959:  426:        int i = 0;
+    17894:  427:        while(s[i] == '0') {
+     7959:  427-block  0
+    17894:  427-block  1
+call    0 returned 17894
+branch  1 taken 9935
+branch  2 taken 7959 (fallthrough)
+     9935:  428:            s.erase(i, 1);
+     9935:  428-block  0
+call    0 returned 9935
         -:  429:        }
-    #####:  430:        return s;
-    %%%%%:  430-block  0
-call    0 never executed
+     7959:  430:        return s;
+     7959:  430-block  0
+call    0 returned 7959
         -:  431:    }
-    #####:  432:    return s;
-    %%%%%:  432-block  0
-call    0 never executed
+   138114:  432:    return s;
+   138114:  432-block  0
+call    0 returned 138114
         -:  433:}
         -:  434:
         -:  435:
@@ -2581,30 +2581,30 @@ call    0 never executed
         -:  457:        where n ans m are the lengths of respective strings(Integers) provided.
         -:  458:*/
         -:  459:
-function _ZN6bigint3powENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ called 0 returned 0% blocks executed 0%
-    #####:  460:std::string bigint::pow(std::string str1, std::string str2) {                  // returns str1^str2, ^ -> power, numerically
-    #####:  461:    if(str2 == "0") {
-    %%%%%:  461-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  462:        return "1";
-    %%%%%:  462-block  0
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
-    %%%%%:  462-block  1
-call    4 never executed
+function _ZN6bigint3powENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ called 13580 returned 100% blocks executed 26%
+    13580:  460:std::string bigint::pow(std::string str1, std::string str2) {                  // returns str1^str2, ^ -> power, numerically
+    13580:  461:    if(str2 == "0") {
+    13580:  461-block  0
+call    0 returned 13580
+branch  1 taken 1192 (fallthrough)
+branch  2 taken 12388
+     1192:  462:        return "1";
+     1192:  462-block  0
+call    0 returned 1192
+call    1 returned 1192
+branch  2 taken 1192 (fallthrough)
+branch  3 taken 0 (throw)
+     1192:  462-block  1
+call    4 returned 1192
     $$$$$:  462-block  2
 call    5 never executed
     $$$$$:  462-block  3
 call    6 never executed
-    #####:  463:    } else if(str1 == "0") {
-    %%%%%:  463-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
+    12388:  463:    } else if(str1 == "0") {
+    12388:  463-block  0
+call    0 returned 12388
+branch  1 taken 0 (fallthrough)
+branch  2 taken 12388
     #####:  464:        if(str2[0] == '-')
     %%%%%:  464-block  0
 call    0 never executed
@@ -2626,20 +2626,20 @@ call    4 never executed
 call    5 never executed
     $$$$$:  466-block  3
 call    6 never executed
-    #####:  467:    } else if(str1[0] == '-' && str2[0] == '-') {
-    %%%%%:  467-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
+   12388*:  467:    } else if(str1[0] == '-' && str2[0] == '-') {
+    12388:  467-block  0
+call    0 returned 12388
+branch  1 taken 0 (fallthrough)
+branch  2 taken 12388
     %%%%%:  467-block  1
 call    3 never executed
 branch  4 never executed
 branch  5 never executed
     %%%%%:  467-block  2
-    %%%%%:  467-block  3
-    %%%%%:  467-block  4
-branch  6 never executed
-branch  7 never executed
+    12388:  467-block  3
+    12388:  467-block  4
+branch  6 taken 0 (fallthrough)
+branch  7 taken 12388
     #####:  468:        if(str1 == "-1" && str2 == "-1") {
     %%%%%:  468-block  0
 call    0 never executed
@@ -2717,11 +2717,11 @@ call    5 never executed
     $$$$$:  477-block  3
 call    6 never executed
         -:  478:        }
-    #####:  479:    } else if(str1[0] == '-') {
-    %%%%%:  479-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
+    12388:  479:    } else if(str1[0] == '-') {
+    12388:  479-block  0
+call    0 returned 12388
+branch  1 taken 0 (fallthrough)
+branch  2 taken 12388
     #####:  480:        if((((int)str2[str2.length()-1])-48) & 1)
     %%%%%:  480-block  0
 call    0 never executed
@@ -2784,11 +2784,11 @@ call   12 never executed
 call   13 never executed
     $$$$$:  482-block  7
 call   14 never executed
-    #####:  483:    } else if(str2[0] == '-') {
-    %%%%%:  483-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
+    12388:  483:    } else if(str2[0] == '-') {
+    12388:  483-block  0
+call    0 returned 12388
+branch  1 taken 0 (fallthrough)
+branch  2 taken 12388
     #####:  484:        if(str1 == "1") {
     %%%%%:  484-block  0
 call    0 never executed
@@ -2812,60 +2812,60 @@ call    5 never executed
 call    6 never executed
         -:  488:        }
         -:  489:    } else {
-    #####:  490:        std::string init_str1 = str1;
-    %%%%%:  490-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  491:        while(str2 != "1") {
-    %%%%%:  491-block  0
-    %%%%%:  491-block  1
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  492:            str1 = multiply(str1, init_str1);
-    %%%%%:  492-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  492-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  492-block  2
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
-    %%%%%:  492-block  3
-call    9 never executed
-call   10 never executed
-call   11 never executed
-call   12 never executed
+    12388:  490:        std::string init_str1 = str1;
+    12388:  490-block  0
+call    0 returned 12388
+branch  1 taken 12388 (fallthrough)
+branch  2 taken 0 (throw)
+    49300:  491:        while(str2 != "1") {
+    12388:  491-block  0
+    49300:  491-block  1
+call    0 returned 49300
+branch  1 taken 36912
+branch  2 taken 12388 (fallthrough)
+    36912:  492:            str1 = multiply(str1, init_str1);
+    36912:  492-block  0
+call    0 returned 36912
+branch  1 taken 36912 (fallthrough)
+branch  2 taken 0 (throw)
+    36912:  492-block  1
+call    3 returned 36912
+branch  4 taken 36912 (fallthrough)
+branch  5 taken 0 (throw)
+    36912:  492-block  2
+call    6 returned 36912
+branch  7 taken 36912 (fallthrough)
+branch  8 taken 0 (throw)
+    36912:  492-block  3
+call    9 returned 36912
+call   10 returned 36912
+call   11 returned 36912
+call   12 returned 36912
     $$$$$:  492-block  4
 call   13 never executed
     $$$$$:  492-block  5
     $$$$$:  492-block  6
 call   14 never executed
     $$$$$:  492-block  7
-    #####:  493:            str2 = subtract(str2, "1");
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
-    %%%%%:  493-block  0
-call    4 never executed
-branch  5 never executed
-branch  6 never executed
-    %%%%%:  493-block  1
-call    7 never executed
-branch  8 never executed
-branch  9 never executed
-    %%%%%:  493-block  2
-call   10 never executed
-call   11 never executed
-call   12 never executed
-call   13 never executed
-call   14 never executed
+    36912:  493:            str2 = subtract(str2, "1");
+call    0 returned 36912
+call    1 returned 36912
+branch  2 taken 36912 (fallthrough)
+branch  3 taken 0 (throw)
+    36912:  493-block  0
+call    4 returned 36912
+branch  5 taken 36912 (fallthrough)
+branch  6 taken 0 (throw)
+    36912:  493-block  1
+call    7 returned 36912
+branch  8 taken 36912 (fallthrough)
+branch  9 taken 0 (throw)
+    36912:  493-block  2
+call   10 returned 36912
+call   11 returned 36912
+call   12 returned 36912
+call   13 returned 36912
+call   14 returned 36912
     $$$$$:  493-block  3
 call   15 never executed
     $$$$$:  493-block  4
@@ -2876,11 +2876,11 @@ call   16 never executed
 call   17 never executed
     $$$$$:  493-block  8
         -:  494:        }
-    #####:  495:        return str1;
-    %%%%%:  495-block  0
-call    0 never executed
-    #####:  496:    }
-call    0 never executed
+    12388:  495:        return str1;
+    12388:  495-block  0
+call    0 returned 12388
+    12388:  496:    }
+call    0 returned 12388
     $$$$$:  496-block  0
 call    1 never executed
         -:  497:}

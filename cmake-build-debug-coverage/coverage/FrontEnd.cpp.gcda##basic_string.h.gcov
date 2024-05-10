@@ -165,11 +165,18 @@
         -:  161:	_Alloc_hider(pointer __dat, const _Alloc& __a = _Alloc())
         -:  162:	: allocator_type(__a), _M_p(__dat) { }
         -:  163:#else
-        -:  164:	_Alloc_hider(pointer __dat, const _Alloc& __a)
-        -:  165:	: allocator_type(__a), _M_p(__dat) { }
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_ called 0 returned 0% blocks executed 0%
+    #####:  164:	_Alloc_hider(pointer __dat, const _Alloc& __a)
+    #####:  165:	: allocator_type(__a), _M_p(__dat) { }
+    %%%%%:  165-block  0
+call    0 never executed
         -:  166:
-        -:  167:	_Alloc_hider(pointer __dat, _Alloc&& __a = _Alloc())
-        -:  168:	: allocator_type(std::move(__a)), _M_p(__dat) { }
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_ called 0 returned 0% blocks executed 0%
+    #####:  167:	_Alloc_hider(pointer __dat, _Alloc&& __a = _Alloc())
+    #####:  168:	: allocator_type(std::move(__a)), _M_p(__dat) { }
+    %%%%%:  168-block  0
+call    0 never executed
+call    1 never executed
         -:  169:#endif
         -:  170:
         -:  171:	pointer _M_p; // The actual data.
@@ -187,30 +194,56 @@
         -:  183:      };
         -:  184:
         -:  185:      void
-        -:  186:      _M_data(pointer __p)
-        -:  187:      { _M_dataplus._M_p = __p; }
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc called 0 returned 0% blocks executed 0%
+    #####:  186:      _M_data(pointer __p)
+    #####:  187:      { _M_dataplus._M_p = __p; }
         -:  188:
         -:  189:      void
-        -:  190:      _M_length(size_type __length)
-        -:  191:      { _M_string_length = __length; }
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm called 0 returned 0% blocks executed 0%
+    #####:  190:      _M_length(size_type __length)
+    #####:  191:      { _M_string_length = __length; }
         -:  192:
         -:  193:      pointer
+    #####:  194:      _M_data() const
+    #####:  195:      { return _M_dataplus._M_p; }
+------------------
+_ZNKSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE7_M_dataEv:
 function _ZNKSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE7_M_dataEv called 0 returned 0% blocks executed 0%
     #####:  194:      _M_data() const
     #####:  195:      { return _M_dataplus._M_p; }
     %%%%%:  195-block  0
+------------------
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv:
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv called 0 returned 0% blocks executed 0%
+    #####:  194:      _M_data() const
+    #####:  195:      { return _M_dataplus._M_p; }
+    %%%%%:  195-block  0
+------------------
         -:  196:
         -:  197:      pointer
-        -:  198:      _M_local_data()
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv called 0 returned 0% blocks executed 0%
+    #####:  198:      _M_local_data()
         -:  199:      {
         -:  200:#if __cplusplus >= 201103L
-        -:  201:	return std::pointer_traits<pointer>::pointer_to(*_M_local_buf);
+    #####:  201:	return std::pointer_traits<pointer>::pointer_to(*_M_local_buf);
+    %%%%%:  201-block  0
+call    0 never executed
         -:  202:#else
         -:  203:	return pointer(_M_local_buf);
         -:  204:#endif
         -:  205:      }
         -:  206:
         -:  207:      const_pointer
+    #####:  208:      _M_local_data() const
+        -:  209:      {
+        -:  210:#if __cplusplus >= 201103L
+    #####:  211:	return std::pointer_traits<const_pointer>::pointer_to(*_M_local_buf);
+        -:  212:#else
+        -:  213:	return const_pointer(_M_local_buf);
+        -:  214:#endif
+        -:  215:      }
+------------------
+_ZNKSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE13_M_local_dataEv:
 function _ZNKSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE13_M_local_dataEv called 0 returned 0% blocks executed 0%
     #####:  208:      _M_local_data() const
         -:  209:      {
@@ -222,31 +255,71 @@ call    0 never executed
         -:  213:	return const_pointer(_M_local_buf);
         -:  214:#endif
         -:  215:      }
+------------------
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv:
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv called 0 returned 0% blocks executed 0%
+    #####:  208:      _M_local_data() const
+        -:  209:      {
+        -:  210:#if __cplusplus >= 201103L
+    #####:  211:	return std::pointer_traits<const_pointer>::pointer_to(*_M_local_buf);
+    %%%%%:  211-block  0
+call    0 never executed
+        -:  212:#else
+        -:  213:	return const_pointer(_M_local_buf);
+        -:  214:#endif
+        -:  215:      }
+------------------
         -:  216:
         -:  217:      void
-        -:  218:      _M_capacity(size_type __capacity)
-        -:  219:      { _M_allocated_capacity = __capacity; }
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm called 0 returned 0% blocks executed 0%
+    #####:  218:      _M_capacity(size_type __capacity)
+    #####:  219:      { _M_allocated_capacity = __capacity; }
         -:  220:
         -:  221:      void
-        -:  222:      _M_set_length(size_type __n)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm called 0 returned 0% blocks executed 0%
+    #####:  222:      _M_set_length(size_type __n)
         -:  223:      {
-        -:  224:	_M_length(__n);
-        -:  225:	traits_type::assign(_M_data()[__n], _CharT());
-        -:  226:      }
+    #####:  224:	_M_length(__n);
+    %%%%%:  224-block  0
+call    0 never executed
+    #####:  225:	traits_type::assign(_M_data()[__n], _CharT());
+call    0 never executed
+call    1 never executed
+    #####:  226:      }
         -:  227:
         -:  228:      bool
+    #####:  229:      _M_is_local() const
+    #####:  230:      { return _M_data() == _M_local_data(); }
+------------------
+_ZNKSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE11_M_is_localEv:
 function _ZNKSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE11_M_is_localEv called 0 returned 0% blocks executed 0%
     #####:  229:      _M_is_local() const
     #####:  230:      { return _M_data() == _M_local_data(); }
     %%%%%:  230-block  0
 call    0 never executed
 call    1 never executed
+------------------
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv:
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv called 0 returned 0% blocks executed 0%
+    #####:  229:      _M_is_local() const
+    #####:  230:      { return _M_data() == _M_local_data(); }
+    %%%%%:  230-block  0
+call    0 never executed
+call    1 never executed
+------------------
         -:  231:
         -:  232:      // Create & Destroy
         -:  233:      pointer
         -:  234:      _M_create(size_type&, size_type);
         -:  235:
         -:  236:      void
+    #####:  237:      _M_dispose()
+        -:  238:      {
+    #####:  239:	if (!_M_is_local())
+    #####:  240:	  _M_destroy(_M_allocated_capacity);
+    #####:  241:      }
+------------------
+_ZNSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE10_M_disposeEv:
 function _ZNSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE10_M_disposeEv called 0 returned 0% blocks executed 0%
     #####:  237:      _M_dispose()
         -:  238:      {
@@ -259,8 +332,27 @@ branch  2 never executed
     %%%%%:  240-block  0
 call    0 never executed
     #####:  241:      }
+------------------
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv:
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv called 0 returned 0% blocks executed 0%
+    #####:  237:      _M_dispose()
+        -:  238:      {
+    #####:  239:	if (!_M_is_local())
+    %%%%%:  239-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  240:	  _M_destroy(_M_allocated_capacity);
+    %%%%%:  240-block  0
+call    0 never executed
+    #####:  241:      }
+------------------
         -:  242:
         -:  243:      void
+    #####:  244:      _M_destroy(size_type __size) throw()
+    #####:  245:      { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
+------------------
+_ZNSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE10_M_destroyEm:
 function _ZNSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE10_M_destroyEm called 0 returned 0% blocks executed 0%
     #####:  244:      _M_destroy(size_type __size) throw()
     #####:  245:      { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
@@ -268,17 +360,33 @@ function _ZNSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE10_M_destroyEm cal
 call    0 never executed
 call    1 never executed
 call    2 never executed
+------------------
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm:
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm called 0 returned 0% blocks executed 0%
+    #####:  244:      _M_destroy(size_type __size) throw()
+    #####:  245:      { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
+    %%%%%:  245-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+------------------
         -:  246:
         -:  247:      // _M_construct_aux is used to implement the 21.3.1 para 15 which
         -:  248:      // requires special behaviour if _InIterator is an integral type
         -:  249:      template<typename _InIterator>
         -:  250:        void
-        -:  251:        _M_construct_aux(_InIterator __beg, _InIterator __end,
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_construct_auxIPcEEvT_S7_St12__false_type called 932521 returned 100% blocks executed 100%
+   932521:  251:        _M_construct_aux(_InIterator __beg, _InIterator __end,
         -:  252:			 std::__false_type)
         -:  253:	{
         -:  254:          typedef typename iterator_traits<_InIterator>::iterator_category _Tag;
-        -:  255:          _M_construct(__beg, __end, _Tag());
-        -:  256:	}
+   932521:  255:          _M_construct(__beg, __end, _Tag());
+   932521:  255-block  0
+call    0 returned 932521
+branch  1 taken 932521 (fallthrough)
+branch  2 taken 0 (throw)
+   932521:  256:	}
+   932521:  256-block  0
         -:  257:
         -:  258:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  259:      // 438. Ambiguity in the "do the right thing" clause
@@ -293,11 +401,14 @@ call    2 never executed
         -:  268:
         -:  269:      template<typename _InIterator>
         -:  270:        void
-        -:  271:        _M_construct(_InIterator __beg, _InIterator __end)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_ called 932521 returned 100% blocks executed 100%
+   932521:  271:        _M_construct(_InIterator __beg, _InIterator __end)
         -:  272:	{
         -:  273:	  typedef typename std::__is_integer<_InIterator>::__type _Integral;
-        -:  274:	  _M_construct_aux(__beg, __end, _Integral());
-        -:  275:        }
+   932521:  274:	  _M_construct_aux(__beg, __end, _Integral());
+   932521:  274-block  0
+call    0 returned 932521
+   932521:  275:        }
         -:  276:
         -:  277:      // For Input Iterators, used in istreambuf_iterators, etc.
         -:  278:      template<typename _InIterator>
@@ -316,14 +427,27 @@ call    2 never executed
         -:  291:      _M_construct(size_type __req, _CharT __c);
         -:  292:
         -:  293:      allocator_type&
+    #####:  294:      _M_get_allocator()
+    #####:  295:      { return _M_dataplus; }
+------------------
+_ZNSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE16_M_get_allocatorEv:
 function _ZNSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE16_M_get_allocatorEv called 0 returned 0% blocks executed 0%
     #####:  294:      _M_get_allocator()
     #####:  295:      { return _M_dataplus; }
     %%%%%:  295-block  0
+------------------
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv:
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv called 0 returned 0% blocks executed 0%
+    #####:  294:      _M_get_allocator()
+    #####:  295:      { return _M_dataplus; }
+    %%%%%:  295-block  0
+------------------
         -:  296:
         -:  297:      const allocator_type&
-        -:  298:      _M_get_allocator() const
-        -:  299:      { return _M_dataplus; }
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv called 0 returned 0% blocks executed 0%
+    #####:  298:      _M_get_allocator() const
+    #####:  299:      { return _M_dataplus; }
+    %%%%%:  299-block  0
         -:  300:
         -:  301:    private:
         -:  302:
@@ -342,67 +466,132 @@ function _ZNSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE16_M_get_allocator
         -:  315:#endif
         -:  316:
         -:  317:      size_type
-        -:  318:      _M_check(size_type __pos, const char* __s) const
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc called 56785 returned 100% blocks executed 67%
+    56785:  318:      _M_check(size_type __pos, const char* __s) const
         -:  319:      {
-        -:  320:	if (__pos > this->size())
-        -:  321:	  __throw_out_of_range_fmt(__N("%s: __pos (which is %zu) > "
+    56785:  320:	if (__pos > this->size())
+    56785:  320-block  0
+call    0 returned 56785
+branch  1 taken 0 (fallthrough)
+branch  2 taken 56785
+    #####:  321:	  __throw_out_of_range_fmt(__N("%s: __pos (which is %zu) > "
+    %%%%%:  321-block  0
+call    0 never executed
+call    1 never executed
         -:  322:				       "this->size() (which is %zu)"),
         -:  323:				   __s, __pos, this->size());
-        -:  324:	return __pos;
+    56785:  324:	return __pos;
+    56785:  324-block  0
         -:  325:      }
         -:  326:
         -:  327:      void
-        -:  328:      _M_check_length(size_type __n1, size_type __n2, const char* __s) const
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc called 80857 returned 100% blocks executed 80%
+    80857:  328:      _M_check_length(size_type __n1, size_type __n2, const char* __s) const
         -:  329:      {
-        -:  330:	if (this->max_size() - (this->size() - __n1) < __n2)
-        -:  331:	  __throw_length_error(__N(__s));
-        -:  332:      }
+    80857:  330:	if (this->max_size() - (this->size() - __n1) < __n2)
+    80857:  330-block  0
+call    0 returned 80857
+call    1 returned 80857
+branch  2 taken 0 (fallthrough)
+branch  3 taken 80857
+    #####:  331:	  __throw_length_error(__N(__s));
+    %%%%%:  331-block  0
+call    0 never executed
+    80857:  332:      }
         -:  333:
         -:  334:
         -:  335:      // NB: _M_limit doesn't check for a bad __pos value.
         -:  336:      size_type
-        -:  337:      _M_limit(size_type __pos, size_type __off) const _GLIBCXX_NOEXCEPT
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_limitEmm called 56785 returned 100% blocks executed 71%
+    56785:  337:      _M_limit(size_type __pos, size_type __off) const _GLIBCXX_NOEXCEPT
         -:  338:      {
-        -:  339:	const bool __testoff =  __off < this->size() - __pos;
-        -:  340:	return __testoff ? __off : this->size() - __pos;
+    56785:  339:	const bool __testoff =  __off < this->size() - __pos;
+    56785:  339-block  0
+call    0 returned 56785
+   56785*:  340:	return __testoff ? __off : this->size() - __pos;
+branch  0 taken 56785 (fallthrough)
+branch  1 taken 0
+    56785:  340-block  0
+    %%%%%:  340-block  1
+call    2 never executed
+    56785:  340-block  2
         -:  341:      }
         -:  342:
         -:  343:      // True if _Rep and source do not overlap.
         -:  344:      bool
-        -:  345:      _M_disjunct(const _CharT* __s) const _GLIBCXX_NOEXCEPT
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_disjunctEPKc called 15592 returned 100% blocks executed 55%
+    15592:  345:      _M_disjunct(const _CharT* __s) const _GLIBCXX_NOEXCEPT
         -:  346:      {
-        -:  347:	return (less<const _CharT*>()(__s, _M_data())
-        -:  348:		|| less<const _CharT*>()(_M_data() + this->size(), __s));
+    15592:  347:	return (less<const _CharT*>()(__s, _M_data())
+    15592:  347-block  0
+call    0 returned 15592
+call    1 returned 15592
+   15592*:  348:		|| less<const _CharT*>()(_M_data() + this->size(), __s));
+branch  0 taken 0 (fallthrough)
+branch  1 taken 15592
+    %%%%%:  348-block  0
+call    2 never executed
+call    3 never executed
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    15592:  348-block  1
+    %%%%%:  348-block  2
+    15592:  348-block  3
         -:  349:      }
         -:  350:
         -:  351:      // When __n = 1 way faster than the general multichar
         -:  352:      // traits_type::copy/move/assign.
         -:  353:      static void
-        -:  354:      _S_copy(_CharT* __d, const _CharT* __s, size_type __n)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm called 0 returned 0% blocks executed 0%
+    #####:  354:      _S_copy(_CharT* __d, const _CharT* __s, size_type __n)
         -:  355:      {
-        -:  356:	if (__n == 1)
-        -:  357:	  traits_type::assign(*__d, *__s);
+    #####:  356:	if (__n == 1)
+    %%%%%:  356-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  357:	  traits_type::assign(*__d, *__s);
+    %%%%%:  357-block  0
+call    0 never executed
         -:  358:	else
-        -:  359:	  traits_type::copy(__d, __s, __n);
-        -:  360:      }
+    #####:  359:	  traits_type::copy(__d, __s, __n);
+    %%%%%:  359-block  0
+call    0 never executed
+    #####:  360:      }
         -:  361:
         -:  362:      static void
-        -:  363:      _S_move(_CharT* __d, const _CharT* __s, size_type __n)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm called 56785 returned 100% blocks executed 100%
+    56785:  363:      _S_move(_CharT* __d, const _CharT* __s, size_type __n)
         -:  364:      {
-        -:  365:	if (__n == 1)
-        -:  366:	  traits_type::assign(*__d, *__s);
+    56785:  365:	if (__n == 1)
+    56785:  365-block  0
+branch  0 taken 15520 (fallthrough)
+branch  1 taken 41265
+    15520:  366:	  traits_type::assign(*__d, *__s);
+    15520:  366-block  0
+call    0 returned 15520
         -:  367:	else
-        -:  368:	  traits_type::move(__d, __s, __n);
-        -:  369:      }
+    41265:  368:	  traits_type::move(__d, __s, __n);
+    41265:  368-block  0
+call    0 returned 41265
+    56785:  369:      }
         -:  370:
         -:  371:      static void
-        -:  372:      _S_assign(_CharT* __d, size_type __n, _CharT __c)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_S_assignEPcmc called 1568129 returned 100% blocks executed 100%
+  1568129:  372:      _S_assign(_CharT* __d, size_type __n, _CharT __c)
         -:  373:      {
-        -:  374:	if (__n == 1)
-        -:  375:	  traits_type::assign(*__d, __c);
+  1568129:  374:	if (__n == 1)
+  1568129:  374-block  0
+branch  0 taken 446536 (fallthrough)
+branch  1 taken 1121593
+   446536:  375:	  traits_type::assign(*__d, __c);
+   446536:  375-block  0
+call    0 returned 446536
         -:  376:	else
-        -:  377:	  traits_type::assign(__d, __n, __c);
-        -:  378:      }
+  1121593:  377:	  traits_type::assign(__d, __n, __c);
+  1121593:  377-block  0
+call    0 returned 1121593
+  1568129:  378:      }
         -:  379:
         -:  380:      // _S_copy_chars is a separate template to permit specialization
         -:  381:      // to optimize for the common case of pointers as iterators.
@@ -424,13 +613,19 @@ function _ZNSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE16_M_get_allocator
         -:  397:      { _S_copy_chars(__p, __k1.base(), __k2.base()); }
         -:  398:
         -:  399:      static void
-        -:  400:      _S_copy_chars(_CharT* __p, _CharT* __k1, _CharT* __k2) _GLIBCXX_NOEXCEPT
-        -:  401:      { _S_copy(__p, __k1, __k2 - __k1); }
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_ called 932521 returned 100% blocks executed 100%
+   932521:  400:      _S_copy_chars(_CharT* __p, _CharT* __k1, _CharT* __k2) _GLIBCXX_NOEXCEPT
+   932521:  401:      { _S_copy(__p, __k1, __k2 - __k1); }
+   932521:  401-block  0
+call    0 returned 932521
         -:  402:
         -:  403:      static void
-        -:  404:      _S_copy_chars(_CharT* __p, const _CharT* __k1, const _CharT* __k2)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_ called 0 returned 0% blocks executed 0%
+    #####:  404:      _S_copy_chars(_CharT* __p, const _CharT* __k1, const _CharT* __k2)
         -:  405:      _GLIBCXX_NOEXCEPT
-        -:  406:      { _S_copy(__p, __k1, __k2 - __k1); }
+    #####:  406:      { _S_copy(__p, __k1, __k2 - __k1); }
+    %%%%%:  406-block  0
+call    0 never executed
         -:  407:
         -:  408:      static int
         -:  409:      _S_compare(size_type __n1, size_type __n2) _GLIBCXX_NOEXCEPT
@@ -463,10 +658,17 @@ function _ZNSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE16_M_get_allocator
         -:  436:      /**
         -:  437:       *  @brief  Default constructor creates an empty string.
         -:  438:       */
-        -:  439:      basic_string()
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev called 0 returned 0% blocks executed 0%
+    #####:  439:      basic_string()
         -:  440:      _GLIBCXX_NOEXCEPT_IF(is_nothrow_default_constructible<_Alloc>::value)
-        -:  441:      : _M_dataplus(_M_local_data())
-        -:  442:      { _M_set_length(0); }
+    #####:  441:      : _M_dataplus(_M_local_data())
+    %%%%%:  441-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+    #####:  442:      { _M_set_length(0); }
+call    0 never executed
         -:  443:
         -:  444:      /**
         -:  445:       *  @brief  Construct an empty string using allocator @a a.
@@ -480,10 +682,26 @@ function _ZNSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEE16_M_get_allocator
         -:  453:       *  @brief  Construct string with copy of value of @a __str.
         -:  454:       *  @param  __str  Source string.
         -:  455:       */
-        -:  456:      basic_string(const basic_string& __str)
-        -:  457:      : _M_dataplus(_M_local_data(),
-        -:  458:		    _Alloc_traits::_S_select_on_copy(__str._M_get_allocator()))
-        -:  459:      { _M_construct(__str._M_data(), __str._M_data() + __str.length()); }
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_ called 932521 returned 100% blocks executed 92%
+   932521:  456:      basic_string(const basic_string& __str)
+   932521:  457:      : _M_dataplus(_M_local_data(),
+call    0 returned 932521
+call    1 returned 932521
+call    2 returned 932521
+call    3 returned 932521
+   932521:  458:		    _Alloc_traits::_S_select_on_copy(__str._M_get_allocator()))
+   932521:  458-block  0
+call    0 returned 932521
+   932521:  459:      { _M_construct(__str._M_data(), __str._M_data() + __str.length()); }
+call    0 returned 932521
+call    1 returned 932521
+call    2 returned 932521
+call    3 returned 932521
+branch  4 taken 932521 (fallthrough)
+branch  5 taken 0 (throw)
+   932521:  459-block  0
+    $$$$$:  459-block  1
+call    6 never executed
         -:  460:
         -:  461:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  462:      // 2583. no way to supply an allocator for basic_string(str, pos)
@@ -597,17 +815,17 @@ call    0 never executed
         -:  550:      // 3076. basic_string CTAD ambiguity
         -:  551:      template<typename = _RequireAllocator<_Alloc>>
         -:  552:#endif
-function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_ called 1194883 returned 100% blocks executed 83%
-  1194883:  553:      basic_string(size_type __n, _CharT __c, const _Alloc& __a = _Alloc())
-  1194883:  554:      : _M_dataplus(_M_local_data(), __a)
-  1194883:  554-block  0
-call    0 returned 1194883
-call    1 returned 1194883
-  1194883:  555:      { _M_construct(__n, __c); }
-call    0 returned 1194883
-branch  1 taken 1194883 (fallthrough)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_ called 1502864 returned 100% blocks executed 83%
+  1502864:  553:      basic_string(size_type __n, _CharT __c, const _Alloc& __a = _Alloc())
+  1502864:  554:      : _M_dataplus(_M_local_data(), __a)
+  1502864:  554-block  0
+call    0 returned 1502864
+call    1 returned 1502864
+  1502864:  555:      { _M_construct(__n, __c); }
+call    0 returned 1502864
+branch  1 taken 1502864 (fallthrough)
 branch  2 taken 0 (throw)
-  1194883:  555-block  0
+  1502864:  555-block  0
     $$$$$:  555-block  1
 call    3 never executed
         -:  556:
@@ -619,27 +837,48 @@ call    3 never executed
         -:  562:       *  The newly-created string contains the exact contents of @a __str.
         -:  563:       *  @a __str is a valid, but unspecified string.
         -:  564:       */
-        -:  565:      basic_string(basic_string&& __str) noexcept
-        -:  566:      : _M_dataplus(_M_local_data(), std::move(__str._M_get_allocator()))
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_ called 388732 returned 100% blocks executed 81%
+   388732:  565:      basic_string(basic_string&& __str) noexcept
+   388732:  566:      : _M_dataplus(_M_local_data(), std::move(__str._M_get_allocator()))
+   388732:  566-block  0
+call    0 returned 388732
+call    1 returned 388732
+call    2 returned 388732
+call    3 returned 388732
         -:  567:      {
-        -:  568:	if (__str._M_is_local())
+   388732:  568:	if (__str._M_is_local())
+call    0 returned 388732
+branch  1 taken 388732 (fallthrough)
+branch  2 taken 0
         -:  569:	  {
-        -:  570:	    traits_type::copy(_M_local_buf, __str._M_local_buf,
+   388732:  570:	    traits_type::copy(_M_local_buf, __str._M_local_buf,
+   388732:  570-block  0
+call    0 returned 388732
         -:  571:			      _S_local_capacity + 1);
         -:  572:	  }
         -:  573:	else
         -:  574:	  {
-        -:  575:	    _M_data(__str._M_data());
-        -:  576:	    _M_capacity(__str._M_allocated_capacity);
+    #####:  575:	    _M_data(__str._M_data());
+    %%%%%:  575-block  0
+call    0 never executed
+call    1 never executed
+    #####:  576:	    _M_capacity(__str._M_allocated_capacity);
+call    0 never executed
         -:  577:	  }
         -:  578:
         -:  579:	// Must use _M_length() here not _M_set_length() because
         -:  580:	// basic_stringbuf relies on writing into unallocated capacity so
         -:  581:	// we mess up the contents if we put a '\0' in the string.
-        -:  582:	_M_length(__str.length());
-        -:  583:	__str._M_data(__str._M_local_data());
-        -:  584:	__str._M_set_length(0);
-        -:  585:      }
+   388732:  582:	_M_length(__str.length());
+   388732:  582-block  0
+call    0 returned 388732
+call    1 returned 388732
+   388732:  583:	__str._M_data(__str._M_local_data());
+call    0 returned 388732
+call    1 returned 388732
+   388732:  584:	__str._M_set_length(0);
+call    0 returned 388732
+   388732:  585:      }
         -:  586:
         -:  587:      /**
         -:  588:       *  @brief  Construct string from an initializer %list.
@@ -725,12 +964,25 @@ call    3 never executed
         -:  668:      /**
         -:  669:       *  @brief  Destroy the string instance.
         -:  670:       */
+    #####:  671:      ~basic_string()
+    #####:  672:      { _M_dispose(); }
+------------------
+_ZNSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEED2Ev:
 function _ZNSt7__cxx1112basic_stringIjSt11char_traitsIjESaIjEED2Ev called 0 returned 0% blocks executed 0%
     #####:  671:      ~basic_string()
     #####:  672:      { _M_dispose(); }
     %%%%%:  672-block  0
 call    0 never executed
 call    1 never executed
+------------------
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev:
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev called 0 returned 0% blocks executed 0%
+    #####:  671:      ~basic_string()
+    #####:  672:      { _M_dispose(); }
+    %%%%%:  672-block  0
+call    0 never executed
+call    1 never executed
+------------------
         -:  673:
         -:  674:      /**
         -:  675:       *  @brief  Assign the value of @a str to this string.
@@ -775,67 +1027,167 @@ call    1 never executed
         -:  714:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  715:      // 2063. Contradictory requirements for string move assignment
         -:  716:      basic_string&
-        -:  717:      operator=(basic_string&& __str)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_ called 316958 returned 100% blocks executed 35%
+   316958:  717:      operator=(basic_string&& __str)
         -:  718:      noexcept(_Alloc_traits::_S_nothrow_move())
         -:  719:      {
-        -:  720:	if (!_M_is_local() && _Alloc_traits::_S_propagate_on_move_assign()
-        -:  721:	    && !_Alloc_traits::_S_always_equal()
-        -:  722:	    && _M_get_allocator() != __str._M_get_allocator())
+  316958*:  720:	if (!_M_is_local() && _Alloc_traits::_S_propagate_on_move_assign()
+   316958:  720-block  0
+call    0 returned 316958
+    %%%%%:  720-block  1
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  721:	    && !_Alloc_traits::_S_always_equal()
+    %%%%%:  721-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+  316958*:  722:	    && _M_get_allocator() != __str._M_get_allocator())
+branch  0 taken 0 (fallthrough)
+branch  1 taken 316958
+    %%%%%:  722-block  0
+call    2 never executed
+call    3 never executed
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  722-block  1
+   316958:  722-block  2
+   316958:  722-block  3
+branch  7 taken 0 (fallthrough)
+branch  8 taken 316958
         -:  723:	  {
         -:  724:	    // Destroy existing storage before replacing allocator.
-        -:  725:	    _M_destroy(_M_allocated_capacity);
-        -:  726:	    _M_data(_M_local_data());
-        -:  727:	    _M_set_length(0);
+    #####:  725:	    _M_destroy(_M_allocated_capacity);
+    %%%%%:  725-block  0
+call    0 never executed
+    #####:  726:	    _M_data(_M_local_data());
+call    0 never executed
+call    1 never executed
+    #####:  727:	    _M_set_length(0);
+call    0 never executed
         -:  728:	  }
         -:  729:	// Replace allocator if POCMA is true.
-        -:  730:	std::__alloc_on_move(_M_get_allocator(), __str._M_get_allocator());
+   316958:  730:	std::__alloc_on_move(_M_get_allocator(), __str._M_get_allocator());
+   316958:  730-block  0
+call    0 returned 316958
+call    1 returned 316958
+call    2 returned 316958
         -:  731:
-        -:  732:	if (__str._M_is_local())
+   316958:  732:	if (__str._M_is_local())
+call    0 returned 316958
+branch  1 taken 316958 (fallthrough)
+branch  2 taken 0
         -:  733:	  {
         -:  734:	    // We've always got room for a short string, just copy it
         -:  735:	    // (unless this is a self-move, because that would violate the
         -:  736:	    // char_traits::copy precondition that the ranges don't overlap).
-        -:  737:	    if (__builtin_expect(std::__addressof(__str) != this, true))
+   316958:  737:	    if (__builtin_expect(std::__addressof(__str) != this, true))
+   316958:  737-block  0
+call    0 returned 316958
+branch  1 taken 316958 (fallthrough)
+branch  2 taken 0
         -:  738:	      {
-        -:  739:		if (__str.size())
-        -:  740:		  this->_S_copy(_M_data(), __str._M_data(), __str.size());
-        -:  741:		_M_set_length(__str.size());
+   316958:  739:		if (__str.size())
+   316958:  739-block  0
+call    0 returned 316958
+branch  1 taken 316958 (fallthrough)
+branch  2 taken 0
+   316958:  740:		  this->_S_copy(_M_data(), __str._M_data(), __str.size());
+   316958:  740-block  0
+call    0 returned 316958
+call    1 returned 316958
+call    2 returned 316958
+call    3 returned 316958
+   316958:  741:		_M_set_length(__str.size());
+   316958:  741-block  0
+call    0 returned 316958
+call    1 returned 316958
         -:  742:	      }
         -:  743:	  }
-        -:  744:	else if (_Alloc_traits::_S_propagate_on_move_assign()
-        -:  745:	    || _Alloc_traits::_S_always_equal()
-        -:  746:	    || _M_get_allocator() == __str._M_get_allocator())
+    #####:  744:	else if (_Alloc_traits::_S_propagate_on_move_assign()
+    %%%%%:  744-block  0
+call    0 never executed
+    #####:  745:	    || _Alloc_traits::_S_always_equal()
+    %%%%%:  745-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  746:	    || _M_get_allocator() == __str._M_get_allocator())
+branch  0 never executed
+branch  1 never executed
+    %%%%%:  746-block  0
+call    2 never executed
+call    3 never executed
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  746-block  1
+    %%%%%:  746-block  2
+    %%%%%:  746-block  3
+branch  7 never executed
+branch  8 never executed
         -:  747:	  {
         -:  748:	    // Just move the allocated pointer, our allocator can free it.
-        -:  749:	    pointer __data = nullptr;
+    #####:  749:	    pointer __data = nullptr;
         -:  750:	    size_type __capacity;
-        -:  751:	    if (!_M_is_local())
+    #####:  751:	    if (!_M_is_local())
+    %%%%%:  751-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
         -:  752:	      {
-        -:  753:		if (_Alloc_traits::_S_always_equal())
+    #####:  753:		if (_Alloc_traits::_S_always_equal())
+    %%%%%:  753-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
         -:  754:		  {
         -:  755:		    // __str can reuse our existing storage.
-        -:  756:		    __data = _M_data();
-        -:  757:		    __capacity = _M_allocated_capacity;
+    #####:  756:		    __data = _M_data();
+    %%%%%:  756-block  0
+call    0 never executed
+    #####:  757:		    __capacity = _M_allocated_capacity;
         -:  758:		  }
         -:  759:		else // __str can't use it, so free it.
-        -:  760:		  _M_destroy(_M_allocated_capacity);
+    #####:  760:		  _M_destroy(_M_allocated_capacity);
+    %%%%%:  760-block  0
+call    0 never executed
         -:  761:	      }
         -:  762:
-        -:  763:	    _M_data(__str._M_data());
-        -:  764:	    _M_length(__str.length());
-        -:  765:	    _M_capacity(__str._M_allocated_capacity);
-        -:  766:	    if (__data)
+    #####:  763:	    _M_data(__str._M_data());
+    %%%%%:  763-block  0
+call    0 never executed
+call    1 never executed
+    #####:  764:	    _M_length(__str.length());
+call    0 never executed
+call    1 never executed
+    #####:  765:	    _M_capacity(__str._M_allocated_capacity);
+call    0 never executed
+    #####:  766:	    if (__data)
+branch  0 never executed
+branch  1 never executed
         -:  767:	      {
-        -:  768:		__str._M_data(__data);
-        -:  769:		__str._M_capacity(__capacity);
+    #####:  768:		__str._M_data(__data);
+    %%%%%:  768-block  0
+call    0 never executed
+    #####:  769:		__str._M_capacity(__capacity);
+call    0 never executed
         -:  770:	      }
         -:  771:	    else
-        -:  772:	      __str._M_data(__str._M_local_buf);
+    #####:  772:	      __str._M_data(__str._M_local_buf);
+    %%%%%:  772-block  0
+call    0 never executed
         -:  773:	  }
         -:  774:	else // Need to do a deep copy
-        -:  775:	  assign(__str);
-        -:  776:	__str.clear();
-        -:  777:	return *this;
+    #####:  775:	  assign(__str);
+    %%%%%:  775-block  0
+call    0 never executed
+   316958:  776:	__str.clear();
+   316958:  776-block  0
+call    0 returned 316958
+   316958:  777:	return *this;
         -:  778:      }
         -:  779:
         -:  780:      /**
@@ -978,19 +1330,27 @@ call    1 never executed
         -:  917:      ///  Returns the number of characters in the string, not including any
         -:  918:      ///  null-termination.
         -:  919:      size_type
-        -:  920:      size() const _GLIBCXX_NOEXCEPT
-        -:  921:      { return _M_string_length; }
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv called 0 returned 0% blocks executed 0%
+    #####:  920:      size() const _GLIBCXX_NOEXCEPT
+    #####:  921:      { return _M_string_length; }
+    %%%%%:  921-block  0
         -:  922:
         -:  923:      ///  Returns the number of characters in the string, not including any
         -:  924:      ///  null-termination.
         -:  925:      size_type
-        -:  926:      length() const _GLIBCXX_NOEXCEPT
-        -:  927:      { return _M_string_length; }
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv called 0 returned 0% blocks executed 0%
+    #####:  926:      length() const _GLIBCXX_NOEXCEPT
+    #####:  927:      { return _M_string_length; }
+    %%%%%:  927-block  0
         -:  928:
         -:  929:      ///  Returns the size() of the largest possible %string.
         -:  930:      size_type
-        -:  931:      max_size() const _GLIBCXX_NOEXCEPT
-        -:  932:      { return (_Alloc_traits::max_size(_M_get_allocator()) - 1) / 2; }
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8max_sizeEv called 0 returned 0% blocks executed 0%
+    #####:  931:      max_size() const _GLIBCXX_NOEXCEPT
+    #####:  932:      { return (_Alloc_traits::max_size(_M_get_allocator()) - 1) / 2; }
+    %%%%%:  932-block  0
+call    0 never executed
+call    1 never executed
         -:  933:
         -:  934:      /**
         -:  935:       *  @brief  Resizes the %string to the specified number of characters.
@@ -1034,10 +1394,18 @@ call    1 never executed
         -:  973:       *  before needing to allocate more memory.
         -:  974:       */
         -:  975:      size_type
-        -:  976:      capacity() const _GLIBCXX_NOEXCEPT
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv called 0 returned 0% blocks executed 0%
+    #####:  976:      capacity() const _GLIBCXX_NOEXCEPT
         -:  977:      {
-        -:  978:	return _M_is_local() ? size_type(_S_local_capacity)
-        -:  979:	                     : _M_allocated_capacity;
+    #####:  978:	return _M_is_local() ? size_type(_S_local_capacity)
+    %%%%%:  978-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  978-block  1
+    %%%%%:  978-block  2
+    #####:  979:	                     : _M_allocated_capacity;
+    %%%%%:  979-block  0
         -:  980:      }
         -:  981:
         -:  982:      /**
@@ -1073,8 +1441,11 @@ call    1 never executed
         -: 1012:       *  Erases the string, making it empty.
         -: 1013:       */
         -: 1014:      void
-        -: 1015:      clear() _GLIBCXX_NOEXCEPT
-        -: 1016:      { _M_set_length(0); }
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv called 316958 returned 100% blocks executed 100%
+   316958: 1015:      clear() _GLIBCXX_NOEXCEPT
+   316958: 1016:      { _M_set_length(0); }
+   316958: 1016-block  0
+call    0 returned 316958
         -: 1017:
         -: 1018:      /**
         -: 1019:       *  Returns true if the %string is empty.  Equivalent to 
@@ -1113,14 +1484,23 @@ call    1 never executed
         -: 1052:       *  see at().)
         -: 1053:       */
         -: 1054:      reference
-        -: 1055:      operator[](size_type __pos)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm called 0 returned 0% blocks executed 0%
+    #####: 1055:      operator[](size_type __pos)
+    %%%%%: 1055-block  0
         -: 1056:      {
         -: 1057:        // Allow pos == size() both in C++98 mode, as v3 extension,
         -: 1058:	// and in C++11 mode.
-        -: 1059:	__glibcxx_assert(__pos <= size());
+    #####: 1059:	__glibcxx_assert(__pos <= size());
+    %%%%%: 1059-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%: 1059-block  1
+call    2 never executed
         -: 1060:        // In pedantic mode be strict in C++98 mode.
         -: 1061:	_GLIBCXX_DEBUG_PEDASSERT(__cplusplus >= 201103L || __pos < size());
-        -: 1062:	return _M_data()[__pos];
+    #####: 1062:	return _M_data()[__pos];
+    %%%%%: 1062-block  0
+call    0 never executed
         -: 1063:      }
         -: 1064:
         -: 1065:      /**
@@ -1236,10 +1616,13 @@ call    1 never executed
         -: 1175:       *  @return  Reference to this string.
         -: 1176:       */
         -: 1177:      basic_string&
-        -: 1178:      operator+=(_CharT __c)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc called 0 returned 0% blocks executed 0%
+    #####: 1178:      operator+=(_CharT __c)
         -: 1179:      {
-        -: 1180:	this->push_back(__c);
-        -: 1181:	return *this;
+    #####: 1180:	this->push_back(__c);
+    %%%%%: 1180-block  0
+call    0 never executed
+    #####: 1181:	return *this;
         -: 1182:      }
         -: 1183:
         -: 1184:#if __cplusplus >= 201103L
@@ -1399,14 +1782,26 @@ call    1 never executed
         -: 1338:       *  @param __c  Character to append.
         -: 1339:       */
         -: 1340:      void
-        -: 1341:      push_back(_CharT __c)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc called 0 returned 0% blocks executed 0%
+    #####: 1341:      push_back(_CharT __c)
         -: 1342:      {
-        -: 1343:	const size_type __size = this->size();
-        -: 1344:	if (__size + 1 > this->capacity())
-        -: 1345:	  this->_M_mutate(__size, size_type(0), 0, size_type(1));
-        -: 1346:	traits_type::assign(this->_M_data()[__size], __c);
-        -: 1347:	this->_M_set_length(__size + 1);
-        -: 1348:      }
+    #####: 1343:	const size_type __size = this->size();
+    %%%%%: 1343-block  0
+call    0 never executed
+    #####: 1344:	if (__size + 1 > this->capacity())
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####: 1345:	  this->_M_mutate(__size, size_type(0), 0, size_type(1));
+    %%%%%: 1345-block  0
+call    0 never executed
+    #####: 1346:	traits_type::assign(this->_M_data()[__size], __c);
+    %%%%%: 1346-block  0
+call    0 never executed
+call    1 never executed
+    #####: 1347:	this->_M_set_length(__size + 1);
+call    0 never executed
+    #####: 1348:      }
         -: 1349:
         -: 1350:      /**
         -: 1351:       *  @brief  Set value to contents of another string.
@@ -1414,39 +1809,94 @@ call    1 never executed
         -: 1353:       *  @return  Reference to this string.
         -: 1354:       */
         -: 1355:      basic_string&
-        -: 1356:      assign(const basic_string& __str)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_ called 279390 returned 100% blocks executed 16%
+   279390: 1356:      assign(const basic_string& __str)
         -: 1357:      {
         -: 1358:#if __cplusplus >= 201103L
-        -: 1359:	if (_Alloc_traits::_S_propagate_on_copy_assign())
+   279390: 1359:	if (_Alloc_traits::_S_propagate_on_copy_assign())
+   279390: 1359-block  0
+call    0 returned 279390
+branch  1 taken 0 (fallthrough)
+branch  2 taken 279390
         -: 1360:	  {
-        -: 1361:	    if (!_Alloc_traits::_S_always_equal() && !_M_is_local()
-        -: 1362:		&& _M_get_allocator() != __str._M_get_allocator())
+    #####: 1361:	    if (!_Alloc_traits::_S_always_equal() && !_M_is_local()
+    %%%%%: 1361-block  0
+call    0 never executed
+    %%%%%: 1361-block  1
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####: 1362:		&& _M_get_allocator() != __str._M_get_allocator())
+branch  0 never executed
+branch  1 never executed
+    %%%%%: 1362-block  0
+call    2 never executed
+call    3 never executed
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%: 1362-block  1
+    %%%%%: 1362-block  2
+    %%%%%: 1362-block  3
+branch  7 never executed
+branch  8 never executed
         -: 1363:	      {
         -: 1364:		// Propagating allocator cannot free existing storage so must
         -: 1365:		// deallocate it before replacing current allocator.
-        -: 1366:		if (__str.size() <= _S_local_capacity)
+    #####: 1366:		if (__str.size() <= _S_local_capacity)
+    %%%%%: 1366-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
         -: 1367:		  {
-        -: 1368:		    _M_destroy(_M_allocated_capacity);
-        -: 1369:		    _M_data(_M_local_data());
-        -: 1370:		    _M_set_length(0);
+    #####: 1368:		    _M_destroy(_M_allocated_capacity);
+    %%%%%: 1368-block  0
+call    0 never executed
+    #####: 1369:		    _M_data(_M_local_data());
+call    0 never executed
+call    1 never executed
+    #####: 1370:		    _M_set_length(0);
+call    0 never executed
         -: 1371:		  }
         -: 1372:		else
         -: 1373:		  {
-        -: 1374:		    const auto __len = __str.size();
-        -: 1375:		    auto __alloc = __str._M_get_allocator();
+    #####: 1374:		    const auto __len = __str.size();
+    %%%%%: 1374-block  0
+call    0 never executed
+    #####: 1375:		    auto __alloc = __str._M_get_allocator();
+call    0 never executed
+call    1 never executed
         -: 1376:		    // If this allocation throws there are no effects:
-        -: 1377:		    auto __ptr = _Alloc_traits::allocate(__alloc, __len + 1);
-        -: 1378:		    _M_destroy(_M_allocated_capacity);
-        -: 1379:		    _M_data(__ptr);
-        -: 1380:		    _M_capacity(__len);
-        -: 1381:		    _M_set_length(__len);
-        -: 1382:		  }
+    #####: 1377:		    auto __ptr = _Alloc_traits::allocate(__alloc, __len + 1);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####: 1378:		    _M_destroy(_M_allocated_capacity);
+    %%%%%: 1378-block  0
+call    0 never executed
+    #####: 1379:		    _M_data(__ptr);
+call    0 never executed
+    #####: 1380:		    _M_capacity(__len);
+call    0 never executed
+    #####: 1381:		    _M_set_length(__len);
+call    0 never executed
+    #####: 1382:		  }
+call    0 never executed
+    $$$$$: 1382-block  0
+call    1 never executed
         -: 1383:	      }
-        -: 1384:	    std::__alloc_on_copy(_M_get_allocator(), __str._M_get_allocator());
+    #####: 1384:	    std::__alloc_on_copy(_M_get_allocator(), __str._M_get_allocator());
+    %%%%%: 1384-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
         -: 1385:	  }
         -: 1386:#endif
-        -: 1387:	this->_M_assign(__str);
-        -: 1388:	return *this;
+   279390: 1387:	this->_M_assign(__str);
+   279390: 1387-block  0
+call    0 returned 279390
+   279390: 1388:	return *this;
+   279390: 1388-block  0
         -: 1389:      }
         -: 1390:
         -: 1391:#if __cplusplus >= 201103L
@@ -1783,11 +2233,15 @@ call    1 never executed
         -: 1722:       *  thrown.
         -: 1723:      */
         -: 1724:      basic_string&
-        -: 1725:      insert(size_type __pos, const _CharT* __s)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc called 15592 returned 100% blocks executed 100%
+    15592: 1725:      insert(size_type __pos, const _CharT* __s)
         -: 1726:      {
         -: 1727:	__glibcxx_requires_string(__s);
-        -: 1728:	return this->replace(__pos, size_type(0), __s,
-        -: 1729:			     traits_type::length(__s));
+    15592: 1728:	return this->replace(__pos, size_type(0), __s,
+    15592: 1728-block  0
+call    0 returned 15592
+call    1 returned 15592
+    15592: 1729:			     traits_type::length(__s));
         -: 1730:      }
         -: 1731:
         -: 1732:      /**
@@ -2014,12 +2468,17 @@ call    1 never executed
         -: 1953:       *  is thrown.
         -: 1954:      */
         -: 1955:      basic_string&
-        -: 1956:      replace(size_type __pos, size_type __n1, const _CharT* __s,
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm called 15592 returned 100% blocks executed 100%
+    15592: 1956:      replace(size_type __pos, size_type __n1, const _CharT* __s,
         -: 1957:	      size_type __n2)
         -: 1958:      {
         -: 1959:	__glibcxx_requires_string_len(__s, __n2);
-        -: 1960:	return _M_replace(_M_check(__pos, "basic_string::replace"),
-        -: 1961:			  _M_limit(__pos, __n1), __s, __n2);
+    15592: 1960:	return _M_replace(_M_check(__pos, "basic_string::replace"),
+    15592: 1960-block  0
+call    0 returned 15592
+call    1 returned 15592
+call    2 returned 15592
+    15592: 1961:			  _M_limit(__pos, __n1), __s, __n2);
         -: 1962:      }
         -: 1963:
         -: 1964:      /**
@@ -6252,14 +6711,14 @@ call    1 never executed
         -: 6191:
         -: 6192:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 6193:    inline basic_string<_CharT, _Traits, _Alloc>
-function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_ called 1 returned 100% blocks executed 100%
-        1: 6194:    operator+(const _CharT* __lhs,
+function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_ called 15592 returned 100% blocks executed 100%
+    15592: 6194:    operator+(const _CharT* __lhs,
         -: 6195:	      basic_string<_CharT, _Traits, _Alloc>&& __rhs)
-        1: 6196:    { return std::move(__rhs.insert(0, __lhs)); }
-        1: 6196-block  0
-call    0 returned 1
-call    1 returned 1
-call    2 returned 1
+    15592: 6196:    { return std::move(__rhs.insert(0, __lhs)); }
+    15592: 6196-block  0
+call    0 returned 15592
+call    1 returned 15592
+call    2 returned 15592
         -: 6197:
         -: 6198:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 6199:    inline basic_string<_CharT, _Traits, _Alloc>
@@ -6723,34 +7182,34 @@ call    2 returned 1
         -: 6657:  // DR 1261. Insufficent overloads for to_string / to_wstring
         -: 6658:
         -: 6659:  inline string
-function _ZNSt7__cxx119to_stringEi called 1194883 returned 100% blocks executed 69%
-  1194883: 6660:  to_string(int __val)
+function _ZNSt7__cxx119to_stringEi called 1492020 returned 100% blocks executed 69%
+  1492020: 6660:  to_string(int __val)
         -: 6661:  {
-  1194883: 6662:    const bool __neg = __val < 0;
- 1194883*: 6663:    const unsigned __uval = __neg ? (unsigned)~__val + 1u : __val;
-  1194883: 6663-block  0
+  1492020: 6662:    const bool __neg = __val < 0;
+ 1492020*: 6663:    const unsigned __uval = __neg ? (unsigned)~__val + 1u : __val;
+  1492020: 6663-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 1194883
+branch  1 taken 1492020
     %%%%%: 6663-block  1
-  1194883: 6663-block  2
-  1194883: 6664:    const auto __len = __detail::__to_chars_len(__uval);
-  1194883: 6664-block  0
-call    0 returned 1194883
-  1194883: 6665:    string __str(__neg + __len, '-');
-call    0 returned 1194883
-call    1 returned 1194883
-branch  2 taken 1194883 (fallthrough)
+  1492020: 6663-block  2
+  1492020: 6664:    const auto __len = __detail::__to_chars_len(__uval);
+  1492020: 6664-block  0
+call    0 returned 1492020
+  1492020: 6665:    string __str(__neg + __len, '-');
+call    0 returned 1492020
+call    1 returned 1492020
+branch  2 taken 1492020 (fallthrough)
 branch  3 taken 0 (throw)
     $$$$$: 6665-block  0
 call    4 never executed
-  1194883: 6666:    __detail::__to_chars_10_impl(&__str[__neg], __len, __uval);
-call    0 returned 1194883
-branch  1 taken 1194883 (fallthrough)
+  1492020: 6666:    __detail::__to_chars_10_impl(&__str[__neg], __len, __uval);
+call    0 returned 1492020
+branch  1 taken 1492020 (fallthrough)
 branch  2 taken 0 (throw)
-  1194883: 6666-block  0
-call    3 returned 1194883
-  1194883: 6667:    return __str;
-  1194883: 6667-block  0
+  1492020: 6666-block  0
+call    3 returned 1492020
+  1492020: 6667:    return __str;
+  1492020: 6667-block  0
     =====: 6668:  }
     $$$$$: 6668-block  0
 call    0 never executed
@@ -6764,15 +7223,37 @@ call    0 never executed
         -: 6676:  }
         -: 6677:
         -: 6678:  inline string
-        -: 6679:  to_string(long __val)
+function _ZNSt7__cxx119to_stringEl called 10844 returned 100% blocks executed 69%
+    10844: 6679:  to_string(long __val)
         -: 6680:  {
-        -: 6681:    const bool __neg = __val < 0;
-        -: 6682:    const unsigned long __uval = __neg ? (unsigned long)~__val + 1ul : __val;
-        -: 6683:    const auto __len = __detail::__to_chars_len(__uval);
-        -: 6684:    string __str(__neg + __len, '-');
-        -: 6685:    __detail::__to_chars_10_impl(&__str[__neg], __len, __uval);
-        -: 6686:    return __str;
-        -: 6687:  }
+    10844: 6681:    const bool __neg = __val < 0;
+   10844*: 6682:    const unsigned long __uval = __neg ? (unsigned long)~__val + 1ul : __val;
+    10844: 6682-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 10844
+    %%%%%: 6682-block  1
+    10844: 6682-block  2
+    10844: 6683:    const auto __len = __detail::__to_chars_len(__uval);
+    10844: 6683-block  0
+call    0 returned 10844
+    10844: 6684:    string __str(__neg + __len, '-');
+call    0 returned 10844
+call    1 returned 10844
+branch  2 taken 10844 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$: 6684-block  0
+call    4 never executed
+    10844: 6685:    __detail::__to_chars_10_impl(&__str[__neg], __len, __uval);
+call    0 returned 10844
+branch  1 taken 10844 (fallthrough)
+branch  2 taken 0 (throw)
+    10844: 6685-block  0
+call    3 returned 10844
+    10844: 6686:    return __str;
+    10844: 6686-block  0
+    =====: 6687:  }
+    $$$$$: 6687-block  0
+call    0 never executed
         -: 6688:
         -: 6689:  inline string
         -: 6690:  to_string(unsigned long __val)

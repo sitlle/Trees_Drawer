@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.28)
 project(tree)
 
-set(CMAKE_CXX_STANDARD 17)
-find_package(SFML 2.5 COMPONENTS graphics audio)
+set(CMAKE_CXX_STANDARD 20)
+find_package(SFML 2.5 COMPONENTS graphics)
 
 add_executable(tree Main_File.cpp
         AVL.h
@@ -35,4 +35,4 @@ add_executable(tree Main_File.cpp
         BigInteger.cpp
 )
 
-target_link_libraries(tree sfml-graphics sfml-audio)
+target_link_libraries(tree sfml-graphics)

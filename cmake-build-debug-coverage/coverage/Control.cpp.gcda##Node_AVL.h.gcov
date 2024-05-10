@@ -11,13 +11,26 @@
         -:    7:    int64_t val;
         -:    8:    Node_AVL* left;
         -:    9:    Node_AVL* right;
-        -:   10:    int32_t height = 0;
+        -:   10:    int32_t height;
         -:   11:    int64_t balance;
-function _ZN8Node_AVLC2Eli called 60 returned 100% blocks executed 100%
-      120:   12:    explicit Node_AVL(int64_t _val = 0, int32_t _height = -1) : val(_val),
-       60:   13:                                                            height(_height + 1),
-       60:   14:                                                            left(nullptr), right(nullptr),
-       60:   15:                                                            balance(0) {}
-       60:   15-block  0
-call    0 returned 60
-        -:   16:};
+        -:   12:
+        -:   13:    Node_AVL() = default;
+        -:   14:
+        -:   15:    ~Node_AVL() = default;
+        -:   16:
+        -:   17:    Node_AVL(Node_AVL const& other) {
+        -:   18:        param = other.param;
+        -:   19:        val = other.val;
+        -:   20:        left = other.left;
+        -:   21:        right = other.right;
+        -:   22:        height = other.height;
+        -:   23:        balance = other.balance;
+        -:   24:    }
+function _ZN8Node_AVLC2Eli called 33 returned 100% blocks executed 100%
+       66:   25:    explicit Node_AVL(int64_t _val = 0, int32_t _height = -1) : val(_val),
+       33:   26:                                                            height(_height + 1),
+       33:   27:                                                            left(nullptr), right(nullptr),
+       33:   28:                                                            balance(0) {}
+       33:   28-block  0
+call    0 returned 33
+        -:   29:};

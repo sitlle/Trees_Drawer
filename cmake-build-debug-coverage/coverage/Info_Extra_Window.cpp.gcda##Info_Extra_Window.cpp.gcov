@@ -4,27 +4,27 @@
         -:    0:Runs:1
         -:    1:#include "Info_Extra_Window.h"
         -:    2:
-function _ZN17Info_Extra_Window6EventsEv called 7101 returned 100% blocks executed 71%
-     7101:    3:void Info_Extra_Window::Events() {
-     7142:    4:    while (Main_Window_.pollEvent(Main_Event_)) {
-     7101:    4-block  0
-     7142:    4-block  1
-call    0 returned 7142
-branch  1 taken 41
-branch  2 taken 7101 (fallthrough)
-       81:    5:        if (Main_Event_.type == Event::Closed ||
-       41:    5-block  0
-branch  0 taken 40 (fallthrough)
+function _ZN17Info_Extra_Window6EventsEv called 9359 returned 100% blocks executed 71%
+     9359:    3:void Info_Extra_Window::Events() {
+     9419:    4:    while (Main_Window_.pollEvent(Main_Event_)) {
+     9359:    4-block  0
+     9419:    4-block  1
+call    0 returned 9419
+branch  1 taken 60
+branch  2 taken 9359 (fallthrough)
+      119:    5:        if (Main_Event_.type == Event::Closed ||
+       60:    5-block  0
+branch  0 taken 59 (fallthrough)
 branch  1 taken 1
         1:    5-block  1
-       40:    5-block  2
-       41:    5-block  3
+       59:    5-block  2
+       60:    5-block  3
 branch  2 taken 1 (fallthrough)
-branch  3 taken 40
-      40*:    6:            Main_Event_.type == Event::KeyPressed &&
-       40:    6-block  0
+branch  3 taken 59
+      59*:    6:            Main_Event_.type == Event::KeyPressed &&
+       59:    6-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 40
+branch  1 taken 59
     #####:    7:            (Keyboard::isKeyPressed(Keyboard::Escape) ||
     %%%%%:    7-block  0
 call    0 never executed
@@ -40,62 +40,62 @@ branch  2 never executed
 call    0 returned 1
         -:   10:        }
         -:   11:    }
-     7101:   12:}
+     9359:   12:}
         -:   13:
-function _ZN17Info_Extra_Window4DrawEv called 7101 returned 100% blocks executed 86%
-     7101:   14:void Info_Extra_Window::Draw() {
-     7101:   15:    Main_Window_.clear();
-     7101:   15-block  0
-call    0 returned 7101
-call    1 returned 7101
-branch  2 taken 7101 (fallthrough)
+function _ZN17Info_Extra_Window4DrawEv called 9359 returned 100% blocks executed 86%
+     9359:   14:void Info_Extra_Window::Draw() {
+     9359:   15:    Main_Window_.clear();
+     9359:   15-block  0
+call    0 returned 9359
+call    1 returned 9359
+branch  2 taken 9359 (fallthrough)
 branch  3 taken 0 (throw)
     $$$$$:   15-block  1
 call    4 never executed
-    49707:   16:    for (int i = 0; i < 6; ++i) {
-     7101:   16-block  0
-    49707:   16-block  1
-branch  0 taken 42606
-branch  1 taken 7101 (fallthrough)
-    42606:   17:        DrawBox(Main_Window_, Boxes_[i].position, Boxes_[i].size, Boxes_[i].COLOR);
-    42606:   17-block  0
-call    0 returned 42606
-call    1 returned 42606
-call    2 returned 42606
-call    3 returned 42606
-    42606:   18:        DrawTextInBox(Main_Window_, Boxes_[i].position, Boxes_[i].size, Info_[i],
-call    0 returned 42606
-call    1 returned 42606
-call    2 returned 42606
-call    3 returned 42606
-branch  4 taken 42606 (fallthrough)
+    65513:   16:    for (int i = 0; i < 6; ++i) {
+     9359:   16-block  0
+    65513:   16-block  1
+branch  0 taken 56154
+branch  1 taken 9359 (fallthrough)
+    56154:   17:        DrawBox(Main_Window_, Boxes_[i].position, Boxes_[i].size, Boxes_[i].COLOR);
+    56154:   17-block  0
+call    0 returned 56154
+call    1 returned 56154
+call    2 returned 56154
+call    3 returned 56154
+    56154:   18:        DrawTextInBox(Main_Window_, Boxes_[i].position, Boxes_[i].size, Info_[i],
+call    0 returned 56154
+call    1 returned 56154
+call    2 returned 56154
+call    3 returned 56154
+branch  4 taken 56154 (fallthrough)
 branch  5 taken 0 (throw)
-    42606:   18-block  0
-call    6 returned 42606
+    56154:   18-block  0
+call    6 returned 56154
     $$$$$:   18-block  1
 call    7 never executed
-    42606:   19:                     User_Text, 0, 60);
-call    0 returned 42606
+    56154:   19:                     User_Text, 0, 60);
+call    0 returned 56154
         -:   20:    }
-     7101:   21:    Main_Window_.display();
-     7101:   21-block  0
-call    0 returned 7101
-     7101:   22:}
+     9359:   21:    Main_Window_.display();
+     9359:   21-block  0
+call    0 returned 9359
+     9359:   22:}
         -:   23:
 function _ZN17Info_Extra_Window7ProcessEv called 1 returned 100% blocks executed 100%
         1:   24:void Info_Extra_Window::Process() {
-     7102:   25:    while (Main_Window_.isOpen()) {
+     9360:   25:    while (Main_Window_.isOpen()) {
         1:   25-block  0
-     7102:   25-block  1
-call    0 returned 7102
-branch  1 taken 7101
+     9360:   25-block  1
+call    0 returned 9360
+branch  1 taken 9359
 branch  2 taken 1 (fallthrough)
-     7101:   26:        Events();
-     7101:   26-block  0
-call    0 returned 7101
-     7101:   27:        Draw();
-call    0 returned 7101
-     7101:   28:        cnt++;
-     7101:   29:        cnt %= 10;
+     9359:   26:        Events();
+     9359:   26-block  0
+call    0 returned 9359
+     9359:   27:        Draw();
+call    0 returned 9359
+     9359:   28:        cnt++;
+     9359:   29:        cnt %= 10;
         -:   30:    }
         1:   31:}

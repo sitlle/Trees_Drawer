@@ -2,684 +2,721 @@
         -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/BigInteger.cpp.gcno
         -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/BigInteger.cpp.gcda
         -:    0:Runs:1
-        -:    1:#pragma once
-        -:    2:#include<bits/stdc++.h>
+        -:    1:/*
+        -:    2:    bigint.h
         -:    3:
-        -:    4:#define big_abs bigint::_big_abs
-        -:    5:#define big_max bigint::_big_max
-        -:    6:#define big_min bigint::_big_min
-        -:    7:#define big_pow bigint::_big_pow
-        -:    8:#define big_sqrt bigint::_big_sqrt
-        -:    9:#define big_log2 bigint::_big_log2
-        -:   10:#define big_log10 bigint::_big_log10
-        -:   11:#define big_logwithbase bigint::_big_logwithbase
-        -:   12:#define big_antilog2 bigint::_big_antilog2
-        -:   13:#define big_antilog10 bigint::_big_antilog10
-        -:   14:#define big_swap bigint::_big_swap
-        -:   15:#define big_reverse bigint::_big_reverse
-        -:   16:#define big_gcd bigint::_big_gcd
-        -:   17:#define big_lcm bigint::_big_lcm
-        -:   18:#define big_fact bigint::_big_fact
-        -:   19:#define big_isPrime bigint::_big_isPrime
-        -:   20:#define big_isPalindrome bigint::_big_isPalindrome
-        -:   21:#define to_bigint bigint::_to_bigint
-        -:   22:
-        -:   23:// Big Integer Class
-        -:   24:
-        -:   25:class bigint {
-        -:   26:private:
-        -:   27:    std::string str;
-        -:   28:    // Function Definitions for Internal Uses
+        -:    4:    bigint Library for C++
+        -:    5:
+        -:    6:    MIT License
+        -:    7:
+        -:    8:    Created by Roshan Gupta on 16-10-2020
+        -:    9:    Copyright (c) 2020 Roshan Gupta
+        -:   10:
+        -:   11:    Permission is hereby granted, free of charge, to any person obtaining a copy
+        -:   12:    of this software and associated documentation files (the "Software"), to deal
+        -:   13:    in the Software without restriction, including without limitation the rights
+        -:   14:    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        -:   15:    copies of the Software, and to permit persons to whom the Software is
+        -:   16:    furnished to do so, subject to the following conditions:
+        -:   17:
+        -:   18:    The above copyright notice and this permission notice shall be included in all
+        -:   19:    copies or substantial portions of the Software.
+        -:   20:
+        -:   21:    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        -:   22:    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        -:   23:    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        -:   24:    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        -:   25:    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        -:   26:    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        -:   27:    SOFTWARE.
+        -:   28:*/
         -:   29:
-        -:   30:    static std::string trim(std::string);
-        -:   31:    static std::string add(std::string, std::string);
-        -:   32:    static std::string subtract(std::string, std::string);
-        -:   33:    static std::string multiply(std::string, std::string);
-        -:   34:    static std::string divide(std::string, std::string);
-        -:   35:
-        -:   36:    static std::string mod(std::string, std::string);
-        -:   37:    static std::string shortDivide(std::string, unsigned long long int);
-        -:   38:    static std::string maximum(std::string, std::string);
-        -:   39:    static bool is_maximum(std::string, std::string);
-        -:   40:    static bool is_strictlyMaximum(std::string, std::string);
-        -:   41:    static std::string minimum(std::string, std::string);
-        -:   42:    static bool is_minimum(std::string, std::string);
-        -:   43:    static bool is_strictlyMinimum(std::string, std::string);
-        -:   44:    static bool is_bigint(std::string);
-        -:   45:
-        -:   46:    // Public Property
-        -:   47:
-        -:   48:    static std::string abs(std::string);
-        -:   49:    static std::string pow(std::string, std::string);
-        -:   50:    static std::string sqrt(std::string);
-        -:   51:    static std::string log2(std::string);
-        -:   52:    static std::string log10(std::string);
-        -:   53:    static std::string logwithbase(std::string, std::string);
-        -:   54:    static std::string antilog2(std::string);
-        -:   55:    static std::string antilog10(std::string);
-        -:   56:    static void swap(std::string&, std::string&);
-        -:   57:    static std::string reverse(std::string);
-        -:   58:    static std::string gcd(std::string, std::string);
-        -:   59:    static std::string lcm(std::string, std::string);
-        -:   60:    static std::string fact(std::string);
-        -:   61:    static bool isPalindrome(std::string);
-        -:   62:    static bool isPrime(std::string);
-        -:   63:
-        -:   64:
-        -:   65:public:
-function _ZN6bigintD2Ev called 0 returned 0% blocks executed 0%
-    #####:   66:    ~bigint() = default;
-    %%%%%:   66-block  0
-call    0 never executed
-        -:   67:    static int64_t to_int(bigint ans) {
-        -:   68:        std::cout << ans.str << '\n';
-        -:   69:        int64_t res = 0;
-        -:   70:        int64_t power = 1;
-        -:   71:        if (ans.str[0] == '-') {
-        -:   72:            power *= -1;
-        -:   73:        }
-        -:   74:        for (int i = (int)ans.str.size() - 1; i >= 0; --i) {
-        -:   75:            if (ans.str[i] == '-') {
-        -:   76:                continue;
-        -:   77:            }
-        -:   78:            res += int(ans.str[i] - '0') * power;
-        -:   79:            power *= 10;
-        -:   80:        }
-        -:   81:        std::cout << res << '\n';
-        -:   82:        return res;
-        -:   83:    }
-        -:   84:    // Constructors for big int.
-        -:   85:    bigint() {
-        -:   86:        str = '0';  //default value
-        -:   87:    }
+        -:   30:
+        -:   31:#pragma once
+        -:   32:
+        -:   33:#include <string>
+        -:   34:#include <sstream>
+        -:   35:#include <vector>
+        -:   36:#include <cmath>
+        -:   37:#include <limits>
+        -:   38:
+        -:   39:// Macros for Programmer(User) use cases.
+        -:   40:
+        -:   41:#define big_abs bigint::_big_abs
+        -:   42:#define big_max bigint::_big_max
+        -:   43:#define big_min bigint::_big_min
+        -:   44:#define big_pow bigint::_big_pow
+        -:   45:#define big_sqrt bigint::_big_sqrt
+        -:   46:#define big_log2 bigint::_big_log2
+        -:   47:#define big_log10 bigint::_big_log10
+        -:   48:#define big_logwithbase bigint::_big_logwithbase
+        -:   49:#define big_antilog2 bigint::_big_antilog2
+        -:   50:#define big_antilog10 bigint::_big_antilog10
+        -:   51:#define big_swap bigint::_big_swap
+        -:   52:#define big_reverse bigint::_big_reverse
+        -:   53:#define big_gcd bigint::_big_gcd
+        -:   54:#define big_lcm bigint::_big_lcm
+        -:   55:#define big_fact bigint::_big_fact
+        -:   56:#define big_isPrime bigint::_big_isPrime
+        -:   57:#define big_isPalindrome bigint::_big_isPalindrome
+        -:   58:#define to_bigint bigint::_to_bigint
+        -:   59:
+        -:   60:// Big Integer Class
+        -:   61:
+        -:   62:class bigint {
+        -:   63:private:
+        -:   64:    std::string str; // only data memeber for strong Big Integer as String. [For signed int, str[0] = '-']
+        -:   65:
+        -:   66:    // Function Definitions for Internal Uses
+        -:   67:
+        -:   68:    static std::string trim(std::string);
+        -:   69:    static std::string add(std::string, std::string);
+        -:   70:    static std::string subtract(std::string, std::string);
+        -:   71:    static std::string multiply(std::string, std::string);
+        -:   72:    static std::string divide(std::string, std::string);
+        -:   73:
+        -:   74:    static std::string mod(std::string, std::string);
+        -:   75:    static std::string shortDivide(std::string, unsigned long long int);
+        -:   76:    static std::string maximum(std::string, std::string);
+        -:   77:    static bool is_maximum(std::string, std::string);
+        -:   78:    static bool is_strictlyMaximum(std::string, std::string);
+        -:   79:    static std::string minimum(std::string, std::string);
+        -:   80:    static bool is_minimum(std::string, std::string);
+        -:   81:    static bool is_strictlyMinimum(std::string, std::string);
+        -:   82:    static bool is_bigint(std::string);
+        -:   83:
+        -:   84:    // Public Property
+        -:   85:
+        -:   86:    static std::string abs(std::string);
+        -:   87:    static std::string pow(std::string, std::string);
+        -:   88:    static std::string sqrt(std::string);
+        -:   89:    static std::string log2(std::string);
+        -:   90:    static std::string log10(std::string);
+        -:   91:    static std::string logwithbase(std::string, std::string);
+        -:   92:    static std::string antilog2(std::string);
+        -:   93:    static std::string antilog10(std::string);
+        -:   94:    static void swap(std::string&, std::string&);
+        -:   95:    static std::string reverse(std::string);
+        -:   96:    static std::string gcd(std::string, std::string);
+        -:   97:    static std::string lcm(std::string, std::string);
+        -:   98:    static std::string fact(std::string);
+        -:   99:    static bool isPalindrome(std::string);
+        -:  100:    static bool isPrime(std::string);
+        -:  101:
+        -:  102:
+        -:  103:public:
+        -:  104:    static int64_t to_int(bigint ans) {
+        -:  105:        int64_t res = 0;
+        -:  106:        int64_t power = 1;
+        -:  107:        if (ans.str[0] == '-') {
+        -:  108:            power *= -1;
+        -:  109:        }
+        -:  110:        for (int i = (int)ans.str.size() - 1; i >= 0; --i) {
+        -:  111:            if (ans.str[i] == '-') {
+        -:  112:                continue;
+        -:  113:            }
+        -:  114:            res += int(ans.str[i] - '0') * power;
+        -:  115:            power *= 10;
+        -:  116:        }
+        -:  117:        return res;
+        -:  118:    }
+        -:  119:
+        -:  120:    static std::string to_string(bigint& res) {
+        -:  121:        return res.str;
+        -:  122:    }
+        -:  123:
+        -:  124:    // Constructors for big int.
+        -:  125:    bigint() {
+        -:  126:        str = '0';  //default value
+        -:  127:    }
 function _ZN6bigintC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
-    #####:   88:    bigint(std::string s) {
-    %%%%%:   88-block  0
+    #####:  128:    bigint(std::string s) {
+    %%%%%:  128-block  0
 call    0 never executed
-    #####:   89:        if(!is_bigint(s))
+    #####:  129:        if(!is_bigint(s))
 call    0 never executed
 branch  1 never executed
 branch  2 never executed
-    %%%%%:   89-block  0
+    %%%%%:  129-block  0
 call    3 never executed
 branch  4 never executed
 branch  5 never executed
-    %%%%%:   89-block  1
+    %%%%%:  129-block  1
 call    6 never executed
 branch  7 never executed
 branch  8 never executed
-    $$$$$:   89-block  2
+    $$$$$:  129-block  2
 call    9 never executed
-    $$$$$:   89-block  3
-    #####:   90:            throw std::runtime_error("Invalid Big Integer has been fed.");   // if the input string is not valid number.
-    %%%%%:   90-block  0
+    $$$$$:  129-block  3
+    #####:  130:            throw std::runtime_error("Invalid Big Integer has been fed.");   // if the input string is not valid number.
+    %%%%%:  130-block  0
 call    0 never executed
 call    1 never executed
 branch  2 never executed
 branch  3 never executed
-    %%%%%:   90-block  1
+    %%%%%:  130-block  1
 call    4 never executed
-    $$$$$:   90-block  2
+    $$$$$:  130-block  2
 call    5 never executed
-    #####:   91:        str = s;
-    %%%%%:   91-block  0
+    #####:  131:        str = s;
+    %%%%%:  131-block  0
 call    0 never executed
 branch  1 never executed
 branch  2 never executed
-    #####:   92:    }
-    %%%%%:   92-block  0
-    $$$$$:   92-block  1
+    #####:  132:    }
+    %%%%%:  132-block  0
+    $$$$$:  132-block  1
 call    0 never executed
-        -:   93:    bigint(long long int n) {
-        -:   94:        str = std::to_string(n);
-        -:   95:    }
-        -:   96:    bigint(int n) {
-        -:   97:        str = std::to_string(n);
-        -:   98:    }
-        -:   99:    bigint(long int n) {
-        -:  100:        str = std::to_string(n);
-        -:  101:    }
-        -:  102:    bigint(const bigint &n) {
-        -:  103:        str = n.str;
-        -:  104:    }
-        -:  105:
-        -:  106:    // operator overloading for output stream {<<}
-        -:  107:    friend std::ostream &operator << (std::ostream& stream, const bigint &n) {
-        -:  108:        stream << n.str;
-        -:  109:        return stream;
-        -:  110:    }
-        -:  111:
-        -:  112:    // operator overloading for input stream {>>}
-        -:  113:    friend std::istream &operator >> (std::istream& stream, bigint &n) {
-        -:  114:        stream >> n.str;
-        -:  115:        return stream;
-        -:  116:    }
-        -:  117:
-        -:  118:    /* Operator {+} Overloadings, for different kind of
-        -:  119:    parameter for the programmer's convinience  */
-        -:  120:
-        -:  121:    bigint operator + (bigint const &n) {
-        -:  122:        bigint ans;
-        -:  123:        ans.str = add(str, n.str);
-        -:  124:        return ans;
-        -:  125:    }
-        -:  126:    friend bigint operator + (bigint const &n1, int n2) {
-        -:  127:        bigint ans;
-        -:  128:        ans.str = add(n1.str, std::to_string(n2));
-        -:  129:        return ans;
-        -:  130:    }
-        -:  131:    friend bigint operator + (int n1, bigint const &n2) {
-        -:  132:        bigint ans;
-        -:  133:        ans.str = add(n2.str, std::to_string(n1));
-        -:  134:        return ans;
+        -:  133:    bigint(long long int n) {
+        -:  134:        str = std::to_string(n);
         -:  135:    }
-        -:  136:    friend bigint operator + (bigint const &n1, long int n2) {
-        -:  137:        bigint ans;
-        -:  138:        ans.str = add(n1.str, std::to_string(n2));
-        -:  139:        return ans;
-        -:  140:    }
-        -:  141:    friend bigint operator + (long int n1, bigint const &n2) {
-        -:  142:        bigint ans;
-        -:  143:        ans.str = add(n2.str, std::to_string(n1));
-        -:  144:        return ans;
-        -:  145:    }
-        -:  146:    friend bigint operator + (bigint const &n1, long long int n2) {
-        -:  147:        bigint ans;
-        -:  148:        ans.str = add(n1.str, std::to_string(n2));
-        -:  149:        return ans;
+        -:  136:    bigint(int n) {
+        -:  137:        str = std::to_string(n);
+        -:  138:    }
+        -:  139:    bigint(long int n) {
+        -:  140:        str = std::to_string(n);
+        -:  141:    }
+        -:  142:    bigint(const bigint &n) {
+        -:  143:        str = n.str;
+        -:  144:    }
+        -:  145:
+        -:  146:    // operator overloading for output stream {<<}
+        -:  147:    friend std::ostream &operator << (std::ostream& stream, const bigint &n) {
+        -:  148:        stream << n.str;
+        -:  149:        return stream;
         -:  150:    }
-        -:  151:    friend bigint operator + (long long int n1, bigint const &n2) {
-        -:  152:        bigint ans;
-        -:  153:        ans.str = add(n2.str, std::to_string(n1));
-        -:  154:        return ans;
-        -:  155:    }
-        -:  156:
-        -:  157:    // Extra shortcut feature
-        -:  158:
-        -:  159:    bigint& operator += (bigint const n) {
-        -:  160:        (*this).str = add((*this).str, n.str);
-        -:  161:        return (*this);
-        -:  162:    }
-        -:  163:
-        -:  164:
-        -:  165:
-        -:  166:    /* Operator {-} Overloadings, for different kind of
-        -:  167:    parameter for the programmer's convinience  */
-        -:  168:
-        -:  169:    bigint operator - (bigint const &n) {
-        -:  170:        bigint ans;
-        -:  171:        ans.str = subtract(str, n.str);
-        -:  172:        return ans;
-        -:  173:    }
-        -:  174:
-        -:  175:    friend bigint operator - (bigint const &n1, int n2) {
-        -:  176:        bigint ans;
-        -:  177:        ans.str = subtract(n1.str, std::to_string(n2));
-        -:  178:        return ans;
-        -:  179:    }
-        -:  180:    friend bigint operator - (int n1, bigint const &n2) {
-        -:  181:        bigint ans;
-        -:  182:        ans.str = subtract(std::to_string(n1), n2.str);
-        -:  183:        return ans;
-        -:  184:    }
-        -:  185:    friend bigint operator - (bigint const &n1, long int n2) {
-        -:  186:        bigint ans;
-        -:  187:        ans.str = subtract(n1.str, std::to_string(n2));
-        -:  188:        return ans;
-        -:  189:    }
-        -:  190:    friend bigint operator - (long int n1, bigint const &n2) {
-        -:  191:        bigint ans;
-        -:  192:        ans.str = subtract(std::to_string(n1), n2.str);
-        -:  193:        return ans;
-        -:  194:    }
-        -:  195:    friend bigint operator - (bigint const &n1, long long int n2) {
-        -:  196:        bigint ans;
-        -:  197:        ans.str = subtract(n1.str, std::to_string(n2));
-        -:  198:        return ans;
-        -:  199:    }
-        -:  200:    friend bigint operator - (long long int n1, bigint const &n2) {
-        -:  201:        bigint ans;
-        -:  202:        ans.str = subtract(std::to_string(n1), n2.str);
-        -:  203:        return ans;
-        -:  204:    }
+        -:  151:
+        -:  152:    // operator overloading for input stream {>>}
+        -:  153:    friend std::istream &operator >> (std::istream& stream, bigint &n) {
+        -:  154:        stream >> n.str;
+        -:  155:        return stream;
+        -:  156:    }
+        -:  157:
+        -:  158:    /* Operator {+} Overloadings, for different kind of
+        -:  159:    parameter for the programmer's convinience  */
+        -:  160:
+        -:  161:    bigint operator + (bigint const &n) {
+        -:  162:        bigint ans;
+        -:  163:        ans.str = add(str, n.str);
+        -:  164:        return ans;
+        -:  165:    }
+        -:  166:    friend bigint operator + (bigint const &n1, int n2) {
+        -:  167:        bigint ans;
+        -:  168:        ans.str = add(n1.str, std::to_string(n2));
+        -:  169:        return ans;
+        -:  170:    }
+        -:  171:    friend bigint operator + (int n1, bigint const &n2) {
+        -:  172:        bigint ans;
+        -:  173:        ans.str = add(n2.str, std::to_string(n1));
+        -:  174:        return ans;
+        -:  175:    }
+        -:  176:    friend bigint operator + (bigint const &n1, long int n2) {
+        -:  177:        bigint ans;
+        -:  178:        ans.str = add(n1.str, std::to_string(n2));
+        -:  179:        return ans;
+        -:  180:    }
+        -:  181:    friend bigint operator + (long int n1, bigint const &n2) {
+        -:  182:        bigint ans;
+        -:  183:        ans.str = add(n2.str, std::to_string(n1));
+        -:  184:        return ans;
+        -:  185:    }
+        -:  186:    friend bigint operator + (bigint const &n1, long long int n2) {
+        -:  187:        bigint ans;
+        -:  188:        ans.str = add(n1.str, std::to_string(n2));
+        -:  189:        return ans;
+        -:  190:    }
+        -:  191:    friend bigint operator + (long long int n1, bigint const &n2) {
+        -:  192:        bigint ans;
+        -:  193:        ans.str = add(n2.str, std::to_string(n1));
+        -:  194:        return ans;
+        -:  195:    }
+        -:  196:
+        -:  197:    // Extra shortcut feature
+        -:  198:
+        -:  199:    bigint& operator += (bigint const n) {
+        -:  200:        (*this).str = add((*this).str, n.str);
+        -:  201:        return (*this);
+        -:  202:    }
+        -:  203:
+        -:  204:
         -:  205:
-        -:  206:    // Extra shortcut feature
-        -:  207:
-        -:  208:    bigint& operator -= (bigint const n) {
-        -:  209:        (*this).str = subtract((*this).str, n.str);
-        -:  210:        return (*this);
-        -:  211:    }
-        -:  212:
-        -:  213:    /* Operator {*} Overloadings, for different kind of
-        -:  214:    parameter for the programmer's convinience  */
-        -:  215:
-        -:  216:    bigint operator * (bigint const &n) {
-        -:  217:        bigint ans;
-        -:  218:        ans.str = multiply(str, n.str);
-        -:  219:        return ans;
-        -:  220:    }
-        -:  221:    friend bigint operator * (bigint const &n1, int n2) {
-        -:  222:        bigint ans;
-        -:  223:        ans.str = multiply(n1.str, std::to_string(n2));
-        -:  224:        return ans;
-        -:  225:    }
-        -:  226:    friend bigint operator * (int n1, bigint const &n2) {
-        -:  227:        bigint ans;
-        -:  228:        ans.str = multiply(std::to_string(n1), n2.str);
-        -:  229:        return ans;
-        -:  230:    }
-        -:  231:    friend bigint operator * (bigint const &n1, long int n2) {
-        -:  232:        bigint ans;
-        -:  233:        ans.str = multiply(n1.str, std::to_string(n2));
-        -:  234:        return ans;
-        -:  235:    }
-        -:  236:    friend bigint operator * (long int n1, bigint const &n2) {
-        -:  237:        bigint ans;
-        -:  238:        ans.str = multiply(std::to_string(n1), n2.str);
-        -:  239:        return ans;
-        -:  240:    }
-        -:  241:    friend bigint operator * (bigint const &n1, long long int n2) {
-        -:  242:        bigint ans;
-        -:  243:        ans.str = multiply(n1.str, std::to_string(n2));
-        -:  244:        return ans;
-        -:  245:    }
-        -:  246:    friend bigint operator * (long long int n1, bigint const &n2) {
-        -:  247:        bigint ans;
-        -:  248:        ans.str = multiply(std::to_string(n1), n2.str);
-        -:  249:        return ans;
-        -:  250:    }
-        -:  251:    // Extra shortcut feature
+        -:  206:    /* Operator {-} Overloadings, for different kind of
+        -:  207:    parameter for the programmer's convinience  */
+        -:  208:
+        -:  209:    bigint operator - (bigint const &n) {
+        -:  210:        bigint ans;
+        -:  211:        ans.str = subtract(str, n.str);
+        -:  212:        return ans;
+        -:  213:    }
+        -:  214:
+        -:  215:    friend bigint operator - (bigint const &n1, int n2) {
+        -:  216:        bigint ans;
+        -:  217:        ans.str = subtract(n1.str, std::to_string(n2));
+        -:  218:        return ans;
+        -:  219:    }
+        -:  220:    friend bigint operator - (int n1, bigint const &n2) {
+        -:  221:        bigint ans;
+        -:  222:        ans.str = subtract(std::to_string(n1), n2.str);
+        -:  223:        return ans;
+        -:  224:    }
+        -:  225:    friend bigint operator - (bigint const &n1, long int n2) {
+        -:  226:        bigint ans;
+        -:  227:        ans.str = subtract(n1.str, std::to_string(n2));
+        -:  228:        return ans;
+        -:  229:    }
+        -:  230:    friend bigint operator - (long int n1, bigint const &n2) {
+        -:  231:        bigint ans;
+        -:  232:        ans.str = subtract(std::to_string(n1), n2.str);
+        -:  233:        return ans;
+        -:  234:    }
+        -:  235:    friend bigint operator - (bigint const &n1, long long int n2) {
+        -:  236:        bigint ans;
+        -:  237:        ans.str = subtract(n1.str, std::to_string(n2));
+        -:  238:        return ans;
+        -:  239:    }
+        -:  240:    friend bigint operator - (long long int n1, bigint const &n2) {
+        -:  241:        bigint ans;
+        -:  242:        ans.str = subtract(std::to_string(n1), n2.str);
+        -:  243:        return ans;
+        -:  244:    }
+        -:  245:
+        -:  246:    // Extra shortcut feature
+        -:  247:
+        -:  248:    bigint& operator -= (bigint const n) {
+        -:  249:        (*this).str = subtract((*this).str, n.str);
+        -:  250:        return (*this);
+        -:  251:    }
         -:  252:
-        -:  253:    bigint& operator *= (bigint const n) {
-        -:  254:        (*this).str = multiply((*this).str, n.str);
-        -:  255:        return (*this);
-        -:  256:    }
-        -:  257:
-        -:  258:    /* Operator {/} Overloadings, for different kind of
-        -:  259:    parameter for the programmer's convinience  */
-        -:  260:
-        -:  261:    bigint operator / (bigint const &n) {
+        -:  253:    /* Operator {*} Overloadings, for different kind of
+        -:  254:    parameter for the programmer's convinience  */
+        -:  255:
+        -:  256:    bigint operator * (bigint const &n) {
+        -:  257:        bigint ans;
+        -:  258:        ans.str = multiply(str, n.str);
+        -:  259:        return ans;
+        -:  260:    }
+        -:  261:    friend bigint operator * (bigint const &n1, int n2) {
         -:  262:        bigint ans;
-        -:  263:        ans.str = divide(str, n.str);
+        -:  263:        ans.str = multiply(n1.str, std::to_string(n2));
         -:  264:        return ans;
         -:  265:    }
-        -:  266:    friend bigint operator / (bigint const &n1, int n2) {
+        -:  266:    friend bigint operator * (int n1, bigint const &n2) {
         -:  267:        bigint ans;
-        -:  268:        ans.str = divide(n1.str, std::to_string(n2));
+        -:  268:        ans.str = multiply(std::to_string(n1), n2.str);
         -:  269:        return ans;
         -:  270:    }
-        -:  271:    friend bigint operator / (int n1, bigint const &n2) {
+        -:  271:    friend bigint operator * (bigint const &n1, long int n2) {
         -:  272:        bigint ans;
-        -:  273:        ans.str = divide(std::to_string(n1), n2.str);
+        -:  273:        ans.str = multiply(n1.str, std::to_string(n2));
         -:  274:        return ans;
         -:  275:    }
-        -:  276:    friend bigint operator / (bigint const &n1, long int n2) {
+        -:  276:    friend bigint operator * (long int n1, bigint const &n2) {
         -:  277:        bigint ans;
-        -:  278:        ans.str = divide(n1.str, std::to_string(n2));
+        -:  278:        ans.str = multiply(std::to_string(n1), n2.str);
         -:  279:        return ans;
         -:  280:    }
-        -:  281:    friend bigint operator / (long int n1, bigint const &n2) {
+        -:  281:    friend bigint operator * (bigint const &n1, long long int n2) {
         -:  282:        bigint ans;
-        -:  283:        ans.str = divide(std::to_string(n1), n2.str);
+        -:  283:        ans.str = multiply(n1.str, std::to_string(n2));
         -:  284:        return ans;
         -:  285:    }
-        -:  286:    friend bigint operator / (bigint const &n1, long long int n2) {
+        -:  286:    friend bigint operator * (long long int n1, bigint const &n2) {
         -:  287:        bigint ans;
-        -:  288:        ans.str = divide(n1.str, std::to_string(n2));
+        -:  288:        ans.str = multiply(std::to_string(n1), n2.str);
         -:  289:        return ans;
         -:  290:    }
-        -:  291:    friend bigint operator / (long long int n1, bigint const &n2) {
-        -:  292:        bigint ans;
-        -:  293:        ans.str = divide(std::to_string(n1), n2.str);
-        -:  294:        return ans;
-        -:  295:    }
-        -:  296:
-        -:  297:    // Extra shortcut feature
-        -:  298:
-        -:  299:    bigint& operator /= (bigint const n) {
-        -:  300:        (*this).str = divide((*this).str, n.str);
-        -:  301:        return (*this);
-        -:  302:    }
-        -:  303:
-        -:  304:    /* Operator {%} Overloadings, for different kind of
-        -:  305:    parameter for the programmer's convinience  */
-        -:  306:
-        -:  307:    bigint operator % (bigint const &n) {
-        -:  308:        bigint ans;
-        -:  309:        ans.str = mod(str, n.str);
-        -:  310:        return ans;
-        -:  311:    }
-        -:  312:    friend bigint operator % (bigint const &n1, int n2) {
-        -:  313:        bigint ans;
-        -:  314:        ans.str = mod(n1.str, std::to_string(n2));
-        -:  315:        return ans;
-        -:  316:    }
-        -:  317:    friend bigint operator % (int n1, bigint const &n2) {
-        -:  318:        bigint ans;
-        -:  319:        ans.str = mod(std::to_string(n1), n2.str);
-        -:  320:        return ans;
-        -:  321:    }
-        -:  322:    friend bigint operator % (bigint const &n1, long int n2) {
-        -:  323:        bigint ans;
-        -:  324:        ans.str = mod(n1.str, std::to_string(n2));
-        -:  325:        return ans;
-        -:  326:    }
-        -:  327:    friend bigint operator % (long int n1, bigint const &n2) {
-        -:  328:        bigint ans;
-        -:  329:        ans.str = mod(std::to_string(n1), n2.str);
-        -:  330:        return ans;
-        -:  331:    }
-        -:  332:    friend bigint operator % (bigint const &n1, long long int n2) {
-        -:  333:        bigint ans;
-        -:  334:        ans.str = mod(n1.str, std::to_string(n2));
-        -:  335:        return ans;
-        -:  336:    }
-        -:  337:    friend bigint operator % (long long int n1, bigint const &n2) {
-        -:  338:        bigint ans;
-        -:  339:        ans.str = mod(std::to_string(n1), n2.str);
-        -:  340:        return ans;
-        -:  341:    }
-        -:  342:
-        -:  343:    // Extra shortcut feature
-        -:  344:
-        -:  345:    bigint& operator %= (bigint const n) {
-        -:  346:        (*this).str = mod((*this).str, n.str);
-        -:  347:        return (*this);
-        -:  348:    }
-        -:  349:
-        -:  350:    //-------------------------------------------------
-        -:  351:    //------------Increment and Decrement--------------
-        -:  352:    //-------------------------------------------------
-        -:  353:
-        -:  354:    /* Operator {++} Overloadings
-        -:  355:    for the pre incremention  */
-        -:  356:    bigint& operator ++ () {
-        -:  357:        (*this).str = add((*this).str, "1");
-        -:  358:        return (*this);
-        -:  359:    }
-        -:  360:    /* Operator {++} Overloadings
-        -:  361:    for the post incremention  */
-        -:  362:    bigint operator ++ (int) {
-        -:  363:        (*this).str = add((*this).str, "1");
-        -:  364:        return (*this);
-        -:  365:    }
-        -:  366:
-        -:  367:    /* Operator {--} Overloadings
-        -:  368:    for the pre decremention  */
-        -:  369:    bigint& operator -- () {
-        -:  370:        (*this).str = subtract((*this).str, "1");
-        -:  371:        return (*this);
-        -:  372:    }
-        -:  373:
-        -:  374:    /* Operator {--} Overloadings
-        -:  375:    for the post incremention  */
-        -:  376:    bigint operator -- (int) {
-        -:  377:        (*this).str = subtract((*this).str, "1");
-        -:  378:        return (*this);
-        -:  379:    }
-        -:  380:
-        -:  381:    //-------------------------------------------------
-        -:  382:    //------------Conditional Operators----------------
-        -:  383:    //-------------------------------------------------
+        -:  291:    // Extra shortcut feature
+        -:  292:
+        -:  293:    bigint& operator *= (bigint const n) {
+        -:  294:        (*this).str = multiply((*this).str, n.str);
+        -:  295:        return (*this);
+        -:  296:    }
+        -:  297:
+        -:  298:    /* Operator {/} Overloadings, for different kind of
+        -:  299:    parameter for the programmer's convinience  */
+        -:  300:
+        -:  301:    bigint operator / (bigint const &n) {
+        -:  302:        bigint ans;
+        -:  303:        ans.str = divide(str, n.str);
+        -:  304:        return ans;
+        -:  305:    }
+        -:  306:    friend bigint operator / (bigint const &n1, int n2) {
+        -:  307:        bigint ans;
+        -:  308:        ans.str = divide(n1.str, std::to_string(n2));
+        -:  309:        return ans;
+        -:  310:    }
+        -:  311:    friend bigint operator / (int n1, bigint const &n2) {
+        -:  312:        bigint ans;
+        -:  313:        ans.str = divide(std::to_string(n1), n2.str);
+        -:  314:        return ans;
+        -:  315:    }
+        -:  316:    friend bigint operator / (bigint const &n1, long int n2) {
+        -:  317:        bigint ans;
+        -:  318:        ans.str = divide(n1.str, std::to_string(n2));
+        -:  319:        return ans;
+        -:  320:    }
+        -:  321:    friend bigint operator / (long int n1, bigint const &n2) {
+        -:  322:        bigint ans;
+        -:  323:        ans.str = divide(std::to_string(n1), n2.str);
+        -:  324:        return ans;
+        -:  325:    }
+        -:  326:    friend bigint operator / (bigint const &n1, long long int n2) {
+        -:  327:        bigint ans;
+        -:  328:        ans.str = divide(n1.str, std::to_string(n2));
+        -:  329:        return ans;
+        -:  330:    }
+        -:  331:    friend bigint operator / (long long int n1, bigint const &n2) {
+        -:  332:        bigint ans;
+        -:  333:        ans.str = divide(std::to_string(n1), n2.str);
+        -:  334:        return ans;
+        -:  335:    }
+        -:  336:
+        -:  337:    // Extra shortcut feature
+        -:  338:
+        -:  339:    bigint& operator /= (bigint const n) {
+        -:  340:        (*this).str = divide((*this).str, n.str);
+        -:  341:        return (*this);
+        -:  342:    }
+        -:  343:
+        -:  344:    /* Operator {%} Overloadings, for different kind of
+        -:  345:    parameter for the programmer's convinience  */
+        -:  346:
+        -:  347:    bigint operator % (bigint const &n) {
+        -:  348:        bigint ans;
+        -:  349:        ans.str = mod(str, n.str);
+        -:  350:        return ans;
+        -:  351:    }
+        -:  352:    friend bigint operator % (bigint const &n1, int n2) {
+        -:  353:        bigint ans;
+        -:  354:        ans.str = mod(n1.str, std::to_string(n2));
+        -:  355:        return ans;
+        -:  356:    }
+        -:  357:    friend bigint operator % (int n1, bigint const &n2) {
+        -:  358:        bigint ans;
+        -:  359:        ans.str = mod(std::to_string(n1), n2.str);
+        -:  360:        return ans;
+        -:  361:    }
+        -:  362:    friend bigint operator % (bigint const &n1, long int n2) {
+        -:  363:        bigint ans;
+        -:  364:        ans.str = mod(n1.str, std::to_string(n2));
+        -:  365:        return ans;
+        -:  366:    }
+        -:  367:    friend bigint operator % (long int n1, bigint const &n2) {
+        -:  368:        bigint ans;
+        -:  369:        ans.str = mod(std::to_string(n1), n2.str);
+        -:  370:        return ans;
+        -:  371:    }
+        -:  372:    friend bigint operator % (bigint const &n1, long long int n2) {
+        -:  373:        bigint ans;
+        -:  374:        ans.str = mod(n1.str, std::to_string(n2));
+        -:  375:        return ans;
+        -:  376:    }
+        -:  377:    friend bigint operator % (long long int n1, bigint const &n2) {
+        -:  378:        bigint ans;
+        -:  379:        ans.str = mod(std::to_string(n1), n2.str);
+        -:  380:        return ans;
+        -:  381:    }
+        -:  382:
+        -:  383:    // Extra shortcut feature
         -:  384:
-        -:  385:    /* Operator {>} Overloadings, for different kind of
-        -:  386:    parameter for the programmer's convinience  */
-        -:  387:
-        -:  388:    bool operator > (bigint const &n) {
-        -:  389:        return is_strictlyMaximum(str, n.str);
-        -:  390:    }
-        -:  391:    friend bool operator > (bigint const &n1, int n2) {
-        -:  392:        return is_strictlyMaximum(n1.str, std::to_string(n2));
-        -:  393:    }
-        -:  394:    friend bool operator > (int n1, bigint const &n2) {
-        -:  395:        return is_strictlyMaximum(std::to_string(n1), n2.str);
-        -:  396:    }
-        -:  397:    friend bool operator > (bigint const &n1, long int n2) {
-        -:  398:        return is_strictlyMaximum(n1.str, std::to_string(n2));
+        -:  385:    bigint& operator %= (bigint const n) {
+        -:  386:        (*this).str = mod((*this).str, n.str);
+        -:  387:        return (*this);
+        -:  388:    }
+        -:  389:
+        -:  390:    //-------------------------------------------------
+        -:  391:    //------------Increment and Decrement--------------
+        -:  392:    //-------------------------------------------------
+        -:  393:
+        -:  394:    /* Operator {++} Overloadings
+        -:  395:    for the pre incremention  */
+        -:  396:    bigint& operator ++ () {
+        -:  397:        (*this).str = add((*this).str, "1");
+        -:  398:        return (*this);
         -:  399:    }
-        -:  400:    friend bool operator > (long int n1, bigint const &n2) {
-        -:  401:        return is_strictlyMaximum(std::to_string(n1), n2.str);
-        -:  402:    }
-        -:  403:    friend bool operator > (bigint const &n1, long long int n2) {
-        -:  404:        return is_strictlyMaximum(n1.str, std::to_string(n2));
+        -:  400:    /* Operator {++} Overloadings
+        -:  401:    for the post incremention  */
+        -:  402:    bigint operator ++ (int) {
+        -:  403:        (*this).str = add((*this).str, "1");
+        -:  404:        return (*this);
         -:  405:    }
-        -:  406:    friend bool operator > (long long int n1, bigint const &n2) {
-        -:  407:        return is_strictlyMaximum(std::to_string(n1), n2.str);
-        -:  408:    }
-        -:  409:
-        -:  410:    /* Operator {<} Overloadings, for different kind of
-        -:  411:    parameter for the programmer's convinience  */
-        -:  412:
-        -:  413:    bool operator < (bigint const &n) {
-        -:  414:        return is_strictlyMinimum(str, n.str);
-        -:  415:    }
-        -:  416:    friend bool operator < (bigint const &n1, int n2) {
-        -:  417:        return is_strictlyMinimum(n1.str, std::to_string(n2));
-        -:  418:    }
-        -:  419:    friend bool operator < (int n1, bigint const &n2) {
-        -:  420:        return is_strictlyMinimum(std::to_string(n1), n2.str);
-        -:  421:    }
-        -:  422:    friend bool operator < (bigint const &n1, long int n2) {
-        -:  423:        return is_strictlyMinimum(n1.str, std::to_string(n2));
-        -:  424:    }
-        -:  425:    friend bool operator < (long int n1, bigint const &n2) {
-        -:  426:        return is_strictlyMinimum(std::to_string(n1), n2.str);
-        -:  427:    }
-        -:  428:    friend bool operator < (bigint const &n1, long long int n2) {
-        -:  429:        return is_strictlyMinimum(n1.str, std::to_string(n2));
+        -:  406:
+        -:  407:    /* Operator {--} Overloadings
+        -:  408:    for the pre decremention  */
+        -:  409:    bigint& operator -- () {
+        -:  410:        (*this).str = subtract((*this).str, "1");
+        -:  411:        return (*this);
+        -:  412:    }
+        -:  413:
+        -:  414:    /* Operator {--} Overloadings
+        -:  415:    for the post incremention  */
+        -:  416:    bigint operator -- (int) {
+        -:  417:        (*this).str = subtract((*this).str, "1");
+        -:  418:        return (*this);
+        -:  419:    }
+        -:  420:
+        -:  421:    //-------------------------------------------------
+        -:  422:    //------------Conditional Operators----------------
+        -:  423:    //-------------------------------------------------
+        -:  424:
+        -:  425:    /* Operator {>} Overloadings, for different kind of
+        -:  426:    parameter for the programmer's convinience  */
+        -:  427:
+        -:  428:    bool operator > (bigint const &n) {
+        -:  429:        return is_strictlyMaximum(str, n.str);
         -:  430:    }
-        -:  431:    friend bool operator < (long long int n1, bigint const &n2) {
-        -:  432:        return is_strictlyMinimum(std::to_string(n1), n2.str);
+        -:  431:    friend bool operator > (bigint const &n1, int n2) {
+        -:  432:        return is_strictlyMaximum(n1.str, std::to_string(n2));
         -:  433:    }
-        -:  434:
-        -:  435:    /* Operator {>=} Overloadings, for different kind of
-        -:  436:    parameter for the programmer's convinience  */
-        -:  437:
-        -:  438:    bool operator >= (bigint const &n) {
-        -:  439:        return is_maximum(str, n.str);
-        -:  440:    }
-        -:  441:    friend bool operator >= (bigint const &n1, int n2) {
-        -:  442:        return is_maximum(n1.str, std::to_string(n2));
-        -:  443:    }
-        -:  444:    friend bool operator >= (int n1, bigint const &n2) {
-        -:  445:        return is_maximum(std::to_string(n1), n2.str);
-        -:  446:    }
-        -:  447:    friend bool operator >= (bigint const &n1, long int n2) {
-        -:  448:        return is_maximum(n1.str, std::to_string(n2));
-        -:  449:    }
-        -:  450:    friend bool operator >= (long int n1, bigint const &n2) {
-        -:  451:        return is_maximum(std::to_string(n1), n2.str);
-        -:  452:    }
-        -:  453:    friend bool operator >= (bigint const &n1, long long int n2) {
-        -:  454:        return is_maximum(n1.str, std::to_string(n2));
+        -:  434:    friend bool operator > (int n1, bigint const &n2) {
+        -:  435:        return is_strictlyMaximum(std::to_string(n1), n2.str);
+        -:  436:    }
+        -:  437:    friend bool operator > (bigint const &n1, long int n2) {
+        -:  438:        return is_strictlyMaximum(n1.str, std::to_string(n2));
+        -:  439:    }
+        -:  440:    friend bool operator > (long int n1, bigint const &n2) {
+        -:  441:        return is_strictlyMaximum(std::to_string(n1), n2.str);
+        -:  442:    }
+        -:  443:    friend bool operator > (bigint const &n1, long long int n2) {
+        -:  444:        return is_strictlyMaximum(n1.str, std::to_string(n2));
+        -:  445:    }
+        -:  446:    friend bool operator > (long long int n1, bigint const &n2) {
+        -:  447:        return is_strictlyMaximum(std::to_string(n1), n2.str);
+        -:  448:    }
+        -:  449:
+        -:  450:    /* Operator {<} Overloadings, for different kind of
+        -:  451:    parameter for the programmer's convinience  */
+        -:  452:
+        -:  453:    bool operator < (bigint const &n) {
+        -:  454:        return is_strictlyMinimum(str, n.str);
         -:  455:    }
-        -:  456:    friend bool operator >= (long long int n1, bigint const &n2) {
-        -:  457:        return is_maximum(std::to_string(n1), n2.str);
+        -:  456:    friend bool operator < (bigint const &n1, int n2) {
+        -:  457:        return is_strictlyMinimum(n1.str, std::to_string(n2));
         -:  458:    }
-        -:  459:
-        -:  460:    /* Operator {<=} Overloadings, for different kind of
-        -:  461:    parameter for the programmer's convinience  */
-        -:  462:
-        -:  463:    bool operator <= (bigint const &n) {
-        -:  464:        return is_minimum(str, n.str);
-        -:  465:    }
-        -:  466:    friend bool operator <= (bigint const &n1, int n2) {
-        -:  467:        return is_minimum(n1.str, std::to_string(n2));
-        -:  468:    }
-        -:  469:    friend bool operator <= (int n1, bigint const &n2) {
-        -:  470:        return is_minimum(std::to_string(n1), n2.str);
-        -:  471:    }
-        -:  472:    friend bool operator <= (bigint const &n1, long int n2) {
-        -:  473:        return is_minimum(n1.str, std::to_string(n2));
-        -:  474:    }
-        -:  475:    friend bool operator <= (long int n1, bigint const &n2) {
-        -:  476:        return is_minimum(std::to_string(n1), n2.str);
-        -:  477:    }
-        -:  478:    friend bool operator <= (bigint const &n1, long long int n2) {
-        -:  479:        return is_minimum(n1.str, std::to_string(n2));
+        -:  459:    friend bool operator < (int n1, bigint const &n2) {
+        -:  460:        return is_strictlyMinimum(std::to_string(n1), n2.str);
+        -:  461:    }
+        -:  462:    friend bool operator < (bigint const &n1, long int n2) {
+        -:  463:        return is_strictlyMinimum(n1.str, std::to_string(n2));
+        -:  464:    }
+        -:  465:    friend bool operator < (long int n1, bigint const &n2) {
+        -:  466:        return is_strictlyMinimum(std::to_string(n1), n2.str);
+        -:  467:    }
+        -:  468:    friend bool operator < (bigint const &n1, long long int n2) {
+        -:  469:        return is_strictlyMinimum(n1.str, std::to_string(n2));
+        -:  470:    }
+        -:  471:    friend bool operator < (long long int n1, bigint const &n2) {
+        -:  472:        return is_strictlyMinimum(std::to_string(n1), n2.str);
+        -:  473:    }
+        -:  474:
+        -:  475:    /* Operator {>=} Overloadings, for different kind of
+        -:  476:    parameter for the programmer's convinience  */
+        -:  477:
+        -:  478:    bool operator >= (bigint const &n) {
+        -:  479:        return is_maximum(str, n.str);
         -:  480:    }
-        -:  481:    friend bool operator <= (long long int n1, bigint const &n2) {
-        -:  482:        return is_minimum(std::to_string(n1), n2.str);
+        -:  481:    friend bool operator >= (bigint const &n1, int n2) {
+        -:  482:        return is_maximum(n1.str, std::to_string(n2));
         -:  483:    }
-        -:  484:
-        -:  485:
-        -:  486:    /* Operator {==} Overloadings, for different kind of
-        -:  487:    parameter for the programmer's convinience  */
-        -:  488:
-        -:  489:    bool operator ==(bigint const &n) {
-        -:  490:        return (*this).str == n.str;
-        -:  491:    }
-        -:  492:    friend bool operator == (bigint const &n1, int n2) {
-        -:  493:        return n1.str == std::to_string(n2);
-        -:  494:    }
-        -:  495:    friend bool operator == (int n1, bigint const &n2) {
-        -:  496:        return std::to_string(n1) == n2.str;
-        -:  497:    }
-        -:  498:    friend bool operator == (bigint const &n1, long int n2) {
-        -:  499:        return n1.str == std::to_string(n2);
-        -:  500:    }
-        -:  501:    friend bool operator == (long int n1, bigint const &n2) {
-        -:  502:        return std::to_string(n1) == n2.str;
-        -:  503:    }
-        -:  504:    friend bool operator == (bigint const &n1, long long int n2) {
-        -:  505:        return n1.str == std::to_string(n2);
-        -:  506:    }
-        -:  507:    friend bool operator == (long long int n1, bigint const &n2) {
-        -:  508:        return std::to_string(n1) == n2.str;
-        -:  509:    }
-        -:  510:
-        -:  511:
-        -:  512:    /* Operator {!=} Overloadings, for different kind of
-        -:  513:    parameter for the programmer's convinience  */
-        -:  514:
-        -:  515:    bool operator !=(bigint const &n) {
-        -:  516:        return (*this).str != n.str;
+        -:  484:    friend bool operator >= (int n1, bigint const &n2) {
+        -:  485:        return is_maximum(std::to_string(n1), n2.str);
+        -:  486:    }
+        -:  487:    friend bool operator >= (bigint const &n1, long int n2) {
+        -:  488:        return is_maximum(n1.str, std::to_string(n2));
+        -:  489:    }
+        -:  490:    friend bool operator >= (long int n1, bigint const &n2) {
+        -:  491:        return is_maximum(std::to_string(n1), n2.str);
+        -:  492:    }
+        -:  493:    friend bool operator >= (bigint const &n1, long long int n2) {
+        -:  494:        return is_maximum(n1.str, std::to_string(n2));
+        -:  495:    }
+        -:  496:    friend bool operator >= (long long int n1, bigint const &n2) {
+        -:  497:        return is_maximum(std::to_string(n1), n2.str);
+        -:  498:    }
+        -:  499:
+        -:  500:    /* Operator {<=} Overloadings, for different kind of
+        -:  501:    parameter for the programmer's convinience  */
+        -:  502:
+        -:  503:    bool operator <= (bigint const &n) {
+        -:  504:        return is_minimum(str, n.str);
+        -:  505:    }
+        -:  506:    friend bool operator <= (bigint const &n1, int n2) {
+        -:  507:        return is_minimum(n1.str, std::to_string(n2));
+        -:  508:    }
+        -:  509:    friend bool operator <= (int n1, bigint const &n2) {
+        -:  510:        return is_minimum(std::to_string(n1), n2.str);
+        -:  511:    }
+        -:  512:    friend bool operator <= (bigint const &n1, long int n2) {
+        -:  513:        return is_minimum(n1.str, std::to_string(n2));
+        -:  514:    }
+        -:  515:    friend bool operator <= (long int n1, bigint const &n2) {
+        -:  516:        return is_minimum(std::to_string(n1), n2.str);
         -:  517:    }
-        -:  518:    friend bool operator != (bigint const &n1, int n2) {
-        -:  519:        return n1.str != std::to_string(n2);
+        -:  518:    friend bool operator <= (bigint const &n1, long long int n2) {
+        -:  519:        return is_minimum(n1.str, std::to_string(n2));
         -:  520:    }
-        -:  521:    friend bool operator != (int n1, bigint const &n2) {
-        -:  522:        return std::to_string(n1) != n2.str;
+        -:  521:    friend bool operator <= (long long int n1, bigint const &n2) {
+        -:  522:        return is_minimum(std::to_string(n1), n2.str);
         -:  523:    }
-        -:  524:    friend bool operator != (bigint const &n1, long int n2) {
-        -:  525:        return n1.str != std::to_string(n2);
-        -:  526:    }
-        -:  527:    friend bool operator != (long int n1, bigint const &n2) {
-        -:  528:        return std::to_string(n1) != n2.str;
-        -:  529:    }
-        -:  530:    friend bool operator != (bigint const &n1, long long int n2) {
-        -:  531:        return n1.str != std::to_string(n2);
-        -:  532:    }
-        -:  533:    friend bool operator != (long long int n1, bigint const &n2) {
-        -:  534:        return std::to_string(n1) != n2.str;
-        -:  535:    }
-        -:  536:
-        -:  537:    //-----------------------------------------------------------
-        -:  538:    //--------Function Definitions for External Uses-------------
-        -:  539:    //-----------------------------------------------------------
-        -:  540:
-        -:  541:
-        -:  542:    static bigint _big_max(bigint &a, bigint &b) {     // returns the maximum value between two Big Integers.
-        -:  543:        bigint ans;
-        -:  544:        ans.str = maximum(a.str, b.str);
-        -:  545:        return ans;
+        -:  524:
+        -:  525:
+        -:  526:    /* Operator {==} Overloadings, for different kind of
+        -:  527:    parameter for the programmer's convinience  */
+        -:  528:
+        -:  529:    bool operator ==(bigint const &n) {
+        -:  530:        return (*this).str == n.str;
+        -:  531:    }
+        -:  532:    friend bool operator == (bigint const &n1, int n2) {
+        -:  533:        return n1.str == std::to_string(n2);
+        -:  534:    }
+        -:  535:    friend bool operator == (int n1, bigint const &n2) {
+        -:  536:        return std::to_string(n1) == n2.str;
+        -:  537:    }
+        -:  538:    friend bool operator == (bigint const &n1, long int n2) {
+        -:  539:        return n1.str == std::to_string(n2);
+        -:  540:    }
+        -:  541:    friend bool operator == (long int n1, bigint const &n2) {
+        -:  542:        return std::to_string(n1) == n2.str;
+        -:  543:    }
+        -:  544:    friend bool operator == (bigint const &n1, long long int n2) {
+        -:  545:        return n1.str == std::to_string(n2);
         -:  546:    }
-        -:  547:    static bigint _big_min(bigint &a, bigint &b) {      // returns the minimum value between two Big Integers.
-        -:  548:        bigint ans;
-        -:  549:        ans.str = minimum(a.str, b.str);
-        -:  550:        return ans;
-        -:  551:    }
-        -:  552:    static bigint _big_abs(bigint &a) {                 // returns the absolute value of Big Integer.
-        -:  553:        bigint ans;
-        -:  554:        ans.str = abs(a.str);
-        -:  555:        return ans;
-        -:  556:    }
-        -:  557:    static bigint _big_pow(bigint a, bigint b) {      // returns the power value between two Big Integers i.e., a^b, ^ -> power
-        -:  558:        bigint ans;
-        -:  559:        ans.str = pow(a.str, b.str);
-        -:  560:        return ans;
-        -:  561:    }
-        -:  562:    static bigint _big_sqrt(bigint &a) {                // returns the square root value of Big Integer.
-        -:  563:        bigint ans;
-        -:  564:        ans.str = sqrt(a.str);
-        -:  565:        return ans;
+        -:  547:    friend bool operator == (long long int n1, bigint const &n2) {
+        -:  548:        return std::to_string(n1) == n2.str;
+        -:  549:    }
+        -:  550:
+        -:  551:
+        -:  552:    /* Operator {!=} Overloadings, for different kind of
+        -:  553:    parameter for the programmer's convinience  */
+        -:  554:
+        -:  555:    bool operator !=(bigint const &n) {
+        -:  556:        return (*this).str != n.str;
+        -:  557:    }
+        -:  558:    friend bool operator != (bigint const &n1, int n2) {
+        -:  559:        return n1.str != std::to_string(n2);
+        -:  560:    }
+        -:  561:    friend bool operator != (int n1, bigint const &n2) {
+        -:  562:        return std::to_string(n1) != n2.str;
+        -:  563:    }
+        -:  564:    friend bool operator != (bigint const &n1, long int n2) {
+        -:  565:        return n1.str != std::to_string(n2);
         -:  566:    }
-        -:  567:    static bigint _big_log2(bigint &a) {                // returns the log of Big Integer to the base of 2.
-        -:  568:        bigint ans;
-        -:  569:        ans.str = log2(a.str);
-        -:  570:        return ans;
-        -:  571:    }
-        -:  572:    static bigint _big_log10(bigint &a) {               // returns the log of Big Integer to the base of 10.
-        -:  573:        bigint ans;
-        -:  574:        ans.str = log10(a.str);
-        -:  575:        return ans;
-        -:  576:    }
-        -:  577:    static bigint _big_logwithbase(bigint &a, bigint &b) {  // returns the log of Big Integer(a) to the base of (b).
-        -:  578:        bigint ans;
-        -:  579:        ans.str = logwithbase(a.str, b.str);
-        -:  580:        return ans;
-        -:  581:    }
-        -:  582:    static bigint _big_antilog2(bigint &a) {        // returns the antilog of Big Integer to the base of 2.
+        -:  567:    friend bool operator != (long int n1, bigint const &n2) {
+        -:  568:        return std::to_string(n1) != n2.str;
+        -:  569:    }
+        -:  570:    friend bool operator != (bigint const &n1, long long int n2) {
+        -:  571:        return n1.str != std::to_string(n2);
+        -:  572:    }
+        -:  573:    friend bool operator != (long long int n1, bigint const &n2) {
+        -:  574:        return std::to_string(n1) != n2.str;
+        -:  575:    }
+        -:  576:
+        -:  577:    //-----------------------------------------------------------
+        -:  578:    //--------Function Definitions for External Uses-------------
+        -:  579:    //-----------------------------------------------------------
+        -:  580:
+        -:  581:
+        -:  582:    static bigint _big_max(bigint &a, bigint &b) {     // returns the maximum value between two Big Integers.
         -:  583:        bigint ans;
-        -:  584:        ans.str = antilog2(a.str);
+        -:  584:        ans.str = maximum(a.str, b.str);
         -:  585:        return ans;
         -:  586:    }
-        -:  587:    static bigint _big_antilog10(bigint &a) {       // returns the antilog of Big Integer to the base of 10.
+        -:  587:    static bigint _big_min(bigint &a, bigint &b) {      // returns the minimum value between two Big Integers.
         -:  588:        bigint ans;
-        -:  589:        ans.str = antilog10(a.str);
+        -:  589:        ans.str = minimum(a.str, b.str);
         -:  590:        return ans;
         -:  591:    }
-        -:  592:    static void _big_swap(bigint &a, bigint &b) {     // swaps the two Big Integers.
-        -:  593:        swap(a.str, b.str);
-        -:  594:    }
-        -:  595:    static bigint _big_reverse(bigint &a) {             //Reverses the Big Integer.
-        -:  596:        bigint ans;
-        -:  597:        ans.str = reverse(a.str);
-        -:  598:        return ans;
-        -:  599:    }
-        -:  600:    static bigint _big_gcd(bigint &a, bigint &b) {         // returns the gcd of Big Integers a and b.
-        -:  601:        bigint ans;
-        -:  602:        ans.str = gcd(a.str, b.str);
-        -:  603:        return ans;
-        -:  604:    }
-        -:  605:    static bigint _big_lcm(bigint &a, bigint &b) {          // returns the lcm of Big Integers a and b.
-        -:  606:        bigint ans;
-        -:  607:        ans.str = lcm(a.str, b.str);
-        -:  608:        return ans;
-        -:  609:    }
-        -:  610:    static bigint _big_fact(bigint &a) {                    // returns the factorial of Big Integer.
-        -:  611:        bigint ans;
-        -:  612:        ans.str = fact(a.str);
-        -:  613:        return ans;
-        -:  614:    }
-        -:  615:    static bool _big_isPalindrome(bigint &a) {              // Check if the Big Integer is Palindromic Integer.
-        -:  616:        return isPalindrome(a.str);
-        -:  617:    }
-        -:  618:    static bool _big_isPrime(bigint &a) {                   // Check if the Big Integer is Prime Integer.
-        -:  619:        return isPrime(a.str);
-        -:  620:    }
-        -:  621:
-        -:  622:    // to biginteger functions
-        -:  623:
-        -:  624:    static bigint _to_bigint(std::string s) {
-        -:  625:        bigint ans;
-        -:  626:        ans.str = s;
-        -:  627:        return ans;
-        -:  628:    }
-        -:  629:    static bigint _to_bigint(int n) {
-        -:  630:        bigint ans;
-        -:  631:        ans.str = std::to_string(n);
-        -:  632:        return ans;
-        -:  633:    }
-        -:  634:    static bigint _to_bigint(long int n) {
-        -:  635:        bigint ans;
-        -:  636:        ans.str = std::to_string(n);
-        -:  637:        return ans;
-        -:  638:    }
-        -:  639:    static bigint _to_bigint(long long int n) {
-        -:  640:        bigint ans;
-        -:  641:        ans.str = std::to_string(n);
-        -:  642:        return ans;
-        -:  643:    }
-        -:  644:
-        -:  645:};
+        -:  592:    static bigint _big_abs(bigint &a) {                 // returns the absolute value of Big Integer.
+        -:  593:        bigint ans;
+        -:  594:        ans.str = abs(a.str);
+        -:  595:        return ans;
+        -:  596:    }
+        -:  597:    static bigint _big_pow(bigint &a, bigint &b) {      // returns the power value between two Big Integers i.e., a^b, ^ -> power
+        -:  598:        bigint ans;
+        -:  599:        ans.str = pow(a.str, b.str);
+        -:  600:        return ans;
+        -:  601:    }
+        -:  602:    static bigint _big_sqrt(bigint &a) {                // returns the square root value of Big Integer.
+        -:  603:        bigint ans;
+        -:  604:        ans.str = sqrt(a.str);
+        -:  605:        return ans;
+        -:  606:    }
+        -:  607:    static bigint _big_log2(bigint &a) {                // returns the log of Big Integer to the base of 2.
+        -:  608:        bigint ans;
+        -:  609:        ans.str = log2(a.str);
+        -:  610:        return ans;
+        -:  611:    }
+        -:  612:    static bigint _big_log10(bigint &a) {               // returns the log of Big Integer to the base of 10.
+        -:  613:        bigint ans;
+        -:  614:        ans.str = log10(a.str);
+        -:  615:        return ans;
+        -:  616:    }
+        -:  617:    static bigint _big_logwithbase(bigint &a, bigint &b) {  // returns the log of Big Integer(a) to the base of (b).
+        -:  618:        bigint ans;
+        -:  619:        ans.str = logwithbase(a.str, b.str);
+        -:  620:        return ans;
+        -:  621:    }
+        -:  622:    static bigint _big_antilog2(bigint &a) {        // returns the antilog of Big Integer to the base of 2.
+        -:  623:        bigint ans;
+        -:  624:        ans.str = antilog2(a.str);
+        -:  625:        return ans;
+        -:  626:    }
+        -:  627:    static bigint _big_antilog10(bigint &a) {       // returns the antilog of Big Integer to the base of 10.
+        -:  628:        bigint ans;
+        -:  629:        ans.str = antilog10(a.str);
+        -:  630:        return ans;
+        -:  631:    }
+        -:  632:    static void _big_swap(bigint &a, bigint &b) {     // swaps the two Big Integers.
+        -:  633:        swap(a.str, b.str);
+        -:  634:    }
+        -:  635:    static bigint _big_reverse(bigint &a) {             //Reverses the Big Integer.
+        -:  636:        bigint ans;
+        -:  637:        ans.str = reverse(a.str);
+        -:  638:        return ans;
+        -:  639:    }
+        -:  640:    static bigint _big_gcd(bigint &a, bigint &b) {         // returns the gcd of Big Integers a and b.
+        -:  641:        bigint ans;
+        -:  642:        ans.str = gcd(a.str, b.str);
+        -:  643:        return ans;
+        -:  644:    }
+        -:  645:    static bigint _big_lcm(bigint &a, bigint &b) {          // returns the lcm of Big Integers a and b.
+        -:  646:        bigint ans;
+        -:  647:        ans.str = lcm(a.str, b.str);
+        -:  648:        return ans;
+        -:  649:    }
+        -:  650:    static bigint _big_fact(bigint &a) {                    // returns the factorial of Big Integer.
+        -:  651:        bigint ans;
+        -:  652:        ans.str = fact(a.str);
+        -:  653:        return ans;
+        -:  654:    }
+        -:  655:    static bool _big_isPalindrome(bigint &a) {              // Check if the Big Integer is Palindromic Integer.
+        -:  656:        return isPalindrome(a.str);
+        -:  657:    }
+        -:  658:    static bool _big_isPrime(bigint &a) {                   // Check if the Big Integer is Prime Integer.
+        -:  659:        return isPrime(a.str);
+        -:  660:    }
+        -:  661:
+        -:  662:    // to biginteger functions
+        -:  663:
+        -:  664:    static bigint _to_bigint(std::string s) {
+        -:  665:        bigint ans;
+        -:  666:        ans.str = s;
+        -:  667:        return ans;
+        -:  668:    }
+        -:  669:    static bigint _to_bigint(int n) {
+        -:  670:        bigint ans;
+        -:  671:        ans.str = std::to_string(n);
+        -:  672:        return ans;
+        -:  673:    }
+        -:  674:    static bigint _to_bigint(long int n) {
+        -:  675:        bigint ans;
+        -:  676:        ans.str = std::to_string(n);
+        -:  677:        return ans;
+        -:  678:    }
+        -:  679:    static bigint _to_bigint(long long int n) {
+        -:  680:        bigint ans;
+        -:  681:        ans.str = std::to_string(n);
+        -:  682:        return ans;
+        -:  683:    }
+        -:  684:
+        -:  685:};

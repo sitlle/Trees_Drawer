@@ -98,10 +98,10 @@
         -:   94:	pointer _M_finish;
         -:   95:	pointer _M_end_of_storage;
         -:   96:
-function _ZNSt12_Vector_baseIN2sf6VertexESaIS1_EE17_Vector_impl_dataC2Ev called 113710 returned 100% blocks executed 100%
-   113710:   97:	_Vector_impl_data() _GLIBCXX_NOEXCEPT
-   113710:   98:	: _M_start(), _M_finish(), _M_end_of_storage()
-   113710:   99:	{ }
+function _ZNSt12_Vector_baseIN2sf6VertexESaIS1_EE17_Vector_impl_dataC2Ev called 122920 returned 100% blocks executed 100%
+   122920:   97:	_Vector_impl_data() _GLIBCXX_NOEXCEPT
+   122920:   98:	: _M_start(), _M_finish(), _M_end_of_storage()
+   122920:   99:	{ }
         -:  100:
         -:  101:#if __cplusplus >= 201103L
         -:  102:	_Vector_impl_data(_Vector_impl_data&& __x) noexcept
@@ -138,13 +138,13 @@ function _ZNSt12_Vector_baseIN2sf6VertexESaIS1_EE17_Vector_impl_dataC2Ev called 
         -:  133:	: _Tp_alloc_type()
         -:  134:	{ }
         -:  135:
-function _ZNSt12_Vector_baseIN2sf6VertexESaIS1_EE12_Vector_implC2ERKS2_ called 113710 returned 100% blocks executed 100%
-   113710:  136:	_Vector_impl(_Tp_alloc_type const& __a) _GLIBCXX_NOEXCEPT
-   113710:  137:	: _Tp_alloc_type(__a)
-   113710:  137-block  0
-call    0 returned 113710
-call    1 returned 113710
-   113710:  138:	{ }
+function _ZNSt12_Vector_baseIN2sf6VertexESaIS1_EE12_Vector_implC2ERKS2_ called 122920 returned 100% blocks executed 100%
+   122920:  136:	_Vector_impl(_Tp_alloc_type const& __a) _GLIBCXX_NOEXCEPT
+   122920:  137:	: _Tp_alloc_type(__a)
+   122920:  137-block  0
+call    0 returned 122920
+call    1 returned 122920
+   122920:  138:	{ }
         -:  139:
         -:  140:#if __cplusplus >= 201103L
         -:  141:	// Not defaulted, to enforce noexcept(true) even when
@@ -288,10 +288,10 @@ function _ZNSt12_Vector_baseIN2sf6VertexESaIS1_EE19_M_get_Tp_allocatorEv called 
     %%%%%:  277-block  0
         -:  278:
         -:  279:      const _Tp_alloc_type&
-function _ZNKSt12_Vector_baseIN2sf6VertexESaIS1_EE19_M_get_Tp_allocatorEv called 113710 returned 100% blocks executed 100%
-   113710:  280:      _M_get_Tp_allocator() const _GLIBCXX_NOEXCEPT
-   113710:  281:      { return this->_M_impl; }
-   113710:  281-block  0
+function _ZNKSt12_Vector_baseIN2sf6VertexESaIS1_EE19_M_get_Tp_allocatorEv called 122920 returned 100% blocks executed 100%
+   122920:  280:      _M_get_Tp_allocator() const _GLIBCXX_NOEXCEPT
+   122920:  281:      { return this->_M_impl; }
+   122920:  281-block  0
         -:  282:
         -:  283:      allocator_type
         -:  284:      get_allocator() const _GLIBCXX_NOEXCEPT
@@ -313,16 +313,16 @@ function _ZNKSt12_Vector_baseIN2sf6VertexESaIS1_EE19_M_get_Tp_allocatorEv called
         -:  300:      { _M_create_storage(__n); }
         -:  301:#endif
         -:  302:
-function _ZNSt12_Vector_baseIN2sf6VertexESaIS1_EEC2EmRKS2_ called 113710 returned 100% blocks executed 80%
-   113710:  303:      _Vector_base(size_t __n, const allocator_type& __a)
-   113710:  304:      : _M_impl(__a)
-   113710:  304-block  0
-call    0 returned 113710
-   113710:  305:      { _M_create_storage(__n); }
-call    0 returned 113710
-branch  1 taken 113710 (fallthrough)
+function _ZNSt12_Vector_baseIN2sf6VertexESaIS1_EEC2EmRKS2_ called 122920 returned 100% blocks executed 80%
+   122920:  303:      _Vector_base(size_t __n, const allocator_type& __a)
+   122920:  304:      : _M_impl(__a)
+   122920:  304-block  0
+call    0 returned 122920
+   122920:  305:      { _M_create_storage(__n); }
+call    0 returned 122920
+branch  1 taken 122920 (fallthrough)
 branch  2 taken 0 (throw)
-   113710:  305-block  0
+   122920:  305-block  0
     $$$$$:  305-block  1
 call    3 never executed
         -:  306:
@@ -366,18 +366,18 @@ call    0 never executed
         -:  340:      _Vector_impl _M_impl;
         -:  341:
         -:  342:      pointer
-function _ZNSt12_Vector_baseIN2sf6VertexESaIS1_EE11_M_allocateEm called 113710 returned 100% blocks executed 67%
-   113710:  343:      _M_allocate(size_t __n)
+function _ZNSt12_Vector_baseIN2sf6VertexESaIS1_EE11_M_allocateEm called 122920 returned 100% blocks executed 67%
+   122920:  343:      _M_allocate(size_t __n)
         -:  344:      {
         -:  345:	typedef __gnu_cxx::__alloc_traits<_Tp_alloc_type> _Tr;
-  113710*:  346:	return __n != 0 ? _Tr::allocate(_M_impl, __n) : pointer();
-   113710:  346-block  0
+  122920*:  346:	return __n != 0 ? _Tr::allocate(_M_impl, __n) : pointer();
+   122920:  346-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 113710
+branch  1 taken 122920
     %%%%%:  346-block  1
 call    2 never executed
-   113710:  346-block  2
-   113710:  346-block  3
+   122920:  346-block  2
+   122920:  346-block  3
         -:  347:      }
         -:  348:
         -:  349:      void
@@ -396,15 +396,15 @@ call    0 never executed
         -:  356:
         -:  357:    protected:
         -:  358:      void
-function _ZNSt12_Vector_baseIN2sf6VertexESaIS1_EE17_M_create_storageEm called 113710 returned 100% blocks executed 100%
-   113710:  359:      _M_create_storage(size_t __n)
+function _ZNSt12_Vector_baseIN2sf6VertexESaIS1_EE17_M_create_storageEm called 122920 returned 100% blocks executed 100%
+   122920:  359:      _M_create_storage(size_t __n)
         -:  360:      {
-   113710:  361:	this->_M_impl._M_start = this->_M_allocate(__n);
-   113710:  361-block  0
-call    0 returned 113710
-   113710:  362:	this->_M_impl._M_finish = this->_M_impl._M_start;
-   113710:  363:	this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __n;
-   113710:  364:      }
+   122920:  361:	this->_M_impl._M_start = this->_M_allocate(__n);
+   122920:  361-block  0
+call    0 returned 122920
+   122920:  362:	this->_M_impl._M_finish = this->_M_impl._M_start;
+   122920:  363:	this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __n;
+   122920:  364:      }
         -:  365:    };
         -:  366:
         -:  367:  /**
@@ -593,36 +593,36 @@ call    0 returned 113710
         -:  550:       *  The newly-created %vector uses a copy of the allocator object used
         -:  551:       *  by @a __x (unless the allocator traits dictate a different object).
         -:  552:       */
-function _ZNSt6vectorIN2sf6VertexESaIS1_EEC2ERKS3_ called 113710 returned 100% blocks executed 73%
-   113710:  553:      vector(const vector& __x)
+function _ZNSt6vectorIN2sf6VertexESaIS1_EEC2ERKS3_ called 122920 returned 100% blocks executed 73%
+   122920:  553:      vector(const vector& __x)
         -:  554:      : _Base(__x.size(),
-   113710:  555:	_Alloc_traits::_S_select_on_copy(__x._M_get_Tp_allocator()))
-   113710:  555-block  0
-call    0 returned 113710
-call    1 returned 113710
-call    2 returned 113710
-call    3 returned 113710
-branch  4 taken 113710 (fallthrough)
+   122920:  555:	_Alloc_traits::_S_select_on_copy(__x._M_get_Tp_allocator()))
+   122920:  555-block  0
+call    0 returned 122920
+call    1 returned 122920
+call    2 returned 122920
+call    3 returned 122920
+branch  4 taken 122920 (fallthrough)
 branch  5 taken 0 (throw)
-   113710:  555-block  1
-call    6 returned 113710
+   122920:  555-block  1
+call    6 returned 122920
     $$$$$:  555-block  2
 call    7 never executed
     $$$$$:  555-block  3
 call    8 never executed
         -:  556:      {
-   113710:  557:	this->_M_impl._M_finish =
-   113710:  558:	  std::__uninitialized_copy_a(__x.begin(), __x.end(),
-call    0 returned 113710
-call    1 returned 113710
-call    2 returned 113710
-branch  3 taken 113710 (fallthrough)
+   122920:  557:	this->_M_impl._M_finish =
+   122920:  558:	  std::__uninitialized_copy_a(__x.begin(), __x.end(),
+call    0 returned 122920
+call    1 returned 122920
+call    2 returned 122920
+branch  3 taken 122920 (fallthrough)
 branch  4 taken 0 (throw)
         -:  559:				      this->_M_impl._M_start,
-   113710:  560:				      _M_get_Tp_allocator());
-call    0 returned 113710
-   113710:  561:      }
-   113710:  561-block  0
+   122920:  560:				      _M_get_Tp_allocator());
+call    0 returned 122920
+   122920:  561:      }
+   122920:  561-block  0
     $$$$$:  561-block  1
 call    0 never executed
         -:  562:
@@ -888,11 +888,11 @@ call    0 never executed
         -:  817:       *  element order.
         -:  818:       */
         -:  819:      const_iterator
-function _ZNKSt6vectorIN2sf6VertexESaIS1_EE5beginEv called 113710 returned 100% blocks executed 100%
-   113710:  820:      begin() const _GLIBCXX_NOEXCEPT
-   113710:  821:      { return const_iterator(this->_M_impl._M_start); }
-   113710:  821-block  0
-call    0 returned 113710
+function _ZNKSt6vectorIN2sf6VertexESaIS1_EE5beginEv called 122920 returned 100% blocks executed 100%
+   122920:  820:      begin() const _GLIBCXX_NOEXCEPT
+   122920:  821:      { return const_iterator(this->_M_impl._M_start); }
+   122920:  821-block  0
+call    0 returned 122920
         -:  822:
         -:  823:      /**
         -:  824:       *  Returns a read/write iterator that points one past the last
@@ -909,11 +909,11 @@ call    0 returned 113710
         -:  835:       *  ordinary element order.
         -:  836:       */
         -:  837:      const_iterator
-function _ZNKSt6vectorIN2sf6VertexESaIS1_EE3endEv called 113710 returned 100% blocks executed 100%
-   113710:  838:      end() const _GLIBCXX_NOEXCEPT
-   113710:  839:      { return const_iterator(this->_M_impl._M_finish); }
-   113710:  839-block  0
-call    0 returned 113710
+function _ZNKSt6vectorIN2sf6VertexESaIS1_EE3endEv called 122920 returned 100% blocks executed 100%
+   122920:  838:      end() const _GLIBCXX_NOEXCEPT
+   122920:  839:      { return const_iterator(this->_M_impl._M_finish); }
+   122920:  839-block  0
+call    0 returned 122920
         -:  840:
         -:  841:      /**
         -:  842:       *  Returns a read/write reverse iterator that points to the
@@ -992,10 +992,10 @@ call    0 returned 113710
         -:  915:      // [23.2.4.2] capacity
         -:  916:      /**  Returns the number of elements in the %vector.  */
         -:  917:      size_type
-function _ZNKSt6vectorIN2sf6VertexESaIS1_EE4sizeEv called 113710 returned 100% blocks executed 100%
-   113710:  918:      size() const _GLIBCXX_NOEXCEPT
-   113710:  919:      { return size_type(this->_M_impl._M_finish - this->_M_impl._M_start); }
-   113710:  919-block  0
+function _ZNKSt6vectorIN2sf6VertexESaIS1_EE4sizeEv called 122920 returned 100% blocks executed 100%
+   122920:  918:      size() const _GLIBCXX_NOEXCEPT
+   122920:  919:      { return size_type(this->_M_impl._M_finish - this->_M_impl._M_start); }
+   122920:  919-block  0
         -:  920:
         -:  921:      /**  Returns the size() of the largest possible %vector.  */
         -:  922:      size_type

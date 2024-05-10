@@ -1144,13 +1144,17 @@ function _ZNK9__gnu_cxx17__normal_iteratorIPKN2sf6VertexESt6vectorIS2_SaIS2_EEE4
         -: 1133:
         -: 1134:  template<typename _Iterator, typename _Container>
         -: 1135:    constexpr bool
-        -: 1136:    operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+function _ZN9__gnu_cxxeqIPKN2sf6VertexESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_ called 0 returned 0% blocks executed 0%
+    #####: 1136:    operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
         -: 1137:	       const __normal_iterator<_Iterator, _Container>& __rhs)
         -: 1138:    noexcept(noexcept(__lhs.base() == __rhs.base()))
         -: 1139:    requires requires {
         -: 1140:      { __lhs.base() == __rhs.base() } -> std::convertible_to<bool>;
         -: 1141:    }
-        -: 1142:    { return __lhs.base() == __rhs.base(); }
+    #####: 1142:    { return __lhs.base() == __rhs.base(); }
+    %%%%%: 1142-block  0
+call    0 never executed
+call    1 never executed
         -: 1143:
         -: 1144:  template<typename _Iterator, typename _Container>
         -: 1145:    constexpr std::__detail::__synth3way_t<_Iterator>
@@ -1187,14 +1191,10 @@ function _ZNK9__gnu_cxx17__normal_iteratorIPKN2sf6VertexESt6vectorIS2_SaIS2_EEE4
         -: 1176:  template<typename _Iterator, typename _Container>
         -: 1177:    _GLIBCXX20_CONSTEXPR
         -: 1178:    inline bool
-function _ZN9__gnu_cxxneIPKN2sf6VertexESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_ called 0 returned 0% blocks executed 0%
-    #####: 1179:    operator!=(const __normal_iterator<_Iterator, _Container>& __lhs,
+        -: 1179:    operator!=(const __normal_iterator<_Iterator, _Container>& __lhs,
         -: 1180:	       const __normal_iterator<_Iterator, _Container>& __rhs)
         -: 1181:    _GLIBCXX_NOEXCEPT
-    #####: 1182:    { return __lhs.base() != __rhs.base(); }
-    %%%%%: 1182-block  0
-call    0 never executed
-call    1 never executed
+        -: 1182:    { return __lhs.base() != __rhs.base(); }
         -: 1183:
         -: 1184:  // Random access iterator requirements
         -: 1185:  template<typename _IteratorL, typename _IteratorR, typename _Container>

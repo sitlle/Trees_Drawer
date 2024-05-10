@@ -2,22 +2,40 @@
         -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcno
         -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcda
         -:    0:Runs:1
-        -:    1:#include"Node_Options.h"
+        -:    1:#pragma once
         -:    2:#include"Random.h"
-        -:    3:#pragma once
-        -:    4:
-        -:    5:struct Node_DD {
+        -:    3:
+        -:    4:struct Node_DD {
+        -:    5:    Node_Options param;
         -:    6:    int64_t val;
         -:    7:    int64_t priority;
-        -:    8:    Node_Options param;
-        -:    9:    Node_DD* left;
-        -:   10:    Node_DD* right;
-function _ZN7Node_DDC2ERKl called 44 returned 100% blocks executed 100%
-       44:   11:    explicit Node_DD(const int64_t& _val) : val(_val), priority(get_random()),
-       44:   11-block  0
-call    0 returned 44
-       44:   12:                                            left(nullptr), right(nullptr),
-       44:   13:                                            param() {}
-call    0 returned 44
+        -:    8:    Node_DD* left;
+        -:    9:    Node_DD* right;
+        -:   10:    int32_t height = 0;
+        -:   11:
+        -:   12:    Node_DD() = default;
+        -:   13:
         -:   14:    ~Node_DD() = default;
-        -:   15:};
+        -:   15:
+        -:   16:    Node_DD(Node_DD const& other) {
+        -:   17:        param = other.param;
+        -:   18:        val = other.val;
+        -:   19:        priority = other.priority;
+        -:   20:        left = other.left;
+        -:   21:        right = other.right;
+        -:   22:        height = other.height;
+        -:   23:    }
+        -:   24:
+function _ZN7Node_DDC2Eli called 26 returned 100% blocks executed 80%
+       52:   25:    explicit Node_DD(int64_t _val = 0, int32_t _height = -1) : val(_val),
+       26:   26:            height(_height + 1), priority(get_random()),
+call    0 returned 26
+branch  1 taken 26 (fallthrough)
+branch  2 taken 0 (throw)
+       52:   27:            left(nullptr), right(nullptr) {}
+       26:   27-block  0
+call    0 returned 26
+       26:   27-block  1
+    $$$$$:   27-block  2
+call    1 never executed
+        -:   28:};

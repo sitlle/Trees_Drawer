@@ -464,8 +464,12 @@
         -:  460:       *  Calls @c a.allocate(n)
         -:  461:      */
         -:  462:      _GLIBCXX_NODISCARD static _GLIBCXX20_CONSTEXPR pointer
-        -:  463:      allocate(allocator_type& __a, size_type __n)
-        -:  464:      { return __a.allocate(__n); }
+function _ZNSt16allocator_traitsISaIcEE8allocateERS0_m called 660 returned 100% blocks executed 75%
+      660:  463:      allocate(allocator_type& __a, size_type __n)
+      660:  463-block  0
+call    0 returned 660
+      660:  464:      { return __a.allocate(__n); }
+      660:  464-block  0
         -:  465:
         -:  466:      /**
         -:  467:       *  @brief  Allocate memory.
@@ -496,11 +500,23 @@
         -:  492:       *  Calls <tt> a.deallocate(p, n) </tt>
         -:  493:      */
         -:  494:      static _GLIBCXX20_CONSTEXPR void
-function _ZNSt16allocator_traitsISaIjEE10deallocateERS0_Pjm called 511276 returned 100% blocks executed 100%
-   511276:  495:      deallocate(allocator_type& __a, pointer __p, size_type __n)
-   511276:  496:      { __a.deallocate(__p, __n); }
-   511276:  496-block  0
-call    0 returned 511276
+   496034:  495:      deallocate(allocator_type& __a, pointer __p, size_type __n)
+   496034:  496:      { __a.deallocate(__p, __n); }
+------------------
+_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm:
+function _ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm called 4 returned 100% blocks executed 67%
+        4:  495:      deallocate(allocator_type& __a, pointer __p, size_type __n)
+        4:  495-block  0
+call    0 returned 4
+        4:  496:      { __a.deallocate(__p, __n); }
+------------------
+_ZNSt16allocator_traitsISaIjEE10deallocateERS0_Pjm:
+function _ZNSt16allocator_traitsISaIjEE10deallocateERS0_Pjm called 496030 returned 100% blocks executed 67%
+   496030:  495:      deallocate(allocator_type& __a, pointer __p, size_type __n)
+   496030:  495-block  0
+call    0 returned 496030
+   496030:  496:      { __a.deallocate(__p, __n); }
+------------------
         -:  497:
         -:  498:      /**
         -:  499:       *  @brief  Construct an object of type `_Up`
@@ -551,12 +567,14 @@ call    0 returned 511276
         -:  544:       *  @return @c __a.max_size()
         -:  545:      */
         -:  546:      static _GLIBCXX20_CONSTEXPR size_type
-        -:  547:      max_size(const allocator_type& __a __attribute__((__unused__))) noexcept
+function _ZNSt16allocator_traitsISaIcEE8max_sizeERKS0_ called 81517 returned 100% blocks executed 100%
+    81517:  547:      max_size(const allocator_type& __a __attribute__((__unused__))) noexcept
         -:  548:      {
         -:  549:#if __cplusplus <= 201703L
         -:  550:	return __a.max_size();
         -:  551:#else
-        -:  552:	return size_t(-1) / sizeof(value_type);
+    81517:  552:	return size_t(-1) / sizeof(value_type);
+    81517:  552-block  0
         -:  553:#endif
         -:  554:      }
         -:  555:

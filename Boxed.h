@@ -1,23 +1,24 @@
 #include<SFML/Graphics.hpp>
+using namespace sf;
 #pragma once
 
 static void DrawBox(sf::RenderWindow& Main_Window, sf::Vector2f& position,
              sf::Vector2f& size, sf::Color COLOR = sf::Color::White) {
     sf::Vertex line1[] = {
-            sf::Vertex(sf::Vector2f(position.x, position.y), COLOR),
-            sf::Vertex(sf::Vector2f(position.x + size.x, position.y),COLOR)
+            Vertex(sf::Vector2f(position.x, position.y), COLOR),
+            Vertex(sf::Vector2f(position.x + size.x, position.y),COLOR)
     };
     sf::Vertex line2[] = {
-            sf::Vertex(sf::Vector2f(position.x, position.y), COLOR),
-            sf::Vertex(sf::Vector2f(position.x, position.y + size.y), COLOR)
+            Vertex(sf::Vector2f(position.x, position.y), COLOR),
+            Vertex(sf::Vector2f(position.x, position.y + size.y), COLOR)
     };
     sf::Vertex line3[] = {
-            sf::Vertex(sf::Vector2f(position.x + size.x, position.y), COLOR),
-            sf::Vertex(sf::Vector2f(position.x + size.x, position.y + size.y), COLOR)
+            Vertex(sf::Vector2f(position.x + size.x, position.y), COLOR),
+            Vertex(sf::Vector2f(position.x + size.x, position.y + size.y), COLOR)
     };
     sf::Vertex line4[] = {
-            sf::Vertex(sf::Vector2f(position.x, position.y + size.y), COLOR),
-            sf::Vertex(sf::Vector2f(position.x + size.x, position.y + size.y), COLOR)
+            Vertex(sf::Vector2f(position.x, position.y + size.y), COLOR),
+            Vertex(sf::Vector2f(position.x + size.x, position.y + size.y), COLOR)
     };
     Main_Window.draw(line1, 2, sf::Lines);
     Main_Window.draw(line2, 2, sf::Lines);

@@ -254,12 +254,12 @@
         -:  250:    {
         -:  251:      template<typename _ForwardIterator, typename _Size, typename _Tp>
         -:  252:        static _ForwardIterator
-function _ZNSt22__uninitialized_fill_nILb1EE15__uninit_fill_nIPimiEET_S3_T0_RKT1_ called 0 returned 0% blocks executed 0%
-    #####:  253:        __uninit_fill_n(_ForwardIterator __first, _Size __n,
+function _ZNSt22__uninitialized_fill_nILb1EE15__uninit_fill_nIPimiEET_S3_T0_RKT1_ called 39649 returned 100% blocks executed 100%
+    39649:  253:        __uninit_fill_n(_ForwardIterator __first, _Size __n,
         -:  254:			const _Tp& __x)
-    #####:  255:        { return std::fill_n(__first, __n, __x); }
-    %%%%%:  255-block  0
-call    0 never executed
+    39649:  255:        { return std::fill_n(__first, __n, __x); }
+    39649:  255-block  0
+call    0 returned 39649
         -:  256:    };
         -:  257:
         -:  258:  /// @endcond
@@ -277,8 +277,8 @@ call    0 never executed
         -:  270:  */
         -:  271:  template<typename _ForwardIterator, typename _Size, typename _Tp>
         -:  272:    inline _ForwardIterator
-function _ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_ called 0 returned 0% blocks executed 0%
-    #####:  273:    uninitialized_fill_n(_ForwardIterator __first, _Size __n, const _Tp& __x)
+function _ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_ called 39649 returned 100% blocks executed 100%
+    39649:  273:    uninitialized_fill_n(_ForwardIterator __first, _Size __n, const _Tp& __x)
         -:  274:    {
         -:  275:      typedef typename iterator_traits<_ForwardIterator>::value_type
         -:  276:	_ValueType;
@@ -298,13 +298,13 @@ function _ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_ called 0 returned 0% bloc
         -:  290:
         -:  291:      // Trivial types can have deleted assignment, so using std::fill_n
         -:  292:      // would be ill-formed. Require assignability before using std::fill_n:
-    #####:  293:      constexpr bool __can_fill
+    39649:  293:      constexpr bool __can_fill
         -:  294:	= __and_<is_integral<_Size>, is_copy_assignable<_ValueType>>::value;
         -:  295:#endif
         -:  296:      return __uninitialized_fill_n<__is_trivial(_ValueType) && __can_fill>::
-    #####:  297:	__uninit_fill_n(__first, __n, __x);
-    %%%%%:  297-block  0
-call    0 never executed
+    39649:  297:	__uninit_fill_n(__first, __n, __x);
+    39649:  297-block  0
+call    0 returned 39649
         -:  298:    }
         -:  299:
         -:  300:  /// @cond undocumented
@@ -415,12 +415,12 @@ call    0 never executed
         -:  405:  template<typename _ForwardIterator, typename _Size, typename _Tp,
         -:  406:	   typename _Tp2>
         -:  407:    inline _ForwardIterator
-function _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E called 0 returned 0% blocks executed 0%
-    #####:  408:    __uninitialized_fill_n_a(_ForwardIterator __first, _Size __n, 
+function _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E called 39649 returned 100% blocks executed 100%
+    39649:  408:    __uninitialized_fill_n_a(_ForwardIterator __first, _Size __n, 
         -:  409:			     const _Tp& __x, allocator<_Tp2>&)
-    #####:  410:    { return std::uninitialized_fill_n(__first, __n, __x); }
-    %%%%%:  410-block  0
-call    0 never executed
+    39649:  410:    { return std::uninitialized_fill_n(__first, __n, __x); }
+    39649:  410-block  0
+call    0 returned 39649
         -:  411:
         -:  412:
         -:  413:  // Extensions: __uninitialized_copy_move, __uninitialized_move_copy,

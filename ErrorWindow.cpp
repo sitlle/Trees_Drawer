@@ -1,7 +1,6 @@
 #include "ErrorWindow.h"
 #include<bits/stdc++.h>
 #include<SFML/Graphics.hpp>
-#pragma once
 
 ErrorWindow::ErrorWindow(const std::string& error)
         : Error_Window_(sf::VideoMode(1400, 400), "Error") {

@@ -62,18 +62,18 @@ call    1 returned 6
        6*:   47:        Boxes_[i].position = Vector2f(0.f, float(i) * 100.f);
         -:   48:    }
        1*:   49:    Info_[0] = "value: " + std::to_string(Input_Vertex->val);
-       1*:   50:    Info_[1] = "height: " + Input_Vertex->real_vertex->param.height;
-       1*:   51:    Info_[2] = "posX: " + Input_Vertex->real_vertex->param.posX;
-       1*:   52:    Info_[3] = "shift: " + Input_Vertex->real_vertex->param.sdv;
-       1*:   53:    Info_[4] = "left posX: " + Input_Vertex->real_vertex->param.L;
-       1*:   54:    Info_[5] = "right posX: " + Input_Vertex->real_vertex->param.R;
+       1*:   50:    Info_[1] = "height: " + std::to_string(Input_Vertex->real_vertex->param.height);
+       1*:   51:    Info_[2] = "posX: " + bigint::to_string(Input_Vertex->real_vertex->param.posX);
+       1*:   52:    Info_[3] = "shift: " + bigint::to_string(Input_Vertex->real_vertex->param.sdv);
+       1*:   53:    Info_[4] = "left posX: " + bigint::to_string(Input_Vertex->real_vertex->param.L);
+       1*:   54:    Info_[5] = "right posX: " + bigint::to_string(Input_Vertex->real_vertex->param.R);
        1*:   55:    Main_Window_.setPosition(Vector2i(500, 500));
        1*:   56:    User_Font.loadFromFile("/home/yeawer/tree/Hack-Bold.ttf");
        1*:   57:    User_Text.setFont(User_Font);
        1*:   58:}
 ------------------
 _ZN17Info_Extra_WindowC2I8Node_AVLEEP6VERTEXIT_E:
-function _ZN17Info_Extra_WindowC2I8Node_AVLEEP6VERTEXIT_E called 1 returned 100% blocks executed 64%
+function _ZN17Info_Extra_WindowC2I8Node_AVLEEP6VERTEXIT_E called 1 returned 100% blocks executed 61%
         1:   40:Info_Extra_Window::Info_Extra_Window(VERTEX<vertex_type> *Input_Vertex) :
         1:   41:        Main_Window_(VideoMode(WINDOW_W_, WINDOW_H_), "meow") {
         1:   41-block  0
@@ -149,42 +149,92 @@ call    9 returned 1
     $$$$$:   49-block  3
 call   10 never executed
     $$$$$:   49-block  4
-        1:   50:    Info_[1] = "height: " + Input_Vertex->real_vertex->param.height;
+        1:   50:    Info_[1] = "height: " + std::to_string(Input_Vertex->real_vertex->param.height);
 call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
-        1:   51:    Info_[2] = "posX: " + Input_Vertex->real_vertex->param.posX;
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   50-block  0
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   50-block  1
+call    6 returned 1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+    $$$$$:   50-block  2
+call   10 never executed
+    $$$$$:   50-block  3
+        1:   51:    Info_[2] = "posX: " + bigint::to_string(Input_Vertex->real_vertex->param.posX);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
         1:   51-block  0
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   51-block  1
+call    6 returned 1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+    $$$$$:   51-block  2
+call   10 never executed
+    $$$$$:   51-block  3
+        1:   52:    Info_[3] = "shift: " + bigint::to_string(Input_Vertex->real_vertex->param.sdv);
 call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
-        1:   52:    Info_[3] = "shift: " + Input_Vertex->real_vertex->param.sdv;
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
         1:   52-block  0
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   52-block  1
+call    6 returned 1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+    $$$$$:   52-block  2
+call   10 never executed
+    $$$$$:   52-block  3
+        1:   53:    Info_[4] = "left posX: " + bigint::to_string(Input_Vertex->real_vertex->param.L);
 call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
-        1:   53:    Info_[4] = "left posX: " + Input_Vertex->real_vertex->param.L;
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
         1:   53-block  0
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   53-block  1
+call    6 returned 1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+    $$$$$:   53-block  2
+call   10 never executed
+    $$$$$:   53-block  3
+        1:   54:    Info_[5] = "right posX: " + bigint::to_string(Input_Vertex->real_vertex->param.R);
 call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
-        1:   54:    Info_[5] = "right posX: " + Input_Vertex->real_vertex->param.R;
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
         1:   54-block  0
-call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   54-block  1
+call    6 returned 1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+    $$$$$:   54-block  2
+call   10 never executed
+    $$$$$:   54-block  3
         1:   55:    Main_Window_.setPosition(Vector2i(500, 500));
-        1:   55-block  0
 call    0 returned 1
 call    1 returned 1
 branch  2 taken 1 (fallthrough)
 branch  3 taken 0 (throw)
-    $$$$$:   55-block  1
+    $$$$$:   55-block  0
         1:   56:    User_Font.loadFromFile("/home/yeawer/tree/Hack-Bold.ttf");
         1:   56-block  0
 call    0 returned 1
@@ -298,42 +348,92 @@ call    9 never executed
     $$$$$:   49-block  3
 call   10 never executed
     $$$$$:   49-block  4
-    #####:   50:    Info_[1] = "height: " + Input_Vertex->real_vertex->param.height;
+    #####:   50:    Info_[1] = "height: " + std::to_string(Input_Vertex->real_vertex->param.height);
 call    0 never executed
-call    1 never executed
+branch  1 never executed
 branch  2 never executed
-branch  3 never executed
-    #####:   51:    Info_[2] = "posX: " + Input_Vertex->real_vertex->param.posX;
+    %%%%%:   50-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   50-block  1
+call    6 never executed
+call    7 never executed
+call    8 never executed
+call    9 never executed
+    $$$$$:   50-block  2
+call   10 never executed
+    $$$$$:   50-block  3
+    #####:   51:    Info_[2] = "posX: " + bigint::to_string(Input_Vertex->real_vertex->param.posX);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
     %%%%%:   51-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   51-block  1
+call    6 never executed
+call    7 never executed
+call    8 never executed
+call    9 never executed
+    $$$$$:   51-block  2
+call   10 never executed
+    $$$$$:   51-block  3
+    #####:   52:    Info_[3] = "shift: " + bigint::to_string(Input_Vertex->real_vertex->param.sdv);
 call    0 never executed
-call    1 never executed
+branch  1 never executed
 branch  2 never executed
-branch  3 never executed
-    #####:   52:    Info_[3] = "shift: " + Input_Vertex->real_vertex->param.sdv;
     %%%%%:   52-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   52-block  1
+call    6 never executed
+call    7 never executed
+call    8 never executed
+call    9 never executed
+    $$$$$:   52-block  2
+call   10 never executed
+    $$$$$:   52-block  3
+    #####:   53:    Info_[4] = "left posX: " + bigint::to_string(Input_Vertex->real_vertex->param.L);
 call    0 never executed
-call    1 never executed
+branch  1 never executed
 branch  2 never executed
-branch  3 never executed
-    #####:   53:    Info_[4] = "left posX: " + Input_Vertex->real_vertex->param.L;
     %%%%%:   53-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   53-block  1
+call    6 never executed
+call    7 never executed
+call    8 never executed
+call    9 never executed
+    $$$$$:   53-block  2
+call   10 never executed
+    $$$$$:   53-block  3
+    #####:   54:    Info_[5] = "right posX: " + bigint::to_string(Input_Vertex->real_vertex->param.R);
 call    0 never executed
-call    1 never executed
+branch  1 never executed
 branch  2 never executed
-branch  3 never executed
-    #####:   54:    Info_[5] = "right posX: " + Input_Vertex->real_vertex->param.R;
     %%%%%:   54-block  0
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   54-block  1
+call    6 never executed
+call    7 never executed
+call    8 never executed
+call    9 never executed
+    $$$$$:   54-block  2
+call   10 never executed
+    $$$$$:   54-block  3
     #####:   55:    Main_Window_.setPosition(Vector2i(500, 500));
-    %%%%%:   55-block  0
 call    0 never executed
 call    1 never executed
 branch  2 never executed
 branch  3 never executed
-    $$$$$:   55-block  1
+    $$$$$:   55-block  0
     #####:   56:    User_Font.loadFromFile("/home/yeawer/tree/Hack-Bold.ttf");
     %%%%%:   56-block  0
 call    0 never executed

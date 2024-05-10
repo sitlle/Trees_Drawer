@@ -63,17 +63,17 @@
         -:   59:    /// \param sRgb         sRGB capable framebuffer
         -:   60:    ///
         -:   61:    ////////////////////////////////////////////////////////////
-function _ZN2sf15ContextSettingsC2Ejjjjjjb called 5 returned 100% blocks executed 100%
-        5:   62:    explicit ContextSettings(unsigned int depth = 0, unsigned int stencil = 0, unsigned int antialiasing = 0, unsigned int major = 1, unsigned int minor = 1, unsigned int attributes = Default, bool sRgb = false) :
-        5:   63:    depthBits        (depth),
-        5:   64:    stencilBits      (stencil),
-        5:   65:    antialiasingLevel(antialiasing),
-        5:   66:    majorVersion     (major),
-        5:   67:    minorVersion     (minor),
-        5:   68:    attributeFlags   (attributes),
-        5:   69:    sRgbCapable      (sRgb)
+function _ZN2sf15ContextSettingsC2Ejjjjjjb called 4 returned 100% blocks executed 100%
+        4:   62:    explicit ContextSettings(unsigned int depth = 0, unsigned int stencil = 0, unsigned int antialiasing = 0, unsigned int major = 1, unsigned int minor = 1, unsigned int attributes = Default, bool sRgb = false) :
+        4:   63:    depthBits        (depth),
+        4:   64:    stencilBits      (stencil),
+        4:   65:    antialiasingLevel(antialiasing),
+        4:   66:    majorVersion     (major),
+        4:   67:    minorVersion     (minor),
+        4:   68:    attributeFlags   (attributes),
+        4:   69:    sRgbCapable      (sRgb)
         -:   70:    {
-        5:   71:    }
+        4:   71:    }
         -:   72:
         -:   73:    ////////////////////////////////////////////////////////////
         -:   74:    // Member data

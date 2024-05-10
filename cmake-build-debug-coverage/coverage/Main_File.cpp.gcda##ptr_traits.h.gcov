@@ -150,11 +150,30 @@
         -:  146:       *  @return @c addressof(__r)
         -:  147:      */
         -:  148:      static _GLIBCXX20_CONSTEXPR pointer
-function _ZNSt14pointer_traitsIPKjE10pointer_toERS0_ called 1824362 returned 100% blocks executed 100%
-  1824362:  149:      pointer_to(__make_not_void<element_type>& __r) noexcept
-  1824362:  150:      { return std::addressof(__r); }
-  1824362:  150-block  0
-call    0 returned 1824362
+ 11335777:  149:      pointer_to(__make_not_void<element_type>& __r) noexcept
+ 11335777:  150:      { return std::addressof(__r); }
+------------------
+_ZNSt14pointer_traitsIPKjE10pointer_toERS0_:
+function _ZNSt14pointer_traitsIPKjE10pointer_toERS0_ called 1901567 returned 100% blocks executed 100%
+  1901567:  149:      pointer_to(__make_not_void<element_type>& __r) noexcept
+  1901567:  150:      { return std::addressof(__r); }
+  1901567:  150-block  0
+call    0 returned 1901567
+------------------
+_ZNSt14pointer_traitsIPKcE10pointer_toERS0_:
+function _ZNSt14pointer_traitsIPKcE10pointer_toERS0_ called 5598196 returned 100% blocks executed 100%
+  5598196:  149:      pointer_to(__make_not_void<element_type>& __r) noexcept
+  5598196:  150:      { return std::addressof(__r); }
+  5598196:  150-block  0
+call    0 returned 5598196
+------------------
+_ZNSt14pointer_traitsIPcE10pointer_toERc:
+function _ZNSt14pointer_traitsIPcE10pointer_toERc called 3836014 returned 100% blocks executed 100%
+  3836014:  149:      pointer_to(__make_not_void<element_type>& __r) noexcept
+  3836014:  150:      { return std::addressof(__r); }
+  3836014:  150-block  0
+call    0 returned 3836014
+------------------
         -:  151:    };
         -:  152:
         -:  153:  /// Convenience alias for rebinding pointers.

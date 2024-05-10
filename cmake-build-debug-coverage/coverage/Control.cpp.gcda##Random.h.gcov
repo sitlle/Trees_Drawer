@@ -5,23 +5,23 @@
         -:    1:#include<bits/stdc++.h>
         -:    2:#pragma once
         -:    3:
-function _ZL10get_randomv called 164 returned 100% blocks executed 80%
-      164:    4:static int64_t get_random() {
-      164:    5:    std::mt19937 rnd(std::chrono::high_resolution_clock::now().time_since_epoch().count());
-      164:    5-block  0
-call    0 returned 164
-call    1 returned 164
-call    2 returned 164
-call    3 returned 164
-branch  4 taken 164 (fallthrough)
+function _ZL10get_randomv called 92 returned 100% blocks executed 80%
+       92:    4:static int64_t get_random() {
+       92:    5:    std::mt19937 rnd(std::chrono::high_resolution_clock::now().time_since_epoch().count());
+       92:    5-block  0
+call    0 returned 92
+call    1 returned 92
+call    2 returned 92
+call    3 returned 92
+branch  4 taken 92 (fallthrough)
 branch  5 taken 0 (throw)
     $$$$$:    5-block  1
     $$$$$:    5-block  2
-      164:    6:    return static_cast<int64_t>(rnd());
-      164:    6-block  0
-call    0 returned 164
-branch  1 taken 164 (fallthrough)
+       92:    6:    return static_cast<int64_t>(rnd());
+       92:    6-block  0
+call    0 returned 92
+branch  1 taken 92 (fallthrough)
 branch  2 taken 0 (throw)
-      164:    6-block  1
-      164:    6-block  2
+       92:    6-block  1
+       92:    6-block  2
         -:    7:}

@@ -157,17 +157,17 @@
         -:  153:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  154:      // 3035. std::allocator's constructors should be constexpr
         -:  155:      _GLIBCXX20_CONSTEXPR
-function _ZNSaIiEC2Ev called 0 returned 0% blocks executed 0%
-    #####:  156:      allocator() _GLIBCXX_NOTHROW { }
-    %%%%%:  156-block  0
-call    0 never executed
+function _ZNSaIiEC2Ev called 39649 returned 100% blocks executed 100%
+    39649:  156:      allocator() _GLIBCXX_NOTHROW { }
+    39649:  156-block  0
+call    0 returned 39649
         -:  157:
         -:  158:      _GLIBCXX20_CONSTEXPR
-function _ZNSaIiEC2ERKS_ called 0 returned 0% blocks executed 0%
-    #####:  159:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
-    #####:  160:      : __allocator_base<_Tp>(__a) { }
-    %%%%%:  160-block  0
-call    0 never executed
+function _ZNSaIiEC2ERKS_ called 79298 returned 100% blocks executed 100%
+    79298:  159:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+    79298:  160:      : __allocator_base<_Tp>(__a) { }
+    79298:  160-block  0
+call    0 returned 79298
         -:  161:
         -:  162:#if __cplusplus >= 201103L
         -:  163:      // Avoid implicit deprecation.
@@ -181,10 +181,8 @@ call    0 never executed
         -:  171:#if __cpp_constexpr_dynamic_alloc
         -:  172:      constexpr
         -:  173:#endif
-function _ZNSaIiED2Ev called 0 returned 0% blocks executed 0%
-    #####:  174:      ~allocator() _GLIBCXX_NOTHROW { }
-    %%%%%:  174-block  0
-call    0 never executed
+function _ZNSaIiED2Ev called 118947 returned 100% blocks executed 100%
+   118947:  174:      ~allocator() _GLIBCXX_NOTHROW { }
         -:  175:
         -:  176:#if __cplusplus > 201703L
         -:  177:      [[nodiscard,__gnu__::__always_inline__]]
@@ -192,10 +190,26 @@ call    0 never executed
         -:  179:      allocate(size_t __n)
         -:  180:      {
         -:  181:#ifdef __cpp_lib_is_constant_evaluated
-        -:  182:	if (std::is_constant_evaluated())
-        -:  183:	  return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+   39649*:  182:	if (std::is_constant_evaluated())
+    39649:  182-block  0
+call    0 returned 39649
+branch  1 taken 0 (fallthrough)
+branch  2 taken 39649
+    %%%%%:  182-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:  183:	  return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+    %%%%%:  183-block  0
+call    0 never executed
+    %%%%%:  183-block  1
+call    1 never executed
         -:  184:#endif
-        -:  185:	return __allocator_base<_Tp>::allocate(__n, 0);
+   39649*:  185:	return __allocator_base<_Tp>::allocate(__n, 0);
+    39649:  185-block  0
+call    0 returned 39649
+    %%%%%:  185-block  1
+call    1 never executed
         -:  186:      }
         -:  187:
         -:  188:      [[__gnu__::__always_inline__]]
@@ -203,19 +217,37 @@ call    0 never executed
         -:  190:      deallocate(_Tp* __p, size_t __n)
         -:  191:      {
         -:  192:#ifdef __cpp_lib_is_constant_evaluated
-        -:  193:	if (std::is_constant_evaluated())
+   39649*:  193:	if (std::is_constant_evaluated())
+    39649:  193-block  0
+call    0 returned 39649
+branch  1 taken 0 (fallthrough)
+branch  2 taken 39649
+    %%%%%:  193-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
         -:  194:	  {
-        -:  195:	    ::operator delete(__p);
-        -:  196:	    return;
+    #####:  195:	    ::operator delete(__p);
+    %%%%%:  195-block  0
+call    0 never executed
+    %%%%%:  195-block  1
+call    1 never executed
+    #####:  196:	    return;
         -:  197:	  }
         -:  198:#endif
-        -:  199:	__allocator_base<_Tp>::deallocate(__p, __n);
+   39649*:  199:	__allocator_base<_Tp>::deallocate(__p, __n);
+    39649:  199-block  0
+call    0 returned 39649
+    %%%%%:  199-block  1
+call    1 never executed
         -:  200:      }
         -:  201:#endif // C++20
         -:  202:
         -:  203:      friend _GLIBCXX20_CONSTEXPR bool
-        -:  204:      operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
-        -:  205:      { return true; }
+function _ZSteqRKSaIcES1_ called 0 returned 0% blocks executed 0%
+    #####:  204:      operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+    #####:  205:      { return true; }
+    %%%%%:  205-block  0
         -:  206:
         -:  207:#if __cpp_impl_three_way_comparison < 201907L
         -:  208:      friend _GLIBCXX20_CONSTEXPR bool

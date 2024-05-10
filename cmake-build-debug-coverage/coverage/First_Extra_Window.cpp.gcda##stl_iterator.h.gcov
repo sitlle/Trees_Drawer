@@ -1028,9 +1028,9 @@
         -: 1024:      : _M_current(_Iterator()) { }
         -: 1025:
         -: 1026:      explicit _GLIBCXX20_CONSTEXPR
-function _ZN9__gnu_cxx17__normal_iteratorIPKN2sf6VertexESt6vectorIS2_SaIS2_EEEC2ERKS4_ called 227420 returned 100% blocks executed 100%
-   227420: 1027:      __normal_iterator(const _Iterator& __i) _GLIBCXX_NOEXCEPT
-   227420: 1028:      : _M_current(__i) { }
+function _ZN9__gnu_cxx17__normal_iteratorIPKN2sf6VertexESt6vectorIS2_SaIS2_EEEC2ERKS4_ called 245840 returned 100% blocks executed 100%
+   245840: 1027:      __normal_iterator(const _Iterator& __i) _GLIBCXX_NOEXCEPT
+   245840: 1028:      : _M_current(__i) { }
         -: 1029:
         -: 1030:      // Allow iterator to const_iterator conversion
         -: 1031:      template<typename _Iter>
@@ -1111,10 +1111,10 @@ function _ZN9__gnu_cxx17__normal_iteratorIPKN2sf6VertexESt6vectorIS2_SaIS2_EEEpp
         -: 1102:
         -: 1103:      _GLIBCXX20_CONSTEXPR
         -: 1104:      const _Iterator&
-function _ZNK9__gnu_cxx17__normal_iteratorIPKN2sf6VertexESt6vectorIS2_SaIS2_EEE4baseEv called 227420 returned 100% blocks executed 100%
-   227420: 1105:      base() const _GLIBCXX_NOEXCEPT
-   227420: 1106:      { return _M_current; }
-   227420: 1106-block  0
+function _ZNK9__gnu_cxx17__normal_iteratorIPKN2sf6VertexESt6vectorIS2_SaIS2_EEE4baseEv called 245840 returned 100% blocks executed 100%
+   245840: 1105:      base() const _GLIBCXX_NOEXCEPT
+   245840: 1106:      { return _M_current; }
+   245840: 1106-block  0
         -: 1107:    };
         -: 1108:
         -: 1109:  // Note: In what follows, the left- and right-hand-side iterators are
@@ -1144,13 +1144,17 @@ function _ZNK9__gnu_cxx17__normal_iteratorIPKN2sf6VertexESt6vectorIS2_SaIS2_EEE4
         -: 1133:
         -: 1134:  template<typename _Iterator, typename _Container>
         -: 1135:    constexpr bool
-        -: 1136:    operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+function _ZN9__gnu_cxxeqIPKN2sf6VertexESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_ called 122920 returned 100% blocks executed 100%
+   122920: 1136:    operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
         -: 1137:	       const __normal_iterator<_Iterator, _Container>& __rhs)
         -: 1138:    noexcept(noexcept(__lhs.base() == __rhs.base()))
         -: 1139:    requires requires {
         -: 1140:      { __lhs.base() == __rhs.base() } -> std::convertible_to<bool>;
         -: 1141:    }
-        -: 1142:    { return __lhs.base() == __rhs.base(); }
+   122920: 1142:    { return __lhs.base() == __rhs.base(); }
+   122920: 1142-block  0
+call    0 returned 122920
+call    1 returned 122920
         -: 1143:
         -: 1144:  template<typename _Iterator, typename _Container>
         -: 1145:    constexpr std::__detail::__synth3way_t<_Iterator>
@@ -1187,14 +1191,10 @@ function _ZNK9__gnu_cxx17__normal_iteratorIPKN2sf6VertexESt6vectorIS2_SaIS2_EEE4
         -: 1176:  template<typename _Iterator, typename _Container>
         -: 1177:    _GLIBCXX20_CONSTEXPR
         -: 1178:    inline bool
-function _ZN9__gnu_cxxneIPKN2sf6VertexESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_ called 113710 returned 100% blocks executed 100%
-   113710: 1179:    operator!=(const __normal_iterator<_Iterator, _Container>& __lhs,
+        -: 1179:    operator!=(const __normal_iterator<_Iterator, _Container>& __lhs,
         -: 1180:	       const __normal_iterator<_Iterator, _Container>& __rhs)
         -: 1181:    _GLIBCXX_NOEXCEPT
-   113710: 1182:    { return __lhs.base() != __rhs.base(); }
-   113710: 1182-block  0
-call    0 returned 113710
-call    1 returned 113710
+        -: 1182:    { return __lhs.base() != __rhs.base(); }
         -: 1183:
         -: 1184:  // Random access iterator requirements
         -: 1185:  template<typename _IteratorL, typename _IteratorR, typename _Container>

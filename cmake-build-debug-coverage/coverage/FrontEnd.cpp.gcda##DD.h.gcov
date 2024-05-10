@@ -15,112 +15,118 @@ function _ZN2DDC2Ev called 1 returned 100% blocks executed 100%
         1:   10:        root = nullptr;
         1:   11:    }
         -:   12:
-function _ZN2DDD2Ev called 1 returned 100% blocks executed 100%
-        1:   13:    ~DD() {
-        1:   14:        clear(root);
-        1:   14-block  0
-call    0 returned 1
-        1:   15:    }
+        -:   13:    DD(DD const &other) {
+        -:   14:        root = other.root;
+        -:   15:    }
         -:   16:
-        -:   17:    bool Find(int64_t val) {
-        -:   18:        return Find(root, val);
-        -:   19:    }
+function _ZN2DDD2Ev called 1 returned 100% blocks executed 100%
+        1:   17:    ~DD() {
+        1:   18:        clear(root);
+        1:   18-block  0
+call    0 returned 1
+        1:   19:    }
         -:   20:
-        -:   21:    void Add(int64_t val) {
-        -:   22:        if (Find(val)) {
-        -:   23:            return;
-        -:   24:        }
-        -:   25:        auto* vertex = new Node_DD(val);
-        -:   26:        auto[T_First, T_Second] = Split(root, vertex->val);
-        -:   27:        T_First = Merge(T_First, vertex);
-        -:   28:        root = Merge(T_First, T_Second);
-        -:   29:    }
-        -:   30:
-        -:   31:    void Add_Rnd(int32_t x) {
-        -:   32:        for (int i = 0; i < x; ++i) {
-        -:   33:            int rnd_num = static_cast<int>(get_random() % 100); // rand nums
-        -:   34:            Add(rnd_num);
-        -:   35:        }
-        -:   36:    }
-        -:   37:
-        -:   38:    void Print() {
-        -:   39:        Print(root);
+        -:   21:    bool Find(int64_t val) {
+        -:   22:        return Find(root, val);
+        -:   23:    }
+        -:   24:
+        -:   25:    void Add(int64_t val) {
+        -:   26:        if (Find(val)) {
+        -:   27:            return;
+        -:   28:        }
+        -:   29:        auto* vertex = new Node_DD(val);
+        -:   30:        auto[T_First, T_Second] = Split(root, vertex->val);
+        -:   31:        T_First = Merge(T_First, vertex);
+        -:   32:        root = Merge(T_First, T_Second);
+        -:   33:    }
+        -:   34:
+        -:   35:    void Add_Rnd(int32_t x) {
+        -:   36:        for (int i = 0; i < x; ++i) {
+        -:   37:            int rnd_num = static_cast<int>(get_random() % 100); // rand nums
+        -:   38:            Add(rnd_num);
+        -:   39:        }
         -:   40:    }
         -:   41:
-        -:   42:private:
-        -:   43:
-function _ZN2DD5clearEP7Node_DD called 89 returned 100% blocks executed 100%
-       89:   44:    void clear(Node_DD* vertex) {
-       89:   45:        if (vertex == nullptr) {
-       89:   45-block  0
-branch  0 taken 45 (fallthrough)
-branch  1 taken 44
-       45:   46:            return;
-       45:   46-block  0
-        -:   47:        }
-       44:   48:        clear(vertex->left);
-       44:   48-block  0
-call    0 returned 44
-       44:   49:        clear(vertex->right);
-call    0 returned 44
-       44:   50:        delete[] vertex;
-branch  0 taken 44 (fallthrough)
-branch  1 taken 0
-       44:   50-block  0
-call    2 returned 44
-        -:   51:    }
-        -:   52:
-        -:   53:    void Print(Node_DD* vertex) {
-        -:   54:        if (vertex == nullptr) {
-        -:   55:            return;
-        -:   56:        }
-        -:   57:        Print(vertex->left);
-        -:   58:        std::cout << vertex->val << ' ';
-        -:   59:        Print(vertex->right);
-        -:   60:    }
-        -:   61:
-        -:   62:    bool Find(Node_DD* vertex, int64_t key) {
-        -:   63:        if (vertex == nullptr) {
-        -:   64:            return false;
-        -:   65:        }
-        -:   66:        if (vertex->val == key) {
-        -:   67:            return true;
-        -:   68:        }
-        -:   69:        if (key < vertex->val) {
-        -:   70:            return Find(vertex->left, key);
-        -:   71:        } else {
-        -:   72:            return Find(vertex->right, key);
+        -:   42:    void Print() {
+        -:   43:        Print(root);
+        -:   44:    }
+        -:   45:
+        -:   46:private:
+        -:   47:
+function _ZN2DD5clearEP7Node_DD called 53 returned 100% blocks executed 75%
+       53:   48:    void clear(Node_DD* vertex) {
+       53:   49:        if (vertex == nullptr) {
+       53:   49-block  0
+branch  0 taken 27 (fallthrough)
+branch  1 taken 26
+       27:   50:            return;
+       27:   50-block  0
+        -:   51:        }
+       26:   52:        clear(vertex->left);
+       26:   52-block  0
+call    0 returned 26
+       26:   53:        clear(vertex->right);
+call    0 returned 26
+       26:   54:        vertex = nullptr;
+      26*:   55:        delete vertex;
+branch  0 taken 0 (fallthrough)
+branch  1 taken 26
+    %%%%%:   55-block  0
+call    2 never executed
+call    3 never executed
+        -:   56:    }
+        -:   57:
+        -:   58:    void Print(Node_DD* vertex) {
+        -:   59:        if (vertex == nullptr) {
+        -:   60:            return;
+        -:   61:        }
+        -:   62:        Print(vertex->left);
+        -:   63:        std::cout << vertex->val << ' ';
+        -:   64:        Print(vertex->right);
+        -:   65:    }
+        -:   66:
+        -:   67:    bool Find(Node_DD* vertex, int64_t key) {
+        -:   68:        if (vertex == nullptr) {
+        -:   69:            return false;
+        -:   70:        }
+        -:   71:        if (vertex->val == key) {
+        -:   72:            return true;
         -:   73:        }
-        -:   74:    }
-        -:   75:
-        -:   76:    Node_DD* Merge(Node_DD* T_First, Node_DD* T_Second) {
-        -:   77:        if (T_First == nullptr) {
-        -:   78:            return T_Second;
-        -:   79:        }
-        -:   80:        if (T_Second == nullptr) {
-        -:   81:            return T_First;
-        -:   82:        }
-        -:   83:        if (T_First->priority > T_Second->priority) {
-        -:   84:            T_First->right = Merge(T_First->right, T_Second);
-        -:   85:            return T_First;
-        -:   86:        } else {
-        -:   87:            T_Second->left = Merge(T_First, T_Second->left);
-        -:   88:            return T_Second;
-        -:   89:        }
-        -:   90:    }
-        -:   91:
-        -:   92:    std::pair<Node_DD*, Node_DD*> Split(Node_DD* T, int64_t key) {
-        -:   93:        if (T == nullptr) {
-        -:   94:            return {nullptr, nullptr};
-        -:   95:        }
-        -:   96:        if (key <= T->val) {
-        -:   97:            auto[T_First, T_Second] = Split(T->left, key);
-        -:   98:            T->left = T_Second;
-        -:   99:            return {T_First, T};
-        -:  100:        } else {
-        -:  101:            auto[T_First, T_Second] = Split(T->right, key);
-        -:  102:            T->right = T_First;
-        -:  103:            return {T, T_Second};
-        -:  104:        }
-        -:  105:    }
-        -:  106:};
+        -:   74:        if (key < vertex->val) {
+        -:   75:            return Find(vertex->left, key);
+        -:   76:        } else {
+        -:   77:            return Find(vertex->right, key);
+        -:   78:        }
+        -:   79:    }
+        -:   80:
+        -:   81:    Node_DD* Merge(Node_DD* T_First, Node_DD* T_Second) {
+        -:   82:        if (T_First == nullptr) {
+        -:   83:            return T_Second;
+        -:   84:        }
+        -:   85:        if (T_Second == nullptr) {
+        -:   86:            return T_First;
+        -:   87:        }
+        -:   88:        if (T_First->priority > T_Second->priority) {
+        -:   89:            T_First->right = Merge(T_First->right, T_Second);
+        -:   90:            return T_First;
+        -:   91:        } else {
+        -:   92:            T_Second->left = Merge(T_First, T_Second->left);
+        -:   93:            return T_Second;
+        -:   94:        }
+        -:   95:    }
+        -:   96:
+        -:   97:    std::pair<Node_DD*, Node_DD*> Split(Node_DD* T, int64_t key) {
+        -:   98:        if (T == nullptr) {
+        -:   99:            return {nullptr, nullptr};
+        -:  100:        }
+        -:  101:        if (key <= T->val) {
+        -:  102:            auto[T_First, T_Second] = Split(T->left, key);
+        -:  103:            T->left = T_Second;
+        -:  104:            return {T_First, T};
+        -:  105:        } else {
+        -:  106:            auto[T_First, T_Second] = Split(T->right, key);
+        -:  107:            T->right = T_First;
+        -:  108:            return {T, T_Second};
+        -:  109:        }
+        -:  110:    }
+        -:  111:};

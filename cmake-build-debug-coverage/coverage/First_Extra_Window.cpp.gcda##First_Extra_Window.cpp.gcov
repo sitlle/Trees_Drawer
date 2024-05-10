@@ -8,33 +8,33 @@
         -:    4:#include "ErrorWindow.h"
         -:    5:
         -:    6:
-function _ZN18First_Extra_WindowC2Ev called 2 returned 100% blocks executed 51%
-        2:    7:First_Extra_Window::First_Extra_Window() : Main_Window_(VideoMode(WINDOW_W_, WINDOW_H_), "extra_meow") {
-        2:    7-block  0
-call    0 returned 2
-call    1 returned 2
-branch  2 taken 2 (fallthrough)
+function _ZN18First_Extra_WindowC2Ev called 1 returned 100% blocks executed 51%
+        1:    7:First_Extra_Window::First_Extra_Window() : Main_Window_(VideoMode(WINDOW_W_, WINDOW_H_), "extra_meow") {
+        1:    7-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
 branch  3 taken 0 (throw)
-        2:    7-block  1
-call    4 returned 2
-call    5 returned 2
-call    6 returned 2
-call    7 returned 2
-branch  8 taken 2 (fallthrough)
+        1:    7-block  1
+call    4 returned 1
+call    5 returned 1
+call    6 returned 1
+call    7 returned 1
+branch  8 taken 1 (fallthrough)
 branch  9 taken 0 (throw)
-        2:    7-block  2
-call   10 returned 2
-branch 11 taken 2 (fallthrough)
+        1:    7-block  2
+call   10 returned 1
+branch 11 taken 1 (fallthrough)
 branch 12 taken 0 (throw)
-        2:    7-block  3
-call   13 returned 2
-branch 14 taken 2 (fallthrough)
+        1:    7-block  3
+call   13 returned 1
+branch 14 taken 1 (fallthrough)
 branch 15 taken 0 (throw)
-        2:    7-block  4
-call   16 returned 2
-call   17 returned 2
-call   18 returned 2
-branch 19 taken 2 (fallthrough)
+        1:    7-block  4
+call   16 returned 1
+call   17 returned 1
+call   18 returned 1
+branch 19 taken 1 (fallthrough)
 branch 20 taken 0 (throw)
     $$$$$:    7-block  5
     $$$$$:    7-block  6
@@ -44,43 +44,43 @@ call   21 never executed
 call   22 never executed
     $$$$$:    7-block  9
     $$$$$:    7-block 10
-        2:    8:    Main_Box_.size = {1250, 150};
-        2:    8-block  0
-call    0 returned 2
-        4:    9:    Main_Box_.position = {(static_cast<float>(WINDOW_W_) - Main_Box_.size.x) / 2,
-        2:   10:                          (static_cast<float>(WINDOW_H_) - Main_Box_.size.y) / 2};
-call    0 returned 2
-        2:   11:    Main_Window_.setPosition(Vector2i(500, 500));
-call    0 returned 2
-call    1 returned 2
-branch  2 taken 2 (fallthrough)
+        1:    8:    Main_Box_.size = {1250, 150};
+        1:    8-block  0
+call    0 returned 1
+        2:    9:    Main_Box_.position = {(static_cast<float>(WINDOW_W_) - Main_Box_.size.x) / 2,
+        1:   10:                          (static_cast<float>(WINDOW_H_) - Main_Box_.size.y) / 2};
+call    0 returned 1
+        1:   11:    Main_Window_.setPosition(Vector2i(500, 500));
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
 branch  3 taken 0 (throw)
     $$$$$:   11-block  0
-        2:   12:    User_Font.loadFromFile("/home/yeawer/tree/Hack-Bold.ttf");
-        2:   12-block  0
-call    0 returned 2
-call    1 returned 2
-branch  2 taken 2 (fallthrough)
+        1:   12:    User_Font.loadFromFile("/home/yeawer/tree/Hack-Bold.ttf");
+        1:   12-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
 branch  3 taken 0 (throw)
-        2:   12-block  1
-call    4 returned 2
-branch  5 taken 2 (fallthrough)
+        1:   12-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
 branch  6 taken 0 (throw)
-        2:   12-block  2
-call    7 returned 2
-call    8 returned 2
+        1:   12-block  2
+call    7 returned 1
+call    8 returned 1
     $$$$$:   12-block  3
 call    9 never executed
     $$$$$:   12-block  4
     $$$$$:   12-block  5
 call   10 never executed
     $$$$$:   12-block  6
-        2:   13:    User_Text.setFont(User_Font);
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+        1:   13:    User_Text.setFont(User_Font);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        2:   14:}
-        2:   14-block  0
+        1:   14:}
+        1:   14-block  0
     $$$$$:   14-block  1
 call    0 never executed
     $$$$$:   14-block  2
@@ -90,54 +90,54 @@ call    2 never executed
     $$$$$:   14-block  4
 call    3 never executed
         -:   15:
-function _ZN18First_Extra_Window6EventsEv called 14249 returned 100% blocks executed 81%
-    14249:   16:void First_Extra_Window::Events() {
-    14271:   17:    while (Main_Window_.pollEvent(Main_Event_)) {
-    14249:   17-block  0
-    14271:   17-block  1
-call    0 returned 14271
-branch  1 taken 22
-branch  2 taken 14249 (fallthrough)
-       44:   18:        if (Main_Event_.type == sf::Event::Closed ||
-       22:   18-block  0
-branch  0 taken 22 (fallthrough)
+function _ZN18First_Extra_Window6EventsEv called 5306 returned 100% blocks executed 81%
+     5306:   16:void First_Extra_Window::Events() {
+     5317:   17:    while (Main_Window_.pollEvent(Main_Event_)) {
+     5306:   17-block  0
+     5317:   17-block  1
+call    0 returned 5317
+branch  1 taken 11
+branch  2 taken 5306 (fallthrough)
+       22:   18:        if (Main_Event_.type == sf::Event::Closed ||
+       11:   18-block  0
+branch  0 taken 11 (fallthrough)
 branch  1 taken 0
-        2:   18-block  1
-       20:   18-block  2
-       22:   18-block  3
-branch  2 taken 2 (fallthrough)
-branch  3 taken 20
-       22:   19:        Main_Event_.type == sf::Event::KeyPressed &&
-       22:   19-block  0
-branch  0 taken 6 (fallthrough)
-branch  1 taken 16
-        6:   20:        (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) ||
-        6:   20-block  0
-call    0 returned 6
-branch  1 taken 6 (fallthrough)
+        1:   18-block  1
+       10:   18-block  2
+       11:   18-block  3
+branch  2 taken 1 (fallthrough)
+branch  3 taken 10
+       11:   19:        Main_Event_.type == sf::Event::KeyPressed &&
+       11:   19-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 8
+        3:   20:        (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) ||
+        3:   20-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
 branch  2 taken 0
-        6:   21:        sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))) { // close
-        6:   21-block  0
-call    0 returned 6
-branch  1 taken 2 (fallthrough)
-branch  2 taken 4
-        2:   22:            Main_Window_.close();
-        2:   22-block  0
+        3:   21:        sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))) { // close
+        3:   21-block  0
+call    0 returned 3
+branch  1 taken 1 (fallthrough)
+branch  2 taken 2
+        1:   22:            Main_Window_.close();
+        1:   22-block  0
+call    0 returned 1
+       10:   23:        } else if (Main_Event_.type == sf::Event::KeyPressed) { // add letter
+       10:   23-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 8
+        2:   24:            std::string pl = Input_Letters();
+        2:   24-block  0
 call    0 returned 2
-       20:   23:        } else if (Main_Event_.type == sf::Event::KeyPressed) { // add letter
-       20:   23-block  0
-branch  0 taken 4 (fallthrough)
-branch  1 taken 16
-        4:   24:            std::string pl = Input_Letters();
-        4:   24-block  0
-call    0 returned 4
-branch  1 taken 4 (fallthrough)
+branch  1 taken 2 (fallthrough)
 branch  2 taken 0 (throw)
-        4:   25:            if (pl == "$") {
-        4:   25-block  0
-call    0 returned 4
+        2:   25:            if (pl == "$") {
+        2:   25-block  0
+call    0 returned 2
 branch  1 taken 0 (fallthrough)
-branch  2 taken 4
+branch  2 taken 2
     #####:   26:                if (!Input_String_.empty()) {
     %%%%%:   26-block  0
 call    0 never executed
@@ -148,53 +148,53 @@ branch  2 never executed
 call    0 never executed
         -:   28:                }
         -:   29:            } else {
-        4:   30:                Input_String_ += pl;
-        4:   30-block  0
-call    0 returned 4
-branch  1 taken 4 (fallthrough)
+        2:   30:                Input_String_ += pl;
+        2:   30-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
 branch  2 taken 0 (throw)
         -:   31:            }
-        4:   32:        }
-        4:   32-block  0
-call    0 returned 4
+        2:   32:        }
+        2:   32-block  0
+call    0 returned 2
     $$$$$:   32-block  1
 call    1 never executed
         -:   33:    }
-    14249:   34:}
-    14249:   34-block  0
+     5306:   34:}
+     5306:   34-block  0
         -:   35:
-function _ZN18First_Extra_Window4DrawEv called 14249 returned 100% blocks executed 100%
-    14249:   36:void First_Extra_Window::Draw() noexcept {
-    14249:   37:    Main_Window_.clear();
-    14249:   37-block  0
-call    0 returned 14249
-call    1 returned 14249
-    14249:   38:    DrawBox(Main_Window_, Main_Box_.position, Main_Box_.size, Main_Box_.COLOR);
-call    0 returned 14249
-    14249:   39:    DrawTextInBox(Main_Window_, Main_Box_.position, Main_Box_.size, Input_String_,
-call    0 returned 14249
-call    1 returned 14249
-    14249:   40:                  User_Text);
-call    0 returned 14249
-    14249:   41:    Main_Window_.display();
-call    0 returned 14249
-    14249:   42:}
+function _ZN18First_Extra_Window4DrawEv called 5306 returned 100% blocks executed 100%
+     5306:   36:void First_Extra_Window::Draw() noexcept {
+     5306:   37:    Main_Window_.clear();
+     5306:   37-block  0
+call    0 returned 5306
+call    1 returned 5306
+     5306:   38:    DrawBox(Main_Window_, Main_Box_.position, Main_Box_.size, Main_Box_.COLOR);
+call    0 returned 5306
+     5306:   39:    DrawTextInBox(Main_Window_, Main_Box_.position, Main_Box_.size, Input_String_,
+call    0 returned 5306
+call    1 returned 5306
+     5306:   40:                  User_Text);
+call    0 returned 5306
+     5306:   41:    Main_Window_.display();
+call    0 returned 5306
+     5306:   42:}
         -:   43:
-function _ZN18First_Extra_Window10FindErrorsEv called 2 returned 100% blocks executed 31%
-        2:   44:void First_Extra_Window::FindErrors() {
-        2:   45:    if (Input_String_.empty()) {
-        2:   45-block  0
-call    0 returned 2
+function _ZN18First_Extra_Window10FindErrorsEv called 1 returned 100% blocks executed 31%
+        1:   44:void First_Extra_Window::FindErrors() {
+        1:   45:    if (Input_String_.empty()) {
+        1:   45-block  0
+call    0 returned 1
 branch  1 taken 0 (fallthrough)
-branch  2 taken 2
+branch  2 taken 1
     #####:   46:        return;
     %%%%%:   46-block  0
         -:   47:    }
-        2:   48:    if (Input_String_[0] == '-') {
-        2:   48-block  0
-call    0 returned 2
+        1:   48:    if (Input_String_[0] == '-') {
+        1:   48-block  0
+call    0 returned 1
 branch  1 taken 0 (fallthrough)
-branch  2 taken 2
+branch  2 taken 1
     #####:   49:        if (Input_String_.size() >= 10) {
     %%%%%:   49-block  0
 call    0 never executed
@@ -216,11 +216,11 @@ call    7 never executed
     $$$$$:   50-block  4
 call    8 never executed
         -:   51:        }
-        2:   52:    } else if (Input_String_.size() >= 10) {
-        2:   52-block  0
-call    0 returned 2
+        1:   52:    } else if (Input_String_.size() >= 10) {
+        1:   52-block  0
+call    0 returned 1
 branch  1 taken 0 (fallthrough)
-branch  2 taken 2
+branch  2 taken 1
     #####:   53:        throw std::string{"big size"};
     %%%%%:   53-block  0
 call    0 never executed
@@ -237,26 +237,26 @@ call    7 never executed
     $$$$$:   53-block  4
 call    8 never executed
         -:   54:    }
-        6:   55:    for (int i = 0; i < static_cast<int>(Input_String_.size()); ++i) {
-        2:   55-block  0
-        4:   55-block  1
-        6:   55-block  2
-call    0 returned 6
-branch  1 taken 4
-branch  2 taken 2 (fallthrough)
-       4*:   56:        if (Input_String_[i] == '-' && i != 0) {
-        4:   56-block  0
-call    0 returned 4
+        3:   55:    for (int i = 0; i < static_cast<int>(Input_String_.size()); ++i) {
+        1:   55-block  0
+        2:   55-block  1
+        3:   55-block  2
+call    0 returned 3
+branch  1 taken 2
+branch  2 taken 1 (fallthrough)
+       2*:   56:        if (Input_String_[i] == '-' && i != 0) {
+        2:   56-block  0
+call    0 returned 2
 branch  1 taken 0 (fallthrough)
-branch  2 taken 4
+branch  2 taken 2
     %%%%%:   56-block  1
 branch  3 never executed
 branch  4 never executed
     %%%%%:   56-block  2
-        4:   56-block  3
-        4:   56-block  4
+        2:   56-block  3
+        2:   56-block  4
 branch  5 taken 0 (fallthrough)
-branch  6 taken 4
+branch  6 taken 2
     #####:   57:            throw std::string{"extra minus"};
     %%%%%:   57-block  0
 call    0 never executed
@@ -274,29 +274,29 @@ call    7 never executed
 call    8 never executed
         -:   58:        }
         -:   59:    }
-       6*:   60:    if (Input_String_[0] == '0' && Input_String_.size() > 1 ||
-        2:   60-block  0
-call    0 returned 2
+       3*:   60:    if (Input_String_[0] == '0' && Input_String_.size() > 1 ||
+        1:   60-block  0
+call    0 returned 1
 branch  1 taken 0 (fallthrough)
-branch  2 taken 2
+branch  2 taken 1
     %%%%%:   60-block  1
 call    3 never executed
 branch  4 never executed
 branch  5 never executed
-branch  6 taken 2 (fallthrough)
+branch  6 taken 1 (fallthrough)
 branch  7 taken 0
     %%%%%:   60-block  2
-        2:   60-block  3
-        2:   60-block  4
+        1:   60-block  3
+        1:   60-block  4
 branch  8 taken 0 (fallthrough)
-branch  9 taken 2
-       4*:   61:        Input_String_.size() >= 2 && Input_String_[0] == '-' && Input_String_[1] == '0') {
-        2:   61-block  0
-call    0 returned 2
-        2:   61-block  1
-call    1 returned 2
+branch  9 taken 1
+       2*:   61:        Input_String_.size() >= 2 && Input_String_[0] == '-' && Input_String_[1] == '0') {
+        1:   61-block  0
+call    0 returned 1
+        1:   61-block  1
+call    1 returned 1
 branch  2 taken 0 (fallthrough)
-branch  3 taken 2
+branch  3 taken 1
     %%%%%:   61-block  2
 call    4 never executed
 branch  5 never executed
@@ -317,20 +317,20 @@ call    7 never executed
     $$$$$:   62-block  4
 call    8 never executed
         -:   63:    }
-       2*:   64:    if (Input_String_[0] == '-' && Input_String_.size() == 1) {
-        2:   64-block  0
-call    0 returned 2
+       1*:   64:    if (Input_String_[0] == '-' && Input_String_.size() == 1) {
+        1:   64-block  0
+call    0 returned 1
 branch  1 taken 0 (fallthrough)
-branch  2 taken 2
+branch  2 taken 1
     %%%%%:   64-block  1
 call    3 never executed
 branch  4 never executed
 branch  5 never executed
     %%%%%:   64-block  2
-        2:   64-block  3
-        2:   64-block  4
+        1:   64-block  3
+        1:   64-block  4
 branch  6 taken 0 (fallthrough)
-branch  7 taken 2
+branch  7 taken 1
     #####:   65:        throw std::string{"not num"};
     %%%%%:   65-block  0
 call    0 never executed
@@ -349,26 +349,26 @@ call    8 never executed
         -:   66:    }
         -:   67:}
         -:   68:
-function _ZN18First_Extra_Window7ProcessB5cxx11Ev called 2 returned 100% blocks executed 43%
-        2:   69:std::string First_Extra_Window::Process() {
-    14251:   70:    while (Main_Window_.isOpen()) {
-        2:   70-block  0
-    14251:   70-block  1
-call    0 returned 14251
-branch  1 taken 14249
-branch  2 taken 2 (fallthrough)
-    14249:   71:        Events();
-    14249:   71-block  0
-call    0 returned 14249
-    14249:   72:        Draw();
-call    0 returned 14249
+function _ZN18First_Extra_Window7ProcessB5cxx11Ev called 1 returned 100% blocks executed 43%
+        1:   69:std::string First_Extra_Window::Process() {
+     5307:   70:    while (Main_Window_.isOpen()) {
+        1:   70-block  0
+     5307:   70-block  1
+call    0 returned 5307
+branch  1 taken 5306
+branch  2 taken 1 (fallthrough)
+     5306:   71:        Events();
+     5306:   71-block  0
+call    0 returned 5306
+     5306:   72:        Draw();
+call    0 returned 5306
         -:   73:    }
         -:   74:    // check errors
         -:   75:    try {
-        2:   76:        FindErrors();
-        2:   76-block  0
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+        1:   76:        FindErrors();
+        1:   76-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
     =====:   77:    } catch (const std::string& error) {
     $$$$$:   77-block  0
@@ -395,7 +395,7 @@ call    1 never executed
 call    2 never executed
     $$$$$:   81-block  1
 call    3 never executed
-        2:   82:    return Input_String_;
-        2:   82-block  0
-call    0 returned 2
+        1:   82:    return Input_String_;
+        1:   82-block  0
+call    0 returned 1
         -:   83:}

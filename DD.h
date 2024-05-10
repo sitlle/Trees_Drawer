@@ -10,6 +10,10 @@ public:
         root = nullptr;
     }
 
+    DD(DD const &other) {
+        root = other.root;
+    }
+
     ~DD() {
         clear(root);
     }
@@ -47,7 +51,8 @@ private:
         }
         clear(vertex->left);
         clear(vertex->right);
-        delete[] vertex;
+        vertex = nullptr;
+        delete vertex;
     }
 
     void Print(Node_DD* vertex) {

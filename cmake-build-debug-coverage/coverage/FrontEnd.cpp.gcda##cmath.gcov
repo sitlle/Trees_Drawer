@@ -464,10 +464,10 @@
         -:  460:
         -:  461:#ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
         -:  462:  inline _GLIBCXX_CONSTEXPR float
-function _ZSt4sqrtf called 2 returned 100% blocks executed 100%
-        2:  463:  sqrt(float __x)
-        2:  464:  { return __builtin_sqrtf(__x); }
-        2:  464-block  0
+function _ZSt4sqrtf called 66 returned 100% blocks executed 100%
+       66:  463:  sqrt(float __x)
+       66:  464:  { return __builtin_sqrtf(__x); }
+       66:  464-block  0
         -:  465:
         -:  466:  inline _GLIBCXX_CONSTEXPR long double
         -:  467:  sqrt(long double __x)

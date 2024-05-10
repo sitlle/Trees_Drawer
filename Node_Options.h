@@ -8,7 +8,19 @@ struct Node_Options {
     bigint sdv;
     bigint L;
     bigint R;
-    sf::Color COLOR;
-    Node_Options() : height(0), posX(to_bigint("0")), sdv(to_bigint("0")), L(to_bigint("0")), R(to_bigint("0")),
+    sf::Color COLOR{};
+
+    ~Node_Options() = default;
+
+    Node_Options(const Node_Options& other) {
+        height = other.height;
+        size = other.size;
+        posX = other.posX;
+        sdv = other.sdv;
+        L = other.L;
+        R = other.R;
+    }
+
+    Node_Options() : height(0), posX(bigint("0")), sdv(bigint("0")), L(bigint("0")), R(bigint("0")),
                      COLOR(sf::Color::Red), size(0) {}
 };

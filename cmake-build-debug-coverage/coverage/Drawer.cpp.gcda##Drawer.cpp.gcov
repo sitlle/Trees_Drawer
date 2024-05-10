@@ -5,120 +5,120 @@
         -:    1:#include "Drawer.h"
         -:    2:#include "FrontEnd.h"
         -:    3:
-function _ZN6Drawer4DrawEv called 24129 returned 100% blocks executed 88%
-    24129:    4:void Drawer::Draw() noexcept {
-    24129:    5:    MAIN_WINDOW::Main_Window_.clear(sf::Color::Black);
-    24129:    5-block  0
-call    0 returned 24129
-    24129:    6:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) { // draw DD
-branch  0 taken 5264 (fallthrough)
-branch  1 taken 18865
-     5264:    7:        Print_DD_TREE();
-     5264:    7-block  0
-call    0 returned 5264
-    18865:    8:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) { // draw AVL
-    18865:    8-block  0
-branch  0 taken 18865 (fallthrough)
+function _ZN6Drawer4DrawEv called 48102 returned 100% blocks executed 88%
+    48102:    4:void Drawer::Draw() noexcept {
+    48102:    5:    MAIN_WINDOW::Main_Window_.clear(sf::Color::Black);
+    48102:    5-block  0
+call    0 returned 48102
+    48102:    6:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) { // draw DD
+branch  0 taken 35669 (fallthrough)
+branch  1 taken 12433
+    35669:    7:        Print_DD_TREE();
+    35669:    7-block  0
+call    0 returned 35669
+    12433:    8:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) { // draw AVL
+    12433:    8-block  0
+branch  0 taken 12433 (fallthrough)
 branch  1 taken 0
-    18865:    9:        Print_AVL_TREE();
-    18865:    9-block  0
-call    0 returned 18865
+    12433:    9:        Print_AVL_TREE();
+    12433:    9-block  0
+call    0 returned 12433
     #####:   10:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) { // draw SPLAY
     %%%%%:   10-block  0
         -:   11:
         -:   12:    }
-    24129:   13:    MAIN_WINDOW::Main_Window_.display();
-    24129:   13-block  0
-call    0 returned 24129
-    24129:   14:}
+    48102:   13:    MAIN_WINDOW::Main_Window_.display();
+    48102:   13-block  0
+call    0 returned 48102
+    48102:   14:}
         -:   15:
-  1194882:   16:template<typename vertex_type> void Drawer::DrawVertex(VERTEX<vertex_type>* vertex) noexcept {
-  1194882:   17:    CircleShape Output_Circle;
-  1194882:   18:    float addX = 0;
-  1194882:   19:    float addY = 0;
-  1194882:   20:    float zoom = 1.f;
-  1194882:   21:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
-   62982*:   22:        addX = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_x;
-   62982*:   23:        addY = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_y;
-   62982*:   24:        zoom = MAIN_WINDOW::PRINT_DD_OPTIONS_.zoom;
- 1131900*:   25:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
- 1131900*:   26:        addX = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_x;
- 1131900*:   27:        addY = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_y;
- 1131900*:   28:        zoom = MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
+  1284643:   16:template<typename vertex_type> void Drawer::DrawVertex(VERTEX<vertex_type>* vertex) noexcept {
+  1284643:   17:    CircleShape Output_Circle;
+  1284643:   18:    float addX = 0;
+  1284643:   19:    float addY = 0;
+  1284643:   20:    float zoom = 1.f;
+  1284643:   21:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+  874354*:   22:        addX = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_x;
+  874354*:   23:        addY = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_y;
+  874354*:   24:        zoom = MAIN_WINDOW::PRINT_DD_OPTIONS_.zoom;
+  410289*:   25:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+  410289*:   26:        addX = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_x;
+  410289*:   27:        addY = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_y;
+  410289*:   28:        zoom = MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
     #####:   29:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
         -:   30:
         -:   31:    }
-  1194882:   32:    Output_Circle.setPosition(Vector2f({vertex->coords.first / zoom + addX / zoom,
-  1194882:   33:                                        vertex->coords.second / zoom + addY / zoom}));
-  1194882:   34:    Output_Circle.setRadius(vertex->radius / zoom);
-  1194882:   35:    Output_Circle.setFillColor(vertex->COLOR);
-  1194882:   36:    MAIN_WINDOW::Main_Window_.draw(Output_Circle);
+  1284643:   32:    Output_Circle.setPosition(Vector2f({vertex->coords.first / zoom + addX / zoom,
+  1284643:   33:                                        vertex->coords.second / zoom + addY / zoom}));
+  1284643:   34:    Output_Circle.setRadius(vertex->radius / zoom);
+  1284643:   35:    Output_Circle.setFillColor(vertex->COLOR);
+  1284643:   36:    MAIN_WINDOW::Main_Window_.draw(Output_Circle);
         -:   37:    // Draw Text
-  1194882:   38:    if (abs(vertex->val) <= 1000) {
-  1194882:   39:        MAIN_WINDOW::User_Text_.setString(std::to_string(vertex->val));
+  1284643:   38:    if (abs(vertex->val) <= 1000) {
+  1284643:   39:        MAIN_WINDOW::User_Text_.setString(std::to_string(vertex->val));
         -:   40:    } else {
     #####:   41:        MAIN_WINDOW::User_Text_.setString("...");
         -:   42:    }
-  1194882:   43:    auto text_size = vertex->radius / 1.5;
-  1194882:   44:    MAIN_WINDOW::User_Text_.setPosition(Vector2f((vertex->coords.first + addX + text_size) / zoom,
-  1194882:   45:                                                 (vertex->coords.second + addY + text_size) / zoom));
-  1194882:   46:    MAIN_WINDOW::User_Text_.setFillColor(Color::White);
-  1194882:   47:    MAIN_WINDOW::User_Text_.setCharacterSize(text_size / zoom);
-  1194882:   48:    MAIN_WINDOW::Main_Window_.draw(MAIN_WINDOW::User_Text_);
-  1194882:   49:}
+  1284643:   43:    auto text_size = vertex->radius / 1.5;
+  1284643:   44:    MAIN_WINDOW::User_Text_.setPosition(Vector2f((vertex->coords.first + addX + text_size) / zoom,
+  1284643:   45:                                                 (vertex->coords.second + addY + text_size) / zoom));
+  1284643:   46:    MAIN_WINDOW::User_Text_.setFillColor(Color::White);
+  1284643:   47:    MAIN_WINDOW::User_Text_.setCharacterSize(text_size / zoom);
+  1284643:   48:    MAIN_WINDOW::Main_Window_.draw(MAIN_WINDOW::User_Text_);
+  1284643:   49:}
 ------------------
 _ZN6Drawer10DrawVertexI8Node_AVLEEvP6VERTEXIT_E:
-function _ZN6Drawer10DrawVertexI8Node_AVLEEvP6VERTEXIT_E called 1131900 returned 100% blocks executed 76%
-  1131900:   16:template<typename vertex_type> void Drawer::DrawVertex(VERTEX<vertex_type>* vertex) noexcept {
-  1131900:   17:    CircleShape Output_Circle;
-  1131900:   17-block  0
-call    0 returned 1131900
-  1131900:   18:    float addX = 0;
-  1131900:   19:    float addY = 0;
-  1131900:   20:    float zoom = 1.f;
-  1131900:   21:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+function _ZN6Drawer10DrawVertexI8Node_AVLEEvP6VERTEXIT_E called 410289 returned 100% blocks executed 76%
+   410289:   16:template<typename vertex_type> void Drawer::DrawVertex(VERTEX<vertex_type>* vertex) noexcept {
+   410289:   17:    CircleShape Output_Circle;
+   410289:   17-block  0
+call    0 returned 410289
+   410289:   18:    float addX = 0;
+   410289:   19:    float addY = 0;
+   410289:   20:    float zoom = 1.f;
+   410289:   21:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
 branch  0 taken 0 (fallthrough)
-branch  1 taken 1131900
+branch  1 taken 410289
     #####:   22:        addX = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_x;
     #####:   23:        addY = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_y;
     #####:   24:        zoom = MAIN_WINDOW::PRINT_DD_OPTIONS_.zoom;
     %%%%%:   24-block  0
-  1131900:   25:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
-  1131900:   25-block  0
-branch  0 taken 1131900 (fallthrough)
+   410289:   25:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+   410289:   25-block  0
+branch  0 taken 410289 (fallthrough)
 branch  1 taken 0
-  1131900:   26:        addX = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_x;
-  1131900:   27:        addY = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_y;
-  1131900:   28:        zoom = MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
-  1131900:   28-block  0
+   410289:   26:        addX = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_x;
+   410289:   27:        addY = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_y;
+   410289:   28:        zoom = MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
+   410289:   28-block  0
     #####:   29:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
     %%%%%:   29-block  0
         -:   30:
         -:   31:    }
-  1131900:   32:    Output_Circle.setPosition(Vector2f({vertex->coords.first / zoom + addX / zoom,
-call    0 returned 1131900
-  1131900:   33:                                        vertex->coords.second / zoom + addY / zoom}));
-  1131900:   33-block  0
-call    0 returned 1131900
-  1131900:   34:    Output_Circle.setRadius(vertex->radius / zoom);
-call    0 returned 1131900
-  1131900:   35:    Output_Circle.setFillColor(vertex->COLOR);
-call    0 returned 1131900
-  1131900:   36:    MAIN_WINDOW::Main_Window_.draw(Output_Circle);
-call    0 returned 1131900
+   410289:   32:    Output_Circle.setPosition(Vector2f({vertex->coords.first / zoom + addX / zoom,
+call    0 returned 410289
+   410289:   33:                                        vertex->coords.second / zoom + addY / zoom}));
+   410289:   33-block  0
+call    0 returned 410289
+   410289:   34:    Output_Circle.setRadius(vertex->radius / zoom);
+call    0 returned 410289
+   410289:   35:    Output_Circle.setFillColor(vertex->COLOR);
+call    0 returned 410289
+   410289:   36:    MAIN_WINDOW::Main_Window_.draw(Output_Circle);
+call    0 returned 410289
         -:   37:    // Draw Text
-  1131900:   38:    if (abs(vertex->val) <= 1000) {
-branch  0 taken 1131900 (fallthrough)
+   410289:   38:    if (abs(vertex->val) <= 1000) {
+branch  0 taken 410289 (fallthrough)
 branch  1 taken 0
-  1131900:   39:        MAIN_WINDOW::User_Text_.setString(std::to_string(vertex->val));
-  1131900:   39-block  0
-call    0 returned 1131900
-call    1 returned 1131900
-call    2 returned 1131900
-call    3 returned 1131900
-call    4 returned 1131900
-call    5 returned 1131900
-call    6 returned 1131900
+   410289:   39:        MAIN_WINDOW::User_Text_.setString(std::to_string(vertex->val));
+   410289:   39-block  0
+call    0 returned 410289
+call    1 returned 410289
+call    2 returned 410289
+call    3 returned 410289
+call    4 returned 410289
+call    5 returned 410289
+call    6 returned 410289
         -:   40:    } else {
     #####:   41:        MAIN_WINDOW::User_Text_.setString("...");
     %%%%%:   41-block  0
@@ -128,37 +128,37 @@ call    2 never executed
 call    3 never executed
 call    4 never executed
         -:   42:    }
-  1131900:   43:    auto text_size = vertex->radius / 1.5;
-  1131900:   44:    MAIN_WINDOW::User_Text_.setPosition(Vector2f((vertex->coords.first + addX + text_size) / zoom,
-call    0 returned 1131900
-  1131900:   45:                                                 (vertex->coords.second + addY + text_size) / zoom));
-  1131900:   45-block  0
-call    0 returned 1131900
-  1131900:   46:    MAIN_WINDOW::User_Text_.setFillColor(Color::White);
-call    0 returned 1131900
-  1131900:   47:    MAIN_WINDOW::User_Text_.setCharacterSize(text_size / zoom);
-call    0 returned 1131900
-  1131900:   48:    MAIN_WINDOW::Main_Window_.draw(MAIN_WINDOW::User_Text_);
-call    0 returned 1131900
-  1131900:   49:}
-call    0 returned 1131900
+   410289:   43:    auto text_size = vertex->radius / 1.5;
+   410289:   44:    MAIN_WINDOW::User_Text_.setPosition(Vector2f((vertex->coords.first + addX + text_size) / zoom,
+call    0 returned 410289
+   410289:   45:                                                 (vertex->coords.second + addY + text_size) / zoom));
+   410289:   45-block  0
+call    0 returned 410289
+   410289:   46:    MAIN_WINDOW::User_Text_.setFillColor(Color::White);
+call    0 returned 410289
+   410289:   47:    MAIN_WINDOW::User_Text_.setCharacterSize(text_size / zoom);
+call    0 returned 410289
+   410289:   48:    MAIN_WINDOW::Main_Window_.draw(MAIN_WINDOW::User_Text_);
+call    0 returned 410289
+   410289:   49:}
+call    0 returned 410289
 ------------------
 _ZN6Drawer10DrawVertexI7Node_DDEEvP6VERTEXIT_E:
-function _ZN6Drawer10DrawVertexI7Node_DDEEvP6VERTEXIT_E called 62982 returned 100% blocks executed 73%
-    62982:   16:template<typename vertex_type> void Drawer::DrawVertex(VERTEX<vertex_type>* vertex) noexcept {
-    62982:   17:    CircleShape Output_Circle;
-    62982:   17-block  0
-call    0 returned 62982
-    62982:   18:    float addX = 0;
-    62982:   19:    float addY = 0;
-    62982:   20:    float zoom = 1.f;
-    62982:   21:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
-branch  0 taken 62982 (fallthrough)
+function _ZN6Drawer10DrawVertexI7Node_DDEEvP6VERTEXIT_E called 874354 returned 100% blocks executed 73%
+   874354:   16:template<typename vertex_type> void Drawer::DrawVertex(VERTEX<vertex_type>* vertex) noexcept {
+   874354:   17:    CircleShape Output_Circle;
+   874354:   17-block  0
+call    0 returned 874354
+   874354:   18:    float addX = 0;
+   874354:   19:    float addY = 0;
+   874354:   20:    float zoom = 1.f;
+   874354:   21:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+branch  0 taken 874354 (fallthrough)
 branch  1 taken 0
-    62982:   22:        addX = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_x;
-    62982:   23:        addY = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_y;
-    62982:   24:        zoom = MAIN_WINDOW::PRINT_DD_OPTIONS_.zoom;
-    62982:   24-block  0
+   874354:   22:        addX = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_x;
+   874354:   23:        addY = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_y;
+   874354:   24:        zoom = MAIN_WINDOW::PRINT_DD_OPTIONS_.zoom;
+   874354:   24-block  0
     #####:   25:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
     %%%%%:   25-block  0
 branch  0 never executed
@@ -171,30 +171,30 @@ branch  1 never executed
     %%%%%:   29-block  0
         -:   30:
         -:   31:    }
-    62982:   32:    Output_Circle.setPosition(Vector2f({vertex->coords.first / zoom + addX / zoom,
-call    0 returned 62982
-    62982:   33:                                        vertex->coords.second / zoom + addY / zoom}));
-    62982:   33-block  0
-call    0 returned 62982
-    62982:   34:    Output_Circle.setRadius(vertex->radius / zoom);
-call    0 returned 62982
-    62982:   35:    Output_Circle.setFillColor(vertex->COLOR);
-call    0 returned 62982
-    62982:   36:    MAIN_WINDOW::Main_Window_.draw(Output_Circle);
-call    0 returned 62982
+   874354:   32:    Output_Circle.setPosition(Vector2f({vertex->coords.first / zoom + addX / zoom,
+call    0 returned 874354
+   874354:   33:                                        vertex->coords.second / zoom + addY / zoom}));
+   874354:   33-block  0
+call    0 returned 874354
+   874354:   34:    Output_Circle.setRadius(vertex->radius / zoom);
+call    0 returned 874354
+   874354:   35:    Output_Circle.setFillColor(vertex->COLOR);
+call    0 returned 874354
+   874354:   36:    MAIN_WINDOW::Main_Window_.draw(Output_Circle);
+call    0 returned 874354
         -:   37:    // Draw Text
-    62982:   38:    if (abs(vertex->val) <= 1000) {
-branch  0 taken 62982 (fallthrough)
+   874354:   38:    if (abs(vertex->val) <= 1000) {
+branch  0 taken 874354 (fallthrough)
 branch  1 taken 0
-    62982:   39:        MAIN_WINDOW::User_Text_.setString(std::to_string(vertex->val));
-    62982:   39-block  0
-call    0 returned 62982
-call    1 returned 62982
-call    2 returned 62982
-call    3 returned 62982
-call    4 returned 62982
-call    5 returned 62982
-call    6 returned 62982
+   874354:   39:        MAIN_WINDOW::User_Text_.setString(std::to_string(vertex->val));
+   874354:   39-block  0
+call    0 returned 874354
+call    1 returned 874354
+call    2 returned 874354
+call    3 returned 874354
+call    4 returned 874354
+call    5 returned 874354
+call    6 returned 874354
         -:   40:    } else {
     #####:   41:        MAIN_WINDOW::User_Text_.setString("...");
     %%%%%:   41-block  0
@@ -204,158 +204,158 @@ call    2 never executed
 call    3 never executed
 call    4 never executed
         -:   42:    }
-    62982:   43:    auto text_size = vertex->radius / 1.5;
-    62982:   44:    MAIN_WINDOW::User_Text_.setPosition(Vector2f((vertex->coords.first + addX + text_size) / zoom,
-call    0 returned 62982
-    62982:   45:                                                 (vertex->coords.second + addY + text_size) / zoom));
-    62982:   45-block  0
-call    0 returned 62982
-    62982:   46:    MAIN_WINDOW::User_Text_.setFillColor(Color::White);
-call    0 returned 62982
-    62982:   47:    MAIN_WINDOW::User_Text_.setCharacterSize(text_size / zoom);
-call    0 returned 62982
-    62982:   48:    MAIN_WINDOW::Main_Window_.draw(MAIN_WINDOW::User_Text_);
-call    0 returned 62982
-    62982:   49:}
-call    0 returned 62982
+   874354:   43:    auto text_size = vertex->radius / 1.5;
+   874354:   44:    MAIN_WINDOW::User_Text_.setPosition(Vector2f((vertex->coords.first + addX + text_size) / zoom,
+call    0 returned 874354
+   874354:   45:                                                 (vertex->coords.second + addY + text_size) / zoom));
+   874354:   45-block  0
+call    0 returned 874354
+   874354:   46:    MAIN_WINDOW::User_Text_.setFillColor(Color::White);
+call    0 returned 874354
+   874354:   47:    MAIN_WINDOW::User_Text_.setCharacterSize(text_size / zoom);
+call    0 returned 874354
+   874354:   48:    MAIN_WINDOW::Main_Window_.draw(MAIN_WINDOW::User_Text_);
+call    0 returned 874354
+   874354:   49:}
+call    0 returned 874354
 ------------------
         -:   50:
-function _ZN6Drawer8DrawLineERKSt4pairIffES3_RKfN2sf5ColorE called 1174253 returned 100% blocks executed 100%
-  1174253:   51:void Drawer::DrawLine(const std::pair<float, float> &first, const std::pair<float, float> &second,
+function _ZN6Drawer8DrawLineERKSt4pairIffES3_RKfN2sf5ColorE called 1238581 returned 100% blocks executed 100%
+  1238581:   51:void Drawer::DrawLine(const std::pair<float, float> &first, const std::pair<float, float> &second,
         -:   52:                           const float& RADIUS, sf::Color COLOR) noexcept {
-  1174253:   53:    float addX = 0;
-  1174253:   54:    float addY = 0;
-  1174253:   55:    float zoom = 1.f;
-  1174253:   56:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
-  1174253:   56-block  0
-branch  0 taken 61218 (fallthrough)
-branch  1 taken 1113035
-    61218:   57:        addX = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_x;
-    61218:   58:        addY = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_y;
-    61218:   59:        zoom = MAIN_WINDOW::PRINT_DD_OPTIONS_.zoom;
-    61218:   59-block  0
-  1113035:   60:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
-  1113035:   60-block  0
-branch  0 taken 1113035 (fallthrough)
+  1238581:   53:    float addX = 0;
+  1238581:   54:    float addY = 0;
+  1238581:   55:    float zoom = 1.f;
+  1238581:   56:    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+  1238581:   56-block  0
+branch  0 taken 840725 (fallthrough)
+branch  1 taken 397856
+   840725:   57:        addX = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_x;
+   840725:   58:        addY = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_y;
+   840725:   59:        zoom = MAIN_WINDOW::PRINT_DD_OPTIONS_.zoom;
+   840725:   59-block  0
+   397856:   60:    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+   397856:   60-block  0
+branch  0 taken 397856 (fallthrough)
 branch  1 taken 0
-  1113035:   61:        addX = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_x;
-  1113035:   62:        addY = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_y;
-  1113035:   63:        zoom = MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
-  1113035:   63-block  0
+   397856:   61:        addX = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_x;
+   397856:   62:        addY = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_y;
+   397856:   63:        zoom = MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
+   397856:   63-block  0
         -:   64:    }
         -:   65:    sf::Vertex line[] = {
-  2348506:   66:            sf::Vertex(sf::Vector2f((first.first + addX + RADIUS) / zoom,
-  1174253:   67:                                    (first.second + addY + RADIUS) / zoom), COLOR),
-  2348506:   68:            sf::Vertex(sf::Vector2f((second.first + addX + RADIUS) / zoom,
-  1174253:   69:                                    (second.second + addY + RADIUS) / zoom), COLOR)
-  1174253:   70:    };
-  1174253:   70-block  0
-call    0 returned 1174253
-call    1 returned 1174253
-call    2 returned 1174253
-call    3 returned 1174253
-  1174253:   71:    MAIN_WINDOW::Main_Window_.draw(line, 2, sf::Lines);
-call    0 returned 1174253
-  1174253:   72:}
+  2477162:   66:            sf::Vertex(sf::Vector2f((first.first + addX + RADIUS) / zoom,
+  1238581:   67:                                    (first.second + addY + RADIUS) / zoom), COLOR),
+  2477162:   68:            sf::Vertex(sf::Vector2f((second.first + addX + RADIUS) / zoom,
+  1238581:   69:                                    (second.second + addY + RADIUS) / zoom), COLOR)
+  1238581:   70:    };
+  1238581:   70-block  0
+call    0 returned 1238581
+call    1 returned 1238581
+call    2 returned 1238581
+call    3 returned 1238581
+  1238581:   71:    MAIN_WINDOW::Main_Window_.draw(line, 2, sf::Lines);
+call    0 returned 1238581
+  1238581:   72:}
         -:   73:
         -:   74:template<typename vertex_type>
-  2413893:   75:void Drawer::PrintInOrder(VERTEX<vertex_type> *vertex) noexcept {
-  2413893:   76:    if (vertex == nullptr) {
-  1219011:   77:        return;
+  2617388:   75:void Drawer::PrintInOrder(VERTEX<vertex_type> *vertex) noexcept {
+  2617388:   76:    if (vertex == nullptr) {
+  1332745:   77:        return;
         -:   78:    }
-  1194882:   79:    if (vertex->left != nullptr) {
-   561751:   80:        DrawLine(vertex->coords, vertex->left->coords, vertex->radius);
+  1284643:   79:    if (vertex->left != nullptr) {
+   556414:   80:        DrawLine(vertex->coords, vertex->left->coords, vertex->radius);
         -:   81:    }
-  1194882:   82:    if (vertex->right != nullptr) {
-   612502:   83:        DrawLine(vertex->coords, vertex->right->coords, vertex->radius);
+  1284643:   82:    if (vertex->right != nullptr) {
+   682167:   83:        DrawLine(vertex->coords, vertex->right->coords, vertex->radius);
         -:   84:    }
-  1194882:   85:    PrintInOrder<vertex_type>(vertex->left);
-  1194882:   86:    DrawVertex(vertex);
-  1194882:   87:    PrintInOrder<vertex_type>(vertex->right);
+  1284643:   85:    PrintInOrder<vertex_type>(vertex->left);
+  1284643:   86:    DrawVertex(vertex);
+  1284643:   87:    PrintInOrder<vertex_type>(vertex->right);
         -:   88:}
 ------------------
 _ZN6Drawer12PrintInOrderI8Node_AVLEEvP6VERTEXIT_E:
-function _ZN6Drawer12PrintInOrderI8Node_AVLEEvP6VERTEXIT_E called 2282665 returned 100% blocks executed 100%
-  2282665:   75:void Drawer::PrintInOrder(VERTEX<vertex_type> *vertex) noexcept {
-  2282665:   76:    if (vertex == nullptr) {
-  2282665:   76-block  0
-branch  0 taken 1150765 (fallthrough)
-branch  1 taken 1131900
-  1150765:   77:        return;
-  1150765:   77-block  0
+function _ZN6Drawer12PrintInOrderI8Node_AVLEEvP6VERTEXIT_E called 833011 returned 100% blocks executed 100%
+   833011:   75:void Drawer::PrintInOrder(VERTEX<vertex_type> *vertex) noexcept {
+   833011:   76:    if (vertex == nullptr) {
+   833011:   76-block  0
+branch  0 taken 422722 (fallthrough)
+branch  1 taken 410289
+   422722:   77:        return;
+   422722:   77-block  0
         -:   78:    }
-  1131900:   79:    if (vertex->left != nullptr) {
-  1131900:   79-block  0
-branch  0 taken 528220 (fallthrough)
-branch  1 taken 603680
-   528220:   80:        DrawLine(vertex->coords, vertex->left->coords, vertex->radius);
-   528220:   80-block  0
-call    0 returned 528220
+   410289:   79:    if (vertex->left != nullptr) {
+   410289:   79-block  0
+branch  0 taken 186495 (fallthrough)
+branch  1 taken 223794
+   186495:   80:        DrawLine(vertex->coords, vertex->left->coords, vertex->radius);
+   186495:   80-block  0
+call    0 returned 186495
         -:   81:    }
-  1131900:   82:    if (vertex->right != nullptr) {
-  1131900:   82-block  0
-branch  0 taken 584815 (fallthrough)
-branch  1 taken 547085
-   584815:   83:        DrawLine(vertex->coords, vertex->right->coords, vertex->radius);
-   584815:   83-block  0
-call    0 returned 584815
+   410289:   82:    if (vertex->right != nullptr) {
+   410289:   82-block  0
+branch  0 taken 211361 (fallthrough)
+branch  1 taken 198928
+   211361:   83:        DrawLine(vertex->coords, vertex->right->coords, vertex->radius);
+   211361:   83-block  0
+call    0 returned 211361
         -:   84:    }
-  1131900:   85:    PrintInOrder<vertex_type>(vertex->left);
-  1131900:   85-block  0
-call    0 returned 1131900
-  1131900:   86:    DrawVertex(vertex);
-call    0 returned 1131900
-  1131900:   87:    PrintInOrder<vertex_type>(vertex->right);
-call    0 returned 1131900
+   410289:   85:    PrintInOrder<vertex_type>(vertex->left);
+   410289:   85-block  0
+call    0 returned 410289
+   410289:   86:    DrawVertex(vertex);
+call    0 returned 410289
+   410289:   87:    PrintInOrder<vertex_type>(vertex->right);
+call    0 returned 410289
         -:   88:}
 ------------------
 _ZN6Drawer12PrintInOrderI7Node_DDEEvP6VERTEXIT_E:
-function _ZN6Drawer12PrintInOrderI7Node_DDEEvP6VERTEXIT_E called 131228 returned 100% blocks executed 100%
-   131228:   75:void Drawer::PrintInOrder(VERTEX<vertex_type> *vertex) noexcept {
-   131228:   76:    if (vertex == nullptr) {
-   131228:   76-block  0
-branch  0 taken 68246 (fallthrough)
-branch  1 taken 62982
-    68246:   77:        return;
-    68246:   77-block  0
+function _ZN6Drawer12PrintInOrderI7Node_DDEEvP6VERTEXIT_E called 1784377 returned 100% blocks executed 100%
+  1784377:   75:void Drawer::PrintInOrder(VERTEX<vertex_type> *vertex) noexcept {
+  1784377:   76:    if (vertex == nullptr) {
+  1784377:   76-block  0
+branch  0 taken 910023 (fallthrough)
+branch  1 taken 874354
+   910023:   77:        return;
+   910023:   77-block  0
         -:   78:    }
-    62982:   79:    if (vertex->left != nullptr) {
-    62982:   79-block  0
-branch  0 taken 33531 (fallthrough)
-branch  1 taken 29451
-    33531:   80:        DrawLine(vertex->coords, vertex->left->coords, vertex->radius);
-    33531:   80-block  0
-call    0 returned 33531
+   874354:   79:    if (vertex->left != nullptr) {
+   874354:   79-block  0
+branch  0 taken 369919 (fallthrough)
+branch  1 taken 504435
+   369919:   80:        DrawLine(vertex->coords, vertex->left->coords, vertex->radius);
+   369919:   80-block  0
+call    0 returned 369919
         -:   81:    }
-    62982:   82:    if (vertex->right != nullptr) {
-    62982:   82-block  0
-branch  0 taken 27687 (fallthrough)
-branch  1 taken 35295
-    27687:   83:        DrawLine(vertex->coords, vertex->right->coords, vertex->radius);
-    27687:   83-block  0
-call    0 returned 27687
+   874354:   82:    if (vertex->right != nullptr) {
+   874354:   82-block  0
+branch  0 taken 470806 (fallthrough)
+branch  1 taken 403548
+   470806:   83:        DrawLine(vertex->coords, vertex->right->coords, vertex->radius);
+   470806:   83-block  0
+call    0 returned 470806
         -:   84:    }
-    62982:   85:    PrintInOrder<vertex_type>(vertex->left);
-    62982:   85-block  0
-call    0 returned 62982
-    62982:   86:    DrawVertex(vertex);
-call    0 returned 62982
-    62982:   87:    PrintInOrder<vertex_type>(vertex->right);
-call    0 returned 62982
+   874354:   85:    PrintInOrder<vertex_type>(vertex->left);
+   874354:   85-block  0
+call    0 returned 874354
+   874354:   86:    DrawVertex(vertex);
+call    0 returned 874354
+   874354:   87:    PrintInOrder<vertex_type>(vertex->right);
+call    0 returned 874354
         -:   88:}
 ------------------
         -:   89:
-function _ZN6Drawer13Print_DD_TREEEv called 5264 returned 100% blocks executed 100%
-     5264:   90:void Drawer::Print_DD_TREE() noexcept {
-     5264:   91:    PrintInOrder<Node_DD>(MAIN_WINDOW::DD_DRAW_TREE_);
-     5264:   91-block  0
-call    0 returned 5264
-     5264:   92:}
+function _ZN6Drawer13Print_DD_TREEEv called 35669 returned 100% blocks executed 100%
+    35669:   90:void Drawer::Print_DD_TREE() noexcept {
+    35669:   91:    PrintInOrder<Node_DD>(MAIN_WINDOW::DD_DRAW_TREE_);
+    35669:   91-block  0
+call    0 returned 35669
+    35669:   92:}
         -:   93:
-function _ZN6Drawer14Print_AVL_TREEEv called 18865 returned 100% blocks executed 100%
-    18865:   94:void Drawer::Print_AVL_TREE() noexcept {
-    18865:   95:    PrintInOrder<Node_AVL>(MAIN_WINDOW::AVL_DRAW_TREE_);
-    18865:   95-block  0
-call    0 returned 18865
-    18865:   96:}
+function _ZN6Drawer14Print_AVL_TREEEv called 12433 returned 100% blocks executed 100%
+    12433:   94:void Drawer::Print_AVL_TREE() noexcept {
+    12433:   95:    PrintInOrder<Node_AVL>(MAIN_WINDOW::AVL_DRAW_TREE_);
+    12433:   95-block  0
+call    0 returned 12433
+    12433:   96:}
         -:   97:

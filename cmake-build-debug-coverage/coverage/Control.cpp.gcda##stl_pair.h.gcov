@@ -233,9 +233,9 @@
         -:  229:                                     __is_implicitly_default_constructible<_U2>>
         -:  230:                                   ::value, bool>::type = true>
         -:  231:#endif
-function _ZNSt4pairIffEC2IffLb1EEEv called 160 returned 100% blocks executed 100%
-      160:  232:      _GLIBCXX_CONSTEXPR pair()
-      160:  233:      : first(), second() { }
+function _ZNSt4pairIffEC2IffLb1EEEv called 2737 returned 100% blocks executed 100%
+     2737:  232:      _GLIBCXX_CONSTEXPR pair()
+     2737:  233:      : first(), second() { }
         -:  234:
         -:  235:#if __cplusplus >= 201103L
         -:  236:      template <typename _U1 = _T1,
@@ -354,40 +354,40 @@ function _ZNSt4pairIffEC2IffLb1EEEv called 160 returned 100% blocks executed 100
         -:  349:			  && _PCCP::template
         -:  350:			   _ImplicitlyMoveConvertiblePair<_U1, _U2>(),
         -:  351:                         bool>::type=true>
-      573:  352:	constexpr pair(_U1&& __x, _U2&& __y)
-      573:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
+     5700:  352:	constexpr pair(_U1&& __x, _U2&& __y)
+     5700:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
 ------------------
 _ZNSt4pairIffEC2IffLb1EEEOT_OT0_:
-function _ZNSt4pairIffEC2IffLb1EEEOT_OT0_ called 160 returned 100% blocks executed 100%
-      160:  352:	constexpr pair(_U1&& __x, _U2&& __y)
-      160:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
-      160:  353-block  0
-call    0 returned 160
-call    1 returned 160
+function _ZNSt4pairIffEC2IffLb1EEEOT_OT0_ called 2737 returned 100% blocks executed 100%
+     2737:  352:	constexpr pair(_U1&& __x, _U2&& __y)
+     2737:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
+     2737:  353-block  0
+call    0 returned 2737
+call    1 returned 2737
 ------------------
 _ZNSt4pairIffEC2IiiLb1EEEOT_OT0_:
-function _ZNSt4pairIffEC2IiiLb1EEEOT_OT0_ called 164 returned 100% blocks executed 100%
-      164:  352:	constexpr pair(_U1&& __x, _U2&& __y)
-      164:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
-      164:  353-block  0
-call    0 returned 164
-call    1 returned 164
+function _ZNSt4pairIffEC2IiiLb1EEEOT_OT0_ called 2842 returned 100% blocks executed 100%
+     2842:  352:	constexpr pair(_U1&& __x, _U2&& __y)
+     2842:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
+     2842:  353-block  0
+call    0 returned 2842
+call    1 returned 2842
 ------------------
 _ZNSt4pairIP7Node_DDS1_EC2IRS1_S4_Lb1EEEOT_OT0_:
-function _ZNSt4pairIP7Node_DDS1_EC2IRS1_S4_Lb1EEEOT_OT0_ called 205 returned 100% blocks executed 100%
-      205:  352:	constexpr pair(_U1&& __x, _U2&& __y)
-      205:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
-      205:  353-block  0
-call    0 returned 205
-call    1 returned 205
+function _ZNSt4pairIP7Node_DDS1_EC2IRS1_S4_Lb1EEEOT_OT0_ called 95 returned 100% blocks executed 100%
+       95:  352:	constexpr pair(_U1&& __x, _U2&& __y)
+       95:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
+       95:  353-block  0
+call    0 returned 95
+call    1 returned 95
 ------------------
 _ZNSt4pairIP7Node_DDS1_EC2IDnDnLb1EEEOT_OT0_:
-function _ZNSt4pairIP7Node_DDS1_EC2IDnDnLb1EEEOT_OT0_ called 44 returned 100% blocks executed 100%
-       44:  352:	constexpr pair(_U1&& __x, _U2&& __y)
-       44:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
-       44:  353-block  0
-call    0 returned 44
-call    1 returned 44
+function _ZNSt4pairIP7Node_DDS1_EC2IDnDnLb1EEEOT_OT0_ called 26 returned 100% blocks executed 100%
+       26:  352:	constexpr pair(_U1&& __x, _U2&& __y)
+       26:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
+       26:  353-block  0
+call    0 returned 26
+call    1 returned 26
 ------------------
         -:  354:
         -:  355:      template<typename _U1, typename _U2, typename
@@ -436,20 +436,20 @@ call    1 returned 44
         -:  398:      }
         -:  399:
         -:  400:      _GLIBCXX20_CONSTEXPR pair&
-function _ZNSt4pairIffEaSEOS0_ called 320 returned 100% blocks executed 100%
-      320:  401:      operator=(typename conditional<
+function _ZNSt4pairIffEaSEOS0_ called 5474 returned 100% blocks executed 100%
+     5474:  401:      operator=(typename conditional<
         -:  402:		__and_<is_move_assignable<_T1>,
         -:  403:		       is_move_assignable<_T2>>::value,
         -:  404:		pair&&, __nonesuch&&>::type __p)
         -:  405:      noexcept(__and_<is_nothrow_move_assignable<_T1>,
         -:  406:		      is_nothrow_move_assignable<_T2>>::value)
         -:  407:      {
-      320:  408:	first = std::forward<first_type>(__p.first);
-      320:  408-block  0
-call    0 returned 320
-      320:  409:	second = std::forward<second_type>(__p.second);
-call    0 returned 320
-      320:  410:	return *this;
+     5474:  408:	first = std::forward<first_type>(__p.first);
+     5474:  408-block  0
+call    0 returned 5474
+     5474:  409:	second = std::forward<second_type>(__p.second);
+call    0 returned 5474
+     5474:  410:	return *this;
         -:  411:      }
         -:  412:
         -:  413:      template<typename _U1, typename _U2>

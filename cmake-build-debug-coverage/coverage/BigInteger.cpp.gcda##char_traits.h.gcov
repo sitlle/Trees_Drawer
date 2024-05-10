@@ -201,23 +201,44 @@ branch  2 never executed
         -:  187:  template<typename _CharT>
         -:  188:    _GLIBCXX20_CONSTEXPR
         -:  189:    typename char_traits<_CharT>::char_type*
-        -:  190:    char_traits<_CharT>::
+function _ZN9__gnu_cxx11char_traitsIcE4moveEPcPKcm called 0 returned 0% blocks executed 0%
+    #####:  190:    char_traits<_CharT>::
         -:  191:    move(char_type* __s1, const char_type* __s2, std::size_t __n)
         -:  192:    {
-        -:  193:      if (__n == 0)
-        -:  194:	return __s1;
+    #####:  193:      if (__n == 0)
+    %%%%%:  193-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  194:	return __s1;
+    %%%%%:  194-block  0
         -:  195:#if __cpp_lib_is_constant_evaluated
-        -:  196:      if (std::is_constant_evaluated())
+    #####:  196:      if (std::is_constant_evaluated())
+    %%%%%:  196-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
         -:  197:	{
-        -:  198:	  if (__s1 == __s2) // unlikely, but saves a lot of work
-        -:  199:	    return __s1;
+    #####:  198:	  if (__s1 == __s2) // unlikely, but saves a lot of work
+    %%%%%:  198-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  199:	    return __s1;
+    %%%%%:  199-block  0
         -:  200:#if __cpp_constexpr_dynamic_alloc
         -:  201:	  // The overlap detection below fails due to PR c++/89074,
         -:  202:	  // so use a temporary buffer instead.
-        -:  203:	  char_type* __tmp = new char_type[__n];
-        -:  204:	  copy(__tmp, __s2, __n);
-        -:  205:	  copy(__s1, __tmp, __n);
-        -:  206:	  delete[] __tmp;
+    #####:  203:	  char_type* __tmp = new char_type[__n];
+    %%%%%:  203-block  0
+call    0 never executed
+    #####:  204:	  copy(__tmp, __s2, __n);
+call    0 never executed
+    #####:  205:	  copy(__s1, __tmp, __n);
+call    0 never executed
+    #####:  206:	  delete[] __tmp;
+branch  0 never executed
+branch  1 never executed
+    %%%%%:  206-block  0
+call    2 never executed
         -:  207:#else
         -:  208:	  const auto __end = __s2 + __n - 1;
         -:  209:	  bool __overlap = false;
@@ -241,33 +262,41 @@ branch  2 never executed
         -:  227:	  else
         -:  228:	    copy(__s1, __s2, __n);
         -:  229:#endif
-        -:  230:	  return __s1;
+    #####:  230:	  return __s1;
+    %%%%%:  230-block  0
         -:  231:	}
         -:  232:#endif
-        -:  233:      __builtin_memmove(__s1, __s2, __n * sizeof(char_type));
-        -:  234:      return __s1;
+    #####:  233:      __builtin_memmove(__s1, __s2, __n * sizeof(char_type));
+    #####:  234:      return __s1;
+    %%%%%:  234-block  0
         -:  235:    }
         -:  236:
         -:  237:  template<typename _CharT>
         -:  238:    _GLIBCXX20_CONSTEXPR
         -:  239:    typename char_traits<_CharT>::char_type*
-        -:  240:    char_traits<_CharT>::
+function _ZN9__gnu_cxx11char_traitsIcE4copyEPcPKcm called 0 returned 0% blocks executed 0%
+    #####:  240:    char_traits<_CharT>::
         -:  241:    copy(char_type* __s1, const char_type* __s2, std::size_t __n)
         -:  242:    {
         -:  243:      // NB: Inline std::copy so no recursive dependencies.
-        -:  244:      std::copy(__s2, __s2 + __n, __s1);
-        -:  245:      return __s1;
+    #####:  244:      std::copy(__s2, __s2 + __n, __s1);
+    %%%%%:  244-block  0
+call    0 never executed
+    #####:  245:      return __s1;
         -:  246:    }
         -:  247:
         -:  248:  template<typename _CharT>
         -:  249:    _GLIBCXX20_CONSTEXPR
         -:  250:    typename char_traits<_CharT>::char_type*
-        -:  251:    char_traits<_CharT>::
+function _ZN9__gnu_cxx11char_traitsIcE6assignEPcmc called 0 returned 0% blocks executed 0%
+    #####:  251:    char_traits<_CharT>::
         -:  252:    assign(char_type* __s, std::size_t __n, char_type __a)
         -:  253:    {
         -:  254:      // NB: Inline std::fill_n so no recursive dependencies.
-        -:  255:      std::fill_n(__s, __n, __a);
-        -:  256:      return __s;
+    #####:  255:      std::fill_n(__s, __n, __a);
+    %%%%%:  255-block  0
+call    0 never executed
+    #####:  256:      return __s;
         -:  257:    }
         -:  258:
         -:  259:_GLIBCXX_END_NAMESPACE_VERSION
@@ -367,8 +396,9 @@ branch  2 never executed
         -:  353:#endif
         -:  354:
         -:  355:      static _GLIBCXX17_CONSTEXPR void
-        -:  356:      assign(char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
-        -:  357:      { __c1 = __c2; }
+function _ZNSt11char_traitsIcE6assignERcRKc called 0 returned 0% blocks executed 0%
+    #####:  356:      assign(char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
+    #####:  357:      { __c1 = __c2; }
         -:  358:
         -:  359:      static _GLIBCXX_CONSTEXPR bool
         -:  360:      eq(const char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
@@ -463,15 +493,27 @@ call    0 never executed
         -:  414:      }
         -:  415:
         -:  416:      static _GLIBCXX20_CONSTEXPR char_type*
-        -:  417:      move(char_type* __s1, const char_type* __s2, size_t __n)
+function _ZNSt11char_traitsIcE4moveEPcPKcm called 0 returned 0% blocks executed 0%
+    #####:  417:      move(char_type* __s1, const char_type* __s2, size_t __n)
         -:  418:      {
-        -:  419:	if (__n == 0)
-        -:  420:	  return __s1;
+    #####:  419:	if (__n == 0)
+    %%%%%:  419-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  420:	  return __s1;
+    %%%%%:  420-block  0
         -:  421:#ifdef __cpp_lib_is_constant_evaluated
-        -:  422:	if (std::is_constant_evaluated())
-        -:  423:	  return __gnu_cxx::char_traits<char_type>::move(__s1, __s2, __n);
+    #####:  422:	if (std::is_constant_evaluated())
+    %%%%%:  422-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  423:	  return __gnu_cxx::char_traits<char_type>::move(__s1, __s2, __n);
+    %%%%%:  423-block  0
+call    0 never executed
         -:  424:#endif
-        -:  425:	return static_cast<char_type*>(__builtin_memmove(__s1, __s2, __n));
+    #####:  425:	return static_cast<char_type*>(__builtin_memmove(__s1, __s2, __n));
+    %%%%%:  425-block  0
         -:  426:      }
         -:  427:
         -:  428:      static _GLIBCXX20_CONSTEXPR char_type*
@@ -485,23 +527,41 @@ branch  1 never executed
     #####:  432:	  return __s1;
     %%%%%:  432-block  0
         -:  433:#ifdef __cpp_lib_is_constant_evaluated
-        -:  434:	if (std::is_constant_evaluated())
-        -:  435:	  return __gnu_cxx::char_traits<char_type>::copy(__s1, __s2, __n);
+    #####:  434:	if (std::is_constant_evaluated())
+    %%%%%:  434-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  435:	  return __gnu_cxx::char_traits<char_type>::copy(__s1, __s2, __n);
+    %%%%%:  435-block  0
+call    0 never executed
         -:  436:#endif
     #####:  437:	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
     %%%%%:  437-block  0
         -:  438:      }
         -:  439:
         -:  440:      static _GLIBCXX20_CONSTEXPR char_type*
-        -:  441:      assign(char_type* __s, size_t __n, char_type __a)
+function _ZNSt11char_traitsIcE6assignEPcmc called 0 returned 0% blocks executed 0%
+    #####:  441:      assign(char_type* __s, size_t __n, char_type __a)
         -:  442:      {
-        -:  443:	if (__n == 0)
-        -:  444:	  return __s;
+    #####:  443:	if (__n == 0)
+    %%%%%:  443-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  444:	  return __s;
+    %%%%%:  444-block  0
         -:  445:#ifdef __cpp_lib_is_constant_evaluated
-        -:  446:	if (std::is_constant_evaluated())
-        -:  447:	  return __gnu_cxx::char_traits<char_type>::assign(__s, __n, __a);
+    #####:  446:	if (std::is_constant_evaluated())
+    %%%%%:  446-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  447:	  return __gnu_cxx::char_traits<char_type>::assign(__s, __n, __a);
+    %%%%%:  447-block  0
+call    0 never executed
         -:  448:#endif
-        -:  449:	return static_cast<char_type*>(__builtin_memset(__s, __a, __n));
+    #####:  449:	return static_cast<char_type*>(__builtin_memset(__s, __a, __n));
+    %%%%%:  449-block  0
         -:  450:      }
         -:  451:
         -:  452:      static _GLIBCXX_CONSTEXPR char_type
