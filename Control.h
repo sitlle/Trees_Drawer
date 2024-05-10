@@ -1,10 +1,11 @@
 #pragma once
-namespace Control {
-    class WASD_Control {
-    public:
-        WASD_Control() = default;
 
-        ~WASD_Control() = default;
+namespace Control {
+    class KeyBoard_Control {
+    public:
+        KeyBoard_Control() = default;
+
+        ~KeyBoard_Control() = default;
 
         static void MOVE_UP() noexcept;
 
@@ -13,6 +14,8 @@ namespace Control {
         static void MOVE_LEFT() noexcept;
 
         static void MOVE_RIGHT() noexcept;
+
+        static void DELETE() noexcept;
     };
 
     class Mouse_Control {

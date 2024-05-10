@@ -16,7 +16,7 @@
 class WHICH_VERTEX;
 
 class MAIN_WINDOW {
-    friend class Control::WASD_Control;
+    friend class Control::KeyBoard_Control;
     friend class Control::Mouse_Control;
     friend class Control::Arrow_Control;
     friend class Control::Nums_Control;
@@ -106,8 +106,46 @@ public:
 
     template<typename vertex_type>
     static void Find_All_Blue(VERTEX<vertex_type>* TREE,
-                              std::vector<vertex_type>& blue_list) noexcept;
+                              std::vector<vertex_type*> &blue_list) noexcept;
 
     template<typename vertex_type>
-    static std::vector<vertex_type> Get_All_Blue(VERTEX<vertex_type>* TREE) noexcept;
+    static std::vector<vertex_type*> Get_All_Blue(VERTEX<vertex_type>* TREE) noexcept;
 };
+
+template<typename vertex_type>
+VERTEX<vertex_type>* WHICH_VERTEX::Which_Vertex(VERTEX<vertex_type>* TREE) noexcept {
+    VERTEX<vertex_type>* res = FindVertex(TREE); // res maybe nullptr
+    if (res != nullptr) {
+        std::cout << "------------------------------------------\n";
+        std::cout << "value: " << std::to_string(res->real_vertex->val) << '\n';
+        std::cout << "height: " << std::to_string(res->real_vertex->param.height) << '\n';
+        std::cout << "posX: " << bigint::to_string(res->real_vertex->param.posX) << '\n';
+        std::cout << "sdv: " << bigint::to_string(res->real_vertex->param.sdv) << '\n';
+        std::cout << "left posX: " << bigint::to_string(res->real_vertex->param.L) << '\n';
+        std::cout << "right posX: " << bigint::to_string(res->real_vertex->param.R) << '\n';
+        std::cout << "------------------------------------------\n";
+    }
+    return res;
+}
+
+// FIND_BLUE_VERTEX
+
+template<typename vertex_type>
+void FIND_BLUE_VERTEX::Find_All_Blue(VERTEX<vertex_type>* TREE,
+                                     std::vector<vertex_type*> &blue_list) noexcept {
+    if (TREE == nullptr) {
+        return;
+    }
+    if (TREE->COLOR == sf::Color::Blue) {
+        blue_list.push_back(TREE->real_vertex);
+    }
+    Find_All_Blue(TREE->left, blue_list);
+    Find_All_Blue(TREE->right, blue_list);
+}
+
+template<typename vertex_type>
+std::vector<vertex_type*> FIND_BLUE_VERTEX::Get_All_Blue(VERTEX<vertex_type>* TREE) noexcept {
+    std::vector<vertex_type*> blue_list;
+    Find_All_Blue(TREE, blue_list);
+    return blue_list;
+}

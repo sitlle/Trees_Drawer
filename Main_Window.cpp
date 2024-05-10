@@ -72,13 +72,13 @@ void MAIN_WINDOW::Events() {
             } else if (Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
                 Control::Nums_Control::NUM4();
             } else if (Keyboard::isKeyPressed(Keyboard::W)) {
-                Control::WASD_Control::MOVE_UP();
+                Control::KeyBoard_Control::MOVE_UP();
             } else if (Keyboard::isKeyPressed(Keyboard::S)) {
-                Control::WASD_Control::MOVE_DOWN();
+                Control::KeyBoard_Control::MOVE_DOWN();
             } else if (Keyboard::isKeyPressed(Keyboard::A)) {
-                Control::WASD_Control::MOVE_LEFT();
+                Control::KeyBoard_Control::MOVE_LEFT();
             } else if (Keyboard::isKeyPressed(Keyboard::D)) {
-                Control::WASD_Control::MOVE_RIGHT();
+                Control::KeyBoard_Control::MOVE_RIGHT();
             } else if (Keyboard::isKeyPressed(Keyboard::Left)) {
                 Control::Arrow_Control::MOVE_LEFT();
             } else if (Keyboard::isKeyPressed(Keyboard::Right)) {
@@ -88,7 +88,7 @@ void MAIN_WINDOW::Events() {
             } else if (Keyboard::isKeyPressed(Keyboard::Up)) {
                 Control::Arrow_Control::MOVE_UP();
             } else if (Keyboard::isKeyPressed(Keyboard::Delete)) {
-                // get all blue
+                Control::KeyBoard_Control::DELETE();
             }
         } else if (Main_Event_.type == sf::Event::MouseWheelMoved) {
             if (Main_Event_.mouseWheel.delta == -1) {
@@ -194,42 +194,4 @@ VERTEX<vertex_type>* WHICH_VERTEX::FindVertex(VERTEX<vertex_type> *vertex) noexc
         return ans1;
     }
     return ans2;
-}
-
-template<typename vertex_type>
-VERTEX<vertex_type>* WHICH_VERTEX::Which_Vertex(VERTEX<vertex_type>* TREE) noexcept {
-    VERTEX<vertex_type>* res = FindVertex(TREE); // res maybe nullptr
-    if (res != nullptr) {
-        std::cout << "------------------------------------------\n";
-        std::cout << "value: " << std::to_string(res->real_vertex->val) << '\n';
-        std::cout << "height: " << std::to_string(res->real_vertex->param.height) << '\n';
-        cout << "posX: " << bigint::to_string(res->real_vertex->param.posX) << '\n';
-        cout << "sdv: " << bigint::to_string(res->real_vertex->param.sdv) << '\n';
-        cout << "left posX: " << bigint::to_string(res->real_vertex->param.L) << '\n';
-        cout << "right posX: " << bigint::to_string(res->real_vertex->param.R) << '\n';
-        std::cout << "------------------------------------------\n";
-    }
-    return res;
-}
-
-// FIND_BLUE_VERTEX
-
-template<typename vertex_type>
-void FIND_BLUE_VERTEX::Find_All_Blue(VERTEX<vertex_type> *TREE,
-                                     std::vector<vertex_type> &blue_list) noexcept {
-    if (TREE == nullptr) {
-        return;
-    }
-    if (TREE->COLOR == sf::Color::Blue) {
-        blue_list.push_back(TREE);
-    }
-    Find_All_Blue(TREE->left);
-    Find_All_Blue(TREE->right);
-}
-
-template<typename vertex_type>
-std::vector<vertex_type> FIND_BLUE_VERTEX::Get_All_Blue(VERTEX<vertex_type> *TREE) noexcept {
-    std::vector<vertex_type> blue_list;
-    Find_All_Blue(TREE, blue_list);
-    return blue_list;
 }

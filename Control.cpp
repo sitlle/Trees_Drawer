@@ -2,7 +2,9 @@
 #include "Control.h"
 #include"Trees_Building.h"
 
-void Control::WASD_Control::MOVE_UP() noexcept {
+// KEYBOARD
+
+void Control::KeyBoard_Control::MOVE_UP() noexcept {
     if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
         MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_y += 75;
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
@@ -10,7 +12,7 @@ void Control::WASD_Control::MOVE_UP() noexcept {
     }
 }
 
-void Control::WASD_Control::MOVE_DOWN() noexcept {
+void Control::KeyBoard_Control::MOVE_DOWN() noexcept {
     if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
         MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_y -= 75;
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
@@ -18,7 +20,7 @@ void Control::WASD_Control::MOVE_DOWN() noexcept {
     }
 }
 
-void Control::WASD_Control::MOVE_LEFT() noexcept {
+void Control::KeyBoard_Control::MOVE_LEFT() noexcept {
     if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
         MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_x += 75;
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
@@ -26,13 +28,30 @@ void Control::WASD_Control::MOVE_LEFT() noexcept {
     }
 }
 
-void Control::WASD_Control::MOVE_RIGHT() noexcept {
+void Control::KeyBoard_Control::MOVE_RIGHT() noexcept {
     if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
         MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_x -= 75;
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
         MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_x -= 75;
     }
 }
+
+void Control::KeyBoard_Control::DELETE() noexcept {
+    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+        auto res = FIND_BLUE_VERTEX::Get_All_Blue(MAIN_WINDOW::DD_DRAW_TREE_);
+        for (auto &NODE : res) {
+            MAIN_WINDOW::DD_TREE_.Remove(NODE->val);
+            MAIN_WINDOW::DD_DRAW_TREE_ = Trees_Building::Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
+                                                                                 MAIN_WINDOW::DD_OPTIONS_);
+            // avl remove
+            // splay remove
+        }
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+
+    }
+}
+
+// MOUSE
 
 void Control::Mouse_Control::MOVE_UP() noexcept {
     if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
@@ -111,6 +130,8 @@ void Control::Arrow_Control::MOVE_UP() noexcept {
 
     }
 }
+
+// NUMS
 
 void Control::Nums_Control::NUM1() noexcept {
     First_Extra_Window Extra_Window;
