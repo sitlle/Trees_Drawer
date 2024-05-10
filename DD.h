@@ -39,13 +39,19 @@ public:
         }
     }
 
+    void Remove(int64_t x) {
+        if (Find(x)) {
+            Remove(root, x);
+        }
+    }
+
     void Print() {
         Print(root);
     }
 
 private:
 
-    void clear(Node_DD* vertex) {
+    void clear(Node_DD* vertex) noexcept {
         if (vertex == nullptr) {
             return;
         }
@@ -55,7 +61,14 @@ private:
         delete vertex;
     }
 
-    void Print(Node_DD* vertex) {
+    void Remove(Node_DD* vertex, int64_t key) noexcept {
+        auto* node = new Node_DD(key);
+        auto[T_First, T_Second] = Split(root, node->val);
+        auto T_Third = Merge(T_First->left, T_First->right);
+        root = Merge(T_Third, T_Second);
+    }
+
+    void Print(Node_DD* vertex) noexcept {
         if (vertex == nullptr) {
             return;
         }
@@ -64,7 +77,7 @@ private:
         Print(vertex->right);
     }
 
-    bool Find(Node_DD* vertex, int64_t key) {
+    bool Find(Node_DD* vertex, int64_t key) noexcept {
         if (vertex == nullptr) {
             return false;
         }
@@ -78,7 +91,7 @@ private:
         }
     }
 
-    Node_DD* Merge(Node_DD* T_First, Node_DD* T_Second) {
+    Node_DD* Merge(Node_DD* T_First, Node_DD* T_Second) noexcept {
         if (T_First == nullptr) {
             return T_Second;
         }
@@ -94,7 +107,7 @@ private:
         }
     }
 
-    std::pair<Node_DD*, Node_DD*> Split(Node_DD* T, int64_t key) {
+    std::pair<Node_DD*, Node_DD*> Split(Node_DD* T, int64_t key) noexcept {
         if (T == nullptr) {
             return {nullptr, nullptr};
         }

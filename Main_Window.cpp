@@ -1,4 +1,4 @@
-#include"FrontEnd.h"
+#include"Main_Window.h"
 #include"Drawer.h"
 using namespace std;
 
@@ -27,7 +27,8 @@ MAIN_WINDOW::MAIN_WINDOW() :
     User_Text_.setFont(User_Font_);
 }
 
-template<typename vertex_type> void MAIN_WINDOW::InOrder_Add_X
+template<typename vertex_type>
+void MAIN_WINDOW::InOrder_Add_X
 (VERTEX<vertex_type> *vertex, int32_t add) noexcept {
     if (vertex == nullptr) {
         return;
@@ -45,66 +46,6 @@ template<typename vertex_type> void MAIN_WINDOW::InOrder_Add_Y
     InOrder_Add_Y<vertex_type>(vertex->left, add);
     vertex->coords.second += float(add);
     InOrder_Add_Y<vertex_type>(vertex->right, add);
-}
-
-template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::FindVertex
-(VERTEX<vertex_type>* vertex) noexcept {
-    float FIRST = 0;
-    float SECOND = 0;
-    float zoom = 1.f;
-    if (vertex == nullptr) {
-        return nullptr;
-    }
-    if (type_ == which_window_::DD_TREE) {
-        FIRST = (vertex->coords.first + PRINT_DD_OPTIONS_.cnt_x  + vertex->radius) /
-                PRINT_DD_OPTIONS_.zoom;
-        SECOND = (vertex->coords.second + PRINT_DD_OPTIONS_.cnt_y + vertex->radius) /
-                PRINT_DD_OPTIONS_.zoom;
-        zoom = PRINT_DD_OPTIONS_.zoom;
-    } else if (type_ == which_window_::AVL_TREE) {
-        FIRST = (vertex->coords.first + PRINT_AVL_OPTIONS.cnt_x + vertex->radius) /
-                PRINT_AVL_OPTIONS.zoom;
-        SECOND = (vertex->coords.second + PRINT_AVL_OPTIONS.cnt_y  + vertex->radius) /
-                PRINT_AVL_OPTIONS.zoom;
-        zoom = PRINT_AVL_OPTIONS.zoom;
-    }
-    float dist = sqrt((float(mouse_pos_.x) - FIRST) *
-                      (float(mouse_pos_.x) - FIRST) +
-                      (float(mouse_pos_.y) - SECOND) *
-                      (float(mouse_pos_.y) - SECOND));
-    if (dist <= vertex->radius / zoom) {
-        return vertex;
-    }
-    VERTEX<vertex_type>* ans1 = nullptr;
-    VERTEX<vertex_type>* ans2 = nullptr;
-    if (vertex->left != nullptr) {
-        ans1 = FindVertex(vertex->left);
-    }
-    if (vertex->right != nullptr) {
-        ans2 = FindVertex(vertex->right);
-    }
-    if (ans1 == nullptr && ans2 == nullptr) {
-        return nullptr;
-    }
-    if (ans1 != nullptr) {
-        return ans1;
-    }
-    return ans2;
-}
-
-template<typename vertex_type> VERTEX<vertex_type>* MAIN_WINDOW::Which_Vertex(VERTEX<vertex_type>* TREE) noexcept {
-    VERTEX<vertex_type>* res = FindVertex(TREE); // res maybe nullptr
-    if (res != nullptr) {
-        cout << "------------------------------------------\n";
-        cout << "value: " << std::to_string(res->real_vertex->val) << '\n';
-        cout << "height: " << std::to_string(res->real_vertex->param.height) << '\n';
-        // cout << "posX: " << bigint::bigint_to_string(res->real_vertex->param.posX) << '\n';
-        // cout << "sdv: " << bigint::bigint_to_string(res->real_vertex->param.sdv) << '\n';
-        // cout << "left posX: " << bigint::bigint_to_string(res->real_vertex->param.L) << '\n';
-        // cout << "right posX: " << bigint::bigint_to_string(res->real_vertex->param.R) << '\n';
-        cout << "------------------------------------------\n";
-    }
-    return res;
 }
 
 void MAIN_WINDOW::Events() {
@@ -187,7 +128,7 @@ void MAIN_WINDOW::Process() {
 
 template<typename vertex_type>
 void MAIN_WINDOW::LEFT_CLICK(VERTEX<vertex_type>* TREE) noexcept {
-    VERTEX<vertex_type>* res = MAIN_WINDOW::Which_Vertex<vertex_type>(TREE);
+    VERTEX<vertex_type>* res = WHICH_VERTEX::Which_Vertex<vertex_type>(TREE);
     if (res != nullptr) {
         if (res->COLOR == Color::Blue) {
             res->COLOR = Color::Red;
@@ -201,10 +142,94 @@ void MAIN_WINDOW::LEFT_CLICK(VERTEX<vertex_type>* TREE) noexcept {
 
 template<typename vertex_type>
 void MAIN_WINDOW::RIGHT_CLICK(VERTEX<vertex_type> *TREE) noexcept {
-    VERTEX<vertex_type>* res = Which_Vertex<vertex_type>(TREE);
+    VERTEX<vertex_type>* res = WHICH_VERTEX::Which_Vertex<vertex_type>(TREE);
     if (res != nullptr) {
         Info_Extra_Window e(res);
         e.Process();
     }
 }
 
+// WHICH VERTEX
+
+template<typename vertex_type>
+VERTEX<vertex_type>* WHICH_VERTEX::FindVertex(VERTEX<vertex_type> *vertex) noexcept {
+    float FIRST = 0;
+    float SECOND = 0;
+    float zoom = 1.f;
+    if (vertex == nullptr) {
+        return nullptr;
+    }
+    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+        FIRST = (vertex->coords.first + MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_x  + vertex->radius) /
+                MAIN_WINDOW::PRINT_DD_OPTIONS_.zoom;
+        SECOND = (vertex->coords.second + MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_y + vertex->radius) /
+                 MAIN_WINDOW::PRINT_DD_OPTIONS_.zoom;
+        zoom = MAIN_WINDOW::PRINT_DD_OPTIONS_.zoom;
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+        FIRST = (vertex->coords.first + MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_x + vertex->radius) /
+                MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
+        SECOND = (vertex->coords.second + MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_y  + vertex->radius) /
+                 MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
+        zoom = MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
+    }
+    float dist = std::sqrt((float(MAIN_WINDOW::mouse_pos_.x) - FIRST) *
+                           (float(MAIN_WINDOW::mouse_pos_.x) - FIRST) +
+                           (float(MAIN_WINDOW::mouse_pos_.y) - SECOND) *
+                           (float(MAIN_WINDOW::mouse_pos_.y) - SECOND));
+    if (dist <= vertex->radius / zoom) {
+        return vertex;
+    }
+    VERTEX<vertex_type>* ans1 = nullptr;
+    VERTEX<vertex_type>* ans2 = nullptr;
+    if (vertex->left != nullptr) {
+        ans1 = FindVertex(vertex->left);
+    }
+    if (vertex->right != nullptr) {
+        ans2 = FindVertex(vertex->right);
+    }
+    if (ans1 == nullptr && ans2 == nullptr) {
+        return nullptr;
+    }
+    if (ans1 != nullptr) {
+        return ans1;
+    }
+    return ans2;
+}
+
+template<typename vertex_type>
+VERTEX<vertex_type>* WHICH_VERTEX::Which_Vertex(VERTEX<vertex_type>* TREE) noexcept {
+    VERTEX<vertex_type>* res = FindVertex(TREE); // res maybe nullptr
+    if (res != nullptr) {
+        std::cout << "------------------------------------------\n";
+        std::cout << "value: " << std::to_string(res->real_vertex->val) << '\n';
+        std::cout << "height: " << std::to_string(res->real_vertex->param.height) << '\n';
+        cout << "posX: " << bigint::to_string(res->real_vertex->param.posX) << '\n';
+        cout << "sdv: " << bigint::to_string(res->real_vertex->param.sdv) << '\n';
+        cout << "left posX: " << bigint::to_string(res->real_vertex->param.L) << '\n';
+        cout << "right posX: " << bigint::to_string(res->real_vertex->param.R) << '\n';
+        std::cout << "------------------------------------------\n";
+    }
+    return res;
+}
+
+// FIND_BLUE_VERTEX
+
+template<typename vertex_type>
+void FIND_BLUE_VERTEX::Find_All_Blue(VERTEX<vertex_type> *TREE,
+                                     std::vector<vertex_type> &blue_list) noexcept {
+    if (TREE == nullptr) {
+        return;
+    }
+    if (TREE->COLOR == sf::Color::Blue) {
+        blue_list.push_back(TREE);
+    }
+    Find_All_Blue(TREE->left);
+    Find_All_Blue(TREE->right);
+}
+
+template<typename vertex_type>
+std::vector<vertex_type> FIND_BLUE_VERTEX::Get_All_Blue(VERTEX<vertex_type> *TREE) noexcept {
+    std::vector<vertex_type> blue_list;
+    Find_All_Blue(TREE, blue_list);
+    return blue_list;
+}

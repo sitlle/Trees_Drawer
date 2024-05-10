@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 #include<SFML/Graphics.hpp>
-#include"FrontEnd.h"
+#include"Main_Window.h"
 
 int main() {
     sf::ContextSettings settings;

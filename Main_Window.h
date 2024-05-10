@@ -13,31 +13,33 @@
 #include"Control.h"
 #pragma once
 
+class WHICH_VERTEX;
+
 class MAIN_WINDOW {
     friend class Control::WASD_Control;
     friend class Control::Mouse_Control;
     friend class Control::Arrow_Control;
     friend class Control::Nums_Control;
     friend class Drawer;
+    friend class WHICH_VERTEX;
+    friend class FIND_BLUE_VERTEX;
+
   public:
     MAIN_WINDOW();
     ~MAIN_WINDOW() = default;
     //Process
     void Process();
     //Process
+
     void Events();
+
     //Extra_Func
-    template<typename vertex_type>
-    static VERTEX<vertex_type>* FindVertex(VERTEX<vertex_type>* vertex) noexcept;
 
     template<typename vertex_type>
     void InOrder_Add_X(VERTEX<vertex_type>* vertex, int32_t add) noexcept;
 
     template<typename vertex_type>
     void InOrder_Add_Y(VERTEX<vertex_type>* vertex, int32_t add) noexcept;
-
-    template<typename vertex_type>
-    static VERTEX<vertex_type>* Which_Vertex(VERTEX<vertex_type>* TREE) noexcept;
 
     template<typename vertex_type>
     void LEFT_CLICK(VERTEX<vertex_type>* TREE) noexcept;
@@ -83,4 +85,29 @@ class MAIN_WINDOW {
     // Draw trees
     static VERTEX<Node_AVL>* AVL_DRAW_TREE_;
     static VERTEX<Node_DD>* DD_DRAW_TREE_;
+};
+
+class WHICH_VERTEX {
+public:
+    WHICH_VERTEX() = default;
+    ~WHICH_VERTEX() = default;
+
+    template<typename vertex_type>
+    static VERTEX<vertex_type>* FindVertex(VERTEX<vertex_type>* vertex) noexcept;
+
+    template<typename vertex_type>
+    static VERTEX<vertex_type>* Which_Vertex(VERTEX<vertex_type>* TREE) noexcept;
+};
+
+class FIND_BLUE_VERTEX {
+public:
+    FIND_BLUE_VERTEX() = default;
+    ~FIND_BLUE_VERTEX() = default;
+
+    template<typename vertex_type>
+    static void Find_All_Blue(VERTEX<vertex_type>* TREE,
+                              std::vector<vertex_type>& blue_list) noexcept;
+
+    template<typename vertex_type>
+    static std::vector<vertex_type> Get_All_Blue(VERTEX<vertex_type>* TREE) noexcept;
 };

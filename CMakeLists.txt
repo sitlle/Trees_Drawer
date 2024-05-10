@@ -6,7 +6,6 @@ find_package(SFML 2.5 COMPONENTS graphics)
 
 add_executable(tree Main_File.cpp
         AVL.h
-        DD.h
         Boxed.h
         KeyBoard.h
         Trees_Building.h
@@ -16,8 +15,8 @@ add_executable(tree Main_File.cpp
         Random.h
         TREE_OPTIONS.h
         Node_AVL.h
-        FrontEnd.cpp
-        FrontEnd.h
+        Main_Window.cpp
+        Main_Window.h
         Drawer.cpp
         Drawer.h
         ErrorWindow.cpp
@@ -33,6 +32,7 @@ add_executable(tree Main_File.cpp
         Control.h
         BigInteger.h
         BigInteger.cpp
+        DD.h
 )
 
 target_link_libraries(tree sfml-graphics)
