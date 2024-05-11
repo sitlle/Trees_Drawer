@@ -197,14 +197,16 @@ template<typename vertex_type, typename tree_type>
 VERTEX<vertex_type>* Trees_Building::Build_Tree(tree_type& TREE, TREE_OPTIONS& TREE_OPT) noexcept {
     VERTEX<vertex_type>* root = nullptr;
     // ReCalc
-    ReCalcHeight<vertex_type>(TREE.root);
-    TREE.root->param.posX = bigint("0");
-    ReCalcPosX<vertex_type>(TREE.root, (TREE.root->param.height - 1));
-    ReBuildTree<vertex_type>(TREE.root);
-    ReCalcSize(TREE.root);
-    // ReCalc
-    Compression<vertex_type>(TREE.root, (TREE.root->param.height - 1), bigint("0"));
-    LazyUpdates<vertex_type>(TREE.root, bigint("0"));
+    if (TREE.root != nullptr) {
+        ReCalcHeight<vertex_type>(TREE.root);
+        TREE.root->param.posX = bigint("0");
+        ReCalcPosX<vertex_type>(TREE.root, (TREE.root->param.height - 1));
+        ReBuildTree<vertex_type>(TREE.root);
+        ReCalcSize(TREE.root);
+        // ReCalc
+        Compression<vertex_type>(TREE.root, (TREE.root->param.height - 1), bigint("0"));
+        LazyUpdates<vertex_type>(TREE.root, bigint("0"));
+    }
     root = Tree_Building_InOrder<vertex_type>(TREE.root, root, {1250, 0},
                                               TREE_OPT);
     // 1250 - center of WINDOW_W
