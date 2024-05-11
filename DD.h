@@ -41,7 +41,7 @@ public:
 
     void Remove(int64_t x) {
         if (Find(x)) {
-            Remove(root, x);
+            root = Remove(root, x);
         }
     }
 
@@ -61,25 +61,20 @@ private:
         delete vertex;
     }
 
-    void Remove(Node_DD* vertex, int64_t key) noexcept {
+    Node_DD* Remove(Node_DD* vertex, int64_t key) noexcept {
         if (vertex == nullptr) {
-            return;
+            return nullptr;
         }
         if (vertex->val == key) {
-            Merge(vertex->left, vertex->right);
+            return Merge(vertex->left, vertex->right);
         } else {
             if (key <= vertex->val) {
-                Remove(vertex->left, key);
+                vertex->left = Remove(vertex->left, key);
             } else {
-                Remove(vertex->right, key);
+                vertex->right = Remove(vertex->right, key);
             }
+            return vertex;
         }
-        auto* node = new Node_DD(key);
-        auto[T_First, T_Second] = Split(root, node->val);
-        auto T_Second_Left = (T_Second == nullptr) ? nullptr : T_Second->left;
-        auto T_Second_Right = (T_Second == nullptr) ? nullptr : T_Second->right;
-        auto T_Third = Merge(T_Second_Left, T_Second_Right);
-        root = Merge(T_First, T_Third);
     }
 
     void Print(Node_DD* vertex) noexcept {
