@@ -66,9 +66,10 @@ private:
             return nullptr;
         }
         if (vertex->val == key) {
-            return Merge(vertex->left, vertex->right);
+            auto e = vertex;
+            return Merge(e->left, e->right);
         } else {
-            if (key <= vertex->val) {
+            if (key < vertex->val) {
                 vertex->left = Remove(vertex->left, key);
             } else {
                 vertex->right = Remove(vertex->right, key);

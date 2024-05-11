@@ -10,7 +10,13 @@ struct Node_AVL {
     int32_t height;
     int64_t balance;
 
-    Node_AVL() = default;
+    Node_AVL() {
+        val = 0;
+        left = nullptr;
+        right = nullptr;
+        height = 0;
+        balance = 0;
+    }
 
     ~Node_AVL() = default;
 

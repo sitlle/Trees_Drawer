@@ -33,6 +33,8 @@ add_executable(tree Main_File.cpp
         BigInteger.h
         BigInteger.cpp
         DD.h
+        Splay.h
+        Node_SPLAY.h
 )
 
 target_link_libraries(tree sfml-graphics)

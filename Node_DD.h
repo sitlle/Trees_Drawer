@@ -9,7 +9,12 @@ struct Node_DD {
     Node_DD* right;
     int32_t height = 0;
 
-    Node_DD() = default;
+    Node_DD() {
+        val = 0;
+        priority = 0;
+        left = nullptr;
+        right = nullptr;
+    }
 
     ~Node_DD() = default;
 

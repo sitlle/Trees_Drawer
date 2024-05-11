@@ -43,11 +43,14 @@ void Control::KeyBoard_Control::DELETE() noexcept {
             MAIN_WINDOW::DD_TREE_.Remove(NODE->val);
             MAIN_WINDOW::DD_DRAW_TREE_ = Trees_Building::Build_Tree<Node_DD, DD>(MAIN_WINDOW::DD_TREE_,
                                                                                  MAIN_WINDOW::DD_OPTIONS_);
-            // avl remove
-            // splay remove
         }
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
-
+        auto res = FIND_BLUE_VERTEX::Get_All_Blue(MAIN_WINDOW::AVL_DRAW_TREE_);
+        for (auto &NODE : res) {
+            MAIN_WINDOW::AVL_TREE_.Remove(NODE->val);
+            MAIN_WINDOW::AVL_DRAW_TREE_ = Trees_Building::Build_Tree<Node_AVL, AVL>(MAIN_WINDOW::AVL_TREE_,
+                                                                                 MAIN_WINDOW::AVL_OPTIONS_);
+        }
     }
 }
 

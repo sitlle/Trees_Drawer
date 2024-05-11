@@ -9,7 +9,9 @@ public:
         root = nullptr;
     }
 
-    ~AVL() = default;
+    ~AVL() {
+        clear(root);
+    }
 
     AVL(AVL const& other) {
         root = other.root;
@@ -23,6 +25,9 @@ public:
     }
 
     void Add(int64_t val) {
+        if (Find(val)) {
+            return;
+        }
         if (root == nullptr) {
             root = new Node_AVL(val);
             return;
@@ -30,7 +35,14 @@ public:
         root = Global_Balanced(root, val);
     }
 
-    bool Find(int32_t val) {
+    void Remove(int64_t val) {
+        if (!Find(val)) {
+            return;
+        }
+        root = Remove(root, val);
+    }
+
+    bool Find(int64_t val) {
         return Find(root, val);
     }
 
@@ -45,7 +57,7 @@ private:
         }
         clear(vertex->left);
         clear(vertex->right);
-        delete[] vertex;
+        delete vertex;
     }
 
     void Print(Node_AVL* vertex) {
@@ -71,6 +83,50 @@ private:
         }
     }
 
+    Node_AVL* getMin(Node_AVL* vertex) {
+        if (vertex == nullptr) {
+            return nullptr;
+        }
+        if (vertex->left == nullptr) {
+            return vertex;
+        }
+        return getMin(vertex->left);
+    }
+
+    Node_AVL* RemoveMin(Node_AVL* vertex) {
+        if (vertex == nullptr) {
+            return nullptr;
+        }
+        if (vertex->left == nullptr) {
+            return vertex->right;
+        }
+        vertex->left = RemoveMin(vertex->left);
+        return Local_Balanced(vertex);
+    }
+
+    Node_AVL* Remove(Node_AVL* vertex, int64_t val) {
+        if (vertex == nullptr) {
+            return nullptr;
+        }
+        if (vertex->val == val) {
+            auto mn = getMin(vertex->right);
+            if (!mn) {
+                auto e = vertex->left;
+                delete vertex;
+                return Local_Balanced(e);
+            }
+            vertex->right = RemoveMin(vertex->right);
+            mn->right = vertex->right;
+            mn->left = vertex->left;
+            return Local_Balanced(mn);
+        } else if (vertex->val > val) {
+            vertex->left = Remove(vertex->left, val);
+        } else if (vertex->val < val) {
+            vertex->right = Remove(vertex->right, val);
+        }
+        return Local_Balanced(vertex);
+    }
+
     int32_t get_height(const Node_AVL* vertex) {
         if (vertex == nullptr) {
             return 0;
@@ -86,6 +142,9 @@ private:
     }
 
     void Update(Node_AVL* vertex) {
+        if (vertex == nullptr) {
+            return;
+        }
         vertex->height = std::max(get_height(vertex->left),
                                   get_height(vertex->right)) + 1;
         vertex->balance = get_balance(vertex);

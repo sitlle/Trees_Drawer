@@ -20,10 +20,7 @@ template<typename vertex_type> struct VERTEX {
     }
 
     ~VERTEX() {
-        delete[] left;
-        delete[] right;
-        left = nullptr;
-        right = nullptr;
+        clear();
     }
 
     VERTEX(VERTEX const& other) {
@@ -34,5 +31,15 @@ template<typename vertex_type> struct VERTEX {
         right = other.right;
         val = other.val;
         real_vertex = other.real_vertex;
+    }
+
+private:
+    void clear(VERTEX* vertex) {
+        if (vertex == nullptr) {
+            return;
+        }
+        clear(vertex->left);
+        clear(vertex->right);
+        delete vertex;
     }
 };
