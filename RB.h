@@ -9,10 +9,13 @@ public:
     RB() = default;
     ~RB() = default;
 
-    void Add(int64_t key) {
+    void Add(int64_t val) {
+        if (Find(val)) {
+            return;
+        }
         auto* node = new Node_RB;
         node->prev = nullptr;
-        node->val = key;
+        node->val = val;
         node->left = nullptr;
         node->right = nullptr;
         node->param.COLOR = sf::Color::Red;
@@ -38,7 +41,7 @@ public:
             y->right = node;
         }
 
-        if (node->prev == nullptr){
+        if (node->prev == nullptr) {
             node->param.COLOR = sf::Color::Black;
             return;
         }
@@ -50,7 +53,21 @@ public:
         FixInsert(node);
     }
 
+    bool Find(int64_t val) {
+        return Find(root, val);
+    }
+
 private:
+
+    bool Find(Node_RB* vertex, int64_t val) {
+        if (vertex == nullptr) {
+            return false;
+        }
+        if (vertex->val == val) {
+            return true;
+        }
+        return (Find(vertex->left, val) | Find(vertex->right, val));
+    }
 
     void FixInsert(Node_RB* k){
         Node_RB* u;
