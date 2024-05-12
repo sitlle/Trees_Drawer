@@ -85,8 +85,8 @@ build CMakeFiles/tree.dir/Second_Extra_Window.cpp.o: CXX_COMPILER__tree_unscanne
   OBJECT_DIR = CMakeFiles/tree.dir
   OBJECT_FILE_DIR = CMakeFiles/tree.dir
 
-build CMakeFiles/tree.dir/Info_Extra_Window.cpp.o: CXX_COMPILER__tree_unscanned_Debug /home/yeawer/tree/Info_Extra_Window.cpp || cmake_object_order_depends_target_tree
-  DEP_FILE = CMakeFiles/tree.dir/Info_Extra_Window.cpp.o.d
+build CMakeFiles/tree.dir/Info_Vertex_Window.cpp.o: CXX_COMPILER__tree_unscanned_Debug /home/yeawer/tree/Info_Vertex_Window.cpp || cmake_object_order_depends_target_tree
+  DEP_FILE = CMakeFiles/tree.dir/Info_Vertex_Window.cpp.o.d
   FLAGS = --coverage -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/tree.dir
   OBJECT_FILE_DIR = CMakeFiles/tree.dir
@@ -103,6 +103,12 @@ build CMakeFiles/tree.dir/BigInteger.cpp.o: CXX_COMPILER__tree_unscanned_Debug /
   OBJECT_DIR = CMakeFiles/tree.dir
   OBJECT_FILE_DIR = CMakeFiles/tree.dir
 
+build CMakeFiles/tree.dir/Info_Tree_Window.cpp.o: CXX_COMPILER__tree_unscanned_Debug /home/yeawer/tree/Info_Tree_Window.cpp || cmake_object_order_depends_target_tree
+  DEP_FILE = CMakeFiles/tree.dir/Info_Tree_Window.cpp.o.d
+  FLAGS = --coverage -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/tree.dir
+  OBJECT_FILE_DIR = CMakeFiles/tree.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target tree
@@ -111,7 +117,7 @@ build CMakeFiles/tree.dir/BigInteger.cpp.o: CXX_COMPILER__tree_unscanned_Debug /
 #############################################
 # Link the executable tree
 
-build tree: CXX_EXECUTABLE_LINKER__tree_Debug CMakeFiles/tree.dir/Main_File.cpp.o CMakeFiles/tree.dir/Main_Window.cpp.o CMakeFiles/tree.dir/Drawer.cpp.o CMakeFiles/tree.dir/ErrorWindow.cpp.o CMakeFiles/tree.dir/First_Extra_Window.cpp.o CMakeFiles/tree.dir/Second_Extra_Window.cpp.o CMakeFiles/tree.dir/Info_Extra_Window.cpp.o CMakeFiles/tree.dir/Control.cpp.o CMakeFiles/tree.dir/BigInteger.cpp.o | /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
+build tree: CXX_EXECUTABLE_LINKER__tree_Debug CMakeFiles/tree.dir/Main_File.cpp.o CMakeFiles/tree.dir/Main_Window.cpp.o CMakeFiles/tree.dir/Drawer.cpp.o CMakeFiles/tree.dir/ErrorWindow.cpp.o CMakeFiles/tree.dir/First_Extra_Window.cpp.o CMakeFiles/tree.dir/Second_Extra_Window.cpp.o CMakeFiles/tree.dir/Info_Vertex_Window.cpp.o CMakeFiles/tree.dir/Control.cpp.o CMakeFiles/tree.dir/BigInteger.cpp.o CMakeFiles/tree.dir/Info_Tree_Window.cpp.o | /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
   FLAGS = --coverage -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1  /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1  /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
   OBJECT_DIR = CMakeFiles/tree.dir

@@ -65,8 +65,20 @@ void Control::KeyBoard_Control::DELETE() noexcept {
             MAIN_WINDOW::SPLAY_TREE_.Remove(NODE->val);
             MAIN_WINDOW::SPLAY_DRAW_TREE_ = Trees_Building::Build_Tree<Node_SPLAY, SPLAY>
                     (MAIN_WINDOW::SPLAY_TREE_, MAIN_WINDOW::SPLAY_OPTIONS);
-            // ошибка в удалении корня
         }
+    }
+}
+
+void Control::KeyBoard_Control::CLICK_I() noexcept {
+    if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) {
+        Info_Tree_Window extra_window;
+        extra_window.Process<DD>(MAIN_WINDOW::DD_TREE_, 1);
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
+        Info_Tree_Window extra_window;
+        extra_window.Process<AVL>(MAIN_WINDOW::AVL_TREE_, 2);
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
+        Info_Tree_Window extra_window;
+        extra_window.Process<SPLAY>(MAIN_WINDOW::SPLAY_TREE_, 3);
     }
 }
 
@@ -172,7 +184,6 @@ void Control::Nums_Control::NUM1() noexcept {
     std::string res = Extra_Window.Process();
     if (!res.empty()) {
         int64_t add_num = stoi(res);
-        /// more...
         // add DD
         MAIN_WINDOW::DD_TREE_.Add(add_num);
         MAIN_WINDOW::AVL_TREE_.Add(add_num);
@@ -194,7 +205,6 @@ void Control::Nums_Control::NUM2() noexcept {
     std::string res = Extra_Window.Process();
     if (!res.empty()) {
         int32_t counter = stoi(res);
-        /// more...
         // add DD
         std::vector<int> rnd_nums;
         for (int i = 0; i < counter; ++i) {

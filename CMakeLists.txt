@@ -25,8 +25,8 @@ add_executable(tree Main_File.cpp
         First_Extra_Window.h
         Second_Extra_Window.cpp
         Second_Extra_Window.h
-        Info_Extra_Window.cpp
-        Info_Extra_Window.h
+        Info_Vertex_Window.cpp
+        Info_Vertex_Window.h
         PRINT_TREE_OPTIONS.h
         Control.cpp
         Control.h
@@ -35,6 +35,10 @@ add_executable(tree Main_File.cpp
         DD.h
         SPLAY.h
         Node_SPLAY.h
+        Info_Tree_Window.cpp
+        Info_Tree_Window.h
+        RB.h
+        Node_RB.h
 )
 
 target_link_libraries(tree sfml-graphics)

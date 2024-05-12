@@ -96,6 +96,8 @@ void MAIN_WINDOW::Events() {
                 Control::Arrow_Control::MOVE_UP();
             } else if (Keyboard::isKeyPressed(Keyboard::Delete)) {
                 Control::KeyBoard_Control::DELETE();
+            } else if (Keyboard::isKeyPressed(Keyboard::I)) {
+                Control::KeyBoard_Control::CLICK_I();
             }
         } else if (Main_Event_.type == sf::Event::MouseWheelMoved) {
             if (Main_Event_.mouseWheel.delta == -1) {
@@ -151,7 +153,7 @@ template<typename vertex_type>
 void MAIN_WINDOW::RIGHT_CLICK(VERTEX<vertex_type> *TREE) noexcept {
     VERTEX<vertex_type>* res = WHICH_VERTEX::Which_Vertex<vertex_type>(TREE);
     if (res != nullptr) {
-        Info_Extra_Window e(res);
+        Info_Vertex_Window e(res);
         e.Process();
     }
 }

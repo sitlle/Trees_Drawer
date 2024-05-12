@@ -16,6 +16,8 @@ namespace Control {
         static void MOVE_RIGHT() noexcept;
 
         static void DELETE() noexcept;
+
+        static void CLICK_I() noexcept;
     };
 
     class Mouse_Control {

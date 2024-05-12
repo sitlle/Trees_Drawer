@@ -10,9 +10,7 @@ public:
         root = nullptr;
     }
 
-    ~SPLAY() {
-        clear(root);
-    }
+    ~SPLAY() = default;
 
     void Add_Rnd(int32_t x) {
         for (int i = 0; i < x; ++i) {

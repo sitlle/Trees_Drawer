@@ -2,7 +2,7 @@
 #include "Main_Window.h"
 
 void Drawer::Draw() noexcept {
-    MAIN_WINDOW::Main_Window_.clear(sf::Color::Black);
+    MAIN_WINDOW::Main_Window_.clear(sf::Color::White);
     if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::DD_TREE) { // draw DD
         Print_DD_TREE();
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) { // draw AVL

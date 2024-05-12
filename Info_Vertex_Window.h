@@ -1,19 +1,15 @@
 #include<bits/stdc++.h>
 #include"Boxed.h"
-#include"KeyBoard.h"
 #include"VERTEX.h"
-#include"Node_DD.h"
-#include"Node_AVL.h"
-//splay node
 #include"Node_Options.h"
 #pragma once
 
-class Info_Extra_Window {
+class Info_Vertex_Window {
 public:
-    Info_Extra_Window() = default;
-    ~Info_Extra_Window() = default;
+    Info_Vertex_Window() = default;
+    ~Info_Vertex_Window() = default;
     template<typename vertex_type>
-    explicit Info_Extra_Window(VERTEX<vertex_type>* Input_Vertex);
+    explicit Info_Vertex_Window(VERTEX<vertex_type>* Input_Vertex);
     void Events();
     void Draw();
     void Process();
@@ -37,8 +33,8 @@ private:
 };
 
 template<typename vertex_type>
-Info_Extra_Window::Info_Extra_Window(VERTEX<vertex_type> *Input_Vertex) :
-        Main_Window_(VideoMode(WINDOW_W_, WINDOW_H_), "meow") {
+Info_Vertex_Window::Info_Vertex_Window(VERTEX<vertex_type> *Input_Vertex) :
+        Main_Window_(VideoMode(WINDOW_W_, WINDOW_H_), "extra meow") {
     Boxes_.resize(6);
     Info_.resize(6);
     for (int i = 0; i < 6; ++i) {

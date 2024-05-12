@@ -5,13 +5,15 @@
 #include"SPLAY.h"
 #include"First_Extra_Window.h"
 #include"Second_Extra_Window.h"
-#include"Info_Extra_Window.h"
+#include"Info_Vertex_Window.h"
 #include"VERTEX.h"
 #include"Trees_Building.h"
 #include"TREE_OPTIONS.h"
 #include"Drawer.h"
 #include"PRINT_TREE_OPTIONS.h"
 #include"Control.h"
+#include "Info_Tree_Window.h"
+
 #pragma once
 
 class WHICH_VERTEX;
