@@ -13,6 +13,17 @@ public:
     void Events() noexcept;
     void Draw() noexcept;
 
+    // min
+    template<typename vertex_type>
+    int64_t GETMIN(vertex_type* vertex) noexcept;
+
+    // max
+    template<typename vertex_type>
+    int64_t GETMAX(vertex_type* vertex) noexcept;
+
+    template<typename vertex_type>
+    int64_t GETSIZE(vertex_type* vertex) noexcept;
+
     template<typename tree_type>
     void GetInfo(tree_type Tree, int type) noexcept;
 
@@ -38,6 +49,30 @@ private:
     int cnt = 0;
 };
 
+template<typename vertex_type>
+int64_t Info_Tree_Window::GETMAX(vertex_type *vertex) noexcept {
+    if (vertex->right == nullptr) {
+        return vertex->val;
+    }
+    return GETMAX(vertex->right);
+}
+
+template<typename vertex_type>
+int64_t Info_Tree_Window::GETMIN(vertex_type *vertex) noexcept {
+    if (vertex->left == nullptr) {
+        return vertex->val;
+    }
+    return GETMIN(vertex->left);
+}
+
+template<typename vertex_type>
+int64_t Info_Tree_Window::GETSIZE(vertex_type *vertex) noexcept {
+    if (vertex == nullptr) {
+        return 0;
+    }
+    return (GETSIZE(vertex->left) + GETSIZE(vertex->right) + 1);
+}
+
 template<typename tree_type>
 void Info_Tree_Window::GetInfo(tree_type Tree, int type) noexcept {
     if (Tree.root == nullptr) {
@@ -48,6 +83,8 @@ void Info_Tree_Window::GetInfo(tree_type Tree, int type) noexcept {
             Info_[0] += "AVL tree";
         } else if (type == 3) {
             Info_[0] += "Splay tree";
+        } else if (type == 4) {
+            Info_[0] += "Red-Black tree";
         }
         Info_[1] = "size: 0";
         Info_[2] = "height: 0";
@@ -64,18 +101,22 @@ void Info_Tree_Window::GetInfo(tree_type Tree, int type) noexcept {
         Info_[0] += "AVL tree";
     } else if (type == 3) {
         Info_[0] += "Splay tree";
+    } else if (type == 4) {
+        Info_[0] += "Red-Black tree";
     }
     Info_[1] = "height: ";
     Info_[1] += std::to_string(Tree.root->param.height);
     // size
     Info_[2] = "size: ";
-    // smth
+    Info_[2] += std::to_string(GETSIZE(Tree.root));
     Info_[3] = "something: ";
     // min value
-    Info_[4] = "min value...: ";
-    // max value
+    Info_[4] = "min value: ";
+    Info_[4] += std::to_string(GETMIN(Tree.root));
     Info_[5] = "max value: ";
+    Info_[5] += std::to_string(GETMAX(Tree.root));
 }
+
 
 template<typename tree_type>
 void Info_Tree_Window::Process(tree_type Tree, int type) noexcept {
