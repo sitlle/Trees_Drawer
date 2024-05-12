@@ -17,7 +17,7 @@ public:
         root = other.root;
     }
 
-    void Add_X(int32_t counter) {
+    void Add_Rnd(int32_t counter) {
         for (int32_t i = 0; i < counter; ++i) {
             int64_t num = get_random() % 100;
             Add(num);

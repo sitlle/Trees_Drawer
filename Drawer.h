@@ -10,6 +10,7 @@ public:
     static void Draw() noexcept;
     static void Print_DD_TREE() noexcept;
     static void Print_AVL_TREE() noexcept;
+    static void Print_SPLAY_TREE() noexcept;
 
     template<typename vertex_type>
     static void PrintInOrder(VERTEX<vertex_type>* vertex) noexcept;

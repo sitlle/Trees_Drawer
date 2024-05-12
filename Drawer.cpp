@@ -8,7 +8,7 @@ void Drawer::Draw() noexcept {
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) { // draw AVL
         Print_AVL_TREE();
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) { // draw SPLAY
-
+        Print_SPLAY_TREE();
     }
     MAIN_WINDOW::Main_Window_.display();
 }
@@ -26,8 +26,10 @@ template<typename vertex_type> void Drawer::DrawVertex(VERTEX<vertex_type>* vert
         addX = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_x;
         addY = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_y;
         zoom = MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
-    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
-
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
+        addX = MAIN_WINDOW::PRINT_SPLAY_OPTIONS.cnt_x;
+        addY = MAIN_WINDOW::PRINT_SPLAY_OPTIONS.cnt_y;
+        zoom = MAIN_WINDOW::PRINT_SPLAY_OPTIONS.zoom;
     }
     Output_Circle.setPosition(Vector2f({vertex->coords.first / zoom + addX / zoom,
                                         vertex->coords.second / zoom + addY / zoom}));
@@ -40,7 +42,12 @@ template<typename vertex_type> void Drawer::DrawVertex(VERTEX<vertex_type>* vert
     } else {
         MAIN_WINDOW::User_Text_.setString("...");
     }
-    auto text_size = vertex->radius / 1.5;
+    float text_size = vertex->radius / 1.5;
+    if (vertex->val / 10 == 0) { // size = 1
+        text_size = vertex->radius / 1.5 + 0.1;
+    } else if (vertex->val / 100 == 0) { // size = 2
+        text_size = vertex->radius / 1.5;
+    }
     MAIN_WINDOW::User_Text_.setPosition(Vector2f((vertex->coords.first + addX + text_size) / zoom,
                                                  (vertex->coords.second + addY + text_size) / zoom));
     MAIN_WINDOW::User_Text_.setFillColor(Color::White);
@@ -61,6 +68,10 @@ void Drawer::DrawLine(const std::pair<float, float> &first, const std::pair<floa
         addX = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_x;
         addY = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_y;
         zoom = MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
+        addX = MAIN_WINDOW::PRINT_SPLAY_OPTIONS.cnt_x;
+        addY = MAIN_WINDOW::PRINT_SPLAY_OPTIONS.cnt_y;
+        zoom = MAIN_WINDOW::PRINT_SPLAY_OPTIONS.zoom;
     }
     sf::Vertex line[] = {
             sf::Vertex(sf::Vector2f((first.first + addX + RADIUS) / zoom,
@@ -93,5 +104,9 @@ void Drawer::Print_DD_TREE() noexcept {
 
 void Drawer::Print_AVL_TREE() noexcept {
     PrintInOrder<Node_AVL>(MAIN_WINDOW::AVL_DRAW_TREE_);
+}
+
+void Drawer::Print_SPLAY_TREE() noexcept {
+    PrintInOrder<Node_SPLAY>(MAIN_WINDOW::SPLAY_DRAW_TREE_);
 }
 

@@ -2,6 +2,7 @@
 #include<SFML/Graphics.hpp>
 #include"AVL.h"
 #include"DD.h"
+#include"SPLAY.h"
 #include"First_Extra_Window.h"
 #include"Second_Extra_Window.h"
 #include"Info_Extra_Window.h"
@@ -64,7 +65,7 @@ class MAIN_WINDOW {
         EMPTY
     }; click_type_ click_;
     // Window
-    // 0 - DD, 1 - AVL, 2 - Splay
+    // 0 - DD, 1 - AVL, 2 - SPLAY
     enum struct which_window_ {
         DD_TREE,
         AVL_TREE,
@@ -73,18 +74,19 @@ class MAIN_WINDOW {
     // trees
     static AVL AVL_TREE_;
     static DD DD_TREE_;
-    // DD options
+    static SPLAY SPLAY_TREE_;
+    // print options
     static PRINT_TREE_OPTIONS PRINT_DD_OPTIONS_;
-    // AVL options
     static PRINT_TREE_OPTIONS PRINT_AVL_OPTIONS;
-    // Splay counters
     static PRINT_TREE_OPTIONS PRINT_SPLAY_OPTIONS;
     // options
     static TREE_OPTIONS DD_OPTIONS_;
     static TREE_OPTIONS AVL_OPTIONS_;
+    static TREE_OPTIONS SPLAY_OPTIONS;
     // Draw trees
     static VERTEX<Node_AVL>* AVL_DRAW_TREE_;
     static VERTEX<Node_DD>* DD_DRAW_TREE_;
+    static VERTEX<Node_SPLAY>* SPLAY_DRAW_TREE_;
 };
 
 class WHICH_VERTEX {

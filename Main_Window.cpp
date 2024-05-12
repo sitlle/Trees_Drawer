@@ -9,17 +9,24 @@ Vector2i MAIN_WINDOW::mouse_pos_;
 PRINT_TREE_OPTIONS MAIN_WINDOW::PRINT_DD_OPTIONS_;
 PRINT_TREE_OPTIONS MAIN_WINDOW::PRINT_AVL_OPTIONS;
 PRINT_TREE_OPTIONS MAIN_WINDOW::PRINT_SPLAY_OPTIONS;
+
 TREE_OPTIONS MAIN_WINDOW::DD_OPTIONS_;
 TREE_OPTIONS MAIN_WINDOW::AVL_OPTIONS_;
+TREE_OPTIONS MAIN_WINDOW::SPLAY_OPTIONS;
 // tree
 DD MAIN_WINDOW::DD_TREE_;
 AVL MAIN_WINDOW::AVL_TREE_;
+SPLAY MAIN_WINDOW::SPLAY_TREE_;
+
+// draw
+VERTEX<Node_DD>* MAIN_WINDOW::DD_DRAW_TREE_;
+VERTEX<Node_AVL>* MAIN_WINDOW::AVL_DRAW_TREE_;
+VERTEX<Node_SPLAY>* MAIN_WINDOW::SPLAY_DRAW_TREE_;
+
 float MAIN_WINDOW::zoom_ = 1.f;
 MAIN_WINDOW::which_window_ MAIN_WINDOW::type_ = MAIN_WINDOW::which_window_::DD_TREE;
 sf::Font MAIN_WINDOW::User_Font_;
 sf::Text MAIN_WINDOW::User_Text_;
-VERTEX<Node_DD>* MAIN_WINDOW::DD_DRAW_TREE_;
-VERTEX<Node_AVL>* MAIN_WINDOW::AVL_DRAW_TREE_;
 
 MAIN_WINDOW::MAIN_WINDOW() :
         click_(click_type_::EMPTY) {
@@ -109,7 +116,7 @@ void MAIN_WINDOW::Process() {
             } else if (type_ == which_window_::AVL_TREE) {
                 LEFT_CLICK<Node_AVL>(AVL_DRAW_TREE_);
             } else if (type_ == which_window_::SPLAY_TREE) {
-
+                LEFT_CLICK<Node_SPLAY>(SPLAY_DRAW_TREE_);
             }
             click_ = click_type_::EMPTY;
         } else if (click_ == click_type_::RIGHT) {
@@ -118,7 +125,7 @@ void MAIN_WINDOW::Process() {
             } else if (type_ == which_window_::AVL_TREE) {
                 RIGHT_CLICK<Node_AVL>(AVL_DRAW_TREE_);
             } else if (type_ == which_window_::SPLAY_TREE) {
-                //
+                RIGHT_CLICK<Node_SPLAY>(SPLAY_DRAW_TREE_);
             }
             click_ = click_type_::EMPTY;
         }
@@ -171,6 +178,12 @@ VERTEX<vertex_type>* WHICH_VERTEX::FindVertex(VERTEX<vertex_type> *vertex) noexc
         SECOND = (vertex->coords.second + MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_y  + vertex->radius) /
                  MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
         zoom = MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
+        FIRST = (vertex->coords.first + MAIN_WINDOW::PRINT_SPLAY_OPTIONS.cnt_x + vertex->radius) /
+                MAIN_WINDOW::PRINT_SPLAY_OPTIONS.zoom;
+        SECOND = (vertex->coords.second + MAIN_WINDOW::PRINT_SPLAY_OPTIONS.cnt_y  + vertex->radius) /
+                 MAIN_WINDOW::PRINT_SPLAY_OPTIONS.zoom;
+        zoom = MAIN_WINDOW::PRINT_SPLAY_OPTIONS.zoom;
     }
     float dist = std::sqrt((float(MAIN_WINDOW::mouse_pos_.x) - FIRST) *
                            (float(MAIN_WINDOW::mouse_pos_.x) - FIRST) +

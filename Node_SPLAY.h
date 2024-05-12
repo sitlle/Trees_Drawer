@@ -4,16 +4,12 @@
 struct Node_SPLAY {
     // Node options
     Node_Options param;
-    int64_t val;
-    Node_SPLAY* left;
-    Node_SPLAY* right;
+    int64_t val{};
+    Node_SPLAY* left{};
+    Node_SPLAY* right{};
     int32_t height = 0;
 
-    Node_SPLAY() {
-        val = 0;
-        left = nullptr;
-        right = nullptr;
-    }
+    Node_SPLAY() = default;
 
     ~Node_SPLAY() = default;
 

@@ -39,9 +39,9 @@ public:
         }
     }
 
-    void Remove(int64_t x) {
-        if (Find(x)) {
-            root = Remove(root, x);
+    void Remove(int64_t val) {
+        if (Find(val)) {
+            root = Remove(root, val);
         }
     }
 

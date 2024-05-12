@@ -33,7 +33,7 @@ add_executable(tree Main_File.cpp
         BigInteger.h
         BigInteger.cpp
         DD.h
-        Splay.h
+        SPLAY.h
         Node_SPLAY.h
 )
 
