@@ -13,6 +13,7 @@
 #include"PRINT_TREE_OPTIONS.h"
 #include"Control.h"
 #include "Info_Tree_Window.h"
+#include"RB.h"
 
 #pragma once
 
@@ -53,7 +54,6 @@ class MAIN_WINDOW {
     static constexpr int32_t WINDOW_W_ = 2500;
     static constexpr int32_t WINDOW_H_ = 1500;
     // zoom_
-    static float zoom_;
     static RenderWindow Main_Window_;
     Event Main_Event_{};
     // Text, Font
@@ -67,28 +67,32 @@ class MAIN_WINDOW {
         EMPTY
     }; click_type_ click_;
     // Window
-    // 0 - DD, 1 - AVL, 2 - SPLAY
     enum struct which_window_ {
         DD_TREE,
         AVL_TREE,
-        SPLAY_TREE
+        SPLAY_TREE,
+        RB_TREE
     }; static which_window_ type_;
     // trees
     static AVL AVL_TREE_;
     static DD DD_TREE_;
     static SPLAY SPLAY_TREE_;
+    static RB RB_TREE_;
     // print options
     static PRINT_TREE_OPTIONS PRINT_DD_OPTIONS_;
-    static PRINT_TREE_OPTIONS PRINT_AVL_OPTIONS;
-    static PRINT_TREE_OPTIONS PRINT_SPLAY_OPTIONS;
+    static PRINT_TREE_OPTIONS PRINT_AVL_OPTIONS_;
+    static PRINT_TREE_OPTIONS PRINT_SPLAY_OPTIONS_;
+    static PRINT_TREE_OPTIONS PRINT_RB_OPTIONS_;
     // options
     static TREE_OPTIONS DD_OPTIONS_;
     static TREE_OPTIONS AVL_OPTIONS_;
-    static TREE_OPTIONS SPLAY_OPTIONS;
+    static TREE_OPTIONS SPLAY_OPTIONS_;
+    static TREE_OPTIONS RB_OPTIONS_;
     // Draw trees
     static VERTEX<Node_AVL>* AVL_DRAW_TREE_;
     static VERTEX<Node_DD>* DD_DRAW_TREE_;
     static VERTEX<Node_SPLAY>* SPLAY_DRAW_TREE_;
+    static VERTEX<Node_RB>* RB_DRAW_TREE_;
 };
 
 class WHICH_VERTEX {

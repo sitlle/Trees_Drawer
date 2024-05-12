@@ -9,6 +9,8 @@ void Drawer::Draw() noexcept {
         Print_AVL_TREE();
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) { // draw SPLAY
         Print_SPLAY_TREE();
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) { // draw RB
+        Print_RB_TREE();
     }
     MAIN_WINDOW::Main_Window_.display();
 }
@@ -23,13 +25,17 @@ template<typename vertex_type> void Drawer::DrawVertex(VERTEX<vertex_type>* vert
         addY = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_y;
         zoom = MAIN_WINDOW::PRINT_DD_OPTIONS_.zoom;
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
-        addX = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_x;
-        addY = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_y;
-        zoom = MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
+        addX = MAIN_WINDOW::PRINT_AVL_OPTIONS_.cnt_x;
+        addY = MAIN_WINDOW::PRINT_AVL_OPTIONS_.cnt_y;
+        zoom = MAIN_WINDOW::PRINT_AVL_OPTIONS_.zoom;
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
-        addX = MAIN_WINDOW::PRINT_SPLAY_OPTIONS.cnt_x;
-        addY = MAIN_WINDOW::PRINT_SPLAY_OPTIONS.cnt_y;
-        zoom = MAIN_WINDOW::PRINT_SPLAY_OPTIONS.zoom;
+        addX = MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.cnt_x;
+        addY = MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.cnt_y;
+        zoom = MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.zoom;
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        addX = MAIN_WINDOW::PRINT_RB_OPTIONS_.cnt_x;
+        addY = MAIN_WINDOW::PRINT_RB_OPTIONS_.cnt_y;
+        zoom = MAIN_WINDOW::PRINT_RB_OPTIONS_.zoom;
     }
     Output_Circle.setPosition(Vector2f({vertex->coords.first / zoom + addX / zoom,
                                         vertex->coords.second / zoom + addY / zoom}));
@@ -65,13 +71,17 @@ void Drawer::DrawLine(const std::pair<float, float> &first, const std::pair<floa
         addY = MAIN_WINDOW::PRINT_DD_OPTIONS_.cnt_y;
         zoom = MAIN_WINDOW::PRINT_DD_OPTIONS_.zoom;
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::AVL_TREE) {
-        addX = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_x;
-        addY = MAIN_WINDOW::PRINT_AVL_OPTIONS.cnt_y;
-        zoom = MAIN_WINDOW::PRINT_AVL_OPTIONS.zoom;
+        addX = MAIN_WINDOW::PRINT_AVL_OPTIONS_.cnt_x;
+        addY = MAIN_WINDOW::PRINT_AVL_OPTIONS_.cnt_y;
+        zoom = MAIN_WINDOW::PRINT_AVL_OPTIONS_.zoom;
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
-        addX = MAIN_WINDOW::PRINT_SPLAY_OPTIONS.cnt_x;
-        addY = MAIN_WINDOW::PRINT_SPLAY_OPTIONS.cnt_y;
-        zoom = MAIN_WINDOW::PRINT_SPLAY_OPTIONS.zoom;
+        addX = MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.cnt_x;
+        addY = MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.cnt_y;
+        zoom = MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.zoom;
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        addX = MAIN_WINDOW::PRINT_RB_OPTIONS_.cnt_x;
+        addY = MAIN_WINDOW::PRINT_RB_OPTIONS_.cnt_y;
+        zoom = MAIN_WINDOW::PRINT_RB_OPTIONS_.zoom;
     }
     sf::Vertex line[] = {
             sf::Vertex(sf::Vector2f((first.first + addX + RADIUS) / zoom,
@@ -108,5 +118,9 @@ void Drawer::Print_AVL_TREE() noexcept {
 
 void Drawer::Print_SPLAY_TREE() noexcept {
     PrintInOrder<Node_SPLAY>(MAIN_WINDOW::SPLAY_DRAW_TREE_);
+}
+
+void Drawer::Print_RB_TREE() noexcept {
+    PrintInOrder<Node_RB>(MAIN_WINDOW::RB_DRAW_TREE_);
 }
 

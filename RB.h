@@ -9,6 +9,50 @@ public:
     RB() = default;
     ~RB() = default;
 
+    void Add(int64_t key) {
+        Node_RB* node = new Node_RB;
+        node->prev = nullptr;
+        node->val = key;
+        node->left = nullptr;
+        node->right = nullptr;
+        node->color = sf::Color::Red;
+
+        Node_RB* y = nullptr;
+        Node_RB* x = root;
+
+        while (x != nullptr) {
+            y = x;
+            if (node->val < x->val) {
+                x = x->left;
+            } else {
+                x = x->right;
+            }
+        }
+
+        // y is parent of x
+        node->prev = y;
+        if (y == nullptr) {
+            root = node;
+        } else if (node->val < y->val) {
+            y->left = node;
+        } else {
+            y->right = node;
+        }
+
+        // if new node is a root node, simply return
+        if (node->prev == nullptr){
+            node->color = sf::Color::Black;
+            return;
+        }
+
+        // if the grandparent is null, simply return
+        if (node->prev->prev == nullptr) {
+            return;
+        }
+
+        // Fix the tree
+        fixInsert(node);
+    }
 
 private:
 
