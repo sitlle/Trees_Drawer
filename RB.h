@@ -10,12 +10,12 @@ public:
     ~RB() = default;
 
     void Add(int64_t key) {
-        Node_RB* node = new Node_RB;
+        auto* node = new Node_RB;
         node->prev = nullptr;
         node->val = key;
         node->left = nullptr;
         node->right = nullptr;
-        node->color = sf::Color::Red;
+        node->param.COLOR = sf::Color::Red;
 
         Node_RB* y = nullptr;
         Node_RB* x = root;
@@ -29,7 +29,6 @@ public:
             }
         }
 
-        // y is parent of x
         node->prev = y;
         if (y == nullptr) {
             root = node;
@@ -39,33 +38,30 @@ public:
             y->right = node;
         }
 
-        // if new node is a root node, simply return
         if (node->prev == nullptr){
-            node->color = sf::Color::Black;
+            node->param.COLOR = sf::Color::Black;
             return;
         }
 
-        // if the grandparent is null, simply return
         if (node->prev->prev == nullptr) {
             return;
         }
 
-        // Fix the tree
-        fixInsert(node);
+        FixInsert(node);
     }
 
 private:
 
-    void fixInsert(Node_RB* k){
+    void FixInsert(Node_RB* k){
         Node_RB* u;
-        while (k->prev->color == sf::Color::Red) {
+        while (k->prev->param.COLOR == sf::Color::Red) {
             if (k->prev == k->prev->prev->right) {
                 u = k->prev->prev->left; // uncle
-                if (u->color == sf::Color::Red) {
+                if (u != nullptr && u->param.COLOR == sf::Color::Red) {
                     // case 3.1
-                    u->color = sf::Color::Black;
-                    k->prev->color = sf::Color::Black;
-                    k->prev->prev->color = sf::Color::Red;
+                    u->param.COLOR = sf::Color::Black;
+                    k->prev->param.COLOR = sf::Color::Black;
+                    k->prev->prev->param.COLOR = sf::Color::Red;
                     k = k->prev->prev;
                 } else {
                     if (k == k->prev->left) {
@@ -74,18 +70,18 @@ private:
                         rightRotate(k);
                     }
                     // case 3.2.1
-                    k->prev->color = sf::Color::Black;
-                    k->prev->prev->color = sf::Color::Red;
+                    k->prev->param.COLOR = sf::Color::Black;
+                    k->prev->prev->param.COLOR = sf::Color::Red;
                     leftRotate(k->prev->prev);
                 }
             } else {
                 u = k->prev->prev->right; // uncle
 
-                if (u->color == sf::Color::Red) {
+                if (u != nullptr && u->param.COLOR == sf::Color::Red) {
                     // mirror case 3.1
-                    u->color = sf::Color::Black;
-                    k->prev->color = sf::Color::Black;
-                    k->prev->prev->color = sf::Color::Red;
+                    u->param.COLOR = sf::Color::Black;
+                    k->prev->param.COLOR = sf::Color::Black;
+                    k->prev->prev->param.COLOR = sf::Color::Red;
                     k = k->prev->prev;
                 } else {
                     if (k == k->prev->right) {
@@ -94,8 +90,8 @@ private:
                         leftRotate(k);
                     }
                     // mirror case 3.2.1
-                    k->prev->color = sf::Color::Black;
-                    k->prev->prev->color = sf::Color::Red;
+                    k->prev->param.COLOR = sf::Color::Black;
+                    k->prev->prev->param.COLOR = sf::Color::Red;
                     rightRotate(k->prev->prev);
                 }
             }
@@ -103,7 +99,7 @@ private:
                 break;
             }
         }
-        root->color = sf::Color::Black;
+        root->param.COLOR = sf::Color::Black;
     }
 
     void leftRotate(Node_RB* x) {

@@ -11,6 +11,8 @@ void Control::KeyBoard_Control::MOVE_UP() noexcept {
         MAIN_WINDOW::PRINT_AVL_OPTIONS_.cnt_y += 75;
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
         MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.cnt_y += 75;
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        MAIN_WINDOW::PRINT_RB_OPTIONS_.cnt_y += 75;
     }
 }
 
@@ -21,6 +23,8 @@ void Control::KeyBoard_Control::MOVE_DOWN() noexcept {
         MAIN_WINDOW::PRINT_AVL_OPTIONS_.cnt_y -= 75;
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
         MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.cnt_y -= 75;
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        MAIN_WINDOW::PRINT_RB_OPTIONS_.cnt_y -= 75;
     }
 }
 
@@ -31,6 +35,8 @@ void Control::KeyBoard_Control::MOVE_LEFT() noexcept {
         MAIN_WINDOW::PRINT_AVL_OPTIONS_.cnt_x += 75;
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
         MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.cnt_x += 75;
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        MAIN_WINDOW::PRINT_RB_OPTIONS_.cnt_x += 75;
     }
 }
 
@@ -41,6 +47,8 @@ void Control::KeyBoard_Control::MOVE_RIGHT() noexcept {
         MAIN_WINDOW::PRINT_AVL_OPTIONS_.cnt_x -= 75;
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
         MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.cnt_x -= 75;
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        MAIN_WINDOW::PRINT_RB_OPTIONS_.cnt_x -= 75;
     }
 }
 
@@ -79,6 +87,9 @@ void Control::KeyBoard_Control::CLICK_I() noexcept {
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
         Info_Tree_Window extra_window;
         extra_window.Process<SPLAY>(MAIN_WINDOW::SPLAY_TREE_, 3);
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        Info_Tree_Window extra_window;
+        extra_window.Process<RB>(MAIN_WINDOW::RB_TREE_, 4);
     }
 }
 
@@ -91,6 +102,8 @@ void Control::Mouse_Control::MOVE_UP() noexcept {
         MAIN_WINDOW::PRINT_AVL_OPTIONS_.zoom -= 0.03f;
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
         MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.zoom -= 0.03f;
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        MAIN_WINDOW::PRINT_RB_OPTIONS_.zoom -= 0.03f;
     }
 }
 
@@ -101,6 +114,8 @@ void Control::Mouse_Control::MOVE_DOWN() noexcept {
         MAIN_WINDOW::PRINT_AVL_OPTIONS_.zoom += 0.03f;
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::SPLAY_TREE) {
         MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.zoom += 0.03f;
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        MAIN_WINDOW::PRINT_RB_OPTIONS_.zoom += 0.03f;
     }
 }
 
@@ -120,6 +135,11 @@ void Control::Arrow_Control::MOVE_LEFT() noexcept {
         MAIN_WINDOW::SPLAY_OPTIONS_.TREE_W = std::max(1.f, MAIN_WINDOW::SPLAY_OPTIONS_.TREE_W);
         MAIN_WINDOW::SPLAY_DRAW_TREE_ = Trees_Building::Build_Tree<Node_SPLAY, SPLAY>
                 (MAIN_WINDOW::SPLAY_TREE_, MAIN_WINDOW::SPLAY_OPTIONS_);
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        MAIN_WINDOW::RB_OPTIONS_.TREE_W -= 0.03f;
+        MAIN_WINDOW::RB_OPTIONS_.TREE_W = std::max(1.f, MAIN_WINDOW::RB_OPTIONS_.TREE_W);
+        MAIN_WINDOW::RB_DRAW_TREE_ = Trees_Building::Build_Tree<Node_RB, RB>
+                (MAIN_WINDOW::RB_TREE_, MAIN_WINDOW::RB_OPTIONS_);
     }
 }
 
@@ -136,6 +156,10 @@ void Control::Arrow_Control::MOVE_RIGHT() noexcept {
         MAIN_WINDOW::SPLAY_OPTIONS_.TREE_W += 0.03f;
         MAIN_WINDOW::SPLAY_DRAW_TREE_ = Trees_Building::Build_Tree<Node_SPLAY, SPLAY>
                 (MAIN_WINDOW::SPLAY_TREE_, MAIN_WINDOW::SPLAY_OPTIONS_);
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        MAIN_WINDOW::RB_OPTIONS_.TREE_W += 0.03f;
+        MAIN_WINDOW::RB_DRAW_TREE_ = Trees_Building::Build_Tree<Node_RB, RB>
+                (MAIN_WINDOW::RB_TREE_, MAIN_WINDOW::RB_OPTIONS_);
     }
 }
 
@@ -155,6 +179,11 @@ void Control::Arrow_Control::MOVE_DOWN() noexcept {
         MAIN_WINDOW::SPLAY_OPTIONS_.TREE_H = std::max(1.f, MAIN_WINDOW::SPLAY_OPTIONS_.TREE_H);
         MAIN_WINDOW::SPLAY_DRAW_TREE_ = Trees_Building::Build_Tree<Node_SPLAY, SPLAY>
                 (MAIN_WINDOW::SPLAY_TREE_, MAIN_WINDOW::SPLAY_OPTIONS_);
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        MAIN_WINDOW::RB_OPTIONS_.TREE_H += 0.03f;
+        MAIN_WINDOW::RB_OPTIONS_.TREE_H = std::max(1.f, MAIN_WINDOW::RB_OPTIONS_.TREE_H);
+        MAIN_WINDOW::RB_DRAW_TREE_ = Trees_Building::Build_Tree<Node_RB, RB>
+                (MAIN_WINDOW::RB_TREE_, MAIN_WINDOW::RB_OPTIONS_);
     }
 }
 
@@ -174,6 +203,11 @@ void Control::Arrow_Control::MOVE_UP() noexcept {
         MAIN_WINDOW::SPLAY_OPTIONS_.TREE_H = std::max(1.f, MAIN_WINDOW::SPLAY_OPTIONS_.TREE_H);
         MAIN_WINDOW::SPLAY_DRAW_TREE_ = Trees_Building::Build_Tree<Node_SPLAY, SPLAY>
                 (MAIN_WINDOW::SPLAY_TREE_, MAIN_WINDOW::SPLAY_OPTIONS_);
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        MAIN_WINDOW::RB_OPTIONS_.TREE_H -= 0.03f;
+        MAIN_WINDOW::RB_OPTIONS_.TREE_H = std::max(1.f, MAIN_WINDOW::RB_OPTIONS_.TREE_H);
+        MAIN_WINDOW::RB_DRAW_TREE_ = Trees_Building::Build_Tree<Node_RB, RB>
+                (MAIN_WINDOW::RB_TREE_, MAIN_WINDOW::RB_OPTIONS_);
     }
 }
 
@@ -227,6 +261,8 @@ void Control::Nums_Control::NUM2() noexcept {
         // add SPLAY
         MAIN_WINDOW::SPLAY_DRAW_TREE_ = Trees_Building::Build_Tree<Node_SPLAY, SPLAY>
                 (MAIN_WINDOW::SPLAY_TREE_, MAIN_WINDOW::SPLAY_OPTIONS_);
+        MAIN_WINDOW::RB_DRAW_TREE_ = Trees_Building::Build_Tree<Node_RB, RB>(MAIN_WINDOW::RB_TREE_,
+                                                                             MAIN_WINDOW::RB_OPTIONS_);
     }
 }
 

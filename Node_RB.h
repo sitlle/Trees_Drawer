@@ -9,7 +9,6 @@ struct Node_RB {
     Node_RB* prev;
     Node_RB* left;
     Node_RB* right;
-    sf::Color color = sf::Color::Red; // true
 
     Node_RB() = default;
     ~Node_RB() = default;

@@ -8,7 +8,7 @@ struct Node_Options {
     bigint sdv;
     bigint L;
     bigint R;
-    sf::Color COLOR{};
+    sf::Color COLOR = sf::Color::Red;
 
     ~Node_Options() = default;
 
