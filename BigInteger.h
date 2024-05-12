@@ -1,6 +1,4 @@
 /*
-    bigint.h
-
     bigint Library for C++
 
     MIT License
