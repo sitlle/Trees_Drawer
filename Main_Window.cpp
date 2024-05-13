@@ -122,6 +122,8 @@ void MAIN_WINDOW::Process() {
                 LEFT_CLICK<Node_AVL>(AVL_DRAW_TREE_);
             } else if (type_ == which_window_::SPLAY_TREE) {
                 LEFT_CLICK<Node_SPLAY>(SPLAY_DRAW_TREE_);
+            } else if (type_ == which_window_::RB_TREE) {
+                LEFT_CLICK<Node_RB>(RB_DRAW_TREE_);
             }
             click_ = click_type_::EMPTY;
         } else if (click_ == click_type_::RIGHT) {
@@ -131,6 +133,8 @@ void MAIN_WINDOW::Process() {
                 RIGHT_CLICK<Node_AVL>(AVL_DRAW_TREE_);
             } else if (type_ == which_window_::SPLAY_TREE) {
                 RIGHT_CLICK<Node_SPLAY>(SPLAY_DRAW_TREE_);
+            } else if (type_ == which_window_::RB_TREE) {
+                RIGHT_CLICK<Node_RB>(RB_DRAW_TREE_);
             }
             click_ = click_type_::EMPTY;
         }
@@ -143,11 +147,9 @@ void MAIN_WINDOW::LEFT_CLICK(VERTEX<vertex_type>* TREE) noexcept {
     VERTEX<vertex_type>* res = WHICH_VERTEX::Which_Vertex<vertex_type>(TREE);
     if (res != nullptr) {
         if (res->COLOR == Color::Blue) {
-            res->COLOR = Color::Black;
-            res->real_vertex->param.COLOR = Color::Black;
+            res->COLOR = res->real_vertex->param.COLOR;
         } else {
             res->COLOR = Color::Blue;
-            res->real_vertex->param.COLOR = Color::Blue;
         }
     }
 }
@@ -189,6 +191,12 @@ VERTEX<vertex_type>* WHICH_VERTEX::FindVertex(VERTEX<vertex_type> *vertex) noexc
         SECOND = (vertex->coords.second + MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.cnt_y + vertex->radius) /
                  MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.zoom;
         zoom = MAIN_WINDOW::PRINT_SPLAY_OPTIONS_.zoom;
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        FIRST = (vertex->coords.first + MAIN_WINDOW::PRINT_RB_OPTIONS_.cnt_x + vertex->radius) /
+                MAIN_WINDOW::PRINT_RB_OPTIONS_.zoom;
+        SECOND = (vertex->coords.second + MAIN_WINDOW::PRINT_RB_OPTIONS_.cnt_y + vertex->radius) /
+                 MAIN_WINDOW::PRINT_RB_OPTIONS_.zoom;
+        zoom = MAIN_WINDOW::PRINT_RB_OPTIONS_.zoom;
     }
     float dist = std::sqrt((float(MAIN_WINDOW::mouse_pos_.x) - FIRST) *
                            (float(MAIN_WINDOW::mouse_pos_.x) - FIRST) +

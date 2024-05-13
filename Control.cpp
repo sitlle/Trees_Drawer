@@ -74,6 +74,13 @@ void Control::KeyBoard_Control::DELETE() noexcept {
             MAIN_WINDOW::SPLAY_DRAW_TREE_ = Trees_Building::Build_Tree<Node_SPLAY, SPLAY>
                     (MAIN_WINDOW::SPLAY_TREE_, MAIN_WINDOW::SPLAY_OPTIONS_);
         }
+    } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) {
+        auto res = FIND_BLUE_VERTEX::Get_All_Blue(MAIN_WINDOW::RB_DRAW_TREE_);
+        for (auto &NODE : res) {
+            MAIN_WINDOW::RB_TREE_.Remove(NODE->val);
+            MAIN_WINDOW::RB_DRAW_TREE_ = Trees_Building::Build_Tree<Node_RB, RB>
+                    (MAIN_WINDOW::RB_TREE_, MAIN_WINDOW::RB_OPTIONS_);
+        }
     }
 }
 

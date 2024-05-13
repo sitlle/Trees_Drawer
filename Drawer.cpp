@@ -40,7 +40,7 @@ template<typename vertex_type> void Drawer::DrawVertex(VERTEX<vertex_type>* vert
     Output_Circle.setPosition(Vector2f({vertex->coords.first / zoom + addX / zoom,
                                         vertex->coords.second / zoom + addY / zoom}));
     Output_Circle.setRadius(vertex->radius / zoom);
-    Output_Circle.setFillColor(vertex->real_vertex->param.COLOR);
+    Output_Circle.setFillColor(vertex->COLOR);
     MAIN_WINDOW::Main_Window_.draw(Output_Circle);
     // Draw Text
     if (abs(vertex->val) <= 1000) {
