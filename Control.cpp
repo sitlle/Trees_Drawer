@@ -239,14 +239,14 @@ void Control::Nums_Control::NUM1() noexcept {
 }
 
 void Control::Nums_Control::NUM2() noexcept {
-    First_Extra_Window Extra_Window;
+    Second_Extra_Window Extra_Window;
     std::string res = Extra_Window.Process();
     if (!res.empty()) {
         int32_t counter = stoi(res);
         // add DD
         std::vector<int> rnd_nums;
         for (int i = 0; i < counter; ++i) {
-            int64_t add_num = get_random() % 100;
+            int64_t add_num = get_random() % 500;
             MAIN_WINDOW::DD_TREE_.Add(add_num);
             MAIN_WINDOW::AVL_TREE_.Add(add_num);
             MAIN_WINDOW::SPLAY_TREE_.Add(add_num);

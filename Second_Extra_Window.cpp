@@ -55,11 +55,11 @@ void Second_Extra_Window::FindErrors() {
         if (Input_String_[0] == '0' && Input_String_.size() > 1) {
             throw std::string{"0 isn't first"};
         }
-        if (Input_String_.size() >= 7) {
+        if (Input_String_.size() >= 5) {
             throw std::string{"big size"};
         }
         int64_t num = stoi(Input_String_);
-        if (num > 32768) {
+        if (num > 2000) {
             throw std::string{"big size"};
         }
     }
