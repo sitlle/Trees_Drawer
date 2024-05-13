@@ -40,7 +40,7 @@ template<typename vertex_type> void Drawer::DrawVertex(VERTEX<vertex_type>* vert
     Output_Circle.setPosition(Vector2f({vertex->coords.first / zoom + addX / zoom,
                                         vertex->coords.second / zoom + addY / zoom}));
     Output_Circle.setRadius(vertex->radius / zoom);
-    Output_Circle.setFillColor(vertex->COLOR);
+    Output_Circle.setFillColor(vertex->real_vertex->param.COLOR);
     MAIN_WINDOW::Main_Window_.draw(Output_Circle);
     // Draw Text
     if (abs(vertex->val) <= 1000) {
@@ -85,9 +85,9 @@ void Drawer::DrawLine(const std::pair<float, float> &first, const std::pair<floa
     }
     sf::Vertex line[] = {
             sf::Vertex(sf::Vector2f((first.first + addX + RADIUS) / zoom,
-                                    (first.second + addY + RADIUS) / zoom), COLOR),
+                                    (first.second + addY + RADIUS) / zoom), sf::Color::Black),
             sf::Vertex(sf::Vector2f((second.first + addX + RADIUS) / zoom,
-                                    (second.second + addY + RADIUS) / zoom), COLOR)
+                                    (second.second + addY + RADIUS) / zoom), sf::Color::Black)
     };
     MAIN_WINDOW::Main_Window_.draw(line, 2, sf::Lines);
 }

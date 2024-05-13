@@ -4,7 +4,7 @@
 
 template<typename vertex_type> struct VERTEX {
     std::pair<float, float> coords;
-    sf::Color COLOR = sf::Color::Red;
+    sf::Color COLOR = sf::Color::Black;
     float radius{};
     VERTEX* left{};
     VERTEX* right{};

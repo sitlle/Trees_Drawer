@@ -21,5 +21,5 @@ public:
 
     static void DrawLine(const std::pair<float, float>& first,
                         const std::pair<float, float>& second,
-                        const float& RADIUS, sf::Color COLOR = sf::Color::Red) noexcept;
+                        const float& RADIUS, sf::Color COLOR = sf::Color::Black) noexcept;
 };

@@ -143,8 +143,8 @@ void MAIN_WINDOW::LEFT_CLICK(VERTEX<vertex_type>* TREE) noexcept {
     VERTEX<vertex_type>* res = WHICH_VERTEX::Which_Vertex<vertex_type>(TREE);
     if (res != nullptr) {
         if (res->COLOR == Color::Blue) {
-            res->COLOR = Color::Red;
-            res->real_vertex->param.COLOR = Color::Red;
+            res->COLOR = Color::Black;
+            res->real_vertex->param.COLOR = Color::Black;
         } else {
             res->COLOR = Color::Blue;
             res->real_vertex->param.COLOR = Color::Blue;
