@@ -142,6 +142,41 @@ void MAIN_WINDOW::Process() {
     }
 }
 
+void MAIN_WINDOW::DrawTreeNames() noexcept {
+    float size = WINDOW_W_ + 100;
+    sf::RectangleShape Big_Box(sf::Vector2f(0, 0));
+    Big_Box.setSize(sf::Vector2f(size, 100));
+    Big_Box.setFillColor(sf::Color::Black);
+    Main_Window_.draw(Big_Box);
+    std::vector<std::string> names(4);
+    std::string DD_NAME = "Pivo";
+    std::string AVL_NAME = "AVL tree";
+    std::string SPLAY_NAME = "Splay tree";
+    std::string RB_NAME = "Red-black tree";
+    names[0] = DD_NAME;
+    names[1] = AVL_NAME;
+    names[2] = SPLAY_NAME;
+    names[3] = RB_NAME;
+    std::vector<float> pos_x(4);
+    pos_x[0] += 150;
+    std::vector<sf::Color> colors(4, sf::Color::White);
+    if (type_ == which_window_::DD_TREE) {
+        colors[0] = sf::Color::Red;
+    } else if (type_ == which_window_::AVL_TREE) {
+        colors[1] = sf::Color::Red;
+    } else if (type_ == which_window_::SPLAY_TREE) {
+        colors[2] = sf::Color::Red;
+    } else if (type_ == which_window_::RB_TREE) {
+        colors[3] = sf::Color::Red;
+    }
+    auto box_size = size / 4;
+    for (int i = 0; i < 4; ++i) {
+        DrawTextInBox(Main_Window_, {box_size * float(i) + pos_x[i], 0},
+                      {box_size, 100}, names[i],
+                      User_Text_, 0, 50, colors[i]);
+    }
+}
+
 template<typename vertex_type>
 void MAIN_WINDOW::LEFT_CLICK(VERTEX<vertex_type>* TREE) noexcept {
     VERTEX<vertex_type>* res = WHICH_VERTEX::Which_Vertex<vertex_type>(TREE);

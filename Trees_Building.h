@@ -120,7 +120,7 @@ VERTEX<vertex_type>* Trees_Building::Tree_Building_InOrder(vertex_type *vertex, 
     if (last_coords.first == 1250 && last_coords.second == 0) { // root
         node->coords = {1250 + TREE_OPT.TREE_W *
                                bigint::to_int(vertex->param.posX + vertex->param.sdv) * 30,
-                        last_coords.second + 30};
+                        last_coords.second + 130};
     } else {
         node->coords = {1250 + TREE_OPT.TREE_W *
                                bigint::to_int(vertex->param.posX + vertex->param.sdv) * 30,

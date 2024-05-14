@@ -26,10 +26,11 @@ static void DrawBox(sf::RenderWindow& Main_Window, sf::Vector2f& position,
     Main_Window.draw(line4, 2, sf::Lines);
 }
 
-static void DrawTextInBox(sf::RenderWindow& Main_Window, sf::Vector2f& position,
-                   sf::Vector2f& size, std::string& Output_String, sf::Text Output_Text, int start_pos = 0,
-                   int Text_Size = 110) {
+static void DrawTextInBox(sf::RenderWindow& Main_Window, sf::Vector2f position,
+                   sf::Vector2f size, std::string Output_String, sf::Text Output_Text, int start_pos = 0,
+                   int Text_Size = 110, sf::Color COLOR = sf::Color::White) {
     Output_Text.setCharacterSize(Text_Size);
+    Output_Text.setFillColor(COLOR);
     std::string res;
     for (int i = start_pos; i < Output_String.size(); ++i) {
         res += Output_String[i];

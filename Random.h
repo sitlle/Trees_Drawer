@@ -2,5 +2,6 @@
 #pragma once
 
 static int64_t get_random() {
-    return static_cast<int64_t>(rand());
+    static std::mt19937 rnd(52);
+    return static_cast<int64_t>(rnd());
 }

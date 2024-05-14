@@ -12,6 +12,7 @@ void Drawer::Draw() noexcept {
     } else if (MAIN_WINDOW::type_ == MAIN_WINDOW::which_window_::RB_TREE) { // draw RB
         Print_RB_TREE();
     }
+    MAIN_WINDOW::DrawTreeNames();
     MAIN_WINDOW::Main_Window_.display();
 }
 
@@ -43,43 +44,34 @@ template<typename vertex_type> void Drawer::DrawVertex(VERTEX<vertex_type>* vert
     Output_Circle.setFillColor(vertex->COLOR);
     MAIN_WINDOW::Main_Window_.draw(Output_Circle);
     // Draw Text
-    if (vertex->val >= 0) {
-        if (vertex->val < 1000) {
-            MAIN_WINDOW::User_Text_.setString(std::to_string(vertex->val));
-        } else {
-            MAIN_WINDOW::User_Text_.setString("...");
-        }
-    } else {
-        if (abs(vertex->val) < 100) {
-            MAIN_WINDOW::User_Text_.setString(std::to_string(vertex->val));
-        } else {
-            MAIN_WINDOW::User_Text_.setString("...");
-        }
-    }
     float text_size = vertex->radius / 1.5;
     float pos_x = 0;
     float pos_y = 0;
-    if (vertex->val >= 0) {
-        if (vertex->val / 10 == 0) { // string - a
-            pos_x += 5;
-        } else if (vertex->val / 100 == 0) { // string - ab
-            pos_x += 1;
-        } else if (vertex->val / 1000 == 0) { // string - abc
-            pos_x -= 6.5;
-        } else { // string - ...
-            pos_x -= 5;
-        }
+    std::string value = std::to_string(vertex->val);
+    if (value.size() >= 6) {
+        MAIN_WINDOW::User_Text_.setString("...");
     } else {
-        if (vertex->val / 10 == 0) {
-            pos_x += 1;
-        } else if (vertex->val / 100 == 0) {
-            pos_x -= 6.5;
-        } else {
-            pos_x -= 5;
-        }
+        MAIN_WINDOW::User_Text_.setString(std::to_string(vertex->val));
+    }
+    if (value.size() == 1) {
+        pos_x += 4.5;
+    } else if (value.size() == 2) {
+        pos_x -= 1.5;
+    } else if (value.size() == 3) {
+        pos_x -= 6.5;
+    } else if (value.size() == 4) {
+        pos_x -= 0.8;
+        pos_y += 7;
+        text_size = vertex->radius / 2;
+    } else if (value.size() == 5) {
+        pos_x += 1;
+        pos_y += 12;
+        text_size = vertex->radius / 2.5;
+    } else {
+        pos_x -= 3;
     }
     MAIN_WINDOW::User_Text_.setPosition(Vector2f((vertex->coords.first + addX + text_size + pos_x) / zoom,
-                                                 (vertex->coords.second + addY + text_size) / zoom + pos_y));
+                                                 (vertex->coords.second + addY + text_size + pos_y) / zoom ));
     MAIN_WINDOW::User_Text_.setFillColor(Color::White);
     MAIN_WINDOW::User_Text_.setCharacterSize(static_cast<unsigned int>(text_size / zoom));
     MAIN_WINDOW::Main_Window_.draw(MAIN_WINDOW::User_Text_);

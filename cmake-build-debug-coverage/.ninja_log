@@ -1,16 +1,16 @@
 # ninja log v5
-7	3918	1715718267161082037	CMakeFiles/tree.dir/Main_Window.cpp.o	4183874365c258ed
+8	5250	1715722652507191030	CMakeFiles/tree.dir/Main_Window.cpp.o	4183874365c258ed
 6	4047	1715522659627266298	CMakeFiles/tree.dir/Info_Extra_Window.cpp.o	d9201adf0b20f7c7
 7	4587	1715371581060528848	CMakeFiles/tree.dir/Vertex_Actions.cpp.o	56ef29692f74f28c
-8	4510	1715718267753077653	CMakeFiles/tree.dir/Control.cpp.o	410d0cc8a6333878
-4	1643	1715581260069470755	CMakeFiles/tree.dir/Second_Extra_Window.cpp.o	f0aa99886e98ce7b
-4510	4663	1715718267905076527	tree	6e0f59536c809358
+10	6043	1715722653299181718	CMakeFiles/tree.dir/Control.cpp.o	410d0cc8a6333878
+9	5861	1715722653119183836	CMakeFiles/tree.dir/Second_Extra_Window.cpp.o	f0aa99886e98ce7b
+6043	6242	1715722653499179363	tree	6e0f59536c809358
 3	58	1715530240237264019	build.ninja	9c4b4ef700a98092
-7	3658	1715718266901083964	CMakeFiles/tree.dir/Drawer.cpp.o	3f3ecdee2fc1b6d3
-2	717	1715364450374419885	CMakeFiles/tree.dir/First_Extra_Window.cpp.o	76340b0555a4f9f4
+8	4958	1715722652215194462	CMakeFiles/tree.dir/Drawer.cpp.o	3f3ecdee2fc1b6d3
+9	1823	1715722649079231231	CMakeFiles/tree.dir/First_Extra_Window.cpp.o	76340b0555a4f9f4
 6	2497	1715672002811776845	CMakeFiles/tree.dir/BigInteger.cpp.o	7ee53bb0d54abdee
-6	3559	1715718266805084675	CMakeFiles/tree.dir/Main_File.cpp.o	cc94a201a2b25817
+8	5634	1715722652891186517	CMakeFiles/tree.dir/Main_File.cpp.o	cc94a201a2b25817
 2	1644	1715364451302404477	CMakeFiles/tree.dir/ErrorWindow.cpp.o	ef7309301ef1c836
 6	4508	1715369671896810397	CMakeFiles/tree.dir/FrontEnd.cpp.o	272a29fa306713b8
-5	3866	1715672004183771891	CMakeFiles/tree.dir/Info_Vertex_Window.cpp.o	dc1e3a15a81cb52f
-7	3913	1715672714517218874	CMakeFiles/tree.dir/Info_Tree_Window.cpp.o	e0780922368bfb74
+10	4334	1715722651591201790	CMakeFiles/tree.dir/Info_Vertex_Window.cpp.o	dc1e3a15a81cb52f
+10	4792	1715722652051196390	CMakeFiles/tree.dir/Info_Tree_Window.cpp.o	e0780922368bfb74

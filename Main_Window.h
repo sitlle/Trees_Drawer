@@ -45,6 +45,8 @@ class MAIN_WINDOW {
     template<typename vertex_type>
     void InOrder_Add_Y(VERTEX<vertex_type>* vertex, int32_t add) noexcept;
 
+    static void DrawTreeNames() noexcept;
+
     template<typename vertex_type>
     void LEFT_CLICK(VERTEX<vertex_type>* TREE) noexcept;
 
