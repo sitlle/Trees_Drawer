@@ -378,7 +378,7 @@ std::string bigint::maximum(std::string str1, std::string str2) {              /
     }
 }
 
-std::string bigint::minimum(std::string str1, std::string str2) {              // return minimum of both strings.
+std::string bigint::minimum(std::string str1, std::string str2) {              // return get_min of both strings.
     std::string ans = maximum(str1, str2);
     if(ans == str1)
         return str2;

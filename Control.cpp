@@ -253,7 +253,12 @@ void Control::Nums_Control::NUM2() noexcept {
         // add DD
         std::vector<int> rnd_nums;
         for (int i = 0; i < counter; ++i) {
-            int64_t add_num = get_random() % 500;
+            int64_t add_num = get_random() % 1000;
+            int64_t rnd_num = get_random();
+            rnd_num %= 2000;
+            if (rnd_num <= 500) {
+                add_num *= -1;
+            }
             MAIN_WINDOW::DD_TREE_.Add(add_num);
             MAIN_WINDOW::AVL_TREE_.Add(add_num);
             MAIN_WINDOW::SPLAY_TREE_.Add(add_num);

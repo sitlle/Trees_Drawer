@@ -43,21 +43,45 @@ template<typename vertex_type> void Drawer::DrawVertex(VERTEX<vertex_type>* vert
     Output_Circle.setFillColor(vertex->COLOR);
     MAIN_WINDOW::Main_Window_.draw(Output_Circle);
     // Draw Text
-    if (abs(vertex->val) <= 1000) {
-        MAIN_WINDOW::User_Text_.setString(std::to_string(vertex->val));
+    if (vertex->val >= 0) {
+        if (vertex->val < 1000) {
+            MAIN_WINDOW::User_Text_.setString(std::to_string(vertex->val));
+        } else {
+            MAIN_WINDOW::User_Text_.setString("...");
+        }
     } else {
-        MAIN_WINDOW::User_Text_.setString("...");
+        if (abs(vertex->val) < 100) {
+            MAIN_WINDOW::User_Text_.setString(std::to_string(vertex->val));
+        } else {
+            MAIN_WINDOW::User_Text_.setString("...");
+        }
     }
     float text_size = vertex->radius / 1.5;
-    if (vertex->val / 10 == 0) { // size = 1
-        text_size = vertex->radius / 1.5 + 0.1;
-    } else if (vertex->val / 100 == 0) { // size = 2
-        text_size = vertex->radius / 1.5;
+    float pos_x = 0;
+    float pos_y = 0;
+    if (vertex->val >= 0) {
+        if (vertex->val / 10 == 0) { // string - a
+            pos_x += 5;
+        } else if (vertex->val / 100 == 0) { // string - ab
+            pos_x += 1;
+        } else if (vertex->val / 1000 == 0) { // string - abc
+            pos_x -= 6.5;
+        } else { // string - ...
+            pos_x -= 5;
+        }
+    } else {
+        if (vertex->val / 10 == 0) {
+            pos_x += 1;
+        } else if (vertex->val / 100 == 0) {
+            pos_x -= 6.5;
+        } else {
+            pos_x -= 5;
+        }
     }
-    MAIN_WINDOW::User_Text_.setPosition(Vector2f((vertex->coords.first + addX + text_size) / zoom,
-                                                 (vertex->coords.second + addY + text_size) / zoom));
+    MAIN_WINDOW::User_Text_.setPosition(Vector2f((vertex->coords.first + addX + text_size + pos_x) / zoom,
+                                                 (vertex->coords.second + addY + text_size) / zoom + pos_y));
     MAIN_WINDOW::User_Text_.setFillColor(Color::White);
-    MAIN_WINDOW::User_Text_.setCharacterSize(text_size / zoom);
+    MAIN_WINDOW::User_Text_.setCharacterSize(static_cast<unsigned int>(text_size / zoom));
     MAIN_WINDOW::Main_Window_.draw(MAIN_WINDOW::User_Text_);
 }
 

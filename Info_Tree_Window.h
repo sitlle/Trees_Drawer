@@ -96,7 +96,7 @@ void Info_Tree_Window::GetInfo(tree_type Tree, int type) noexcept {
     // get size
     Info_[0] = "type: ";
     if (type == 1) {
-        Info_[0] += "Cartesian tree";
+        Info_[0] += "Pivo";
     } else if (type == 2) {
         Info_[0] += "AVL tree";
     } else if (type == 3) {
@@ -109,12 +109,12 @@ void Info_Tree_Window::GetInfo(tree_type Tree, int type) noexcept {
     // size
     Info_[2] = "size: ";
     Info_[2] += std::to_string(GETSIZE(Tree.root));
-    Info_[3] = "something: ";
     // min value
-    Info_[4] = "min value: ";
-    Info_[4] += std::to_string(GETMIN(Tree.root));
-    Info_[5] = "max value: ";
-    Info_[5] += std::to_string(GETMAX(Tree.root));
+    Info_[3] = "min value: ";
+    Info_[3] += std::to_string(GETMIN(Tree.root));
+    Info_[4] = "max value: ";
+    Info_[4] += std::to_string(GETMAX(Tree.root));
+    Info_[5] = "coming soon...";
 }
 
 
