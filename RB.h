@@ -284,7 +284,7 @@ private:
     }
 
 
-    void TR(Node_RB* first, Node_RB* second){
+    void PRT(Node_RB* first, Node_RB* second){
         if (first->prev == nullptr) {
             root = second;
         } else if (first == first->prev->left){
@@ -320,10 +320,10 @@ private:
         sf::Color third_original_color = third->param.COLOR;
         if (first->left == nullptr) {
             second = first->right;
-            TR(first, first->right);
+            PRT(first, first->right);
         } else if (first->right == nullptr) {
             second = first->left;
-            TR(first, first->left);
+            PRT(first, first->left);
         } else {
             third = get_min(first->right);
             third_original_color = third->param.COLOR;
@@ -333,12 +333,12 @@ private:
                     second->prev = third;
                 }
             } else {
-                TR(third, third->right);
+                PRT(third, third->right);
                 third->right = first->right;
                 third->right->prev = third;
             }
 
-            TR(first, third);
+            PRT(first, third);
             third->left = first->left;
             third->left->prev = third;
             third->param.COLOR = first->param.COLOR;
