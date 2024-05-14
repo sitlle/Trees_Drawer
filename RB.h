@@ -183,7 +183,7 @@ private:
     void Remove(Node_RB* vertex) {
         Node_RB* extra_vertex;
         while (vertex != nullptr && vertex != root &&
-        vertex->param.COLOR == sf::Color::Black) {
+        vertex->param.COLOR != sf::Color::Red) {
             if (vertex == vertex->prev->left) {
                 if (vertex->prev != nullptr) {
                     extra_vertex = vertex->prev->right;
