@@ -100,11 +100,11 @@ private:
                 } else {
                     if (vertex == vertex->prev->left) {
                         vertex = vertex->prev;
-                        rightRotate(vertex);
+                        RightRotate(vertex);
                     }
                     vertex->prev->param.COLOR = sf::Color::Black;
                     vertex->prev->prev->param.COLOR = sf::Color::Red;
-                    leftRotate(vertex->prev->prev);
+                    LeftRotate(vertex->prev->prev);
                 }
             } else {
                 extra_vertex = vertex->prev->prev->right;
@@ -116,11 +116,11 @@ private:
                 } else {
                     if (vertex == vertex->prev->right) {
                         vertex = vertex->prev;
-                        leftRotate(vertex);
+                        LeftRotate(vertex);
                     }
                     vertex->prev->param.COLOR = sf::Color::Black;
                     vertex->prev->prev->param.COLOR = sf::Color::Red;
-                    rightRotate(vertex->prev->prev);
+                    RightRotate(vertex->prev->prev);
                 }
             }
             if (vertex == root) {
@@ -132,7 +132,7 @@ private:
         }
     }
 
-    void leftRotate(Node_RB* vertex) {
+    void LeftRotate(Node_RB* vertex) {
         Node_RB* extra_vertex = vertex->right;
         if (extra_vertex != nullptr) {
             vertex->right = extra_vertex->left;
@@ -156,7 +156,7 @@ private:
         vertex->prev = extra_vertex;
     }
 
-    void rightRotate(Node_RB* vertex) {
+    void RightRotate(Node_RB* vertex) {
         auto extra_vertex = vertex->left;
         if (extra_vertex != nullptr) {
             vertex->left = extra_vertex->right;
@@ -183,49 +183,47 @@ private:
     void Remove(Node_RB* vertex) {
         Node_RB* extra_vertex;
         while (vertex != nullptr && vertex != root &&
-        vertex->param.COLOR != sf::Color::Red) {
+        vertex->param.COLOR == sf::Color::Black) {
             if (vertex == vertex->prev->left) {
                 if (vertex->prev != nullptr) {
                     extra_vertex = vertex->prev->right;
                 } else {
                     extra_vertex = nullptr;
                 }
-                if (extra_vertex != nullptr) {
-                    if (vertex != nullptr && extra_vertex->param.COLOR == sf::Color::Red) {
-                        extra_vertex->param.COLOR = sf::Color::Black;
-                        vertex->prev->param.COLOR = sf::Color::Red;
-                        leftRotate(vertex->prev);
-                        extra_vertex = vertex->prev->right;
-                    }
-                    if (vertex != nullptr && extra_vertex != nullptr && extra_vertex->left != nullptr &&
-                        extra_vertex->left->param.COLOR == sf::Color::Black &&
-                        extra_vertex->right->param.COLOR == sf::Color::Black) {
+                if (extra_vertex != nullptr &&
+                extra_vertex->param.COLOR == sf::Color::Red) {
+                    extra_vertex->param.COLOR = sf::Color::Black;
+                    vertex->prev->param.COLOR = sf::Color::Red;
+                    LeftRotate(vertex->prev);
+                    extra_vertex = vertex->prev->right;
+                }
+                if (extra_vertex != nullptr && extra_vertex->left != nullptr &&
+                    extra_vertex->right != nullptr &&
+                    extra_vertex->left->param.COLOR == sf::Color::Black &&
+                    extra_vertex->right->param.COLOR == sf::Color::Black) {
                         extra_vertex->param.COLOR = sf::Color::Red;
                         vertex = vertex->prev;
-                    } else {
-                        if (extra_vertex != nullptr && extra_vertex->right != nullptr &&
-                            extra_vertex->right->param.COLOR == sf::Color::Black) {
-                            if (extra_vertex->left != nullptr) {
-                                extra_vertex->left->param.COLOR = sf::Color::Black;
-                            }
-                            extra_vertex->param.COLOR = sf::Color::Red;
-                            rightRotate(extra_vertex);
-                            extra_vertex = vertex->prev->right;
+                } else {
+                    if (extra_vertex != nullptr && extra_vertex->right != nullptr &&
+                    extra_vertex->right->param.COLOR == sf::Color::Black) {
+                        if (extra_vertex->left != nullptr) {
+                            extra_vertex->left->param.COLOR = sf::Color::Black;
                         }
-                        if (vertex != nullptr && extra_vertex != nullptr) {
-                            extra_vertex->param.COLOR = vertex->prev->param.COLOR;
-                        }
-                        if (vertex != nullptr && vertex->prev != nullptr) {
-                            vertex->prev->param.COLOR = sf::Color::Black;
-                        }
-                        if (extra_vertex != nullptr && extra_vertex->right != nullptr) {
-                            extra_vertex->right->param.COLOR = sf::Color::Black;
-                        }
-                        if (vertex != nullptr) {
-                            leftRotate(vertex->prev);
-                        }
-                        vertex = root;
+                        extra_vertex->param.COLOR = sf::Color::Red;
+                        RightRotate(extra_vertex);
+                        extra_vertex = vertex->prev->right;
                     }
+                    if (extra_vertex != nullptr) {
+                        extra_vertex->param.COLOR = vertex->prev->param.COLOR;
+                    }
+                    if (vertex->prev != nullptr) {
+                        vertex->prev->param.COLOR = sf::Color::Black;
+                    }
+                    if (extra_vertex != nullptr && extra_vertex->right != nullptr) {
+                        extra_vertex->right->param.COLOR = sf::Color::Black;
+                    }
+                    LeftRotate(vertex->prev);
+                    vertex = root;
                 }
             } else {
                 if (vertex->prev != nullptr) {
@@ -233,48 +231,39 @@ private:
                 } else {
                     extra_vertex = nullptr;
                 }
-                if (extra_vertex != nullptr) {
-                    if (extra_vertex->param.COLOR == sf::Color::Red) {
-                        extra_vertex->param.COLOR = sf::Color::Black;
-                        if (vertex->prev != nullptr) {
-                            vertex->prev->param.COLOR = sf::Color::Red;
-                        }
-                        if (vertex != nullptr) {
-                            rightRotate(vertex->prev);
-                        }
-                        if (vertex != nullptr) {
-                            extra_vertex = vertex->prev->left;
-                        }
+                if (extra_vertex != nullptr && extra_vertex->param.COLOR == sf::Color::Red) {
+                    extra_vertex->param.COLOR = sf::Color::Black;
+                    if (vertex->prev != nullptr) {
+                        vertex->prev->param.COLOR = sf::Color::Red;
                     }
-                    if (vertex != nullptr && extra_vertex != nullptr && extra_vertex->right != nullptr &&
-                        extra_vertex->right->param.COLOR == sf::Color::Black &&
-                        extra_vertex->right->param.COLOR == sf::Color::Black) {
+                    RightRotate(vertex->prev);
+                    extra_vertex = vertex->prev->left;
+                }
+                if (extra_vertex != nullptr && extra_vertex->right != nullptr &&
+                extra_vertex->right->param.COLOR == sf::Color::Black) {
+                    extra_vertex->param.COLOR = sf::Color::Red;
+                    vertex = vertex->prev;
+                } else {
+                    if (extra_vertex != nullptr && extra_vertex->left != nullptr &&
+                    extra_vertex->left->param.COLOR == sf::Color::Black) {
+                        if (extra_vertex->right != nullptr) {
+                            extra_vertex->right->param.COLOR = sf::Color::Black;
+                        }
                         extra_vertex->param.COLOR = sf::Color::Red;
-                        vertex = vertex->prev;
-                    } else {
-                        if (vertex != nullptr && extra_vertex != nullptr && extra_vertex->left != nullptr &&
-                            extra_vertex->left->param.COLOR == sf::Color::Black) {
-                            if (extra_vertex->right != nullptr) {
-                                extra_vertex->right->param.COLOR = sf::Color::Black;
-                            }
-                            extra_vertex->param.COLOR = sf::Color::Red;
-                            leftRotate(extra_vertex);
-                            extra_vertex = vertex->prev->left;
-                        }
-                        if (extra_vertex != nullptr) {
-                            extra_vertex->param.COLOR = vertex->prev->param.COLOR;
-                        }
-                        if (vertex != nullptr && vertex->prev != nullptr) {
-                            vertex->prev->param.COLOR = sf::Color::Black;
-                        }
-                        if (extra_vertex != nullptr && extra_vertex->left != nullptr) {
-                            extra_vertex->left->param.COLOR = sf::Color::Black;
-                        }
-                        if (vertex != nullptr) {
-                            rightRotate(vertex->prev);
-                        }
-                        vertex = root;
+                        LeftRotate(extra_vertex);
+                        extra_vertex = vertex->prev->left;
                     }
+                    if (extra_vertex != nullptr) {
+                        extra_vertex->param.COLOR = vertex->prev->param.COLOR;
+                    }
+                    if (vertex->prev != nullptr) {
+                        vertex->prev->param.COLOR = sf::Color::Black;
+                    }
+                    if (extra_vertex != nullptr && extra_vertex->left != nullptr) {
+                        extra_vertex->left->param.COLOR = sf::Color::Black;
+                    }
+                    RightRotate(vertex->prev);
+                    vertex = root;
                 }
             }
         }
@@ -315,9 +304,8 @@ private:
         if (first == nullptr) {
             return;
         }
-
         third = first;
-        sf::Color third_original_color = third->param.COLOR;
+        sf::Color third_color = third->param.COLOR;
         if (first->left == nullptr) {
             second = first->right;
             PRT(first, first->right);
@@ -326,7 +314,7 @@ private:
             PRT(first, first->left);
         } else {
             third = get_min(first->right);
-            third_original_color = third->param.COLOR;
+            third_color = third->param.COLOR;
             second = third->right;
             if (third->prev == first) {
                 if (second != nullptr) {
@@ -344,7 +332,7 @@ private:
             third->param.COLOR = first->param.COLOR;
         }
         delete first;
-        if (third_original_color == sf::Color::Black){
+        if (third_color == sf::Color::Black){
             Remove(second);
         }
     }

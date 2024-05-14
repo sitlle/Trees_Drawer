@@ -1,27 +1,22 @@
         -:    0:Source:/home/yeawer/tree/Random.h
         -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcno
         -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Control.cpp.gcda
-        -:    0:Runs:1
+        -:    0:Runs:2
         -:    1:#include<bits/stdc++.h>
         -:    2:#pragma once
         -:    3:
-function _ZL10get_randomv called 92 returned 100% blocks executed 80%
-       92:    4:static int64_t get_random() {
-       92:    5:    std::mt19937 rnd(std::chrono::high_resolution_clock::now().time_since_epoch().count());
-       92:    5-block  0
-call    0 returned 92
-call    1 returned 92
-call    2 returned 92
-call    3 returned 92
-branch  4 taken 92 (fallthrough)
-branch  5 taken 0 (throw)
-    $$$$$:    5-block  1
-    $$$$$:    5-block  2
-       92:    6:    return static_cast<int64_t>(rnd());
-       92:    6-block  0
-call    0 returned 92
-branch  1 taken 92 (fallthrough)
+function _ZL10get_randomv called 661 returned 100% blocks executed 100%
+      661:    4:static int64_t get_random() {
+      661:    5:    std::mt19937 rnd(52);
+      661:    5-block  0
+call    0 returned 661
+branch  1 taken 661 (fallthrough)
 branch  2 taken 0 (throw)
-       92:    6-block  1
-       92:    6-block  2
+      661:    6:    return static_cast<int64_t>(rnd());
+      661:    6-block  0
+call    0 returned 661
+branch  1 taken 661 (fallthrough)
+branch  2 taken 0 (throw)
+      661:    6-block  1
+      661:    6-block  2
         -:    7:}

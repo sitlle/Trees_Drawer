@@ -1,7 +1,7 @@
         -:    0:Source:/usr/include/c++/11/bits/random.h
         -:    0:Graph:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Main_File.cpp.gcno
         -:    0:Data:/home/yeawer/tree/cmake-build-debug-coverage/CMakeFiles/tree.dir/Main_File.cpp.gcda
-        -:    0:Runs:1
+        -:    0:Runs:2
         -:    1:// random number generation -*- C++ -*-
         -:    2:
         -:    3:// Copyright (C) 2009-2021 Free Software Foundation, Inc.
@@ -137,81 +137,81 @@
         -:  133:      struct _Mod<_Tp, __m, __a, __c, true, __s>
         -:  134:      {
         -:  135:	static _Tp
-   114724:  136:	__calc(_Tp __x)
+   824267:  136:	__calc(_Tp __x)
         -:  137:	{
-   114724:  138:	  _Tp __res = __a * __x + __c;
+   824267:  138:	  _Tp __res = __a * __x + __c;
         -:  139:	  if (__m)
-   114724:  140:	    __res %= __m;
-   114724:  141:	  return __res;
+   824267:  140:	    __res %= __m;
+   824267:  141:	  return __res;
         -:  142:	}
 ------------------
 _ZNSt8__detail4_ModImLm624ELm1ELm0ELb1ELb1EE6__calcEm:
-function _ZNSt8__detail4_ModImLm624ELm1ELm0ELb1ELb1EE6__calcEm called 57316 returned 100% blocks executed 100%
-    57316:  136:	__calc(_Tp __x)
+function _ZNSt8__detail4_ModImLm624ELm1ELm0ELb1ELb1EE6__calcEm called 411803 returned 100% blocks executed 100%
+   411803:  136:	__calc(_Tp __x)
         -:  137:	{
-    57316:  138:	  _Tp __res = __a * __x + __c;
+   411803:  138:	  _Tp __res = __a * __x + __c;
         -:  139:	  if (__m)
-    57316:  140:	    __res %= __m;
-    57316:  141:	  return __res;
-    57316:  141-block  0
+   411803:  140:	    __res %= __m;
+   411803:  141:	  return __res;
+   411803:  141-block  0
         -:  142:	}
 ------------------
 _ZNSt8__detail4_ModImLm4294967296ELm1ELm0ELb1ELb1EE6__calcEm:
-function _ZNSt8__detail4_ModImLm4294967296ELm1ELm0ELb1ELb1EE6__calcEm called 57408 returned 100% blocks executed 100%
-    57408:  136:	__calc(_Tp __x)
+function _ZNSt8__detail4_ModImLm4294967296ELm1ELm0ELb1ELb1EE6__calcEm called 412464 returned 100% blocks executed 100%
+   412464:  136:	__calc(_Tp __x)
         -:  137:	{
-    57408:  138:	  _Tp __res = __a * __x + __c;
+   412464:  138:	  _Tp __res = __a * __x + __c;
         -:  139:	  if (__m)
-    57408:  140:	    __res %= __m;
-    57408:  141:	  return __res;
-    57408:  141-block  0
+   412464:  140:	    __res %= __m;
+   412464:  141:	  return __res;
+   412464:  141-block  0
         -:  142:	}
 ------------------
         -:  143:      };
         -:  144:
         -:  145:    template<typename _Tp, _Tp __m, _Tp __a = 1, _Tp __c = 0>
         -:  146:      inline _Tp
-   114724:  147:      __mod(_Tp __x)
+   824267:  147:      __mod(_Tp __x)
         -:  148:      {
         -:  149:	if _GLIBCXX17_CONSTEXPR (__a == 0)
         -:  150:	  return __c;
         -:  151:	else
         -:  152:	  {
         -:  153:	    // _Mod must not be instantiated with a == 0
-   114724:  154:	    constexpr _Tp __a1 = __a ? __a : 1;
-   114724:  155:	    return _Mod<_Tp, __m, __a1, __c>::__calc(__x);
+   824267:  154:	    constexpr _Tp __a1 = __a ? __a : 1;
+   824267:  155:	    return _Mod<_Tp, __m, __a1, __c>::__calc(__x);
         -:  156:	  }
         -:  157:      }
 ------------------
 _ZNSt8__detail5__modImLm624ELm1ELm0EEET_S1_:
-function _ZNSt8__detail5__modImLm624ELm1ELm0EEET_S1_ called 57316 returned 100% blocks executed 100%
-    57316:  147:      __mod(_Tp __x)
+function _ZNSt8__detail5__modImLm624ELm1ELm0EEET_S1_ called 411803 returned 100% blocks executed 100%
+   411803:  147:      __mod(_Tp __x)
         -:  148:      {
         -:  149:	if _GLIBCXX17_CONSTEXPR (__a == 0)
         -:  150:	  return __c;
         -:  151:	else
         -:  152:	  {
         -:  153:	    // _Mod must not be instantiated with a == 0
-    57316:  154:	    constexpr _Tp __a1 = __a ? __a : 1;
-    57316:  155:	    return _Mod<_Tp, __m, __a1, __c>::__calc(__x);
-    57316:  155-block  0
-call    0 returned 57316
+   411803:  154:	    constexpr _Tp __a1 = __a ? __a : 1;
+   411803:  155:	    return _Mod<_Tp, __m, __a1, __c>::__calc(__x);
+   411803:  155-block  0
+call    0 returned 411803
         -:  156:	  }
         -:  157:      }
 ------------------
 _ZNSt8__detail5__modImLm4294967296ELm1ELm0EEET_S1_:
-function _ZNSt8__detail5__modImLm4294967296ELm1ELm0EEET_S1_ called 57408 returned 100% blocks executed 100%
-    57408:  147:      __mod(_Tp __x)
+function _ZNSt8__detail5__modImLm4294967296ELm1ELm0EEET_S1_ called 412464 returned 100% blocks executed 100%
+   412464:  147:      __mod(_Tp __x)
         -:  148:      {
         -:  149:	if _GLIBCXX17_CONSTEXPR (__a == 0)
         -:  150:	  return __c;
         -:  151:	else
         -:  152:	  {
         -:  153:	    // _Mod must not be instantiated with a == 0
-    57408:  154:	    constexpr _Tp __a1 = __a ? __a : 1;
-    57408:  155:	    return _Mod<_Tp, __m, __a1, __c>::__calc(__x);
-    57408:  155-block  0
-call    0 returned 57408
+   412464:  154:	    constexpr _Tp __a1 = __a ? __a : 1;
+   412464:  155:	    return _Mod<_Tp, __m, __a1, __c>::__calc(__x);
+   412464:  155-block  0
+call    0 returned 412464
         -:  156:	  }
         -:  157:      }
 ------------------
@@ -587,11 +587,11 @@ call    0 returned 57408
         -:  527:      mersenne_twister_engine() : mersenne_twister_engine(default_seed) { }
         -:  528:
         -:  529:      explicit
-function _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em called 92 returned 100% blocks executed 100%
-       92:  530:      mersenne_twister_engine(result_type __sd)
-       92:  531:      { seed(__sd); }
-       92:  531-block  0
-call    0 returned 92
+function _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em called 661 returned 100% blocks executed 100%
+      661:  530:      mersenne_twister_engine(result_type __sd)
+      661:  531:      { seed(__sd); }
+      661:  531-block  0
+call    0 returned 661
         -:  532:
         -:  533:      /**
         -:  534:       * @brief Constructs a %mersenne_twister_engine random number generator
