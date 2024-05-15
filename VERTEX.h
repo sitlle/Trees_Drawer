@@ -19,7 +19,10 @@ template<typename vertex_type> struct VERTEX {
         radius = 0;
     }
 
-    ~VERTEX() = default;
+    ~VERTEX() {
+        clear(this);
+    }
+
 
     VERTEX(VERTEX const& other) {
         coords = other.coords;

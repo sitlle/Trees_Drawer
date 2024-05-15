@@ -10,7 +10,18 @@ public:
         root = nullptr;
     }
 
-    ~SPLAY() = default;
+    ~SPLAY() {
+        clear(root);
+    }
+
+    void clear(Node_SPLAY* vertex) {
+        if (vertex == nullptr) {
+            return;
+        }
+        clear(vertex->left);
+        clear(vertex->right);
+        delete vertex;
+    }
 
     void Add_Rnd(int32_t x) {
         for (int i = 0; i < x; ++i) {
@@ -56,15 +67,6 @@ private:
             return true;
         }
         return (Find(vertex->left, val) | Find(vertex->right, val));
-    }
-
-    void clear(Node_SPLAY* vertex) {
-        if (vertex == nullptr) {
-            return;
-        }
-        clear(vertex->left);
-        clear(vertex->right);
-        delete vertex;
     }
 
     Node_SPLAY* LeftRotate(Node_SPLAY* vertex) {

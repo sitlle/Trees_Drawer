@@ -57,7 +57,6 @@ private:
         }
         clear(vertex->left);
         clear(vertex->right);
-        vertex = nullptr;
         delete vertex;
     }
 
@@ -67,6 +66,7 @@ private:
         }
         if (vertex->val == key) {
             auto e = vertex;
+            delete vertex;
             return Merge(e->left, e->right);
         } else {
             if (key < vertex->val) {

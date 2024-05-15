@@ -9,7 +9,9 @@ public:
         root = nullptr;
     }
 
-    ~AVL() = default;
+    ~AVL() {
+        clear(root);
+    }
 
     AVL(AVL const& other) {
         root = other.root;
@@ -108,7 +110,7 @@ private:
         }
         if (vertex->val == val) {
             auto mn = getMin(vertex->right);
-            if (!mn) {
+            if (mn == nullptr) {
                 auto e = vertex->left;
                 delete vertex;
                 return Local_Balanced(e);

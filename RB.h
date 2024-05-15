@@ -7,7 +7,18 @@ class RB {
 public:
     Node_RB* root;
     RB() = default;
-    ~RB() = default;
+    ~RB() {
+        clear(root);
+    }
+
+    void clear(Node_RB* vertex) {
+        if (vertex == nullptr) {
+            return;
+        }
+        clear(vertex->left);
+        clear(vertex->right);
+        delete vertex;
+    }
 
     void Add(int64_t val) {
         if (Find(val)) {
@@ -183,7 +194,7 @@ private:
     void Remove(Node_RB* vertex) {
         Node_RB* extra_vertex;
         while (vertex != nullptr && vertex != root &&
-        vertex->param.COLOR == sf::Color::Black) {
+        vertex->param.COLOR != sf::Color::Red) {
             if (vertex == vertex->prev->left) {
                 if (vertex->prev != nullptr) {
                     extra_vertex = vertex->prev->right;
