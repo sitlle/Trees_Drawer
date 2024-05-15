@@ -37,27 +37,6 @@ MAIN_WINDOW::MAIN_WINDOW() :
     User_Text_.setFont(User_Font_);
 }
 
-template<typename vertex_type>
-void MAIN_WINDOW::InOrder_Add_X
-(VERTEX<vertex_type> *vertex, int32_t add) noexcept {
-    if (vertex == nullptr) {
-        return;
-    }
-    InOrder_Add_X<vertex_type>(vertex->left, add);
-    vertex->coords.first += float(add);
-    InOrder_Add_X<vertex_type>(vertex->right, add);
-}
-
-template<typename vertex_type> void MAIN_WINDOW::InOrder_Add_Y
-(VERTEX<vertex_type>* vertex, int32_t add) noexcept {
-    if (vertex == nullptr) {
-        return;
-    }
-    InOrder_Add_Y<vertex_type>(vertex->left, add);
-    vertex->coords.second += float(add);
-    InOrder_Add_Y<vertex_type>(vertex->right, add);
-}
-
 void MAIN_WINDOW::Events() {
     while (Main_Window_.pollEvent(Main_Event_)) {
         if (Main_Event_.type == Event::Closed ||

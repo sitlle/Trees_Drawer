@@ -9,16 +9,7 @@ public:
     RB() = default;
     ~RB() = default;
 
-    void clear(Node_RB* vertex) {
-        if (vertex == nullptr) {
-            return;
-        }
-        clear(vertex->left);
-        clear(vertex->right);
-        delete vertex;
-    }
-
-    void Add(int64_t val) {
+    void Add(int64_t val) noexcept {
         if (Find(val)) {
             return;
         }
@@ -62,18 +53,18 @@ public:
         Add(node);
     }
 
-    bool Find(int64_t val) {
+    bool Find(int64_t val) noexcept {
         return Find(root, val);
     }
 
-    void Remove(int64_t val) {
+    void Remove(int64_t val) noexcept{
         if (!Find(val)) {
             return;
         }
         Remove(root, val);
     }
 
-    static Node_RB* get_min(Node_RB* vertex) {
+    static Node_RB* get_min(Node_RB* vertex) noexcept {
         while (vertex->left != nullptr) {
             vertex = vertex->left;
         }
@@ -81,8 +72,7 @@ public:
     }
 
 private:
-
-    bool Find(Node_RB* vertex, int64_t val) {
+    bool Find(Node_RB* vertex, int64_t val) noexcept {
         if (vertex == nullptr) {
             return false;
         }
@@ -95,7 +85,16 @@ private:
         return Find(vertex->left, val);
     }
 
-    void Add(Node_RB* vertex){
+    void clear(Node_RB* vertex) noexcept {
+        if (vertex == nullptr) {
+            return;
+        }
+        clear(vertex->left);
+        clear(vertex->right);
+        delete vertex;
+    }
+
+    void Add(Node_RB* vertex) noexcept {
         Node_RB* extra_vertex;
         while (vertex->prev != nullptr && vertex->prev->prev != nullptr &&
         vertex->prev->param.COLOR == sf::Color::Red) {
@@ -141,7 +140,7 @@ private:
         }
     }
 
-    void LeftRotate(Node_RB* vertex) {
+    void LeftRotate(Node_RB* vertex) noexcept {
         Node_RB* extra_vertex = vertex->right;
         if (extra_vertex != nullptr) {
             vertex->right = extra_vertex->left;
@@ -165,7 +164,7 @@ private:
         vertex->prev = extra_vertex;
     }
 
-    void RightRotate(Node_RB* vertex) {
+    void RightRotate(Node_RB* vertex) noexcept {
         auto extra_vertex = vertex->left;
         if (extra_vertex != nullptr) {
             vertex->left = extra_vertex->right;
@@ -189,7 +188,7 @@ private:
         vertex->prev = extra_vertex;
     }
 
-    void Remove(Node_RB* vertex) {
+    void Remove(Node_RB* vertex) noexcept {
         Node_RB* extra_vertex;
         while (vertex != nullptr && vertex != root &&
         vertex->param.COLOR != sf::Color::Red) {
@@ -282,10 +281,10 @@ private:
     }
 
 
-    void PRT(Node_RB* first, Node_RB* second){
+    void Push(Node_RB* first, Node_RB* second) noexcept {
         if (first->prev == nullptr) {
             root = second;
-        } else if (first == first->prev->left){
+        } else if (first == first->prev->left) {
             first->prev->left = second;
         } else {
             first->prev->right = second;
@@ -295,11 +294,11 @@ private:
         }
     }
 
-    void Remove(Node_RB* vertex, int64_t val) {
+    void Remove(Node_RB* vertex, int64_t val) noexcept {
         Node_RB* first = nullptr;
         Node_RB* second = nullptr;
         Node_RB* third = nullptr;
-        while (vertex != nullptr){
+        while (vertex != nullptr) {
             if (vertex->val == val) {
                 first = vertex;
             }
@@ -309,7 +308,6 @@ private:
                 vertex = vertex->left;
             }
         }
-
         if (first == nullptr) {
             return;
         }
@@ -317,10 +315,10 @@ private:
         sf::Color third_color = third->param.COLOR;
         if (first->left == nullptr) {
             second = first->right;
-            PRT(first, first->right);
+            Push(first, first->right);
         } else if (first->right == nullptr) {
             second = first->left;
-            PRT(first, first->left);
+            Push(first, first->left);
         } else {
             third = get_min(first->right);
             third_color = third->param.COLOR;
@@ -330,18 +328,17 @@ private:
                     second->prev = third;
                 }
             } else {
-                PRT(third, third->right);
+                Push(third, third->right);
                 third->right = first->right;
                 third->right->prev = third;
             }
-
-            PRT(first, third);
+            Push(first, third);
             third->left = first->left;
             third->left->prev = third;
             third->param.COLOR = first->param.COLOR;
         }
         delete first;
-        if (third_color == sf::Color::Black){
+        if (third_color == sf::Color::Black) {
             Remove(second);
         }
     }

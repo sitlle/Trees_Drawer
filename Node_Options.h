@@ -12,7 +12,7 @@ struct Node_Options {
 
     ~Node_Options() = default;
 
-    Node_Options(const Node_Options& other) {
+    Node_Options(const Node_Options& other) noexcept {
         height = other.height;
         size = other.size;
         posX = other.posX;

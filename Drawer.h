@@ -5,12 +5,17 @@
 class Drawer {
 public:
     Drawer() = default;
+
     ~Drawer() = default;
 
     static void Draw() noexcept;
+
     static void Print_DD_TREE() noexcept;
+
     static void Print_AVL_TREE() noexcept;
+
     static void Print_SPLAY_TREE() noexcept;
+
     static void Print_RB_TREE() noexcept;
 
     template<typename vertex_type>

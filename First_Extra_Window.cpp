@@ -49,7 +49,7 @@ void First_Extra_Window::FindErrors() {
         if (Input_String_.size() >= 10) {
             throw std::string{"big size"};
         }
-    } else if (Input_String_.size() >= 10) {
+    } else if (Input_String_.size() >= 15) {
         throw std::string{"big size"};
     }
     for (int i = 0; i < static_cast<int>(Input_String_.size()); ++i) {

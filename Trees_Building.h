@@ -135,8 +135,8 @@ VERTEX<vertex_type>* Trees_Building::Tree_Building_InOrder(vertex_type *vertex, 
     return node;
 }
 
-template<typename vertex_type> void Trees_Building::Update_LR
-(vertex_type* vertex, bigint SDV) noexcept {
+template<typename vertex_type>
+inline void Trees_Building::Update_LR(vertex_type* vertex, bigint SDV) noexcept {
     if (vertex == nullptr) {
         return;
     }
@@ -194,7 +194,7 @@ void Trees_Building::LazyUpdates(vertex_type* vertex, bigint push) noexcept {
 }
 
 template<typename vertex_type, typename tree_type>
-VERTEX<vertex_type>* Trees_Building::Build_Tree(tree_type& TREE, TREE_OPTIONS& TREE_OPT) noexcept {
+inline VERTEX<vertex_type>* Trees_Building::Build_Tree(tree_type& TREE, TREE_OPTIONS& TREE_OPT) noexcept {
     VERTEX<vertex_type>* root = nullptr;
     // ReCalc
     if (TREE.root != nullptr) {

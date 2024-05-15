@@ -21,29 +21,29 @@ class WHICH_VERTEX;
 
 class MAIN_WINDOW {
     friend class Control::KeyBoard_Control;
+
     friend class Control::Mouse_Control;
+
     friend class Control::Arrow_Control;
+
     friend class Control::Nums_Control;
+
     friend class Drawer;
+
     friend class WHICH_VERTEX;
+
     friend class FIND_BLUE_VERTEX;
 
   public:
     MAIN_WINDOW();
+
     ~MAIN_WINDOW() = default;
-    //Process
+
     void Process();
-    //Process
 
     void Events();
 
     //Extra_Func
-
-    template<typename vertex_type>
-    void InOrder_Add_X(VERTEX<vertex_type>* vertex, int32_t add) noexcept;
-
-    template<typename vertex_type>
-    void InOrder_Add_Y(VERTEX<vertex_type>* vertex, int32_t add) noexcept;
 
     static void DrawTreeNames() noexcept;
 
@@ -52,6 +52,7 @@ class MAIN_WINDOW {
 
     template<typename vertex_type>
     void RIGHT_CLICK(VERTEX<vertex_type>* TREE) noexcept;
+
   private:
     static constexpr int32_t WINDOW_W_ = 2500;
     static constexpr int32_t WINDOW_H_ = 1500;
@@ -100,6 +101,7 @@ class MAIN_WINDOW {
 class WHICH_VERTEX {
 public:
     WHICH_VERTEX() = default;
+    
     ~WHICH_VERTEX() = default;
 
     template<typename vertex_type>
