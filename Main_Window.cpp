@@ -116,14 +116,28 @@ void MAIN_WINDOW::Process() {
     while (Main_Window_.isOpen()) {
         Events();
         if (click_ == click_type_::LEFT) {
-            if (type_ == which_window_::DD_TREE) {
-                LEFT_CLICK<Node_DD>(DD_DRAW_TREE_);
-            } else if (type_ == which_window_::AVL_TREE) {
-                LEFT_CLICK<Node_AVL>(AVL_DRAW_TREE_);
-            } else if (type_ == which_window_::SPLAY_TREE) {
-                LEFT_CLICK<Node_SPLAY>(SPLAY_DRAW_TREE_);
-            } else if (type_ == which_window_::RB_TREE) {
-                LEFT_CLICK<Node_RB>(RB_DRAW_TREE_);
+            if (mouse_pos_.y > 100) {
+                if (type_ == which_window_::DD_TREE) {
+                    LEFT_CLICK<Node_DD>(DD_DRAW_TREE_);
+                } else if (type_ == which_window_::AVL_TREE) {
+                    LEFT_CLICK<Node_AVL>(AVL_DRAW_TREE_);
+                } else if (type_ == which_window_::SPLAY_TREE) {
+                    LEFT_CLICK<Node_SPLAY>(SPLAY_DRAW_TREE_);
+                } else if (type_ == which_window_::RB_TREE) {
+                    LEFT_CLICK<Node_RB>(RB_DRAW_TREE_);
+                }
+            } else {
+                const float size = WINDOW_W_ + 100;
+                const float box_size = size / 4;
+                if (float(mouse_pos_.x) >= 150.f && float(mouse_pos_.x) <= 270.f) {
+                    type_ = which_window_::DD_TREE;
+                } else if (float(mouse_pos_.x) >= box_size && float(mouse_pos_.x) <= box_size + 240.f) {
+                    type_ = which_window_::AVL_TREE;
+                } else if (float(mouse_pos_.x) >= 2 * box_size && float(mouse_pos_.x) <= 2 * box_size + 300.f) {
+                    type_ = which_window_::SPLAY_TREE;
+                } else if (float(mouse_pos_.x) >= 3 * box_size && float(mouse_pos_.x) <= 3 * box_size + 420.f) {
+                    type_ = which_window_::RB_TREE;
+                }
             }
             click_ = click_type_::EMPTY;
         } else if (click_ == click_type_::RIGHT) {
@@ -143,7 +157,7 @@ void MAIN_WINDOW::Process() {
 }
 
 void MAIN_WINDOW::DrawTreeNames() noexcept {
-    float size = WINDOW_W_ + 100;
+    const float size = WINDOW_W_ + 100;
     sf::RectangleShape Big_Box(sf::Vector2f(0, 0));
     Big_Box.setSize(sf::Vector2f(size, 100));
     Big_Box.setFillColor(sf::Color::Black);
@@ -169,7 +183,7 @@ void MAIN_WINDOW::DrawTreeNames() noexcept {
     } else if (type_ == which_window_::RB_TREE) {
         colors[3] = sf::Color::Red;
     }
-    auto box_size = size / 4;
+    const float box_size = size / 4;
     for (int i = 0; i < 4; ++i) {
         DrawTextInBox(Main_Window_, {box_size * float(i) + pos_x[i], 0},
                       {box_size, 100}, names[i],
