@@ -39,8 +39,8 @@ static void DrawTextInBox(sf::RenderWindow& Main_Window, sf::Vector2f position,
             break;
         }
     }
-    double x_position = position.x;
-    double y_position = position.y + (size.y - Output_Text.getLocalBounds().height) / 2;
+    const double x_position = position.x;
+    const double y_position = position.y + (size.y - Output_Text.getLocalBounds().height) / 2;
     Output_Text.setPosition(sf::Vector2f(static_cast<float>(x_position),
                                          static_cast<float>(y_position)));
     Main_Window.draw(Output_Text);

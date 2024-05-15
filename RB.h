@@ -7,9 +7,7 @@ class RB {
 public:
     Node_RB* root;
     RB() = default;
-    ~RB() {
-        clear(root);
-    }
+    ~RB() = default;
 
     void clear(Node_RB* vertex) {
         if (vertex == nullptr) {

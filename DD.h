@@ -14,9 +14,7 @@ public:
         root = other.root;
     }
 
-    ~DD() {
-        clear(root);
-    }
+    ~DD() = default;
 
     bool Find(int64_t val) {
         return Find(root, val);

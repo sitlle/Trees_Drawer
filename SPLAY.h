@@ -10,9 +10,7 @@ public:
         root = nullptr;
     }
 
-    ~SPLAY() {
-        clear(root);
-    }
+    ~SPLAY() = default;
 
     void clear(Node_SPLAY* vertex) {
         if (vertex == nullptr) {

@@ -9,9 +9,7 @@ public:
         root = nullptr;
     }
 
-    ~AVL() {
-        clear(root);
-    }
+    ~AVL() = default;
 
     AVL(AVL const& other) {
         root = other.root;
